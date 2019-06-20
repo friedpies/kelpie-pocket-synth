@@ -15,10 +15,14 @@
 #define KNOB15 A12
 #define KNOB16 A13
 
+#define SW1 4
+#define SW2 3
+#define SW3 5
+#define SW4 2
+
 #define SWLED1 24
 #define SWLED2 25
 #define SWLED3 32
 #define SWLED4 33
 
-#define MIDILED 8
-// TO DO
+#define MIDILED 8 // Not working?
