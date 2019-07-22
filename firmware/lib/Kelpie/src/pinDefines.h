@@ -20,9 +20,9 @@
 #define SW3 5
 #define SW4 2
 
-#define SWLED1 24
+#define SWLED1 32
 #define SWLED2 25
-#define SWLED3 32
-#define SWLED4 33
+#define SWLED3 33
+#define SWLED4 24
 
 #define MIDILED 8 // Not working?

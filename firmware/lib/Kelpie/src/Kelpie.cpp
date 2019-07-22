@@ -38,14 +38,19 @@ void Kelpie::deactivateLights(void)
 void Kelpie::pollInputs(void)
 {
     for (int i = 0; i < 16; i++) {
-        _kelpieInputs[i].value = analogRead(_kelpieInputs[i].name);
-        Serial.print(_kelpieInputs[i].value);
+        _kelpieKnobs[i].value = analogRead(_kelpieKnobs[i].name);
+        Serial.print(_kelpieKnobs[i].value);
         Serial.print(" ");
     }
-    for (int i = 16; i < 20; i++) {
-        _kelpieInputs[i].value = digitalRead(_kelpieInputs[i].name);
-        Serial.print(_kelpieInputs[i].value);
-        Serial.print(" ");
+    for (int i = 0; i < 4; i++) {
+        if(_kelpieButtons[i].buttonName.update()) {
+            if (_kelpieButtons[i].buttonName.fallingEdge()) {
+                _kelpieButtons[i].value = !_kelpieButtons[i].value;
+                digitalWrite(_kelpieButtons[i].ledName, _kelpieButtons[i].value);
+                Serial.print(i);
+            }
+        }
     }
+
     Serial.println();
 }
