@@ -27,5 +27,5 @@ void loop()
   //   Serial.println("MIDI NOTE RECIEVED");
   // }
 delay(10);
-  kelpie.readPots();
+  kelpie.pollInputs();
 }

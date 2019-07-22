@@ -35,11 +35,16 @@ void Kelpie::deactivateLights(void)
     digitalWrite(SWLED4, LOW);
 }
 
-void Kelpie::readPots(void)
+void Kelpie::pollInputs(void)
 {
     for (int i = 0; i < 16; i++) {
-        _kelpieKnobs[i].value = analogRead(_kelpieKnobs[i].name);
-        Serial.print(_kelpieKnobs[i].value);
+        _kelpieInputs[i].value = analogRead(_kelpieInputs[i].name);
+        Serial.print(_kelpieInputs[i].value);
+        Serial.print(" ");
+    }
+    for (int i = 16; i < 20; i++) {
+        _kelpieInputs[i].value = digitalRead(_kelpieInputs[i].name);
+        Serial.print(_kelpieInputs[i].value);
         Serial.print(" ");
     }
     Serial.println();

@@ -11,7 +11,7 @@
 typedef struct {
     int name;
     int value;
-} knob;
+} kelpieIO;
 
 class Kelpie
 {
@@ -19,10 +19,10 @@ public:
     Kelpie(bool enableSerial);
     void activateLights(void);
     void deactivateLights(void);
-    void readPots(void);
+    void pollInputs(void);
 
 private:
-    knob _kelpieKnobs[16] = {
+    kelpieIO _kelpieInputs[20] = {
         {KNOB1, 0},
         {KNOB2, 0},
         {KNOB3, 0},
@@ -39,6 +39,10 @@ private:
         {KNOB14, 0},
         {KNOB15, 0},
         {KNOB16, 0},
+        {SW1, 0},
+        {SW2, 0},
+        {SW3, 0},
+        {SW4, 0},
         };
 };
 
