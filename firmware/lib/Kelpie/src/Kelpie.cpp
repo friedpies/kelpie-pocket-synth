@@ -1,5 +1,5 @@
-#include <Arduino.h>
 #include <Kelpie.h>
+
 
 Kelpie::Kelpie(bool enableSerial)
 {
@@ -33,4 +33,14 @@ void Kelpie::deactivateLights(void)
     digitalWrite(SWLED2, LOW);
     digitalWrite(SWLED3, LOW);
     digitalWrite(SWLED4, LOW);
+}
+
+void Kelpie::readPots(void)
+{
+    for (int i = 0; i < 16; i++) {
+        _kelpieKnobs[i].value = analogRead(_kelpieKnobs[i].name);
+        Serial.print(_kelpieKnobs[i].value);
+        Serial.print(" ");
+    }
+    Serial.println();
 }

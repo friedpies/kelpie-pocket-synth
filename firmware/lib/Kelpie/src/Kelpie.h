@@ -6,35 +6,12 @@
 #define Kelpie_h
 
 #include <Arduino.h>
+#include <pinDefines.h>
 
-#define KNOB1 20
-#define KNOB2 21
-#define KNOB3 31
-#define KNOB4 26
-#define KNOB5 A11
-#define KNOB6 29
-#define KNOB7 27
-#define KNOB8 28
-#define KNOB9 15
-#define KNOB10 30
-#define KNOB11 17
-#define KNOB12 16
-#define KNOB13 A14
-#define KNOB14 A10
-#define KNOB15 A12
-#define KNOB16 A13
-
-#define SW1 4
-#define SW2 3
-#define SW3 5
-#define SW4 2
-
-#define SWLED1 24
-#define SWLED2 25
-#define SWLED3 32
-#define SWLED4 33
-
-#define MIDILED 8 // Not working?
+typedef struct {
+    int name;
+    int value;
+} knob;
 
 class Kelpie
 {
@@ -42,8 +19,27 @@ public:
     Kelpie(bool enableSerial);
     void activateLights(void);
     void deactivateLights(void);
+    void readPots(void);
 
 private:
+    knob _kelpieKnobs[16] = {
+        {KNOB1, 0},
+        {KNOB2, 0},
+        {KNOB3, 0},
+        {KNOB4, 0},
+        {KNOB5, 0},
+        {KNOB6, 0},
+        {KNOB7, 0},
+        {KNOB8, 0},
+        {KNOB9, 0},
+        {KNOB10, 0},
+        {KNOB11, 0},
+        {KNOB12, 0},
+        {KNOB13, 0},
+        {KNOB14, 0},
+        {KNOB15, 0},
+        {KNOB16, 0},
+        };
 };
 
 #endif
