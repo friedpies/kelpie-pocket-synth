@@ -35,25 +35,31 @@ void Kelpie::deactivateLights(void)
     digitalWrite(SWLED4, LOW);
 }
 
-void Kelpie::pollInputs(void)
+boolean Kelpie::pollKnobs(void)
 {
+    boolean didChange = false;
     for (int i = 0; i < 16; i++) {
         _kelpieKnobs[i].value = analogRead(_kelpieKnobs[i].name);
-        if ((_kelpieKnobs[i].value - _kelpieKnobs[i].state) > 4 || (_kelpieKnobs[i].value - _kelpieKnobs[i].state) < -4) {
+        if ((_kelpieKnobs[i].value - _kelpieKnobs[i].state) > 6 || (_kelpieKnobs[i].value - _kelpieKnobs[i].state) < -6) {
             _kelpieKnobs[i].state = _kelpieKnobs[i].value;
+            didChange = true;
+            //  Serial.println(didChange);
         }
         Serial.print(_kelpieKnobs[i].state);
         Serial.print(" ");
     }
-    for (int i = 0; i < 4; i++) {
+    Serial.println();
+    return didChange;
+}
+
+void Kelpie::pollButtons(void) {
+ for (int i = 0; i < 4; i++) {
         if(_kelpieButtons[i].buttonName.update()) {
             if (_kelpieButtons[i].buttonName.fallingEdge()) {
                 _kelpieButtons[i].state = !_kelpieButtons[i].state;
                 digitalWrite(_kelpieButtons[i].ledName, _kelpieButtons[i].state);
-                Serial.print(i);
+                // Serial.print(i);
             }
         }
     }
-
-    Serial.println();
 }

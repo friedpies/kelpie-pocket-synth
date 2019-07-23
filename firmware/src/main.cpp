@@ -26,5 +26,6 @@ void loop()
   // while (MIDI.read()) {
   //   Serial.println("MIDI NOTE RECIEVED");
   // }
-  kelpie.pollInputs();
+  kelpie.pollKnobs();
+  kelpie.pollButtons();
 }

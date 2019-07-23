@@ -9,7 +9,6 @@
 #include <Bounce.h>
 #include <pinDefines.h>
 
-
 typedef struct {
     int name; // variable name of knob
     int value; // current polled value
@@ -28,7 +27,8 @@ public:
     Kelpie(bool enableSerial);
     void activateLights(void);
     void deactivateLights(void);
-    void pollInputs(void);
+    boolean pollKnobs(void);
+    void pollButtons(void);
     Bounce switch1 = Bounce(SW1, 10);  // 10 ms debounce
     Bounce switch2 = Bounce(SW2, 10);  // 10 ms debounce
     Bounce switch3 = Bounce(SW3, 10);  // 10 ms debounce
@@ -54,12 +54,12 @@ private:
         {KNOB16, 0, 0}
         };
 
-        button _kelpieButtons[4] = {
-            {switch1, SWLED1, false},
-            {switch2, SWLED2, false},
-            {switch3, SWLED3, false},
-            {switch4, SWLED4, false},
-        };
+    button _kelpieButtons[4] = {
+        {switch1, SWLED1, false},
+        {switch2, SWLED2, false},
+        {switch3, SWLED3, false},
+        {switch4, SWLED4, false},
+    };
 };
 
 #endif
