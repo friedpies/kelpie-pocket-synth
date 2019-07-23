@@ -11,15 +11,15 @@
 
 
 typedef struct {
-    int name;
-    int ledName;
-    int value;
+    int name; // variable name of knob
+    int value; // current polled value
+    int state; // actual state value
 } potentiometer;
 
 typedef struct {
     Bounce buttonName;
     int ledName;
-    boolean value;
+    boolean state;
 } button;
 
 class Kelpie
@@ -36,22 +36,22 @@ public:
 
 private:
     potentiometer _kelpieKnobs[16] = {
-        {KNOB1, 0},
-        {KNOB2, 0},
-        {KNOB3, 0},
-        {KNOB4, 0},
-        {KNOB5, 0},
-        {KNOB6, 0},
-        {KNOB7, 0},
-        {KNOB8, 0},
-        {KNOB9, 0},
-        {KNOB10, 0},
-        {KNOB11, 0},
-        {KNOB12, 0},
-        {KNOB13, 0},
-        {KNOB14, 0},
-        {KNOB15, 0},
-        {KNOB16, 0}
+        {KNOB1, 0, 0},
+        {KNOB2, 0, 0},
+        {KNOB3, 0, 0},
+        {KNOB4, 0, 0},
+        {KNOB5, 0, 0},
+        {KNOB6, 0, 0},
+        {KNOB7, 0, 0},
+        {KNOB8, 0, 0},
+        {KNOB9, 0, 0},
+        {KNOB10, 0, 0},
+        {KNOB11, 0, 0},
+        {KNOB12, 0, 0},
+        {KNOB13, 0, 0},
+        {KNOB14, 0, 0},
+        {KNOB15, 0, 0},
+        {KNOB16, 0, 0}
         };
 
         button _kelpieButtons[4] = {
