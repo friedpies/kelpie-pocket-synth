@@ -15,6 +15,7 @@
 Kelpie kelpie(true);
 MIDI_CREATE_INSTANCE(HardwareSerial, Serial1, MIDI);
 
+potentiometer knobState;
 
 void setup()
 {
@@ -26,6 +27,17 @@ void loop()
   // while (MIDI.read()) {
   //   Serial.println("MIDI NOTE RECIEVED");
   // }
-  kelpie.pollKnobs();
+  // if (kelpie.pollKnobs().didChange) {
+  //   Serial.println("CHANGED");
+  // };
+  if (kelpie.pollKnobs()) {
+    knobState = kelpie.getKnobs();
+    for (int i = 0; i < 16; i++) {
+      Serial.print(knobState.state[i]);
+      Serial.print(" ");
+      
+    }
+    Serial.println();
+  }
   kelpie.pollButtons();
 }

@@ -19,37 +19,26 @@ Kelpie::Kelpie(bool enableSerial)
     pinMode(SWLED4, OUTPUT);
 }
 
-void Kelpie::activateLights(void)
-{
-    digitalWrite(SWLED1, HIGH);
-    digitalWrite(SWLED2, HIGH);
-    digitalWrite(SWLED3, HIGH);
-    digitalWrite(SWLED4, HIGH);
-}
-
-void Kelpie::deactivateLights(void)
-{
-    digitalWrite(SWLED1, LOW);
-    digitalWrite(SWLED2, LOW);
-    digitalWrite(SWLED3, LOW);
-    digitalWrite(SWLED4, LOW);
-}
-
 boolean Kelpie::pollKnobs(void)
 {
     boolean didChange = false;
     for (int i = 0; i < 16; i++) {
-        _kelpieKnobs[i].value = analogRead(_kelpieKnobs[i].name);
-        if ((_kelpieKnobs[i].value - _kelpieKnobs[i].state) > 6 || (_kelpieKnobs[i].value - _kelpieKnobs[i].state) < -6) {
-            _kelpieKnobs[i].state = _kelpieKnobs[i].value;
+        _kelpieKnobs.value[i] = analogRead(_kelpieKnobs.name[i]);
+        if ((_kelpieKnobs.value[i] - _kelpieKnobs.state[i]) > 6 || (_kelpieKnobs.value[i] - _kelpieKnobs.state[i]) < -6) {
+            _kelpieKnobs.state[i] = _kelpieKnobs.value[i];
             didChange = true;
-            //  Serial.println(didChange);
+            //  Serial.println(_kelpieKnobs);
         }
-        Serial.print(_kelpieKnobs[i].state);
-        Serial.print(" ");
+        // Serial.print(_kelpieKnobs.state[i]);
+        // Serial.print(" ");
     }
-    Serial.println();
+    // Serial.println();
     return didChange;
+}
+
+potentiometer Kelpie::getKnobs(void)
+{
+    return _kelpieKnobs;
 }
 
 void Kelpie::pollButtons(void) {
