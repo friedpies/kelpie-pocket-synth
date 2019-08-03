@@ -42,11 +42,18 @@ void setup()
 }
 
 void handleMidiEvent(byte channelByte, byte controlByte, byte valueByte) {
-  Serial.print(channelByte);
-  Serial.print(' ');
-  Serial.print(controlByte);
-  Serial.print(' ');
-  Serial.println(valueByte);
+
+  switch (controlByte) {
+    case 100:
+      waveform1.frequency( float(valueByte) * 1000 / 127 );
+    break;
+
+    case 101:
+    break;
+
+    case 102: 
+    break;
+  }
 }
 
 void loop()
