@@ -1,21 +1,13 @@
-// // GUItool: begin automatically generated code
-AudioSynthNoiseWhite     NOISE;         //xy=113,247
-AudioSynthWaveform       OSC2;      //xy=120,172
-AudioSynthWaveform       OSC1;      //xy=121,116
-AudioMixer4              MIXER;         //xy=281,185
-AudioFilterStateVariable FILT;        //xy=451,205
-AudioEffectEnvelope      FILT_ENV;      //xy=452,159
-AudioAmplifier           AMP;           //xy=612,208
-AudioEffectEnvelope      AMP_ENV;      //xy=615,167
-AudioOutputI2S           i2s1;           //xy=804,193
-AudioConnection          patchCord1(NOISE, 0, MIXER, 2);
-AudioConnection          patchCord2(OSC2, 0, MIXER, 1);
-AudioConnection          patchCord3(OSC1, 0, MIXER, 0);
-AudioConnection          patchCord4(MIXER, FILT_ENV);
-AudioConnection          patchCord5(FILT, 0, AMP_ENV, 0);
-AudioConnection          patchCord6(FILT_ENV, 0, FILT, 1);
-AudioConnection          patchCord7(AMP, 0, i2s1, 0);
-AudioConnection          patchCord8(AMP, 0, i2s1, 1);
-AudioConnection          patchCord9(AMP_ENV, AMP);
-AudioControlSGTL5000     sgtl5000_1;     //xy=457,408
-// // GUItool: end automatically generated code
+// GUItool: begin automatically generated code
+AudioSynthWaveform       waveform2;      //xy=187.7003173828125,214.62339973449707
+AudioSynthWaveform       waveform1;      //xy=188.46954345703125,148.46953964233398
+AudioSynthNoisePink      pink1;          //xy=194.62340927124023,277.7003650665283
+AudioMixer4              mixer1;         //xy=370.7772407531738,213.85415840148926
+AudioOutputI2S           i2s1;           //xy=565.392620380108,214.6233954796424
+AudioConnection          patchCord1(waveform2, 0, mixer1, 1);
+AudioConnection          patchCord2(waveform1, 0, mixer1, 0);
+AudioConnection          patchCord3(pink1, 0, mixer1, 2);
+AudioConnection          patchCord4(mixer1, 0, i2s1, 0);
+AudioConnection          patchCord5(mixer1, 0, i2s1, 1);
+AudioControlSGTL5000     sgtl5000_1;     //xy=410.77723576472346,376.93108778733466
+// GUItool: end automatically generated code
