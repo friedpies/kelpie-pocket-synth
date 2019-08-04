@@ -9,8 +9,8 @@ struct synthState
 
 synthState globalState = {
     WAVEFORM_SAWTOOTH,// WAVEFORM1
-    WAVEFORM_SQUARE,  // WAVEFORM2
-    0.75,             // OSC1_VOL
-    0.75,             // OSC2_VOL
+    WAVEFORM_SAWTOOTH,  // WAVEFORM2
+    0.0,             // OSC1_VOL
+    0.0,             // OSC2_VOL
     0.5               // MASTER_VOL
     }; 
