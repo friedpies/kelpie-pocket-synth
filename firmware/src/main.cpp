@@ -1,6 +1,5 @@
 #include <Arduino.h>
 
-
 #include <MIDI.h>
 #include <Audio.h>
 #include <Wire.h>
@@ -8,6 +7,7 @@
 #include <SD.h>
 #include <SerialFlash.h>
 #include <audioConnections.h>
+#include <keyMappings.h>
 
 // all pin defines and assignments
 #include <Kelpie.h>
@@ -34,46 +34,63 @@ void setup()
   waveform2.frequency(123);
   waveform2.pulseWidth(0.15);
 
-  pink1.amplitude(1.0);
+  pink1.amplitude(0.0);
 
   mixer1.gain(0, 1.0);
   mixer1.gain(1, 1.0);
   mixer1.gain(2, 1.0);
 }
 
-void handleMidiEvent(byte channelByte, byte controlByte, byte valueByte) {
-
-  switch (controlByte) {
-    case 100:
-      waveform1.frequency( float(valueByte) * 1000 / 127 );
+void handleMidiEvent(byte channelByte, byte controlByte, byte valueByte)
+{
+  byte type = MIDI.getType();
+  Serial.println(controlByte);
+  Serial.println(valueByte);
+  Serial.println();
+  int note, velocity;
+  switch (type) {
+    case midi::NoteOn: 
+    note = MIDI.getData1();
+    velocity = MIDI.getData2();
+    if (note > 23 && note < 108) {
+      waveform1.frequency(noteFreqs[note]);
+      waveform2.frequency(noteFreqs[note]);
+    }
     break;
 
-    case 101:
+    case midi::NoteOff:
+    note = MIDI.getData1();
     break;
 
-    case 102: 
+    case midi::PitchBend:
     break;
+
+    case midi::ControlChange: 
+    break;
+
+
   }
 }
 
 void loop()
 {
-  if (MIDI.read()) {
+  if (MIDI.read())
+  {
     byte channel = MIDI.getChannel();
     byte controlType = MIDI.getData1();
     byte value = MIDI.getData2();
     handleMidiEvent(channel, controlType, value);
   }
 
-  if (kelpie.pollKnobs()) {
+  if (kelpie.pollKnobs())
+  {
     knobState = kelpie.getKnobs();
-    for (int i = 0; i < 16; i++) {
-      Serial.print(knobState.state[i]);
-      Serial.print(" ");
-      
+    for (int i = 0; i < 16; i++)
+    {
+      // Serial.print(knobState.state[i]);
+      // Serial.print(" ");
     }
-    Serial.println();
+    // Serial.println();
   }
   kelpie.pollButtons();
 }
-
