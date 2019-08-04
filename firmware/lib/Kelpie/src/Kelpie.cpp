@@ -19,9 +19,9 @@ Kelpie::Kelpie(bool enableSerial)
 }
 
 // this function detects if a knob was changed and returns TRUE if so
-boolean Kelpie::pollKnobs(void)
+boolean Kelpie::pollKnobs(bool forceRead)
 {
-    boolean didChange = false;
+    boolean didChange = forceRead;
     for (int i = 0; i < 16; i++)
     {
         _kelpieKnobs.value[i] = analogRead(_kelpieKnobs.name[i]);
@@ -61,7 +61,7 @@ boolean Kelpie::pollButtons(void)
     return didChange;
 }
 
-buttons Kelpie::getButtons(void)
+boolean * Kelpie::getButtons(void)
 {
-    return _kelpieButtons;
+    return _kelpieButtons.state;
 }

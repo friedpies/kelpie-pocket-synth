@@ -27,11 +27,11 @@ class Kelpie
 {
 public:
     Kelpie(bool enableSerial);
-    boolean pollKnobs(void);
+    boolean pollKnobs(bool forceRead);
     boolean pollButtons(void);
 
     int * getKnobs(void);
-    buttons getButtons(void);
+    boolean * getButtons(void);
 
 private:
     Bounce _switch1 = Bounce(SW1, 10); // 10 ms debounce
