@@ -30,7 +30,7 @@ public:
     boolean pollKnobs(void);
     boolean pollButtons(void);
 
-    potentiometers getKnobs(void);
+    int * getKnobs(void);
     buttons getButtons(void);
 
 private:

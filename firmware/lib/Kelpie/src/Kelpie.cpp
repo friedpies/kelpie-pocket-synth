@@ -38,9 +38,9 @@ boolean Kelpie::pollKnobs(void)
     return didChange;
 }
 
-potentiometers Kelpie::getKnobs(void)
+int * Kelpie::getKnobs(void)
 {
-    return _kelpieKnobs;
+    return _kelpieKnobs.state;
 }
 
 boolean Kelpie::pollButtons(void)
