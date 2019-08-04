@@ -15,12 +15,11 @@
 Kelpie kelpie(true);
 MIDI_CREATE_INSTANCE(HardwareSerial, Serial1, MIDI);
 
-potentiometer knobState;
+potentiometers knobState;
 
 void setup()
 {
   MIDI.begin();
-
   AudioMemory(20);
   sgtl5000_1.enable();
   sgtl5000_1.volume(0.32);
@@ -48,27 +47,27 @@ void handleMidiEvent(byte channelByte, byte controlByte, byte valueByte)
   Serial.println(valueByte);
   Serial.println();
   int note, velocity;
-  switch (type) {
-    case midi::NoteOn: 
+  switch (type)
+  {
+  case midi::NoteOn:
     note = MIDI.getData1();
     velocity = MIDI.getData2();
-    if (note > 23 && note < 108) {
+    if (note > 23 && note < 108)
+    {
       waveform1.frequency(noteFreqs[note]);
       waveform2.frequency(noteFreqs[note]);
     }
     break;
 
-    case midi::NoteOff:
+  case midi::NoteOff:
     note = MIDI.getData1();
     break;
 
-    case midi::PitchBend:
+  case midi::PitchBend:
     break;
 
-    case midi::ControlChange: 
+  case midi::ControlChange:
     break;
-
-
   }
 }
 
@@ -92,5 +91,8 @@ void loop()
     }
     // Serial.println();
   }
-  kelpie.pollButtons();
+  if (kelpie.pollButtons())
+  {
+    Serial.println("A button was pressed");
+  }
 }
