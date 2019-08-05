@@ -61,13 +61,13 @@ void setup()
   mixer1.gain(1, globalState.OSC2_VOL);
   mixer1.gain(2, 1.0);
 
-  filter1.frequency(10000);
-  filter1.resonance(0.7);
+  filter1.frequency(globalState.FILTER_FREQ);
+  filter1.resonance(globalState.FILTER_Q);
 
-  envelope1.attack(0);
-  envelope1.decay(0);
-  envelope1.sustain(1);
-  envelope1.release(500);
+  envelope1.attack(globalState.AMP_ATTACK);
+  envelope1.decay(globalState.AMP_DECAY);
+  envelope1.sustain(globalState.AMP_SUSTAIN);
+  envelope1.release(globalState.AMP_RELEASE);
 }
 
 void handleMidiEvent(byte channelByte, byte controlByte, byte valueByte)
@@ -92,7 +92,7 @@ void handleMidiEvent(byte channelByte, byte controlByte, byte valueByte)
 
   case midi::NoteOff:
     note = MIDI.getData1();
-    envelope1.noteOff();
+    // envelope1.noteOff();
     break;
 
   case midi::PitchBend:
@@ -169,6 +169,37 @@ void handleKnobChange(pot knob)
     // Serial.println(globalState.OSC2_VOL);
     mixer1.gain(1, globalState.OSC2_VOL);
     break;
+  case 10: // FILTER_FREQ
+    globalState.FILTER_FREQ = 10000 * (1 - (float(knobValue) * DIV1023));
+    filter1.frequency(globalState.FILTER_FREQ);
+    break;
+
+  case 11: // FILTER_Q
+    globalState.FILTER_Q = 4.3 * (1 - (float(knobValue) * DIV1023)) + 0.7;
+    filter1.resonance(globalState.FILTER_Q);
+    Serial.println(globalState.FILTER_Q);
+    break;
+  case 12: // AMP_ATTACK
+    globalState.AMP_ATTACK = 11880 * (1 - (float(knobValue) * DIV1023));
+    envelope1.attack(globalState.AMP_ATTACK);
+    Serial.println(globalState.AMP_ATTACK);
+    break;
+  case 13: // AMP_DECAY
+    globalState.AMP_DECAY = 11880 * (1 - (float(knobValue) * DIV1023));
+    envelope1.decay(globalState.AMP_DECAY);
+    Serial.println(globalState.AMP_DECAY);
+    break;
+  case 14: // AMP_SUSTAIN
+    globalState.AMP_SUSTAIN = 1 - (float(knobValue) * DIV1023);
+    envelope1.sustain(globalState.AMP_SUSTAIN);
+    Serial.println(globalState.AMP_SUSTAIN);
+    break;
+  case 15: // AMP_RELEASE
+    globalState.AMP_RELEASE = 11880 * (1 - (float(knobValue) * DIV1023));
+    envelope1.release(globalState.AMP_RELEASE);
+    Serial.println(globalState.AMP_RELEASE);
+    break;
+
   default:
     break;
   }
