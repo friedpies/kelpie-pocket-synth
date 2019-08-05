@@ -46,12 +46,12 @@ void setup()
   sgtl5000_1.volume(globalState.MASTER_VOL);
 
   waveform1.begin(globalState.WAVEFORM1);
-  waveform1.amplitude(.75);
+  waveform1.amplitude(0.75);
   waveform1.frequency(82.41);
   waveform1.pulseWidth(0.15);
 
   waveform2.begin(globalState.WAVEFORM2);
-  waveform2.amplitude(.75);
+  waveform2.amplitude(0.75);
   waveform2.frequency(82.41);
   waveform2.pulseWidth(0.15);
 
@@ -60,14 +60,22 @@ void setup()
   mixer1.gain(0, globalState.OSC1_VOL);
   mixer1.gain(1, globalState.OSC2_VOL);
   mixer1.gain(2, 1.0);
+
+  filter1.frequency(10000);
+  filter1.resonance(0.7);
+
+  envelope1.attack(0);
+  envelope1.decay(0);
+  envelope1.sustain(1);
+  envelope1.release(500);
 }
 
 void handleMidiEvent(byte channelByte, byte controlByte, byte valueByte)
 {
   byte type = MIDI.getType();
-  Serial.println(controlByte);
-  Serial.println(valueByte);
-  Serial.println();
+  // Serial.println(controlByte);
+  // Serial.println(valueByte);
+  // Serial.println();
   int note;
   switch (type)
   {
@@ -78,11 +86,13 @@ void handleMidiEvent(byte channelByte, byte controlByte, byte valueByte)
     {
       waveform1.frequency(noteFreqs[note]);
       waveform2.frequency(noteFreqs[note]);
+      envelope1.noteOn();
     }
     break;
 
   case midi::NoteOff:
     note = MIDI.getData1();
+    envelope1.noteOff();
     break;
 
   case midi::PitchBend:
@@ -149,14 +159,14 @@ void handleKnobChange(pot knob)
   int knobValue = knob.value;
   switch (knobName)
   {
-  case 0:
+  case 0: // VOLUME 1
     globalState.OSC1_VOL = 1 - (float(knobValue) * DIV1023);
-    Serial.println(globalState.OSC1_VOL);
+    // Serial.println(globalState.OSC1_VOL);
     mixer1.gain(0, globalState.OSC1_VOL);
     break;
-  case 5:
+  case 5: // VOLUME 2
     globalState.OSC2_VOL = 1 - (float(knobValue) * DIV1023);
-    Serial.println(globalState.OSC2_VOL);
+    // Serial.println(globalState.OSC2_VOL);
     mixer1.gain(1, globalState.OSC2_VOL);
     break;
   default:
