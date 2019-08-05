@@ -19,23 +19,24 @@ Kelpie::Kelpie(bool enableSerial)
 }
 
 // this function detects if a knob was changed and returns TRUE if so
-std::vector<potQueue> Kelpie::pollKnobs(bool forceRead)
+pot Kelpie::pollKnobs(bool forceRead)
 {
-    std::vector<potQueue> changedPots;
+    pot changedPot;
+    changedPot.didChange = false;
     for (int i = 0; i < 16; i++)
     {
         _kelpieKnobs.value[i] = analogRead(_kelpieKnobs.name[i]);
         if ((_kelpieKnobs.value[i] - _kelpieKnobs.state[i]) > 6 || (_kelpieKnobs.value[i] - _kelpieKnobs.state[i]) < -6) // if there is a significant change
         {
-            potQueue changedPot;
+            changedPot.didChange = true;
             changedPot.name = i;
             changedPot.value = _kelpieKnobs.value[i];
             _kelpieKnobs.state[i] = _kelpieKnobs.value[i]; //update state
-            changedPots.push_back(changedPot);
+            break;
         }
 
     }
-    return changedPots;
+    return changedPot;
 }
 
 int *Kelpie::getKnobs(void)

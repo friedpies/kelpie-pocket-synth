@@ -19,8 +19,9 @@ struct potentiometers
 };
 
 // struct to store individual pot names into a vector
-struct potQueue
+struct pot
 {
+    boolean didChange;
     int name;
     int value;
 };
@@ -36,7 +37,7 @@ class Kelpie
 {
 public:
     Kelpie(bool enableSerial);
-    std::vector<potQueue> pollKnobs(bool forceRead); // this function will return a vector with pots that have changed
+    pot pollKnobs(bool forceRead); // this function will return a vector with pots that have changed
     boolean pollButtons(void);
 
     int * getKnobs(void);

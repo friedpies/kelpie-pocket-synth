@@ -24,7 +24,7 @@ int *knobsState;
 boolean prevButtonsState[4] = {false, false, false, false}; // initial state on boot
 boolean *buttonsState;
 
-std::vector<potQueue> knobQueue;
+pot changedKnob;
 
 void setup()
 {
@@ -143,30 +143,24 @@ void handleButtonPress(boolean *buttonsState)
   }
 }
 
-void handleKnobChange(int *knobsState)
+void handleKnobChange(pot knob)
 {
-  for (int i = 0; i < 16; i++)
+  int knobName = knob.name;
+  int knobValue = knob.value;
+  switch (knobName)
   {
-    if (knobsState[i] != prevKnobsState[i]) // which knob changed?
-    {
-      prevKnobsState[i] = knobsState[i];
-      int changedKnob = i;
-      switch (changedKnob)
-      {
-      case 0:
-        globalState.OSC1_VOL = float(knobsState[0]) * DIV1023;
-        Serial.println(globalState.OSC1_VOL);
-        mixer1.gain(0, globalState.OSC1_VOL);
-        break;
-      case 5:
-        globalState.OSC2_VOL = float(knobsState[5]) * DIV1023;
-        Serial.println(globalState.OSC2_VOL);
-        mixer1.gain(0, globalState.OSC2_VOL);
-        break;
-      default:
-        break;
-      }
-    }
+  case 0:
+    globalState.OSC1_VOL = 1 - (float(knobValue) * DIV1023);
+    Serial.println(globalState.OSC1_VOL);
+    mixer1.gain(0, globalState.OSC1_VOL);
+    break;
+  case 5:
+    globalState.OSC2_VOL = 1 - (float(knobValue) * DIV1023);
+    Serial.println(globalState.OSC2_VOL);
+    mixer1.gain(1, globalState.OSC2_VOL);
+    break;
+  default:
+    break;
   }
 }
 
@@ -180,10 +174,10 @@ void loop()
     handleMidiEvent(channel, controlType, value);
   }
 
-  knobQueue = kelpie.pollKnobs(false);
-  if (knobQueue.size() > 0)
+  changedKnob = kelpie.pollKnobs(false);
+  if (changedKnob.didChange)
   {
-    Serial.println(knobQueue.size());
+    handleKnobChange(changedKnob);
   }
   // if (kelpie.pollKnobs(false))
   // {
