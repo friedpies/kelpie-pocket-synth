@@ -1,6 +1,5 @@
 #include <Kelpie.h>
 
-
 Kelpie::Kelpie(bool enableSerial)
 {
     if (enableSerial)
@@ -19,36 +18,51 @@ Kelpie::Kelpie(bool enableSerial)
     pinMode(SWLED4, OUTPUT);
 }
 
-boolean Kelpie::pollKnobs(void)
+// this function detects if a knob was changed and returns TRUE if so
+pot Kelpie::pollKnobs(bool forceRead)
+{
+    pot changedPot;
+    changedPot.didChange = false;
+    for (int i = 0; i < 16; i++)
+    {
+        _kelpieKnobs.value[i] = analogRead(_kelpieKnobs.name[i]);
+        if ((_kelpieKnobs.value[i] - _kelpieKnobs.state[i]) > 6 || (_kelpieKnobs.value[i] - _kelpieKnobs.state[i]) < -6) // if there is a significant change
+        {
+            changedPot.didChange = true;
+            changedPot.name = i;
+            changedPot.value = _kelpieKnobs.value[i];
+            _kelpieKnobs.state[i] = _kelpieKnobs.value[i]; //update state
+            break;
+        }
+
+    }
+    return changedPot;
+}
+
+int *Kelpie::getKnobs(void)
+{
+    return _kelpieKnobs.state;
+}
+
+boolean Kelpie::pollButtons(void)
 {
     boolean didChange = false;
-    for (int i = 0; i < 16; i++) {
-        _kelpieKnobs.value[i] = analogRead(_kelpieKnobs.name[i]);
-        if ((_kelpieKnobs.value[i] - _kelpieKnobs.state[i]) > 6 || (_kelpieKnobs.value[i] - _kelpieKnobs.state[i]) < -6) {
-            _kelpieKnobs.state[i] = _kelpieKnobs.value[i];
-            didChange = true;
-            //  Serial.println(_kelpieKnobs);
-        }
-        // Serial.print(_kelpieKnobs.state[i]);
-        // Serial.print(" ");
-    }
-    // Serial.println();
-    return didChange;
-}
-
-potentiometer Kelpie::getKnobs(void)
-{
-    return _kelpieKnobs;
-}
-
-void Kelpie::pollButtons(void) {
- for (int i = 0; i < 4; i++) {
-        if(_kelpieButtons[i].buttonName.update()) {
-            if (_kelpieButtons[i].buttonName.fallingEdge()) {
-                _kelpieButtons[i].state = !_kelpieButtons[i].state;
-                digitalWrite(_kelpieButtons[i].ledName, _kelpieButtons[i].state);
-                // Serial.print(i);
+    for (int i = 0; i < 4; i++)
+    {
+        if (_kelpieButtons.buttonName[i].update())
+        {
+            if (_kelpieButtons.buttonName[i].fallingEdge())
+            {
+                _kelpieButtons.state[i] = !_kelpieButtons.state[i];
+                digitalWrite(_kelpieButtons.ledName[i], _kelpieButtons.state[i]);
+                didChange = true;
             }
         }
     }
+    return didChange;
+}
+
+boolean *Kelpie::getButtons(void)
+{
+    return _kelpieButtons.state;
 }
