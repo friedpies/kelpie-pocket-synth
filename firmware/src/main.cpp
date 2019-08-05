@@ -24,6 +24,8 @@ int *knobsState;
 boolean prevButtonsState[4] = {false, false, false, false}; // initial state on boot
 boolean *buttonsState;
 
+std::vector<potQueue> knobQueue;
+
 void setup()
 {
   // GET KNOBS
@@ -42,6 +44,7 @@ void setup()
   AudioMemory(20);
   sgtl5000_1.enable();
   sgtl5000_1.volume(globalState.MASTER_VOL);
+
   waveform1.begin(globalState.WAVEFORM1);
   waveform1.amplitude(.75);
   waveform1.frequency(82.41);
@@ -177,17 +180,22 @@ void loop()
     handleMidiEvent(channel, controlType, value);
   }
 
-  if (kelpie.pollKnobs(false))
+  knobQueue = kelpie.pollKnobs(false);
+  if (knobQueue.size() > 0)
   {
-    knobsState = kelpie.getKnobs();
-    handleKnobChange(knobsState);
-    for (int i = 0; i < 16; i++)
-    {
-      // Serial.print(knobsState[i]);
-      // Serial.print(" ");
-    }
-    // Serial.println();
+    Serial.println(knobQueue.size());
   }
+  // if (kelpie.pollKnobs(false))
+  // {
+  //   knobsState = kelpie.getKnobs();
+  //   handleKnobChange(knobsState);
+  //   for (int i = 0; i < 16; i++)
+  //   {
+  //     // Serial.print(knobsState[i]);
+  //     // Serial.print(" ");
+  //   }
+  //   // Serial.println();
+  // }
 
   if (kelpie.pollButtons())
   {
