@@ -1,5 +1,4 @@
 #include <Arduino.h>
-
 #include <MIDI.h>
 #include <Audio.h>
 #include <Wire.h>
@@ -10,36 +9,18 @@
 #include <globalSynthState.h>
 #include <keyMappings.h>
 #include <contants.h>
-
-// all pin defines and assignments
 #include <Kelpie.h>
 
 Kelpie kelpie(true);
 MIDI_CREATE_INSTANCE(HardwareSerial, Serial1, MIDI);
 
-int prevKnobsState[16] = {
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-int *knobsState;
-
 boolean prevButtonsState[4] = {false, false, false, false}; // initial state on boot
 boolean *buttonsState;
-
 pot changedKnob;
+const int bufferSize = 8;
 
 void setup()
 {
-  // GET KNOBS
-  // kelpie.pollKnobs(true); // force system to read value of knobs
-  // knobsState = kelpie.getKnobs();
-  // for (int i = 0; i < 16; i++)
-  // {
-  //   prevKnobsState[i] = knobsState[i];
-  // }
-
-  // set global state based off of initial knob values
-  // globalState.OSC1_VOL = knobsState[0];
-  // globalState.OSC2_VOL = knobsState[5];
-
   MIDI.begin();
   AudioMemory(20);
   sgtl5000_1.enable();
@@ -70,12 +51,24 @@ void setup()
   envelope1.release(globalState.AMP_RELEASE);
 }
 
-void handleMidiEvent(byte channelByte, byte controlByte, byte valueByte)
+void keyBuff(int note, boolean isNoteOn)
 {
-  byte type = MIDI.getType();
-  // Serial.println(controlByte);
-  // Serial.println(valueByte);
-  // Serial.println();
+  static int buff[BUFFER_LENGTH];
+  static int buffSize = 0;
+
+  if (isNoteOn == true)
+  {
+    envelope1.noteOn();
+  }
+  else
+  {
+    envelope1.noteOff();
+  }
+}
+
+void handleMidiEvent(int channelByte, int controlByte, int valueByte)
+{
+  int type = MIDI.getType();
   int note;
   switch (type)
   {
@@ -86,13 +79,15 @@ void handleMidiEvent(byte channelByte, byte controlByte, byte valueByte)
     {
       waveform1.frequency(noteFreqs[note]);
       waveform2.frequency(noteFreqs[note]);
-      envelope1.noteOn();
+      // envelope1.noteOn();
+      keyBuff(note, true);
     }
     break;
 
   case midi::NoteOff:
     note = MIDI.getData1();
-    envelope1.noteOff();
+    // envelope1.noteOff();
+    keyBuff(note, false);
     break;
 
   case midi::PitchBend:
@@ -209,9 +204,9 @@ void loop()
 {
   if (MIDI.read())
   {
-    byte channel = MIDI.getChannel();
-    byte controlType = MIDI.getData1();
-    byte value = MIDI.getData2();
+    int channel = MIDI.getChannel();
+    int controlType = MIDI.getData1();
+    int value = MIDI.getData2();
     handleMidiEvent(channel, controlType, value);
   }
 
@@ -220,17 +215,6 @@ void loop()
   {
     handleKnobChange(changedKnob);
   }
-  // if (kelpie.pollKnobs(false))
-  // {
-  //   knobsState = kelpie.getKnobs();
-  //   handleKnobChange(knobsState);
-  //   for (int i = 0; i < 16; i++)
-  //   {
-  //     // Serial.print(knobsState[i]);
-  //     // Serial.print(" ");
-  //   }
-  //   // Serial.println();
-  // }
 
   if (kelpie.pollButtons())
   {
