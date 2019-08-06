@@ -26,21 +26,44 @@ void setup()
   sgtl5000_1.enable();
   sgtl5000_1.volume(globalState.MASTER_VOL);
 
-  waveform1.begin(globalState.WAVEFORM1);
-  waveform1.amplitude(0.75);
-  waveform1.frequency(82.41);
-  waveform1.pulseWidth(0.15);
+//  VOICE 1
+  V1_A.begin(globalState.WAVEFORM1);
+  V1_A.amplitude(0.75);
+  V1_A.frequency(82.41);
+  V1_A.pulseWidth(0.15);
 
-  waveform2.begin(globalState.WAVEFORM2);
-  waveform2.amplitude(0.75);
-  waveform2.frequency(82.41);
-  waveform2.pulseWidth(0.15);
+  V1_B.begin(globalState.WAVEFORM2);
+  V1_B.amplitude(0.75);
+  V1_B.frequency(82.41);
+  V1_B.pulseWidth(0.15);
 
-  pink1.amplitude(0.0);
+  V1_N.amplitude(0.0);
 
-  mixer1.gain(0, globalState.OSC1_VOL);
-  mixer1.gain(1, globalState.OSC2_VOL);
-  mixer1.gain(2, 1.0);
+  V1_MIX.gain(0, globalState.OSC1_VOL);
+  V1_MIX.gain(1, globalState.OSC2_VOL);
+  V1_MIX.gain(2, 1.0);
+
+// VOICE 2
+  V2_A.begin(globalState.WAVEFORM1);
+  V2_A.amplitude(0.75);
+  V2_A.frequency(82.41);
+  V2_A.pulseWidth(0.15);
+
+  V2_B.begin(globalState.WAVEFORM2);
+  V2_B.amplitude(0.75);
+  V2_B.frequency(82.41);
+  V2_B.pulseWidth(0.15);
+
+  V2_N.amplitude(0.0);
+
+  V2_MIX.gain(0, globalState.OSC1_VOL);
+  V2_MIX.gain(1, globalState.OSC2_VOL);
+  V2_MIX.gain(2, 1.0);
+
+// V12_MIX
+  V12_MIX.gain(0, 1.0);
+  V12_MIX.gain(1, 1.0);
+  V12_MIX.gain(2, 1.0);
 
   filter1.frequency(globalState.FILTER_FREQ);
   filter1.resonance(globalState.FILTER_Q);
@@ -77,8 +100,8 @@ void handleMidiEvent(int channelByte, int controlByte, int valueByte)
     // velocity = MIDI.getData2();
     if (note > 23 && note < 108)
     {
-      waveform1.frequency(noteFreqs[note]);
-      waveform2.frequency(noteFreqs[note]);
+      V1_A.frequency(noteFreqs[note]);
+      V1_B.frequency(noteFreqs[note]);
       // envelope1.noteOn();
       keyBuff(note, true);
     }
@@ -112,13 +135,13 @@ void handleButtonPress(boolean *buttonsState)
         if (buttonsState[i] == 1)
         {
           globalState.WAVEFORM1 = WAVEFORM_SQUARE;
-          waveform1.begin(globalState.WAVEFORM1);
+          V1_A.begin(globalState.WAVEFORM1);
           // waveform1.begin(WAVEFORM_SQUARE);
         }
         else
         {
           globalState.WAVEFORM2 = WAVEFORM_SAWTOOTH;
-          waveform1.begin(globalState.WAVEFORM2);
+          V1_A.begin(globalState.WAVEFORM2);
         }
         break;
 
@@ -126,12 +149,12 @@ void handleButtonPress(boolean *buttonsState)
         if (buttonsState[i] == 1)
         {
           globalState.WAVEFORM2 = WAVEFORM_SQUARE;
-          waveform2.begin(globalState.WAVEFORM2);
+          V1_B.begin(globalState.WAVEFORM2);
         }
         else
         {
           globalState.WAVEFORM2 = WAVEFORM_SAWTOOTH;
-          waveform2.begin(globalState.WAVEFORM2);
+          V1_B.begin(globalState.WAVEFORM2);
         }
         break;
 
@@ -157,12 +180,12 @@ void handleKnobChange(pot knob)
   case 0: // VOLUME 1
     globalState.OSC1_VOL = 1 - (float(knobValue) * DIV1023);
     // Serial.println(globalState.OSC1_VOL);
-    mixer1.gain(0, globalState.OSC1_VOL);
+    V1_MIX.gain(0, globalState.OSC1_VOL);
     break;
   case 5: // VOLUME 2
     globalState.OSC2_VOL = 1 - (float(knobValue) * DIV1023);
     // Serial.println(globalState.OSC2_VOL);
-    mixer1.gain(1, globalState.OSC2_VOL);
+    V1_MIX.gain(1, globalState.OSC2_VOL);
     break;
   case 10: // FILTER_FREQ
     globalState.FILTER_FREQ = 10000 * (1 - (float(knobValue) * DIV1023));
