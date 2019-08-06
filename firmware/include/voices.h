@@ -1,9 +1,12 @@
 struct voice
 {
-  int frequency;
+  int note;
   int velocity;
   bool noteOnOff;
-  bool isActive;
-  AudioSynthWaveform waveform1;
-  AudioSynthWaveform waveform2;
-}
+  AudioSynthWaveform &waveformA;
+  AudioSynthWaveform &waveformB;
+  AudioEffectEnvelope &ampEnv;
+};
+
+voice VOICE_1 = {0, 0, false, V1_A, V1_B, V1_ENV};
+voice VOICE_2 = {0, 0, false, V2_A, V2_B, V2_ENV};
