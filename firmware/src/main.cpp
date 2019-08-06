@@ -41,19 +41,13 @@ void setup()
     polyBuff[i].waveformB.amplitude(0.5);
     polyBuff[i].waveformB.frequency(82.41);
     polyBuff[i].waveformB.pulseWidth(0.15);
+
+    polyBuff[i].noise.amplitude(0.0);
+
+    polyBuff[i].waveformMixer.gain(0, globalState.OSC1_VOL);
+    polyBuff[i].waveformMixer.gain(1, globalState.OSC2_VOL);
+    polyBuff[i].waveformMixer.gain(2, 1.0);
   }
-
-  V1_N.amplitude(0.0);
-
-  V1_MIX.gain(0, globalState.OSC1_VOL);
-  V1_MIX.gain(1, globalState.OSC2_VOL);
-  V1_MIX.gain(2, 1.0);
-
-  V2_N.amplitude(0.0);
-
-  V2_MIX.gain(0, globalState.OSC1_VOL);
-  V2_MIX.gain(1, globalState.OSC2_VOL);
-  V2_MIX.gain(2, 1.0);
 
   // V12_MIX
   V12_MIX.gain(0, 0.3);
@@ -95,7 +89,6 @@ void keyBuffPoly(int note, boolean playNote)
   }
   else
   {
-    Serial.println("I'm a note off");
     for (int i = 0; i < polyBuffSize; i++)
     {
       if (polyBuff[i].note == note)
@@ -163,17 +156,18 @@ void handleButtonPress(boolean *buttonsState)
       int pressedButton = i;
       switch (pressedButton)
       {
-      case 0:
+      case 0: // button one was pressed, toggle between waveforms
         if (buttonsState[i] == 1)
         {
           globalState.WAVEFORM1 = WAVEFORM_SQUARE;
-          V1_A.begin(globalState.WAVEFORM1);
-          // waveform1.begin(WAVEFORM_SQUARE);
         }
         else
         {
-          globalState.WAVEFORM2 = WAVEFORM_SAWTOOTH;
-          V1_A.begin(globalState.WAVEFORM2);
+          globalState.WAVEFORM1 = WAVEFORM_SAWTOOTH;
+        }
+        for (int i = 0; i < polyBuffSize; i++)
+        {
+          polyBuff[i].waveformA.begin(globalState.WAVEFORM1);
         }
         break;
 
@@ -181,12 +175,14 @@ void handleButtonPress(boolean *buttonsState)
         if (buttonsState[i] == 1)
         {
           globalState.WAVEFORM2 = WAVEFORM_SQUARE;
-          V1_B.begin(globalState.WAVEFORM2);
         }
         else
         {
           globalState.WAVEFORM2 = WAVEFORM_SAWTOOTH;
-          V1_B.begin(globalState.WAVEFORM2);
+        }
+        for (int i = 0; i < polyBuffSize; i++)
+        {
+          polyBuff[i].waveformB.begin(globalState.WAVEFORM2);
         }
         break;
 
@@ -255,12 +251,6 @@ void handleKnobChange(pot knob)
 
 void loop()
 {
-  Serial.print("VOICE ONE ACTIVE: ");
-  Serial.print(V1_ENV.isActive());
-  Serial.print("----");
-  Serial.print("VOICE 2 ACTIVE: ");
-  Serial.println(V2_ENV.isActive());
-
   if (MIDI.read())
   {
     int channel = MIDI.getChannel();
