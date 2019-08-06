@@ -20,22 +20,6 @@ boolean *buttonsState;
 pot changedKnob;
 const int bufferSize = 8;
 
-const int polyBuffSize = 12;
-
-voice polyBuff[polyBuffSize] = {
-    VOICE_1,
-    VOICE_2,
-    VOICE_3,
-    VOICE_4,
-    VOICE_5,
-    VOICE_6,
-    VOICE_7,
-    VOICE_8,
-    VOICE_9,
-    VOICE_10,
-    VOICE_11,
-    VOICE_12};
-
 void setup()
 {
   MIDI.begin();
@@ -89,9 +73,6 @@ void setup()
 
 void keyBuffMono(int note, boolean isNoteOn)
 {
-  // static int monoBuff[BUFFER_LENGTH];
-  // static int buffSize = 0;
-
   if (isNoteOn == true)
   {
   }

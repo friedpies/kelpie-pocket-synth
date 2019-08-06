@@ -1,3 +1,5 @@
+// A lookup table for MIDI notes to frequencies
+
 const float noteFreqs[128] = {
     8.176, 8.662, 9.177, 9.723, 10.301, 10.913, 11.562, 12.25,
     12.978, 13.75, 14.568, 15.434, 16.352, 17.324, 18.354, 19.445,
