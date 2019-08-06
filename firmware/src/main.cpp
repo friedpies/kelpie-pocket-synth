@@ -20,8 +20,21 @@ boolean *buttonsState;
 pot changedKnob;
 const int bufferSize = 8;
 
-const int polyBuffSize = 2;
-voice polyBuff[polyBuffSize] = {VOICE_1, VOICE_2};
+const int polyBuffSize = 12;
+
+voice polyBuff[polyBuffSize] = {
+    VOICE_1,
+    VOICE_2,
+    VOICE_3,
+    VOICE_4,
+    VOICE_5,
+    VOICE_6,
+    VOICE_7,
+    VOICE_8,
+    VOICE_9,
+    VOICE_10,
+    VOICE_11,
+    VOICE_12};
 
 void setup()
 {
@@ -50,9 +63,20 @@ void setup()
   }
 
   // V12_MIX
-  V12_MIX.gain(0, 0.3);
-  V12_MIX.gain(1, 0.3);
-  V12_MIX.gain(2, 0.3);
+  V14_MIX.gain(0, 0.3);
+  V14_MIX.gain(1, 0.3);
+  V14_MIX.gain(2, 0.3);
+
+  V58_MIX.gain(0, 0.3);
+  V58_MIX.gain(1, 0.3);
+  V58_MIX.gain(2, 0.3);
+
+  V912_MIX.gain(0, 0.3);
+  V912_MIX.gain(1, 0.3);
+  V912_MIX.gain(2, 0.3);
+
+  ALL_VOICE_MIX.gain(0, 0.5);
+  ALL_VOICE_MIX.gain(1, 0.5);
 
   filter1.frequency(globalState.FILTER_FREQ);
   filter1.resonance(globalState.FILTER_Q);
