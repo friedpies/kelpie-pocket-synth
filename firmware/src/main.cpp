@@ -92,7 +92,7 @@ void handleMidiEvent(byte channelByte, byte controlByte, byte valueByte)
 
   case midi::NoteOff:
     note = MIDI.getData1();
-    // envelope1.noteOff();
+    envelope1.noteOff();
     break;
 
   case midi::PitchBend:
