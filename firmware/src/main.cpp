@@ -23,7 +23,7 @@ const int bufferSize = 8;
 void setup()
 {
   MIDI.begin();
-  AudioMemory(40);
+  AudioMemory(80);
   sgtl5000_1.enable();
   sgtl5000_1.volume(globalState.MASTER_VOL);
 
@@ -49,7 +49,13 @@ void setup()
     polyBuff[i].ampEnv.decay(globalState.AMP_DECAY);
     polyBuff[i].ampEnv.sustain(globalState.AMP_SUSTAIN);
     polyBuff[i].ampEnv.release(globalState.AMP_RELEASE);
+
+    polyBuff[i].filter.frequency(globalState.FILTER_FREQ);
+    polyBuff[i].filter.resonance(globalState.FILTER_Q);
+    polyBuff[i].filter.octaveControl(2.0);
   }
+
+  FILT_ENV_DC.amplitude(1.0);
 
   // V12_MIX
   V14_MIX.gain(0, 0.3);
@@ -66,9 +72,6 @@ void setup()
 
   ALL_VOICE_MIX.gain(0, 0.5);
   ALL_VOICE_MIX.gain(1, 0.5);
-
-  filter1.frequency(globalState.FILTER_FREQ);
-  filter1.resonance(globalState.FILTER_Q);
 }
 
 void keyBuffMono(int note, boolean isNoteOn)
@@ -95,6 +98,7 @@ void keyBuffPoly(int note, boolean playNote)
         polyBuff[i].note = note;
         polyBuff[i].noteFreq = noteFreq;
         polyBuff[i].ampEnv.noteOn();
+        polyBuff[i].filterEnv.noteOn();
         break;
       }
     }
@@ -106,6 +110,7 @@ void keyBuffPoly(int note, boolean playNote)
       if (polyBuff[i].note == note)
       {
         polyBuff[i].ampEnv.noteOff();
+        polyBuff[i].filterEnv.noteOff();
         polyBuff[i].note = 0;
       }
     }
@@ -166,10 +171,11 @@ void handleButtonPress(boolean *buttonsState)
     {
       prevButtonsState[i] = buttonsState[i];
       int pressedButton = i;
+      boolean buttonState = boolean(buttonsState[i]);
       switch (pressedButton)
       {
       case 0: // button one was pressed, toggle between waveforms
-        if (buttonsState[i] == 1)
+        if (buttonState == true)
         {
           globalState.WAVEFORM1 = WAVEFORM_SQUARE;
         }
@@ -184,7 +190,7 @@ void handleButtonPress(boolean *buttonsState)
         break;
 
       case 1:
-        if (buttonsState[i] == 1)
+        if (buttonState == true)
         {
           globalState.WAVEFORM2 = WAVEFORM_SQUARE;
         }
@@ -202,6 +208,14 @@ void handleButtonPress(boolean *buttonsState)
         break;
 
       case 3:
+        if (buttonState == true)
+        {
+          globalState.shift = true;
+        }
+        else
+        {
+          globalState.shift = false;
+        }
         break;
 
       default:
@@ -216,7 +230,6 @@ void handleKnobChange(pot knob)
   int knobName = knob.name;
   int knobValue = knob.value;
   switch (knobName)
-
   {
   case 0: // VOLUME 1
     globalState.OSC1_VOL = 1 - (float(knobValue) * DIV1023);
@@ -225,13 +238,9 @@ void handleKnobChange(pot knob)
       polyBuff[i].waveformMixer.gain(0, globalState.OSC1_VOL);
     }
     break;
-  case 4: // DETUNE_SLOPE
-    globalState.DETUNE_SLOPE = 0.2 * (5 + (1 - (float(knobValue) * DIV1023)));
-    for (int i = 0; i < polyBuffSize; i++)
-    {
-      float detunedFreq = polyBuff[i].noteFreq * float(i + 1) * 0.1;
-      polyBuff[i].waveformA.frequency(detunedFreq);
-    }
+  case 4: // MASTER_VOL
+    globalState.MASTER_VOL = 2 * (1 - (float(knobValue) * DIV1023));
+    amp1.gain(globalState.MASTER_VOL);
     break;
   case 5: // VOLUME 2
     globalState.OSC2_VOL = 1 - (float(knobValue) * DIV1023);
@@ -241,47 +250,102 @@ void handleKnobChange(pot knob)
       polyBuff[i].waveformMixer.gain(1, globalState.OSC2_VOL);
     }
     break;
+  case 6: // DETUNE
+    globalState.DETUNE = 1 - (0.05 * (1 - (float(knobValue) * DIV1023)));
+    break;
   case 10: // FILTER_FREQ
     globalState.FILTER_FREQ = 10000 * (1 - (float(knobValue) * DIV1023));
-    filter1.frequency(globalState.FILTER_FREQ);
+    for (int i = 0; i < polyBuffSize; i++)
+    {
+      polyBuff[i].filter.frequency(globalState.FILTER_FREQ);
+    }
     break;
 
   case 11: // FILTER_Q
     globalState.FILTER_Q = 4.3 * (1 - (float(knobValue) * DIV1023)) + 0.7;
-    filter1.resonance(globalState.FILTER_Q);
-    // Serial.println(globalState.FILTER_Q);
-    break;
-  case 12: // AMP_ATTACK
-    globalState.AMP_ATTACK = 5000 * (1 - (float(knobValue) * DIV1023));
-    if (globalState.AMP_ATTACK < 15) //
-    {
-      globalState.AMP_ATTACK = 0;
-    }
-    Serial.println(globalState.AMP_ATTACK);
     for (int i = 0; i < polyBuffSize; i++)
     {
-      polyBuff[i].ampEnv.attack(globalState.AMP_ATTACK);
+      polyBuff[i].filter.resonance(globalState.FILTER_Q);
     }
     break;
-  case 13: // AMP_DECAY
-    globalState.AMP_DECAY = 11880 * (1 - (float(knobValue) * DIV1023));
-    for (int i = 0; i < polyBuffSize; i++)
+  case 12:                          // ATTACK
+    if (globalState.shift == false) // FOR AMP
     {
-      polyBuff[i].ampEnv.decay(globalState.AMP_DECAY);
+      globalState.AMP_ATTACK = 5000 * (1 - (float(knobValue) * DIV1023));
+      if (globalState.AMP_ATTACK < 15) //
+      {
+        globalState.AMP_ATTACK = 0;
+      }
+      for (int i = 0; i < polyBuffSize; i++)
+      {
+        polyBuff[i].ampEnv.attack(globalState.AMP_ATTACK);
+      }
+    }
+    else // FOR FILTER
+    {
+      globalState.FILTER_ATTACK = 5000 * (1 - (float(knobValue) * DIV1023));
+      if (globalState.FILTER_ATTACK < 15) //
+      {
+        globalState.FILTER_ATTACK = 0;
+      }
+      for (int i = 0; i < polyBuffSize; i++)
+      {
+        polyBuff[i].filterEnv.attack(globalState.FILTER_ATTACK);
+      }
+    }
+    break;
+  case 13:                          // DECAY
+    if (globalState.shift == false) // FOR AMP
+    {
+      globalState.AMP_DECAY = 11880 * (1 - (float(knobValue) * DIV1023));
+      for (int i = 0; i < polyBuffSize; i++)
+      {
+        polyBuff[i].ampEnv.decay(globalState.AMP_DECAY);
+      }
+    }
+    else
+    { // FOR FILTER
+      globalState.FILTER_DECAY = 11880 * (1 - (float(knobValue) * DIV1023));
+      for (int i = 0; i < polyBuffSize; i++)
+      {
+        polyBuff[i].filterEnv.decay(globalState.FILTER_DECAY);
+      }
     }
     break;
   case 14: // AMP_SUSTAIN
-    globalState.AMP_SUSTAIN = 1 - (float(knobValue) * DIV1023);
-    for (int i = 0; i < polyBuffSize; i++)
+    if (globalState.shift == false)
     {
-      polyBuff[i].ampEnv.sustain(globalState.AMP_SUSTAIN);
+      globalState.AMP_SUSTAIN = 1 - (float(knobValue) * DIV1023);
+      for (int i = 0; i < polyBuffSize; i++)
+      {
+        polyBuff[i].ampEnv.sustain(globalState.AMP_SUSTAIN);
+      }
+    }
+    else
+    {
+      globalState.FILTER_SUSTAIN = 1 - (float(knobValue) * DIV1023);
+      for (int i = 0; i < polyBuffSize; i++)
+      {
+        polyBuff[i].filterEnv.sustain(globalState.FILTER_SUSTAIN);
+      }
     }
     break;
   case 15: // AMP_RELEASE
-    globalState.AMP_RELEASE = 11880 * (1 - (float(knobValue) * DIV1023));
-    for (int i = 0; i < polyBuffSize; i++)
+    if (globalState.shift == false)
     {
-      polyBuff[i].ampEnv.release(globalState.AMP_RELEASE);
+      globalState.AMP_RELEASE = 11880 * (1 - (float(knobValue) * DIV1023));
+      for (int i = 0; i < polyBuffSize; i++)
+      {
+        polyBuff[i].ampEnv.release(globalState.AMP_RELEASE);
+      }
+    }
+    else
+    {
+      globalState.FILTER_RELEASE = 11880 * (1 - (float(knobValue) * DIV1023));
+      for (int i = 0; i < polyBuffSize; i++)
+      {
+        polyBuff[i].filterEnv.release(globalState.FILTER_RELEASE);
+      }
     }
     break;
 
@@ -292,6 +356,7 @@ void handleKnobChange(pot knob)
 
 void loop()
 {
+  Serial.println(peak1.read());
   if (MIDI.read())
   {
     int channel = MIDI.getChannel();
