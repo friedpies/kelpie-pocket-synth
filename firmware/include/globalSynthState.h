@@ -9,7 +9,9 @@ struct synthState
   bool shift;
   float OSC1_VOL;
   float OSC2_VOL;
-  float DETUNE;
+  float PWM;
+  float DETUNE_FINE;
+  float DETUNE_COARSE;
   float AMP_ATTACK;
   float AMP_DECAY;
   float AMP_SUSTAIN;

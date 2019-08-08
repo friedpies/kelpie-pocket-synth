@@ -18,11 +18,11 @@ void keyBuffPoly(int note, boolean playNote)
     {
       if (polyBuff[i].ampEnv.isActive() == false)
       {
-        float noteFreq = noteFreqs[note];
-        polyBuff[i].waveformA.frequency(noteFreq);
-        polyBuff[i].waveformB.frequency(noteFreq);
+        float baseNoteFreq = noteFreqs[note];
+        polyBuff[i].noteFreq = baseNoteFreq; // SET VOICE FREQUENCY IN STATE
+        polyBuff[i].waveformA.frequency(baseNoteFreq);
+        polyBuff[i].waveformB.frequency(baseNoteFreq * globalState.DETUNE_COARSE);
         polyBuff[i].note = note;
-        polyBuff[i].noteFreq = noteFreq;
         polyBuff[i].ampEnv.noteOn();
         polyBuff[i].filterEnv.noteOn();
         break;
@@ -57,7 +57,7 @@ void handleButtonPress(boolean *buttonsState)
       case 0: // button one was pressed, toggle between waveforms
         if (buttonState == true)
         {
-          globalState.WAVEFORM1 = WAVEFORM_SQUARE;
+          globalState.WAVEFORM1 = WAVEFORM_PULSE;
         }
         else
         {
@@ -72,7 +72,7 @@ void handleButtonPress(boolean *buttonsState)
       case 1:
         if (buttonState == true)
         {
-          globalState.WAVEFORM2 = WAVEFORM_SQUARE;
+          globalState.WAVEFORM2 = WAVEFORM_PULSE;
         }
         else
         {
@@ -113,7 +113,6 @@ void handleKnobChange(pot knob)
   switch (knobName)
   {
   case 0: // BALANCE
-
     globalState.OSC1_VOL = decKnobVal;
     globalState.OSC2_VOL = 1 - decKnobVal;
     for (int i = 0; i < polyBuffSize; i++)
@@ -122,23 +121,30 @@ void handleKnobChange(pot knob)
       polyBuff[i].waveformMixer.gain(1, globalState.OSC2_VOL);
     }
     break;
+  case 1: // PWM
+    globalState.PWM = 0.1 + 0.4 * (1 - decKnobVal);
+    for (int i = 0; i < polyBuffSize; i++)
+    {
+      polyBuff[i].waveformA.pulseWidth(globalState.PWM);
+      polyBuff[i].waveformB.pulseWidth(globalState.PWM);
+    }
+    break;
   case 4: // MASTER_VOL
-    globalState.MASTER_VOL = 2 * (1 - (float(knobValue) * DIV1023));
+    globalState.MASTER_VOL = 2 * (1 - decKnobVal);
     amp1.gain(globalState.MASTER_VOL);
     break;
-  case 5: // VOLUME 2
-    // globalState.OSC2_VOL = 1 - (float(knobValue) * DIV1023);
-    // // Serial.println(globalState.OSC2_VOL);
-    // for (int i = 0; i < polyBuffSize; i++)
-    // {
-    //   polyBuff[i].waveformMixer.gain(1, globalState.OSC2_VOL);
-    // }
+  case 5: // DETUNE_FINE
+    globalState.DETUNE_FINE = 1 - decKnobVal;
     break;
-  case 6: // DETUNE
-    globalState.DETUNE = 1 - (0.05 * (1 - (float(knobValue) * DIV1023)));
+  case 6: // DETUNE_COARSE
+    globalState.DETUNE_COARSE = pow(2, 2 * ((1 - decKnobVal) - 0.5));
+    for (int i = 0; i < polyBuffSize; i++)
+    {
+      polyBuff[i].waveformB.frequency(polyBuff[i].noteFreq * globalState.DETUNE_COARSE);
+    }
     break;
   case 10: // FILTER_FREQ
-    globalState.FILTER_FREQ = 10000 * (1 - (float(knobValue) * DIV1023));
+    globalState.FILTER_FREQ = 7000 * (1 - decKnobVal);
     for (int i = 0; i < polyBuffSize; i++)
     {
       polyBuff[i].filter.frequency(globalState.FILTER_FREQ);

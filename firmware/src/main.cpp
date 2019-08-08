@@ -55,7 +55,9 @@ synthState globalState = {
     false,             // shift
     1.0,               // OSC1_VOL
     0.33,              // OSC2_VOL
-    1.0,               // DETUNE
+    0.5,               // PWM
+    0.0,               // DETUNE_FINE
+    0.0,               // DETUNE_COARSE
     0.0,               // AMP_ATTACK
     0.0,               // AMP_DECAY
     1.0,               // AMP_SUSTAIN
