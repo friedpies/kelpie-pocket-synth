@@ -1,3 +1,6 @@
+#ifndef globalSynthState_h
+#define globalSynthState_h
+
 struct synthState
 {
   int WAVEFORM1;
@@ -20,23 +23,4 @@ struct synthState
   float MASTER_VOL;
 };
 
-synthState globalState = {
-    WAVEFORM_SAWTOOTH, // WAVEFORM1
-    WAVEFORM_SAWTOOTH, // WAVEFORM2
-    true,              // isPoly
-    false,             // shift
-    1.0,               // OSC1_VOL
-    0.33,              // OSC2_VOL
-    1.0,               // DETUNE
-    0.0,               // AMP_ATTACK
-    0.0,               // AMP_DECAY
-    1.0,               // AMP_SUSTAIN
-    500,               // AMP_RELEASE
-    0.0,               // FILTER_ATTACK
-    0.0,               // FILTER_DECAY
-    1.0,               // FILTER_SUSTAIN
-    500,               // FILTER_RELEASE
-    10000,             // FILTER_FREQ
-    0.7,               // FILTER_Q
-    0.5                // MASTER_VOL
-};
+#endif
