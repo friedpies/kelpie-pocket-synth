@@ -106,7 +106,9 @@ void setup()
     polyBuff[i].filter.octaveControl(2.0);
   }
 
-  FILT_ENV_DC.amplitude(1.0);
+  LFO.amplitude(1.0);
+  LFO.frequency(2);
+  LFO.phase(90);
 
   // V12_MIX
   V14_MIX.gain(0, 0.3);
