@@ -58,6 +58,7 @@ synthState globalState = {
     0.5,               // PWM
     0.0,               // DETUNE_FINE
     0.0,               // DETUNE_COARSE
+    0.0,               // LFO_FREQ
     0.0,               // AMP_ATTACK
     0.0,               // AMP_DECAY
     1.0,               // AMP_SUSTAIN
@@ -106,8 +107,9 @@ void setup()
     polyBuff[i].filter.octaveControl(2.0);
   }
 
+  DC_OFFSET.amplitude(1.0);
   LFO.amplitude(1.0);
-  LFO.frequency(2);
+  LFO.frequency(2.0);
   LFO.phase(90);
 
   // V12_MIX

@@ -12,6 +12,7 @@ struct synthState
   float PWM;
   float DETUNE_FINE;
   float DETUNE_COARSE;
+  float LFO_FREQ;
   float AMP_ATTACK;
   float AMP_DECAY;
   float AMP_SUSTAIN;

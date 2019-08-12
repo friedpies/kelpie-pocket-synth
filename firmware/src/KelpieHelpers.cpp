@@ -129,6 +129,10 @@ void handleKnobChange(pot knob)
       polyBuff[i].waveformB.pulseWidth(globalState.PWM);
     }
     break;
+  case 2:
+    globalState.LFO_FREQ = 30 * (1 - decKnobVal);
+    LFO.frequency(globalState.LFO_FREQ);
+    break;
   case 4: // MASTER_VOL
     globalState.MASTER_VOL = 2 * (1 - decKnobVal);
     amp1.gain(globalState.MASTER_VOL);
