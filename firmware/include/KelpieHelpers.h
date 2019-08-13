@@ -14,6 +14,8 @@ extern voice polyBuff[];
 extern synthState globalState;
 extern boolean prevButtonsState[];
 extern AudioAmplifier amp1;
+extern AudioSynthWaveformSine LFO;
+extern AudioMixer4 LFO_MIXER_AMP;
 void keyBuffMono(int note, boolean isNoteOn);
 void keyBuffPoly(int note, boolean playNote);
 void handleButtonPress(boolean *buttonState);
