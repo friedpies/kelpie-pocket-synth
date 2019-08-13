@@ -13,6 +13,7 @@ struct synthState
   float DETUNE_FINE;
   float DETUNE_COARSE;
   float LFO_FREQ;
+  float LFO_MIXER_AMP;
   float AMP_ATTACK;
   float AMP_DECAY;
   float AMP_SUSTAIN;
@@ -23,6 +24,7 @@ struct synthState
   float FILTER_RELEASE;
   int FILTER_FREQ;
   float FILTER_Q;
+  float FILTER_OCTAVE;
   float MASTER_VOL;
 };
 

@@ -129,40 +129,7 @@ void handleKnobChange(pot knob)
       polyBuff[i].waveformB.pulseWidth(globalState.PWM);
     }
     break;
-  case 2:
-    globalState.LFO_FREQ = 30 * (1 - decKnobVal);
-    LFO.frequency(globalState.LFO_FREQ);
-    break;
-  case 4: // MASTER_VOL
-    globalState.MASTER_VOL = 2 * (1 - decKnobVal);
-    amp1.gain(globalState.MASTER_VOL);
-    break;
-  case 5: // DETUNE_FINE
-    globalState.DETUNE_FINE = 1 - decKnobVal;
-    break;
-  case 6: // DETUNE_COARSE
-    globalState.DETUNE_COARSE = pow(2, 2 * ((1 - decKnobVal) - 0.5));
-    for (int i = 0; i < polyBuffSize; i++)
-    {
-      polyBuff[i].waveformB.frequency(polyBuff[i].noteFreq * globalState.DETUNE_COARSE);
-    }
-    break;
-  case 10: // FILTER_FREQ
-    globalState.FILTER_FREQ = 7000 * (1 - decKnobVal);
-    for (int i = 0; i < polyBuffSize; i++)
-    {
-      polyBuff[i].filter.frequency(globalState.FILTER_FREQ);
-    }
-    break;
-
-  case 11: // FILTER_Q
-    globalState.FILTER_Q = 4.3 * (1 - (float(knobValue) * DIV1023)) + 0.7;
-    for (int i = 0; i < polyBuffSize; i++)
-    {
-      polyBuff[i].filter.resonance(globalState.FILTER_Q);
-    }
-    break;
-  case 12:                          // ATTACK
+  case 2:                           // ATTACK
     if (globalState.shift == false) // FOR AMP
     {
       globalState.AMP_ATTACK = 5000 * (1 - (float(knobValue) * DIV1023));
@@ -188,7 +155,7 @@ void handleKnobChange(pot knob)
       }
     }
     break;
-  case 13:                          // DECAY
+  case 3:                           // DECAY
     if (globalState.shift == false) // FOR AMP
     {
       globalState.AMP_DECAY = 11880 * (1 - (float(knobValue) * DIV1023));
@@ -206,7 +173,21 @@ void handleKnobChange(pot knob)
       }
     }
     break;
-  case 14: // AMP_SUSTAIN
+  case 4: // MASTER_VOL
+    globalState.MASTER_VOL = 2 * (1 - decKnobVal);
+    amp1.gain(globalState.MASTER_VOL);
+    break;
+  case 5: // DETUNE_FINE
+    globalState.DETUNE_FINE = 1 - decKnobVal;
+    break;
+  case 6: // DETUNE_COARSE
+    globalState.DETUNE_COARSE = pow(2, 2 * ((1 - decKnobVal) - 0.5));
+    for (int i = 0; i < polyBuffSize; i++)
+    {
+      polyBuff[i].waveformB.frequency(polyBuff[i].noteFreq * globalState.DETUNE_COARSE);
+    }
+    break;
+  case 7: // AMP_SUSTAIN
     if (globalState.shift == false)
     {
       globalState.AMP_SUSTAIN = 1 - (float(knobValue) * DIV1023);
@@ -224,7 +205,7 @@ void handleKnobChange(pot knob)
       }
     }
     break;
-  case 15: // AMP_RELEASE
+  case 8: // AMP_RELEASE
     if (globalState.shift == false)
     {
       globalState.AMP_RELEASE = 11880 * (1 - (float(knobValue) * DIV1023));
@@ -241,6 +222,39 @@ void handleKnobChange(pot knob)
         polyBuff[i].filterEnv.release(globalState.FILTER_RELEASE);
       }
     }
+    break;
+  case 9:
+    break;
+  case 10: // FILTER_FREQ
+    globalState.FILTER_FREQ = 7000 * (1 - decKnobVal);
+    for (int i = 0; i < polyBuffSize; i++)
+    {
+      polyBuff[i].filter.frequency(globalState.FILTER_FREQ);
+    }
+    break;
+  case 11: // FILTER_Q
+    globalState.FILTER_Q = 4.3 * (1 - (float(knobValue) * DIV1023)) + 0.7;
+    for (int i = 0; i < polyBuffSize; i++)
+    {
+      polyBuff[i].filter.resonance(globalState.FILTER_Q);
+    }
+    break;
+  case 12: // FILTER_DEPTH
+    globalState.FILTER_OCTAVE = 7 * (1 - decKnobVal);
+    for (int i = 0; i < polyBuffSize; i++)
+    {
+      polyBuff[i].filter.octaveControl(globalState.FILTER_OCTAVE);
+    }
+    break;
+  case 13:
+    globalState.LFO_FREQ = 30 * (1 - decKnobVal);
+    LFO.frequency(globalState.LFO_FREQ);
+    break;
+  case 14:
+
+  case 15: 
+    globalState.LFO_MIXER_AMP = (1 - decKnobVal);
+    LFO_MIXER_AMP.gain(1, globalState.LFO_MIXER_AMP);
     break;
 
   default:
