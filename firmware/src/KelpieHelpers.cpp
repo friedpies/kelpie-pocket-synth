@@ -233,7 +233,7 @@ void handleKnobChange(pot knob)
     }
     break;
   case 11: // FILTER_Q
-    globalState.FILTER_Q = 4.3 * (1 - (float(knobValue) * DIV1023)) + 0.7;
+    globalState.FILTER_Q = 4.3 * (1 - (float(knobValue) * DIV1023)) + 1.1;
     for (int i = 0; i < polyBuffSize; i++)
     {
       polyBuff[i].filter.resonance(globalState.FILTER_Q);

@@ -118,17 +118,12 @@ void setup()
   LFO_MIXER_AMP.gain(1, 0);
 
   // V12_MIX
-  V14_MIX.gain(0, 0.3);
-  V14_MIX.gain(1, 0.3);
-  V14_MIX.gain(2, 0.3);
-
-  V58_MIX.gain(0, 0.3);
-  V58_MIX.gain(1, 0.3);
-  V58_MIX.gain(2, 0.3);
-
-  V912_MIX.gain(0, 0.3);
-  V912_MIX.gain(1, 0.3);
-  V912_MIX.gain(2, 0.3);
+  for (int i = 0; i < 4; i++)
+  {
+    V14_MIX.gain(0, 0.25);
+    V58_MIX.gain(0, 0.25);
+    V912_MIX.gain(0, 0.25);
+  }
 
   ALL_VOICE_MIX.gain(0, 0.5);
   ALL_VOICE_MIX.gain(1, 0.5);
@@ -182,6 +177,7 @@ void handleMidiEvent(int channelByte, int controlByte, int valueByte)
 
 void loop()
 {
+  Serial.println(globalState.FILTER_Q);
   if (MIDI.read())
   {
     int channel = MIDI.getChannel();
