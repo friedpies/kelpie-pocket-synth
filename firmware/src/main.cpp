@@ -51,7 +51,7 @@ voice polyBuff[polyBuffSize] = {
 synthState globalState = {
     WAVEFORM_SAWTOOTH, // WAVEFORM1
     WAVEFORM_SAWTOOTH, // WAVEFORM2
-    true,              // isPoly
+    false,             // isPoly
     false,             // shift
     1.0,               // OSC1_VOL
     0.33,              // OSC2_VOL
@@ -69,7 +69,7 @@ synthState globalState = {
     1.0,               // FILTER_SUSTAIN
     500,               // FILTER_RELEASE
     10000,             // FILTER_FREQ
-    0.7,               // FILTER_Q
+    1.1,               // FILTER_Q
     1.0,               // FILTER_OCTAVE
     0.5                // MASTER_VOL
 };
@@ -177,7 +177,6 @@ void handleMidiEvent(int channelByte, int controlByte, int valueByte)
 
 void loop()
 {
-  Serial.println(globalState.FILTER_Q);
   if (MIDI.read())
   {
     int channel = MIDI.getChannel();

@@ -1,12 +1,14 @@
 #include <KelpieHelpers.h>
 
-void keyBuffMono(int note, boolean isNoteOn)
+void keyBuffMono(int note, boolean playNote)
 {
-  if (isNoteOn == true)
+  if (playNote)
   {
+    Serial.println("MONO ON");
   }
   else
   {
+    Serial.println("MONO OFF");
   }
 }
 
@@ -22,6 +24,8 @@ void keyBuffPoly(int note, boolean playNote)
         polyBuff[i].noteFreq = baseNoteFreq; // SET VOICE FREQUENCY IN STATE
         polyBuff[i].waveformA.frequency(baseNoteFreq);
         polyBuff[i].waveformB.frequency(baseNoteFreq * globalState.DETUNE_COARSE);
+        polyBuff[i].waveformA.phase(0);
+        polyBuff[i].waveformB.phase(0);
         polyBuff[i].note = note;
         polyBuff[i].ampEnv.noteOn();
         polyBuff[i].filterEnv.noteOn();
@@ -85,6 +89,14 @@ void handleButtonPress(boolean *buttonsState)
         break;
 
       case 2:
+        if (buttonState == true)
+        {
+          globalState.isPoly = true;
+        }
+        else
+        {
+          globalState.isPoly = false;
+        }
         break;
 
       case 3:
@@ -252,7 +264,7 @@ void handleKnobChange(pot knob)
     break;
   case 14:
 
-  case 15: 
+  case 15:
     globalState.LFO_MIXER_AMP = (1 - decKnobVal);
     LFO_MIXER_AMP.gain(1, globalState.LFO_MIXER_AMP);
     break;
