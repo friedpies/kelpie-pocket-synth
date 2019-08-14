@@ -24,8 +24,8 @@ void keyBuffPoly(int note, int velocity, boolean playNote)
       {
         float baseNoteFreq = noteFreqs[note];
         polyBuff[i].noteFreq = baseNoteFreq; // SET VOICE FREQUENCY IN STATE
-        polyBuff[i].waveformA.frequency(baseNoteFreq);
-        polyBuff[i].waveformB.frequency(baseNoteFreq * globalState.DETUNE_COARSE);
+        polyBuff[i].waveformA.frequency(baseNoteFreq * globalState.PITCH_BEND);
+        polyBuff[i].waveformB.frequency(baseNoteFreq * globalState.PITCH_BEND * globalState.DETUNE_COARSE);
         polyBuff[i].waveformA.phase(0);
         polyBuff[i].waveformB.phase(0);
         polyBuff[i].note = note;
@@ -199,7 +199,7 @@ void handleKnobChange(pot knob)
     globalState.DETUNE_COARSE = pow(2, 2 * ((1 - decKnobVal) - 0.5));
     for (int i = 0; i < polyBuffSize; i++)
     {
-      polyBuff[i].waveformB.frequency(polyBuff[i].noteFreq * globalState.DETUNE_COARSE);
+      polyBuff[i].waveformB.frequency(polyBuff[i].noteFreq * globalState.DETUNE_COARSE * globalState.PITCH_BEND);
     }
     break;
   case 7: // AMP_SUSTAIN

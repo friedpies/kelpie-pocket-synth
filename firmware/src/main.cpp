@@ -58,6 +58,7 @@ synthState globalState = {
     0.5,               // PWM
     0.0,               // DETUNE_FINE
     0.0,               // DETUNE_COARSE
+    1.0,               // PITCH_BEND
     0.0,               // LFO_FREQ
     0.0,               // LFO_MIXER_AMP
     0.0,               // AMP_ATTACK
@@ -137,6 +138,7 @@ void handleMidiEvent(int channelByte, int controlByte, int valueByte)
   int note = MIDI.getData1();
   int velocity = MIDI.getData2();
   int pitch = 0; // initialize to zero, only applies in pitch bend case
+  float pitchBend = 0;
   switch (type)
   {
   case midi::NoteOn:
@@ -172,6 +174,14 @@ void handleMidiEvent(int channelByte, int controlByte, int valueByte)
 
   case midi::PitchBend:
     pitch = velocity * 256 + note; // this converts 8 bit values into a 16 bit value for precise pitch control
+    pitchBend = map(float(pitch), 0, 32767, -2, 2);
+    globalState.PITCH_BEND = pow(2, pitchBend / 12);
+    for (int i = 0; i < 12; i++)
+    {
+      float currentFreq = polyBuff[i].noteFreq;
+      polyBuff[i].waveformA.frequency(currentFreq * globalState.PITCH_BEND);
+      polyBuff[i].waveformB.frequency(currentFreq * globalState.PITCH_BEND * globalState.DETUNE_COARSE);
+    }
     break;
 
   case midi::ControlChange:
