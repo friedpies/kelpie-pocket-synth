@@ -16,8 +16,8 @@ extern boolean prevButtonsState[];
 extern AudioAmplifier amp1;
 extern AudioSynthWaveformSine LFO;
 extern AudioMixer4 LFO_MIXER_AMP;
-void keyBuffMono(int note, boolean isNoteOn);
-void keyBuffPoly(int note, boolean playNote);
+void keyBuffMono(int note, int velocity, boolean isNoteOn);
+void keyBuffPoly(int note, int velocty, boolean playNote);
 void handleButtonPress(boolean *buttonState);
 void handleKnobChange(pot knob);
 #endif

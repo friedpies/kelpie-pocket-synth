@@ -12,6 +12,7 @@ struct voice
   AudioSynthWaveform &waveformB;
   AudioSynthNoisePink &noise;
   AudioMixer4 &waveformMixer;
+  AudioAmplifier &waveformAmplifier;
   AudioEffectEnvelope &ampEnv;
   AudioEffectEnvelope &filterEnv;
   AudioFilterStateVariable &filter;
