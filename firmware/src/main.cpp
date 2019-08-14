@@ -134,12 +134,13 @@ void setup()
 void handleMidiEvent(int channelByte, int controlByte, int valueByte)
 {
   int type = MIDI.getType();
-  int note, velocity;
+  int note = MIDI.getData1();
+  int velocity = MIDI.getData2();
+  int pitch = 0; // initialize to zero, only applies in pitch bend case
   switch (type)
   {
   case midi::NoteOn:
-    note = MIDI.getData1();
-    velocity = MIDI.getData2();
+
     if (note > 23 && note < 108)
     {
       if (globalState.isPoly == true) // depending on mode send to buffer
@@ -154,8 +155,6 @@ void handleMidiEvent(int channelByte, int controlByte, int valueByte)
     break;
 
   case midi::NoteOff:
-    note = MIDI.getData1();
-    velocity = MIDI.getData2();
 
     // envelope1.noteOff();
     if (note > 23 && note < 108)
@@ -172,6 +171,7 @@ void handleMidiEvent(int channelByte, int controlByte, int valueByte)
     break;
 
   case midi::PitchBend:
+    pitch = velocity * 256 + note; // this converts 8 bit values into a 16 bit value for precise pitch control
     break;
 
   case midi::ControlChange:
