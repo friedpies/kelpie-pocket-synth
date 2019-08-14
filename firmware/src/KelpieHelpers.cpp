@@ -1,6 +1,6 @@
 #include <KelpieHelpers.h>
 
-void keyBuffMono(int note, boolean playNote)
+void keyBuffMono(int note, int velocity, boolean playNote)
 {
   if (playNote)
   {
@@ -12,10 +12,12 @@ void keyBuffMono(int note, boolean playNote)
   }
 }
 
-void keyBuffPoly(int note, boolean playNote)
+void keyBuffPoly(int note, int velocity, boolean playNote)
 {
   if (playNote)
   {
+    float noteGain = (float(velocity) * DIV127);
+    Serial.println(noteGain);
     for (int i = 0; i < polyBuffSize; i++)
     {
       if (polyBuff[i].ampEnv.isActive() == false)
@@ -27,6 +29,7 @@ void keyBuffPoly(int note, boolean playNote)
         polyBuff[i].waveformA.phase(0);
         polyBuff[i].waveformB.phase(0);
         polyBuff[i].note = note;
+        polyBuff[i].waveformAmplifier.gain(noteGain);
         polyBuff[i].ampEnv.noteOn();
         polyBuff[i].filterEnv.noteOn();
         break;
