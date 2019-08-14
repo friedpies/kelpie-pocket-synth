@@ -58,6 +58,7 @@ synthState globalState = {
     0.5,               // PWM
     0.0,               // DETUNE_FINE
     0.0,               // DETUNE_COARSE
+    1.0,               // PITCH_BEND
     0.0,               // LFO_FREQ
     0.0,               // LFO_MIXER_AMP
     0.0,               // AMP_ATTACK
@@ -134,12 +135,14 @@ void setup()
 void handleMidiEvent(int channelByte, int controlByte, int valueByte)
 {
   int type = MIDI.getType();
-  int note, velocity;
+  int note = MIDI.getData1();
+  int velocity = MIDI.getData2();
+  int pitch = 0; // initialize to zero, only applies in pitch bend case
+  float pitchBend = 0;
   switch (type)
   {
   case midi::NoteOn:
-    note = MIDI.getData1();
-    velocity = MIDI.getData2();
+
     if (note > 23 && note < 108)
     {
       if (globalState.isPoly == true) // depending on mode send to buffer
@@ -154,8 +157,6 @@ void handleMidiEvent(int channelByte, int controlByte, int valueByte)
     break;
 
   case midi::NoteOff:
-    note = MIDI.getData1();
-    velocity = MIDI.getData2();
 
     // envelope1.noteOff();
     if (note > 23 && note < 108)
@@ -172,6 +173,15 @@ void handleMidiEvent(int channelByte, int controlByte, int valueByte)
     break;
 
   case midi::PitchBend:
+    pitch = velocity * 256 + note; // this converts 8 bit values into a 16 bit value for precise pitch control
+    pitchBend = map(float(pitch), 0, 32767, -2, 2);
+    globalState.PITCH_BEND = pow(2, pitchBend / 12);
+    for (int i = 0; i < 12; i++)
+    {
+      float currentFreq = polyBuff[i].noteFreq;
+      polyBuff[i].waveformA.frequency(currentFreq * globalState.PITCH_BEND);
+      polyBuff[i].waveformB.frequency(currentFreq * globalState.PITCH_BEND * globalState.DETUNE_COARSE);
+    }
     break;
 
   case midi::ControlChange:
