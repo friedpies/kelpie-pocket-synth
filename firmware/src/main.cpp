@@ -185,7 +185,7 @@ void handleMidiEvent(int channelByte, int controlByte, int valueByte)
     {
       float currentFreq = polyBuff[i].noteFreq;
       polyBuff[i].waveformA.frequency(currentFreq * globalState.PITCH_BEND);
-      polyBuff[i].waveformB.frequency(currentFreq * globalState.PITCH_BEND * globalState.DETUNE_COARSE);
+      polyBuff[i].waveformB.frequency(currentFreq * globalState.PITCH_BEND * globalState.DETUNE);
     }
     break;
 

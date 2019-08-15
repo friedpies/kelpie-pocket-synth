@@ -14,7 +14,7 @@ struct synthState
   float NOISE_VOL;
   float OSC_CONSTANT; // this is a multiplication factor that is calculated based on positions of O1 O2 and N, to ensure sum of gains is 1
   float PWM;
-  float DETUNE_COARSE;
+  float DETUNE;
   float PITCH_BEND;
   float LFO_FREQ;
   float LFO_MIXER_AMP;

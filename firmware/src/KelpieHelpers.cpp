@@ -24,7 +24,7 @@ void keyBuffPoly(int note, int velocity, boolean playNote)
         float baseNoteFreq = noteFreqs[note];
         polyBuff[i].noteFreq = baseNoteFreq; // SET VOICE FREQUENCY IN STATE
         polyBuff[i].waveformA.frequency(baseNoteFreq * globalState.PITCH_BEND);
-        polyBuff[i].waveformB.frequency(baseNoteFreq * globalState.PITCH_BEND * globalState.DETUNE_COARSE);
+        polyBuff[i].waveformB.frequency(baseNoteFreq * globalState.PITCH_BEND * globalState.DETUNE);
         // polyBuff[i].waveformA.phase(0);
         // polyBuff[i].waveformB.phase(0);
         polyBuff[i].note = note;
@@ -193,11 +193,12 @@ void handleKnobChange(pot knob)
     globalState.OSC_CONSTANT = calculateOscConstant(globalState.OSC1_VOL, globalState.OSC2_VOL, globalState.NOISE_VOL);
     setWaveformLevels(globalState.OSC1_VOL, globalState.OSC2_VOL, globalState.NOISE_VOL, globalState.OSC_CONSTANT);
     break;
-  case 6: // DETUNE_COARSE
-    globalState.DETUNE_COARSE = pow(2, 2 * ((1 - decKnobVal) - 0.5));
+  case 6: // DETUNE
+    // globalState.DETUNE = pow(2, 2 * ((1 - decKnobVal) - 0.5));
+    globalState.DETUNE = calculateDetuneValue(knobValue);
     for (int i = 0; i < polyBuffSize; i++)
     {
-      polyBuff[i].waveformB.frequency(polyBuff[i].noteFreq * globalState.DETUNE_COARSE * globalState.PITCH_BEND);
+      polyBuff[i].waveformB.frequency(polyBuff[i].noteFreq * globalState.DETUNE * globalState.PITCH_BEND);
     }
     break;
   case 7: // AMP_SUSTAIN
@@ -291,4 +292,23 @@ void setWaveformLevels(float osc1Vol, float osc2Vol, float noiseVol, float oscCo
     polyBuff[i].waveformB.amplitude(osc2Vol * oscConstant);
     polyBuff[i].noise.amplitude(noiseVol - (noiseVol * oscConstant));
   }
+}
+
+float calculateDetuneValue(int knobReading)
+{
+  int knobInverse = 1023 - knobReading;
+  int midRange = 100;
+  if (knobInverse >= 0 && knobInverse <= (512 - midRange))
+  {
+    Serial.println("LOW");
+  }
+  else if (knobInverse > (512 - midRange) && knobInverse < (512 + midRange))
+  {
+    Serial.println("MED");
+  }
+  else if (knobInverse >= (512 + midRange) && knobInverse <= 1023)
+  {
+    Serial.println("HIGH");
+  }
+  return 0.0;
 }
