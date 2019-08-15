@@ -54,9 +54,10 @@ synthState globalState = {
     false,             // isPoly
     false,             // shift
     1.0,               // OSC1_VOL
-    0.33,              // OSC2_VOL
+    1.0,              // OSC2_VOL
+    1.0,               // NOISE_VOL
+    0.0,               // OSC_CONSTANT
     0.5,               // PWM
-    0.0,               // DETUNE_FINE
     0.0,               // DETUNE_COARSE
     1.0,               // PITCH_BEND
     0.0,               // LFO_FREQ
@@ -85,19 +86,19 @@ void setup()
   for (int i = 0; i < polyBuffSize; i++)
   {
     polyBuff[i].waveformA.begin(globalState.WAVEFORM1);
-    polyBuff[i].waveformA.amplitude(0.5);
+    polyBuff[i].waveformA.amplitude(0.33);
     polyBuff[i].waveformA.frequency(82.41);
     polyBuff[i].waveformA.pulseWidth(0.15);
 
     polyBuff[i].waveformB.begin(globalState.WAVEFORM2);
-    polyBuff[i].waveformB.amplitude(0.5);
+    polyBuff[i].waveformB.amplitude(0.33);
     polyBuff[i].waveformB.frequency(82.41);
     polyBuff[i].waveformB.pulseWidth(0.15);
 
-    polyBuff[i].noise.amplitude(0.0);
+    polyBuff[i].noise.amplitude(0.33);
 
-    polyBuff[i].waveformMixer.gain(0, globalState.OSC1_VOL);
-    polyBuff[i].waveformMixer.gain(1, globalState.OSC2_VOL);
+    polyBuff[i].waveformMixer.gain(0, 1.0);
+    polyBuff[i].waveformMixer.gain(1, 1.0);
     polyBuff[i].waveformMixer.gain(2, 1.0);
 
     polyBuff[i].waveformAmplifier.gain(1);
