@@ -169,7 +169,7 @@ void handleKnobChange(pot knob)
   case 3:                           // DECAY
     if (globalState.shift == false) // FOR AMP
     {
-      globalState.AMP_DECAY = 11880 * (1 - (float(knobValue) * DIV1023));
+      globalState.AMP_DECAY = 5000 * (1 - (float(knobValue) * DIV1023));
       for (int i = 0; i < polyBuffSize; i++)
       {
         polyBuff[i].ampEnv.decay(globalState.AMP_DECAY);
@@ -177,7 +177,7 @@ void handleKnobChange(pot knob)
     }
     else
     { // FOR FILTER
-      globalState.FILTER_DECAY = 11880 * (1 - (float(knobValue) * DIV1023));
+      globalState.FILTER_DECAY = 5000 * (1 - (float(knobValue) * DIV1023));
       for (int i = 0; i < polyBuffSize; i++)
       {
         polyBuff[i].filterEnv.decay(globalState.FILTER_DECAY);
