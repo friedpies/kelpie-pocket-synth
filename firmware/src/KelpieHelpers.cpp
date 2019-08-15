@@ -4,11 +4,11 @@ void keyBuffMono(int note, int velocity, boolean playNote)
 {
   if (playNote)
   {
-    Serial.println("MONO ON");
+    // Serial.println("MONO ON");
   }
   else
   {
-    Serial.println("MONO OFF");
+    // Serial.println("MONO OFF");
   }
 }
 
@@ -25,6 +25,7 @@ void keyBuffPoly(int note, int velocity, boolean playNote)
         polyBuff[i].noteFreq = baseNoteFreq; // SET VOICE FREQUENCY IN STATE
         polyBuff[i].waveformA.frequency(baseNoteFreq * globalState.PITCH_BEND);
         polyBuff[i].waveformB.frequency(baseNoteFreq * globalState.PITCH_BEND * globalState.DETUNE);
+
         // polyBuff[i].waveformA.phase(0);
         // polyBuff[i].waveformB.phase(0);
         polyBuff[i].note = note;
@@ -194,8 +195,8 @@ void handleKnobChange(pot knob)
     setWaveformLevels(globalState.OSC1_VOL, globalState.OSC2_VOL, globalState.NOISE_VOL, globalState.OSC_CONSTANT);
     break;
   case 6: // DETUNE
-    // globalState.DETUNE = pow(2, 2 * ((1 - decKnobVal) - 0.5));
-    globalState.DETUNE = calculateDetuneValue(knobValue);
+    globalState.DETUNE = pow(2, 2 * ((1 - decKnobVal) - 0.5));
+    // globalState.DETUNE = calculateDetuneValue(knobValue);
     for (int i = 0; i < polyBuffSize; i++)
     {
       polyBuff[i].waveformB.frequency(polyBuff[i].noteFreq * globalState.DETUNE * globalState.PITCH_BEND);
@@ -300,15 +301,15 @@ float calculateDetuneValue(int knobReading)
   int midRange = 100;
   if (knobInverse >= 0 && knobInverse <= (512 - midRange))
   {
-    Serial.println("LOW");
+    // Serial.println("LOW");
   }
   else if (knobInverse > (512 - midRange) && knobInverse < (512 + midRange))
   {
-    Serial.println("MED");
+    // Serial.println("MED");
   }
   else if (knobInverse >= (512 + midRange) && knobInverse <= 1023)
   {
-    Serial.println("HIGH");
+    // Serial.println("HIGH");
   }
   return 0.0;
 }

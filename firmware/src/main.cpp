@@ -58,11 +58,11 @@ synthState globalState = {
     false,             // isPoly
     false,             // shift
     1.0,               // OSC1_VOL
-    1.0,              // OSC2_VOL
+    1.0,               // OSC2_VOL
     1.0,               // NOISE_VOL
     0.0,               // OSC_CONSTANT
     0.5,               // PWM
-    0.0,               // DETUNE_COARSE
+    1.0,               // DETUNE
     1.0,               // PITCH_BEND
     0.0,               // LFO_FREQ
     0.0,               // LFO_MIXER_AMP
@@ -83,7 +83,7 @@ synthState globalState = {
 void setup()
 {
   MIDI.begin();
-  AudioMemory(80);
+  AudioMemory(164);
   sgtl5000_1.enable();
   sgtl5000_1.volume(globalState.MASTER_VOL);
 
