@@ -130,12 +130,7 @@ void handleKnobChange(pot knob)
     globalState.OSC1_VOL = decKnobVal;
     globalState.OSC2_VOL = 1 - decKnobVal;
     globalState.OSC_CONSTANT = calculateOscConstant(globalState.OSC1_VOL, globalState.OSC2_VOL, globalState.NOISE_VOL);
-    for (int i = 0; i < polyBuffSize; i++)
-    {
-      polyBuff[i].waveformA.amplitude(globalState.OSC1_VOL * globalState.OSC_CONSTANT);
-      polyBuff[i].waveformB.amplitude(globalState.OSC2_VOL * globalState.OSC_CONSTANT);
-      polyBuff[i].noise.amplitude(globalState.NOISE_VOL - globalState.NOISE_VOL * globalState.OSC_CONSTANT);
-    }
+    setWaveformLevels(globalState.OSC1_VOL, globalState.OSC2_VOL, globalState.NOISE_VOL, globalState.OSC_CONSTANT);
     break;
   case 1: // PWM
     globalState.PWM = 0.1 + 0.4 * (1 - decKnobVal);
@@ -196,12 +191,7 @@ void handleKnobChange(pot knob)
   case 5: // NOISE_PRESENSE
     globalState.NOISE_VOL = 1 - decKnobVal;
     globalState.OSC_CONSTANT = calculateOscConstant(globalState.OSC1_VOL, globalState.OSC2_VOL, globalState.NOISE_VOL);
-    for (int i = 0; i < polyBuffSize; i++)
-    {
-      polyBuff[i].waveformA.amplitude(globalState.OSC1_VOL * globalState.OSC_CONSTANT);
-      polyBuff[i].waveformB.amplitude(globalState.OSC2_VOL * globalState.OSC_CONSTANT);
-      polyBuff[i].noise.amplitude(globalState.NOISE_VOL - globalState.NOISE_VOL * globalState.OSC_CONSTANT);
-    }
+    setWaveformLevels(globalState.OSC1_VOL, globalState.OSC2_VOL, globalState.NOISE_VOL, globalState.OSC_CONSTANT);
     break;
   case 6: // DETUNE_COARSE
     globalState.DETUNE_COARSE = pow(2, 2 * ((1 - decKnobVal) - 0.5));
@@ -291,4 +281,14 @@ float calculateOscConstant(float osc1Vol, float osc2Vol, float noiseVol)
   float denominator = (osc1Vol + osc2Vol + noiseVol);
   float constant = numerator / denominator;
   return constant;
+}
+
+void setWaveformLevels(float osc1Vol, float osc2Vol, float noiseVol, float oscConstant)
+{
+  for (int i = 0; i < polyBuffSize; i++)
+  {
+    polyBuff[i].waveformA.amplitude(osc1Vol * oscConstant);
+    polyBuff[i].waveformB.amplitude(osc2Vol * oscConstant);
+    polyBuff[i].noise.amplitude(noiseVol - (noiseVol * oscConstant));
+  }
 }
