@@ -10,7 +10,7 @@ struct voice
   bool noteOnOff;
   AudioSynthWaveform &waveformA;
   AudioSynthWaveform &waveformB;
-  AudioSynthNoisePink &noise;
+  AudioSynthNoiseWhite &noise;
   AudioMixer4 &waveformMixer;
   AudioAmplifier &waveformAmplifier;
   AudioEffectEnvelope &ampEnv;

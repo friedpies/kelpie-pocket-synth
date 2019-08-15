@@ -17,7 +17,6 @@ void keyBuffPoly(int note, int velocity, boolean playNote)
   if (playNote)
   {
     float noteGain = (float(velocity) * DIV127);
-    Serial.println(noteGain);
     for (int i = 0; i < polyBuffSize; i++)
     {
       if (polyBuff[i].ampEnv.isActive() == false)
@@ -26,8 +25,8 @@ void keyBuffPoly(int note, int velocity, boolean playNote)
         polyBuff[i].noteFreq = baseNoteFreq; // SET VOICE FREQUENCY IN STATE
         polyBuff[i].waveformA.frequency(baseNoteFreq * globalState.PITCH_BEND);
         polyBuff[i].waveformB.frequency(baseNoteFreq * globalState.PITCH_BEND * globalState.DETUNE_COARSE);
-        polyBuff[i].waveformA.phase(0);
-        polyBuff[i].waveformB.phase(0);
+        // polyBuff[i].waveformA.phase(0);
+        // polyBuff[i].waveformB.phase(0);
         polyBuff[i].note = note;
         polyBuff[i].waveformAmplifier.gain(noteGain);
         polyBuff[i].ampEnv.noteOn();
@@ -130,11 +129,8 @@ void handleKnobChange(pot knob)
   case 0: // BALANCE
     globalState.OSC1_VOL = decKnobVal;
     globalState.OSC2_VOL = 1 - decKnobVal;
-    for (int i = 0; i < polyBuffSize; i++)
-    {
-      polyBuff[i].waveformMixer.gain(0, globalState.OSC1_VOL);
-      polyBuff[i].waveformMixer.gain(1, globalState.OSC2_VOL);
-    }
+    globalState.OSC_CONSTANT = calculateOscConstant(globalState.OSC1_VOL, globalState.OSC2_VOL, globalState.NOISE_VOL);
+    setWaveformLevels(globalState.OSC1_VOL, globalState.OSC2_VOL, globalState.NOISE_VOL, globalState.OSC_CONSTANT);
     break;
   case 1: // PWM
     globalState.PWM = 0.1 + 0.4 * (1 - decKnobVal);
@@ -192,8 +188,10 @@ void handleKnobChange(pot knob)
     globalState.MASTER_VOL = 2 * (1 - decKnobVal);
     amp1.gain(globalState.MASTER_VOL);
     break;
-  case 5: // DETUNE_FINE
-    globalState.DETUNE_FINE = 1 - decKnobVal;
+  case 5: // NOISE_PRESENSE
+    globalState.NOISE_VOL = 1 - decKnobVal;
+    globalState.OSC_CONSTANT = calculateOscConstant(globalState.OSC1_VOL, globalState.OSC2_VOL, globalState.NOISE_VOL);
+    setWaveformLevels(globalState.OSC1_VOL, globalState.OSC2_VOL, globalState.NOISE_VOL, globalState.OSC_CONSTANT);
     break;
   case 6: // DETUNE_COARSE
     globalState.DETUNE_COARSE = pow(2, 2 * ((1 - decKnobVal) - 0.5));
@@ -274,5 +272,23 @@ void handleKnobChange(pot knob)
 
   default:
     break;
+  }
+}
+
+float calculateOscConstant(float osc1Vol, float osc2Vol, float noiseVol)
+{
+  float numerator = (1 - noiseVol);
+  float denominator = (osc1Vol + osc2Vol + noiseVol);
+  float constant = numerator / denominator;
+  return constant;
+}
+
+void setWaveformLevels(float osc1Vol, float osc2Vol, float noiseVol, float oscConstant)
+{
+  for (int i = 0; i < polyBuffSize; i++)
+  {
+    polyBuff[i].waveformA.amplitude(osc1Vol * oscConstant);
+    polyBuff[i].waveformB.amplitude(osc2Vol * oscConstant);
+    polyBuff[i].noise.amplitude(noiseVol - (noiseVol * oscConstant));
   }
 }

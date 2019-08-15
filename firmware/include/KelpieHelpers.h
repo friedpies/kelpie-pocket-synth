@@ -20,4 +20,6 @@ void keyBuffMono(int note, int velocity, boolean isNoteOn);
 void keyBuffPoly(int note, int velocty, boolean playNote);
 void handleButtonPress(boolean *buttonState);
 void handleKnobChange(pot knob);
+float calculateOscConstant(float osc1Vol, float osc2Vol, float noiseVol);
+void setWaveformLevels(float osc1Vol, float osc2Vol, float noiseVol, float oscConstant);
 #endif
