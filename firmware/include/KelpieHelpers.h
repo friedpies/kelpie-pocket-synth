@@ -1,3 +1,5 @@
+// HELPER FUNCTIONS USED ACROSS VARIOUS CLASSES AND IN MAIN CODE
+
 #ifndef Kelpie_Helpers_h
 #define Kelpie_Helpers_h
 
@@ -5,7 +7,7 @@
 #include <keyMappings.h>
 #include <Audio.h>
 #include <voices.h>
-#include <Input.h>
+#include <HardwareInputs.h>
 #include <globalSynthState.h>
 #include <contants.h>
 

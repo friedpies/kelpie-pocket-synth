@@ -1,6 +1,4 @@
-// Classes for Kelpie Synth
-// Author: Kenneth Marut
-// v0.0.1
+// ENCAPSULATES ALL CODE RELATED TO HARDWARE INTERFACE
 
 #ifndef Kelpie_h
 #define Kelpie_h
@@ -8,7 +6,7 @@
 #include <Arduino.h>
 #include <Bounce.h>
 #include <pinDefines.h>
-#include <Input.h>
+#include <HardwareInputs.h>
 
 class Kelpie
 {

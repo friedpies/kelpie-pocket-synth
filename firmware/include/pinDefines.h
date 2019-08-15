@@ -1,3 +1,5 @@
+// ALL PIN MAPPINGS FOR MCU
+
 #define KNOB1 20
 #define KNOB2 21
 #define KNOB3 31

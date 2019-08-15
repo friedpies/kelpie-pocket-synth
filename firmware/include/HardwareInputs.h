@@ -1,5 +1,7 @@
-#ifndef input_h
-#define input_h
+// VARIOUS STRUCTS TO DEFINE PARAMETERS FOR HARDWARE INPUT TYPES
+
+#ifndef hardware_input_h
+#define hardware_input_h
 
 #include <Bounce.h>
 // struct to store individual pot names into a vector

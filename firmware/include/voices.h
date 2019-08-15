@@ -1,4 +1,4 @@
-// All "Voice" Information is stored here
+// DEFINES A SINGLE 'VOICE'. THERE ARE 12 VOICES TOTAL, THEY ARE INITIALIZED IN THE MAIN.CPP FILE
 #ifndef Voices_h
 #define Voices_h
 

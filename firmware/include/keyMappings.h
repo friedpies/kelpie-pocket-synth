@@ -1,4 +1,6 @@
-// A lookup table for MIDI notes to frequencies
+// A LOOKUP TABLE FOR MIDI NOTES -> FREQUENCIES,
+// THIS WAS TAKEN FROM NOTES AND VOLTS TEENSY SYNTH TUTORIAL
+
 #ifndef keyMappings_h
 #define keyMappings_h
 

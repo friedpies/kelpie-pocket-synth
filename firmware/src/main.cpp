@@ -1,3 +1,7 @@
+// MAIN CODE FOR KELPIE SYNTHESIZER
+// WRITTEN BY KENNETH MARUT (WWW.KENNETHMARUT.COM)
+// THIS PROJECT CAN BE FOLLOWED HERE: https://hackaday.io/project/166460-kelpie-synth-module-for-keyboard-controllers
+
 #include <Arduino.h>
 #include <MIDI.h>
 #include <Audio.h>
