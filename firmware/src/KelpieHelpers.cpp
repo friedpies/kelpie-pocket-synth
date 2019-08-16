@@ -14,18 +14,20 @@ void keyBuffMono(int note, int velocity, boolean playNote)
 
 void keyBuffPoly(int note, int velocity, boolean playNote)
 {
+  Serial.println(millis());
+  Serial.println("1");
   if (playNote)
   {
     float noteGain = (float(velocity) * DIV127);
     for (int i = 0; i < polyBuffSize; i++)
     {
+      Serial.println("2");
       if (polyBuff[i].ampEnv.isActive() == false)
       {
         float baseNoteFreq = noteFreqs[note];
         polyBuff[i].noteFreq = baseNoteFreq; // SET VOICE FREQUENCY IN STATE
         polyBuff[i].waveformA.frequency(baseNoteFreq * globalState.PITCH_BEND);
         polyBuff[i].waveformB.frequency(baseNoteFreq * globalState.PITCH_BEND * globalState.DETUNE);
-
         // polyBuff[i].waveformA.phase(0);
         // polyBuff[i].waveformB.phase(0);
         polyBuff[i].note = note;

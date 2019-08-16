@@ -37,20 +37,21 @@ voice VOICE_10 = {0, 0.0, 0, false, V10_A, V10_B, V10_N, V10_MIX, V10_AMP, V10_E
 voice VOICE_11 = {0, 0.0, 0, false, V11_A, V11_B, V11_N, V11_MIX, V11_AMP, V11_ENV, V11_FILT_ENV, V11_FILT};
 voice VOICE_12 = {0, 0.0, 0, false, V12_A, V12_B, V12_N, V12_MIX, V12_AMP, V12_ENV, V12_FILT_ENV, V12_FILT};
 
-const int polyBuffSize = 12;
+const int polyBuffSize = 6;
 voice polyBuff[polyBuffSize] = {
     VOICE_1,
     VOICE_2,
     VOICE_3,
     VOICE_4,
     VOICE_5,
-    VOICE_6,
-    VOICE_7,
-    VOICE_8,
-    VOICE_9,
-    VOICE_10,
-    VOICE_11,
-    VOICE_12};
+    VOICE_6
+    // VOICE_7,
+    // VOICE_8,
+    // VOICE_9,
+    // VOICE_10,
+    // VOICE_11,
+    // VOICE_12
+    };
 
 synthState globalState = {
     WAVEFORM_SAWTOOTH, // WAVEFORM1
@@ -202,6 +203,7 @@ void loop()
     int controlType = MIDI.getData1();
     int value = MIDI.getData2();
     handleMidiEvent(channel, controlType, value);
+    Serial.println("END OF MIDI FUNC");
   }
 
   changedKnob = kelpie.pollKnobs(false);
