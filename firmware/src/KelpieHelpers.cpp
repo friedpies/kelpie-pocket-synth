@@ -14,14 +14,11 @@ void keyBuffMono(int note, int velocity, boolean playNote)
 
 void keyBuffPoly(int note, int velocity, boolean playNote)
 {
-  Serial.println(millis());
-  Serial.println("1");
   if (playNote)
   {
     float noteGain = (float(velocity) * DIV127);
     for (int i = 0; i < polyBuffSize; i++)
     {
-      Serial.println("2");
       if (polyBuff[i].ampEnv.isActive() == false)
       {
         float baseNoteFreq = noteFreqs[note];
@@ -197,8 +194,7 @@ void handleKnobChange(pot knob)
     setWaveformLevels(globalState.OSC1_VOL, globalState.OSC2_VOL, globalState.NOISE_VOL, globalState.OSC_CONSTANT);
     break;
   case 6: // DETUNE
-    globalState.DETUNE = pow(2, 2 * ((1 - decKnobVal) - 0.5));
-    // globalState.DETUNE = calculateDetuneValue(knobValue);
+    globalState.DETUNE = calculateDetuneValue(knobValue);
     for (int i = 0; i < polyBuffSize; i++)
     {
       polyBuff[i].waveformB.frequency(polyBuff[i].noteFreq * globalState.DETUNE * globalState.PITCH_BEND);
@@ -300,18 +296,26 @@ void setWaveformLevels(float osc1Vol, float osc2Vol, float noiseVol, float oscCo
 float calculateDetuneValue(int knobReading)
 {
   int knobInverse = 1023 - knobReading;
-  int midRange = 100;
-  if (knobInverse >= 0 && knobInverse <= (512 - midRange))
+  float mappedKnob = 0.0;
+  // piecewise function that separates tuning knob into 3 sections
+  // mid section is shallower to achieve finer tuning
+  // lower and upper limits will push the tuning 1 octave higher or lower
+  if (knobInverse >= 0 && knobInverse <= (362))
   {
-    // Serial.println("LOW");
+    mappedKnob = knobInverse * 1.24; // 1.24 is calculated by dividing 1023/823
   }
-  else if (knobInverse > (512 - midRange) && knobInverse < (512 + midRange))
+  else if (knobInverse > (362) && knobInverse < (662))
   {
-    // Serial.println("MED");
+    // this line is calculated by interpolating the points between lower and upper sections
+    mappedKnob = ((knobInverse - 362) * 0.413) + 449;
   }
-  else if (knobInverse >= (512 + midRange) && knobInverse <= 1023)
+  else if (knobInverse >= (662) && knobInverse <= 1023)
   {
-    // Serial.println("HIGH");
+    // this is a line with the same slope as the lower bound, but offset in X direction
+    mappedKnob = (knobInverse - 200) * 1.24;
   }
-  return 0.0;
+  // converts mapped reading to float val between 0 and 1.0
+  float decKnobVal = mappedKnob * DIV1023;
+  // maps prev value to value between 1/2 and 2, this is is half or 2x the base frequency (octaves)
+  return pow(2, 2 * (decKnobVal - 0.5));
 }

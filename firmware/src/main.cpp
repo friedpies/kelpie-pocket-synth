@@ -37,7 +37,7 @@ voice VOICE_10 = {0, 0.0, 0, false, V10_A, V10_B, V10_N, V10_MIX, V10_AMP, V10_E
 voice VOICE_11 = {0, 0.0, 0, false, V11_A, V11_B, V11_N, V11_MIX, V11_AMP, V11_ENV, V11_FILT_ENV, V11_FILT};
 voice VOICE_12 = {0, 0.0, 0, false, V12_A, V12_B, V12_N, V12_MIX, V12_AMP, V12_ENV, V12_FILT_ENV, V12_FILT};
 
-const int polyBuffSize = 6;
+const int polyBuffSize = 6; // 12 voices have been causing issues, so running 6 for now
 voice polyBuff[polyBuffSize] = {
     VOICE_1,
     VOICE_2,
@@ -51,7 +51,7 @@ voice polyBuff[polyBuffSize] = {
     // VOICE_10,
     // VOICE_11,
     // VOICE_12
-    };
+};
 
 synthState globalState = {
     WAVEFORM_SAWTOOTH, // WAVEFORM1
@@ -182,7 +182,7 @@ void handleMidiEvent(int channelByte, int controlByte, int valueByte)
     pitch = velocity * 256 + note; // this converts 8 bit values into a 16 bit value for precise pitch control
     pitchBend = map(float(pitch), 0, 32767, -2, 2);
     globalState.PITCH_BEND = pow(2, pitchBend / 12);
-    for (int i = 0; i < 12; i++)
+    for (int i = 0; i < polyBuffSize; i++)
     {
       float currentFreq = polyBuff[i].noteFreq;
       polyBuff[i].waveformA.frequency(currentFreq * globalState.PITCH_BEND);
@@ -203,7 +203,6 @@ void loop()
     int controlType = MIDI.getData1();
     int value = MIDI.getData2();
     handleMidiEvent(channel, controlType, value);
-    Serial.println("END OF MIDI FUNC");
   }
 
   changedKnob = kelpie.pollKnobs(false);
