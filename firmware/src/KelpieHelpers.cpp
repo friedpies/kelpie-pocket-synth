@@ -26,39 +26,58 @@ void playNoteMono(boolean play, int note, int velocity)
 
 void keyBuffMono(int note, int velocity, boolean playNote)
 {
-  static const int BUFFERSIZE = 8;
-  static byte monoKeyBuffer[BUFFERSIZE];
-  static byte currentBuffSize = 0;
-  if (playNote && (currentBuffSize < BUFFERSIZE))
+  static const int MONOBUFFERSIZE = 4;
+  static int currentActiveVoice = 0;
+  static int order = 0;
+  static monoVoice monoKeyBuffer[MONOBUFFERSIZE] = {
+      {false, 255, 0, -1},
+      {false, 255, 0, -1},
+      {false, 255, 0, -1},
+      {false, 255, 0, -1}};
+
+  // static byte currentlyoundingNote = 0;
+  if (playNote)
   {
-    playNoteMono(true, note, velocity);
-    monoKeyBuffer[currentBuffSize] = note;
-    currentBuffSize++;
-    return;
-  }
-  else if (!playNote && currentBuffSize != 0)
-  {
-    for (int i = 0; i < currentBuffSize; i++)
+    float noteFreq = noteFreqs[note];
+    for (int i = 0; i < MONOBUFFERSIZE; i++)
     {
-      if (monoKeyBuffer[i] == note)
+      monoVoice thisVoice = monoKeyBuffer[i];
+      if (thisVoice.isActive == false)
       {
-        for (int j = i; j < (currentBuffSize - 1); j++)
-        {
-          monoKeyBuffer[j] = monoKeyBuffer[j + 1];
-        }
-        currentBuffSize--;
-        monoKeyBuffer[currentBuffSize] = 255;
-        if (currentBuffSize != 0)
-        {
-          // float baseNoteFreq = noteFreqs[monoKeyBuffer[currentBuffSize - 1]];
-          // playNoteMono[monoKeyBuffer]
-        }
-        else
-        {
-          playNoteMono(false, note, velocity);
-        }
+        // set this voice active
+        thisVoice.isActive == true;
+        // set this voice to the current voice
+        currentActiveVoice = i;
+        // set this voices order to current order
+        thisVoice.order = order;
+        // set this voice's note
+        thisVoice.note = note;
+        // set this voice's freq
+        thisVoice.noteFreq = noteFreq;
+        // increment order
+        order++;
+
+        // play note
+        playNoteMono(true, note, velocity);
+        break;
       }
     }
+  }
+  else if (!playNote) // if key is released
+  {
+    for (int i = 0; i < MONOBUFFERSIZE; i++)
+    {
+      monoVoice thisVoice = monoKeyBuffer[i];
+      if (thisVoice.isActive && thisVoice.note == note)
+      {
+        thisVoice.isActive == false;
+        thisVoice.order = -1;
+        
+      }
+    }
+  }
+  for (int i = 0; i < MONOBUFFERSIZE; i++)
+  {
   }
 }
 
@@ -75,8 +94,6 @@ void keyBuffPoly(int note, int velocity, boolean playNote)
         polyVoices[i].noteFreq = baseNoteFreq; // SET VOICE FREQUENCY IN STATE
         polyVoices[i].waveformA.frequency(baseNoteFreq * globalState.PITCH_BEND);
         polyVoices[i].waveformB.frequency(baseNoteFreq * globalState.PITCH_BEND * globalState.DETUNE);
-        // polyVoices[i].waveformA.phase(0);
-        // polyVoices[i].waveformB.phase(0);
         polyVoices[i].note = note;
         polyVoices[i].waveformAmplifier.gain(noteGain);
         polyVoices[i].ampEnv.noteOn();

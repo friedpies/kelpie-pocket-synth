@@ -13,8 +13,8 @@
 
 extern const int numPolyVoices;
 extern const int numMonoVoices;
-extern voice polyVoices[];
-extern voice monoVoices[];
+extern polyVoice polyVoices[];
+extern polyVoice monoVoices[];
 extern synthState globalState;
 extern boolean prevButtonsState[];
 extern AudioAmplifier amp1;
