@@ -4,11 +4,11 @@ void keyBuffMono(int note, int velocity, boolean playNote)
 {
   if (playNote)
   {
-    Serial.println("MONO ON");
+    // Serial.println("MONO ON");
   }
   else
   {
-    Serial.println("MONO OFF");
+    // Serial.println("MONO OFF");
   }
 }
 
@@ -24,7 +24,7 @@ void keyBuffPoly(int note, int velocity, boolean playNote)
         float baseNoteFreq = noteFreqs[note];
         polyBuff[i].noteFreq = baseNoteFreq; // SET VOICE FREQUENCY IN STATE
         polyBuff[i].waveformA.frequency(baseNoteFreq * globalState.PITCH_BEND);
-        polyBuff[i].waveformB.frequency(baseNoteFreq * globalState.PITCH_BEND * globalState.DETUNE_COARSE);
+        polyBuff[i].waveformB.frequency(baseNoteFreq * globalState.PITCH_BEND * globalState.DETUNE);
         // polyBuff[i].waveformA.phase(0);
         // polyBuff[i].waveformB.phase(0);
         polyBuff[i].note = note;
@@ -193,11 +193,11 @@ void handleKnobChange(pot knob)
     globalState.OSC_CONSTANT = calculateOscConstant(globalState.OSC1_VOL, globalState.OSC2_VOL, globalState.NOISE_VOL);
     setWaveformLevels(globalState.OSC1_VOL, globalState.OSC2_VOL, globalState.NOISE_VOL, globalState.OSC_CONSTANT);
     break;
-  case 6: // DETUNE_COARSE
-    globalState.DETUNE_COARSE = pow(2, 2 * ((1 - decKnobVal) - 0.5));
+  case 6: // DETUNE
+    globalState.DETUNE = calculateDetuneValue(knobValue);
     for (int i = 0; i < polyBuffSize; i++)
     {
-      polyBuff[i].waveformB.frequency(polyBuff[i].noteFreq * globalState.DETUNE_COARSE * globalState.PITCH_BEND);
+      polyBuff[i].waveformB.frequency(polyBuff[i].noteFreq * globalState.DETUNE * globalState.PITCH_BEND);
     }
     break;
   case 7: // AMP_SUSTAIN
@@ -291,4 +291,31 @@ void setWaveformLevels(float osc1Vol, float osc2Vol, float noiseVol, float oscCo
     polyBuff[i].waveformB.amplitude(osc2Vol * oscConstant);
     polyBuff[i].noise.amplitude(noiseVol - (noiseVol * oscConstant));
   }
+}
+
+float calculateDetuneValue(int knobReading)
+{
+  int knobInverse = 1023 - knobReading;
+  float mappedKnob = 0.0;
+  // piecewise function that separates tuning knob into 3 sections
+  // mid section is shallower to achieve finer tuning
+  // lower and upper limits will push the tuning 1 octave higher or lower
+  if (knobInverse >= 0 && knobInverse <= (362))
+  {
+    mappedKnob = knobInverse * 1.24; // 1.24 is calculated by dividing 1023/823
+  }
+  else if (knobInverse > (362) && knobInverse < (662))
+  {
+    // this line is calculated by interpolating the points between lower and upper sections
+    mappedKnob = ((knobInverse - 362) * 0.413) + 449;
+  }
+  else if (knobInverse >= (662) && knobInverse <= 1023)
+  {
+    // this is a line with the same slope as the lower bound, but offset in X direction
+    mappedKnob = (knobInverse - 200) * 1.24;
+  }
+  // converts mapped reading to float val between 0 and 1.0
+  float decKnobVal = mappedKnob * DIV1023;
+  // maps prev value to value between 1/2 and 2, this is is half or 2x the base frequency (octaves)
+  return pow(2, 2 * (decKnobVal - 0.5));
 }

@@ -25,7 +25,8 @@ pot Kelpie::pollKnobs(bool forceRead)
     changedPot.didChange = false;
     for (int i = 0; i < 16; i++)
     {
-        _kelpieKnobs.value[i] = analogRead(_kelpieKnobs.name[i]);
+        _kelpieKnobs.value[i] = analogRead(_kelpieKnobs.name[i]); // THIS LINE IS BAD
+
         if ((_kelpieKnobs.value[i] - _kelpieKnobs.state[i]) > 3 || (_kelpieKnobs.value[i] - _kelpieKnobs.state[i]) < -3) // if there is a significant change
         {
             changedPot.didChange = true;
