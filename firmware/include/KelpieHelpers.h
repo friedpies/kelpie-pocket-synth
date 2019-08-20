@@ -11,6 +11,7 @@
 #include <globalSynthState.h>
 #include <contants.h>
 
+
 extern const int numPolyVoices;
 extern const int numMonoVoices;
 extern polyVoice polyVoices[];
@@ -22,7 +23,7 @@ extern AudioSynthWaveformSine LFO;
 extern AudioMixer4 LFO_MIXER_AMP;
 extern const byte MONOBUFFERSIZE;
 extern byte monoBuffer[];
-void playNoteMono(boolean play, byte note, byte velocity);
+void playNoteMono(byte playMode, byte note, byte velocity);
 void bufferShift(byte indexToRemove, byte currentIndexPlaying);
 void keyBuffMono(byte note, byte velocity, boolean isNoteOn);
 void keyBuffPoly(byte note, byte velocty, boolean playNote);

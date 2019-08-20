@@ -1,26 +1,34 @@
 #include <KelpieHelpers.h>
 
-void playNoteMono(boolean play, byte note, byte velocity)
+void playNoteMono(byte playMode, byte note, byte velocity)
 {
-  if (play)
+  float baseNoteFreq = noteFreqs[note];
+  float noteGain = float(velocity) * DIV127;
+  switch (playMode) // WILL SWITCH TO ENUMS LATER
   {
-    float baseNoteFreq = noteFreqs[note];
-    float noteGain = float(velocity) * DIV127;
+  case 0: // PLAYNOTE
     for (int i = 0; i < numMonoVoices; i++)
     {
-      monoVoices[i].waveformA.frequency(baseNoteFreq);
-      monoVoices[i].waveformB.frequency(baseNoteFreq);
+      monoVoices[i].waveformA.frequency(baseNoteFreq * globalState.PITCH_BEND);
+      monoVoices[i].waveformB.frequency(baseNoteFreq * globalState.PITCH_BEND * globalState.DETUNE);
       monoVoices[i].waveformAmplifier.gain(noteGain);
       monoVoices[i].ampEnv.noteOn();
       monoVoices[i].filterEnv.noteOn();
     }
-  }
-  else
-  {
-    // for (int i = 0; i < numMonoVoices; i++)
-    // {
-    //   monoVoices[i].ampEnv.noteOff();
-    // }
+    break;
+  case 1: // UPDATE NOTE
+    for (int i = 0; i < numMonoVoices; i++)
+    {
+      monoVoices[i].waveformA.frequency(baseNoteFreq * globalState.PITCH_BEND);
+      monoVoices[i].waveformB.frequency(baseNoteFreq * globalState.PITCH_BEND * globalState.DETUNE);
+    }
+    break;
+  case 2: // STOP NOTE
+    for (int i = 0; i < numMonoVoices; i++)
+    {
+      monoVoices[i].ampEnv.noteOff();
+    }
+    break;
   }
 };
 
@@ -35,32 +43,37 @@ void bufferShift(byte indexToRemove, byte currentIndexPlaying)
 void keyBuffMono(byte note, byte velocity, boolean playNote)
 {
   static byte currentNote = 0;
-
-  // static byte currentlyoundingNote = 0;
   if (playNote)
   {
     if (currentNote == MONOBUFFERSIZE) // if we exceed buffer size, newest note goes on end, remove first note and shift all notes down 1
     {
-      // remove first note
-      // glose gap
       bufferShift(0, currentNote);
       currentNote = MONOBUFFERSIZE - 1;
     }
     monoBuffer[currentNote] = note;
-    playNoteMono(true, note, velocity);
+    playNoteMono(0, note, velocity);
     currentNote++;
   }
-  
+
   else if (!playNote) // if key is released
   {
+    byte foundNoteIndex = MONOBUFFERSIZE; // default to index larger than buffer size
+    for (int i = 0; i < (currentNote + 1); i++)
+    {
+      if (note == monoBuffer[i])
+      {
+        foundNoteIndex = i;
+        bufferShift(foundNoteIndex, currentNote);
+        currentNote--;
+        playNoteMono(1, monoBuffer[currentNote - 1], velocity);
+        break;
+      }
+    }
+    if (currentNote == 0)
+    {
+      playNoteMono(2, note, velocity);
+    }
   }
-
-  // for (int i = 0; i < MONOBUFFERSIZE; i++)
-  // {
-  //   Serial.print(monoBuffer[i]);
-  //   Serial.print(" ");
-  // }
-  // Serial.println();
 }
 
 void keyBuffPoly(byte note, byte velocity, boolean playNote)
