@@ -24,22 +24,43 @@ void playNoteMono(boolean play, byte note, byte velocity)
   }
 };
 
+void bufferShift(byte indexToRemove, byte currentIndexPlaying)
+{
+  for (int i = indexToRemove + 1; i < currentIndexPlaying; i++)
+  {
+    monoBuffer[i - 1] = monoBuffer[i];
+  }
+}
+
 void keyBuffMono(byte note, byte velocity, boolean playNote)
 {
-  static const byte MONOBUFFERSIZE = 4;
-  static byte monoBuffer[MONOBUFFERSIZE];
   static byte currentNote = 0;
-
 
   // static byte currentlyoundingNote = 0;
   if (playNote)
   {
+    if (currentNote == MONOBUFFERSIZE) // if we exceed buffer size, newest note goes on end, remove first note and shift all notes down 1
+    {
+      // remove first note
+      // glose gap
+      bufferShift(0, currentNote);
+      currentNote = MONOBUFFERSIZE - 1;
+    }
     monoBuffer[currentNote] = note;
     playNoteMono(true, note, velocity);
+    currentNote++;
   }
+  
   else if (!playNote) // if key is released
   {
   }
+
+  // for (int i = 0; i < MONOBUFFERSIZE; i++)
+  // {
+  //   Serial.print(monoBuffer[i]);
+  //   Serial.print(" ");
+  // }
+  // Serial.println();
 }
 
 void keyBuffPoly(byte note, byte velocity, boolean playNote)

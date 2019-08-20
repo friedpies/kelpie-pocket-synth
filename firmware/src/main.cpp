@@ -53,6 +53,10 @@ polyVoice polyVoices[numPolyVoices] = {
     // VOICE_12
 };
 
+const byte MONOBUFFERSIZE = 4;
+byte monoBuffer[MONOBUFFERSIZE];
+
+
 const int numMonoVoices = 4;
 polyVoice monoVoices[numMonoVoices] = {
     VOICE_1,
