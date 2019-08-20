@@ -53,16 +53,17 @@ polyVoice polyVoices[numPolyVoices] = {
     // VOICE_12
 };
 
-const byte MONOBUFFERSIZE = 4;
+const byte MONOBUFFERSIZE = 8;
 byte monoBuffer[MONOBUFFERSIZE];
 
-
-const int numMonoVoices = 4;
+const int numMonoVoices = 6;
 polyVoice monoVoices[numMonoVoices] = {
     VOICE_1,
     VOICE_2,
     VOICE_3,
-    VOICE_4};
+    VOICE_4,
+    VOICE_5,
+    VOICE_6};
 
 synthState globalState = {
     WAVEFORM_SAWTOOTH, // WAVEFORM1
