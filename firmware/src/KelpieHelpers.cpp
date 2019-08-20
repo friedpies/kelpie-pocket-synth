@@ -9,6 +9,8 @@ void playNoteMono(byte playMode, byte note, byte velocity)
   case 0: // PLAYNOTE
     for (int i = 0; i < numMonoVoices; i++)
     {
+      monoVoices[i].note = note;
+      monoVoices[i].noteFreq = baseNoteFreq;
       monoVoices[i].waveformA.frequency(baseNoteFreq * globalState.PITCH_BEND);
       monoVoices[i].waveformB.frequency(baseNoteFreq * globalState.PITCH_BEND * globalState.DETUNE);
       monoVoices[i].waveformAmplifier.gain(noteGain);
@@ -19,6 +21,8 @@ void playNoteMono(byte playMode, byte note, byte velocity)
   case 1: // UPDATE NOTE
     for (int i = 0; i < numMonoVoices; i++)
     {
+      monoVoices[i].note = note;
+      monoVoices[i].noteFreq = baseNoteFreq;
       monoVoices[i].waveformA.frequency(baseNoteFreq * globalState.PITCH_BEND);
       monoVoices[i].waveformB.frequency(baseNoteFreq * globalState.PITCH_BEND * globalState.DETUNE);
     }
