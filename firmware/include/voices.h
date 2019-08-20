@@ -24,7 +24,6 @@ struct monoVoice
   bool isActive;
   int note;
   float noteFreq;
-  int order;
 };
 
 #endif

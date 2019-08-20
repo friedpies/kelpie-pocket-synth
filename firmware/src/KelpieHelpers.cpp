@@ -1,6 +1,6 @@
 #include <KelpieHelpers.h>
 
-void playNoteMono(boolean play, int note, int velocity)
+void playNoteMono(boolean play, byte note, byte velocity)
 {
   if (play)
   {
@@ -17,71 +17,32 @@ void playNoteMono(boolean play, int note, int velocity)
   }
   else
   {
-    for (int i = 0; i < numMonoVoices; i++)
-    {
-      monoVoices[i].ampEnv.noteOff();
-    }
+    // for (int i = 0; i < numMonoVoices; i++)
+    // {
+    //   monoVoices[i].ampEnv.noteOff();
+    // }
   }
 };
 
-void keyBuffMono(int note, int velocity, boolean playNote)
+void keyBuffMono(byte note, byte velocity, boolean playNote)
 {
-  static const int MONOBUFFERSIZE = 4;
-  static int currentActiveVoice = 0;
-  static int order = 0;
-  static monoVoice monoKeyBuffer[MONOBUFFERSIZE] = {
-      {false, 255, 0, -1},
-      {false, 255, 0, -1},
-      {false, 255, 0, -1},
-      {false, 255, 0, -1}};
+  static const byte MONOBUFFERSIZE = 4;
+  static byte monoBuffer[MONOBUFFERSIZE];
+  static byte currentNote = 0;
+
 
   // static byte currentlyoundingNote = 0;
   if (playNote)
   {
-    float noteFreq = noteFreqs[note];
-    for (int i = 0; i < MONOBUFFERSIZE; i++)
-    {
-      monoVoice thisVoice = monoKeyBuffer[i];
-      if (thisVoice.isActive == false)
-      {
-        // set this voice active
-        thisVoice.isActive == true;
-        // set this voice to the current voice
-        currentActiveVoice = i;
-        // set this voices order to current order
-        thisVoice.order = order;
-        // set this voice's note
-        thisVoice.note = note;
-        // set this voice's freq
-        thisVoice.noteFreq = noteFreq;
-        // increment order
-        order++;
-
-        // play note
-        playNoteMono(true, note, velocity);
-        break;
-      }
-    }
+    monoBuffer[currentNote] = note;
+    playNoteMono(true, note, velocity);
   }
   else if (!playNote) // if key is released
-  {
-    for (int i = 0; i < MONOBUFFERSIZE; i++)
-    {
-      monoVoice thisVoice = monoKeyBuffer[i];
-      if (thisVoice.isActive && thisVoice.note == note)
-      {
-        thisVoice.isActive == false;
-        thisVoice.order = -1;
-        
-      }
-    }
-  }
-  for (int i = 0; i < MONOBUFFERSIZE; i++)
   {
   }
 }
 
-void keyBuffPoly(int note, int velocity, boolean playNote)
+void keyBuffPoly(byte note, byte velocity, boolean playNote)
 {
   if (playNote)
   {
