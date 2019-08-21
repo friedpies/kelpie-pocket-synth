@@ -24,21 +24,21 @@ boolean prevButtonsState[4] = {false, false, false, false}; // initial state on 
 boolean *buttonsState;
 pot changedKnob;
 
-voice VOICE_1 = {0, 0.0, 0, false, V1_A, V1_B, V1_N, V1_MIX, V1_AMP, V1_ENV, V1_FILT_ENV, V1_FILT};
-voice VOICE_2 = {0, 0.0, 0, false, V2_A, V2_B, V2_N, V2_MIX, V2_AMP, V2_ENV, V2_FILT_ENV, V2_FILT};
-voice VOICE_3 = {0, 0.0, 0, false, V3_A, V3_B, V3_N, V3_MIX, V3_AMP, V3_ENV, V3_FILT_ENV, V3_FILT};
-voice VOICE_4 = {0, 0.0, 0, false, V4_A, V4_B, V4_N, V4_MIX, V4_AMP, V4_ENV, V4_FILT_ENV, V4_FILT};
-voice VOICE_5 = {0, 0.0, 0, false, V5_A, V5_B, V5_N, V5_MIX, V5_AMP, V5_ENV, V5_FILT_ENV, V5_FILT};
-voice VOICE_6 = {0, 0.0, 0, false, V6_A, V6_B, V6_N, V6_MIX, V6_AMP, V6_ENV, V6_FILT_ENV, V6_FILT};
-voice VOICE_7 = {0, 0.0, 0, false, V7_A, V7_B, V7_N, V7_MIX, V7_AMP, V7_ENV, V7_FILT_ENV, V7_FILT};
-voice VOICE_8 = {0, 0.0, 0, false, V8_A, V8_B, V8_N, V8_MIX, V8_AMP, V8_ENV, V8_FILT_ENV, V8_FILT};
-voice VOICE_9 = {0, 0.0, 0, false, V9_A, V9_B, V9_N, V9_MIX, V9_AMP, V9_ENV, V9_FILT_ENV, V9_FILT};
-voice VOICE_10 = {0, 0.0, 0, false, V10_A, V10_B, V10_N, V10_MIX, V10_AMP, V10_ENV, V10_FILT_ENV, V10_FILT};
-voice VOICE_11 = {0, 0.0, 0, false, V11_A, V11_B, V11_N, V11_MIX, V11_AMP, V11_ENV, V11_FILT_ENV, V11_FILT};
-voice VOICE_12 = {0, 0.0, 0, false, V12_A, V12_B, V12_N, V12_MIX, V12_AMP, V12_ENV, V12_FILT_ENV, V12_FILT};
+polyVoice VOICE_1 = {0, 0.0, 0, false, 0, V1_A, V1_B, V1_N, V1_MIX, V1_AMP, V1_ENV, V1_FILT_ENV, V1_FILT};
+polyVoice VOICE_2 = {0, 0.0, 0, false, 0, V2_A, V2_B, V2_N, V2_MIX, V2_AMP, V2_ENV, V2_FILT_ENV, V2_FILT};
+polyVoice VOICE_3 = {0, 0.0, 0, false, 0, V3_A, V3_B, V3_N, V3_MIX, V3_AMP, V3_ENV, V3_FILT_ENV, V3_FILT};
+polyVoice VOICE_4 = {0, 0.0, 0, false, 0, V4_A, V4_B, V4_N, V4_MIX, V4_AMP, V4_ENV, V4_FILT_ENV, V4_FILT};
+polyVoice VOICE_5 = {0, 0.0, 0, false, 0, V5_A, V5_B, V5_N, V5_MIX, V5_AMP, V5_ENV, V5_FILT_ENV, V5_FILT};
+polyVoice VOICE_6 = {0, 0.0, 0, false, 0, V6_A, V6_B, V6_N, V6_MIX, V6_AMP, V6_ENV, V6_FILT_ENV, V6_FILT};
+polyVoice VOICE_7 = {0, 0.0, 0, false, 0, V7_A, V7_B, V7_N, V7_MIX, V7_AMP, V7_ENV, V7_FILT_ENV, V7_FILT};
+polyVoice VOICE_8 = {0, 0.0, 0, false, 0, V8_A, V8_B, V8_N, V8_MIX, V8_AMP, V8_ENV, V8_FILT_ENV, V8_FILT};
+polyVoice VOICE_9 = {0, 0.0, 0, false, 0, V9_A, V9_B, V9_N, V9_MIX, V9_AMP, V9_ENV, V9_FILT_ENV, V9_FILT};
+polyVoice VOICE_10 = {0, 0.0, 0, false, 0, V10_A, V10_B, V10_N, V10_MIX, V10_AMP, V10_ENV, V10_FILT_ENV, V10_FILT};
+polyVoice VOICE_11 = {0, 0.0, 0, false, 0, V11_A, V11_B, V11_N, V11_MIX, V11_AMP, V11_ENV, V11_FILT_ENV, V11_FILT};
+polyVoice VOICE_12 = {0, 0.0, 0, false, 0, V12_A, V12_B, V12_N, V12_MIX, V12_AMP, V12_ENV, V12_FILT_ENV, V12_FILT};
 
-const int polyBuffSize = 6; // 12 voices have been causing issues, so running 6 for now
-voice polyBuff[polyBuffSize] = {
+const int numPolyVoices = 6; // 12 voices have been causing issues, so running 6 for now
+polyVoice polyVoices[numPolyVoices] = {
     VOICE_1,
     VOICE_2,
     VOICE_3,
@@ -52,6 +52,18 @@ voice polyBuff[polyBuffSize] = {
     // VOICE_11,
     // VOICE_12
 };
+
+const byte MONOBUFFERSIZE = 8;
+byte monoBuffer[MONOBUFFERSIZE];
+
+const int numMonoVoices = 6;
+polyVoice monoVoices[numMonoVoices] = {
+    VOICE_1,
+    VOICE_2,
+    VOICE_3,
+    VOICE_4,
+    VOICE_5,
+    VOICE_6};
 
 synthState globalState = {
     WAVEFORM_SAWTOOTH, // WAVEFORM1
@@ -88,34 +100,34 @@ void setup()
   sgtl5000_1.enable();
   sgtl5000_1.volume(globalState.MASTER_VOL);
 
-  for (int i = 0; i < polyBuffSize; i++)
+  for (int i = 0; i < numPolyVoices; i++)
   {
-    polyBuff[i].waveformA.begin(globalState.WAVEFORM1);
-    polyBuff[i].waveformA.amplitude(0.33);
-    polyBuff[i].waveformA.frequency(82.41);
-    polyBuff[i].waveformA.pulseWidth(0.15);
+    polyVoices[i].waveformA.begin(globalState.WAVEFORM1);
+    polyVoices[i].waveformA.amplitude(0.33);
+    polyVoices[i].waveformA.frequency(82.41);
+    polyVoices[i].waveformA.pulseWidth(0.15);
 
-    polyBuff[i].waveformB.begin(globalState.WAVEFORM2);
-    polyBuff[i].waveformB.amplitude(0.33);
-    polyBuff[i].waveformB.frequency(82.41);
-    polyBuff[i].waveformB.pulseWidth(0.15);
+    polyVoices[i].waveformB.begin(globalState.WAVEFORM2);
+    polyVoices[i].waveformB.amplitude(0.33);
+    polyVoices[i].waveformB.frequency(82.41);
+    polyVoices[i].waveformB.pulseWidth(0.15);
 
-    polyBuff[i].noise.amplitude(0.33);
+    polyVoices[i].noise.amplitude(0.33);
 
-    polyBuff[i].waveformMixer.gain(0, 1.0);
-    polyBuff[i].waveformMixer.gain(1, 1.0);
-    polyBuff[i].waveformMixer.gain(2, 1.0);
+    polyVoices[i].waveformMixer.gain(0, 1.0);
+    polyVoices[i].waveformMixer.gain(1, 1.0);
+    polyVoices[i].waveformMixer.gain(2, 1.0);
 
-    polyBuff[i].waveformAmplifier.gain(1);
+    polyVoices[i].waveformAmplifier.gain(1);
 
-    polyBuff[i].ampEnv.attack(globalState.AMP_ATTACK);
-    polyBuff[i].ampEnv.decay(globalState.AMP_DECAY);
-    polyBuff[i].ampEnv.sustain(globalState.AMP_SUSTAIN);
-    polyBuff[i].ampEnv.release(globalState.AMP_RELEASE);
+    polyVoices[i].ampEnv.attack(globalState.AMP_ATTACK);
+    polyVoices[i].ampEnv.decay(globalState.AMP_DECAY);
+    polyVoices[i].ampEnv.sustain(globalState.AMP_SUSTAIN);
+    polyVoices[i].ampEnv.release(globalState.AMP_RELEASE);
 
-    polyBuff[i].filter.frequency(globalState.FILTER_FREQ);
-    polyBuff[i].filter.resonance(globalState.FILTER_Q);
-    polyBuff[i].filter.octaveControl(2.0);
+    polyVoices[i].filter.frequency(globalState.FILTER_FREQ);
+    polyVoices[i].filter.resonance(globalState.FILTER_Q);
+    polyVoices[i].filter.octaveControl(2.0);
   }
 
   DC_OFFSET.amplitude(1.0);
@@ -182,11 +194,11 @@ void handleMidiEvent(int channelByte, int controlByte, int valueByte)
     pitch = velocity * 256 + note; // this converts 8 bit values into a 16 bit value for precise pitch control
     pitchBend = map(float(pitch), 0, 32767, -2, 2);
     globalState.PITCH_BEND = pow(2, pitchBend / 12);
-    for (int i = 0; i < polyBuffSize; i++)
+    for (int i = 0; i < numPolyVoices; i++)
     {
-      float currentFreq = polyBuff[i].noteFreq;
-      polyBuff[i].waveformA.frequency(currentFreq * globalState.PITCH_BEND);
-      polyBuff[i].waveformB.frequency(currentFreq * globalState.PITCH_BEND * globalState.DETUNE);
+      float currentFreq = polyVoices[i].noteFreq;
+      polyVoices[i].waveformA.frequency(currentFreq * globalState.PITCH_BEND);
+      polyVoices[i].waveformB.frequency(currentFreq * globalState.PITCH_BEND * globalState.DETUNE);
     }
     break;
 

@@ -1,49 +1,115 @@
 #include <KelpieHelpers.h>
 
-void keyBuffMono(int note, int velocity, boolean playNote)
+void playNoteMono(byte playMode, byte note, byte velocity)
 {
-  if (playNote)
+  float baseNoteFreq = noteFreqs[note];
+  float noteGain = float(velocity) * DIV127;
+  switch (playMode) // WILL SWITCH TO ENUMS LATER
   {
-    // Serial.println("MONO ON");
+  case 0: // PLAYNOTE
+    for (int i = 0; i < numMonoVoices; i++)
+    {
+      monoVoices[i].note = note;
+      monoVoices[i].noteFreq = baseNoteFreq;
+      monoVoices[i].waveformA.frequency(baseNoteFreq * globalState.PITCH_BEND);
+      monoVoices[i].waveformB.frequency(baseNoteFreq * globalState.PITCH_BEND * globalState.DETUNE);
+      monoVoices[i].waveformAmplifier.gain(noteGain);
+      monoVoices[i].ampEnv.noteOn();
+      monoVoices[i].filterEnv.noteOn();
+    }
+    break;
+  case 1: // UPDATE NOTE
+    for (int i = 0; i < numMonoVoices; i++)
+    {
+      monoVoices[i].note = note;
+      monoVoices[i].noteFreq = baseNoteFreq;
+      monoVoices[i].waveformA.frequency(baseNoteFreq * globalState.PITCH_BEND);
+      monoVoices[i].waveformB.frequency(baseNoteFreq * globalState.PITCH_BEND * globalState.DETUNE);
+    }
+    break;
+  case 2: // STOP NOTE
+    for (int i = 0; i < numMonoVoices; i++)
+    {
+      monoVoices[i].ampEnv.noteOff();
+    }
+    break;
   }
-  else
+};
+
+void bufferShift(byte indexToRemove, byte currentIndexPlaying)
+{
+  for (int i = indexToRemove + 1; i < currentIndexPlaying; i++)
   {
-    // Serial.println("MONO OFF");
+    monoBuffer[i - 1] = monoBuffer[i];
   }
 }
 
-void keyBuffPoly(int note, int velocity, boolean playNote)
+void keyBuffMono(byte note, byte velocity, boolean playNote)
+{
+  static byte currentNote = 0;
+  if (playNote)
+  {
+    if (currentNote == MONOBUFFERSIZE) // if we exceed buffer size, newest note goes on end, remove first note and shift all notes down 1
+    {
+      bufferShift(0, currentNote);
+      currentNote = MONOBUFFERSIZE - 1;
+    }
+    monoBuffer[currentNote] = note;
+    playNoteMono(0, note, velocity);
+    currentNote++;
+  }
+
+  else if (!playNote) // if key is released
+  {
+    byte foundNoteIndex = MONOBUFFERSIZE; // default to index larger than buffer size
+    for (int i = 0; i < (currentNote + 1); i++)
+    {
+      if (note == monoBuffer[i])
+      {
+        foundNoteIndex = i;
+        bufferShift(foundNoteIndex, currentNote);
+        currentNote--;
+        playNoteMono(1, monoBuffer[currentNote - 1], velocity);
+        break;
+      }
+    }
+    if (currentNote == 0)
+    {
+      playNoteMono(2, note, velocity);
+    }
+  }
+}
+
+void keyBuffPoly(byte note, byte velocity, boolean playNote)
 {
   if (playNote)
   {
-    float noteGain = (float(velocity) * DIV127);
-    for (int i = 0; i < polyBuffSize; i++)
+    float noteGain = float(velocity) * DIV127;
+    for (int i = 0; i < numPolyVoices; i++)
     {
-      if (polyBuff[i].ampEnv.isActive() == false)
+      if (polyVoices[i].ampEnv.isActive() == false)
       {
         float baseNoteFreq = noteFreqs[note];
-        polyBuff[i].noteFreq = baseNoteFreq; // SET VOICE FREQUENCY IN STATE
-        polyBuff[i].waveformA.frequency(baseNoteFreq * globalState.PITCH_BEND);
-        polyBuff[i].waveformB.frequency(baseNoteFreq * globalState.PITCH_BEND * globalState.DETUNE);
-        // polyBuff[i].waveformA.phase(0);
-        // polyBuff[i].waveformB.phase(0);
-        polyBuff[i].note = note;
-        polyBuff[i].waveformAmplifier.gain(noteGain);
-        polyBuff[i].ampEnv.noteOn();
-        polyBuff[i].filterEnv.noteOn();
+        polyVoices[i].noteFreq = baseNoteFreq; // SET VOICE FREQUENCY IN STATE
+        polyVoices[i].waveformA.frequency(baseNoteFreq * globalState.PITCH_BEND);
+        polyVoices[i].waveformB.frequency(baseNoteFreq * globalState.PITCH_BEND * globalState.DETUNE);
+        polyVoices[i].note = note;
+        polyVoices[i].waveformAmplifier.gain(noteGain);
+        polyVoices[i].ampEnv.noteOn();
+        polyVoices[i].filterEnv.noteOn();
         break;
       }
     }
   }
   else
   {
-    for (int i = 0; i < polyBuffSize; i++)
+    for (int i = 0; i < numPolyVoices; i++)
     {
-      if (polyBuff[i].note == note)
+      if (polyVoices[i].note == note)
       {
-        polyBuff[i].ampEnv.noteOff();
-        polyBuff[i].filterEnv.noteOff();
-        polyBuff[i].note = 0;
+        polyVoices[i].ampEnv.noteOff();
+        polyVoices[i].filterEnv.noteOff();
+        polyVoices[i].note = 0;
       }
     }
   }
@@ -69,9 +135,9 @@ void handleButtonPress(boolean *buttonsState)
         {
           globalState.WAVEFORM1 = WAVEFORM_SAWTOOTH;
         }
-        for (int i = 0; i < polyBuffSize; i++)
+        for (int i = 0; i < numPolyVoices; i++)
         {
-          polyBuff[i].waveformA.begin(globalState.WAVEFORM1);
+          polyVoices[i].waveformA.begin(globalState.WAVEFORM1);
         }
         break;
 
@@ -84,9 +150,9 @@ void handleButtonPress(boolean *buttonsState)
         {
           globalState.WAVEFORM2 = WAVEFORM_SAWTOOTH;
         }
-        for (int i = 0; i < polyBuffSize; i++)
+        for (int i = 0; i < numPolyVoices; i++)
         {
-          polyBuff[i].waveformB.begin(globalState.WAVEFORM2);
+          polyVoices[i].waveformB.begin(globalState.WAVEFORM2);
         }
         break;
 
@@ -134,10 +200,10 @@ void handleKnobChange(pot knob)
     break;
   case 1: // PWM
     globalState.PWM = 0.1 + 0.4 * (1 - decKnobVal);
-    for (int i = 0; i < polyBuffSize; i++)
+    for (int i = 0; i < numPolyVoices; i++)
     {
-      polyBuff[i].waveformA.pulseWidth(globalState.PWM);
-      polyBuff[i].waveformB.pulseWidth(globalState.PWM);
+      polyVoices[i].waveformA.pulseWidth(globalState.PWM);
+      polyVoices[i].waveformB.pulseWidth(globalState.PWM);
     }
     break;
   case 2:                           // ATTACK
@@ -148,9 +214,9 @@ void handleKnobChange(pot knob)
       {
         globalState.AMP_ATTACK = 0;
       }
-      for (int i = 0; i < polyBuffSize; i++)
+      for (int i = 0; i < numPolyVoices; i++)
       {
-        polyBuff[i].ampEnv.attack(globalState.AMP_ATTACK);
+        polyVoices[i].ampEnv.attack(globalState.AMP_ATTACK);
       }
     }
     else // FOR FILTER
@@ -160,9 +226,9 @@ void handleKnobChange(pot knob)
       {
         globalState.FILTER_ATTACK = 0;
       }
-      for (int i = 0; i < polyBuffSize; i++)
+      for (int i = 0; i < numPolyVoices; i++)
       {
-        polyBuff[i].filterEnv.attack(globalState.FILTER_ATTACK);
+        polyVoices[i].filterEnv.attack(globalState.FILTER_ATTACK);
       }
     }
     break;
@@ -170,17 +236,17 @@ void handleKnobChange(pot knob)
     if (globalState.shift == false) // FOR AMP
     {
       globalState.AMP_DECAY = 5000 * (1 - (float(knobValue) * DIV1023));
-      for (int i = 0; i < polyBuffSize; i++)
+      for (int i = 0; i < numPolyVoices; i++)
       {
-        polyBuff[i].ampEnv.decay(globalState.AMP_DECAY);
+        polyVoices[i].ampEnv.decay(globalState.AMP_DECAY);
       }
     }
     else
     { // FOR FILTER
       globalState.FILTER_DECAY = 5000 * (1 - (float(knobValue) * DIV1023));
-      for (int i = 0; i < polyBuffSize; i++)
+      for (int i = 0; i < numPolyVoices; i++)
       {
-        polyBuff[i].filterEnv.decay(globalState.FILTER_DECAY);
+        polyVoices[i].filterEnv.decay(globalState.FILTER_DECAY);
       }
     }
     break;
@@ -195,26 +261,26 @@ void handleKnobChange(pot knob)
     break;
   case 6: // DETUNE
     globalState.DETUNE = calculateDetuneValue(knobValue);
-    for (int i = 0; i < polyBuffSize; i++)
+    for (int i = 0; i < numPolyVoices; i++)
     {
-      polyBuff[i].waveformB.frequency(polyBuff[i].noteFreq * globalState.DETUNE * globalState.PITCH_BEND);
+      polyVoices[i].waveformB.frequency(polyVoices[i].noteFreq * globalState.DETUNE * globalState.PITCH_BEND);
     }
     break;
   case 7: // AMP_SUSTAIN
     if (globalState.shift == false)
     {
       globalState.AMP_SUSTAIN = 1 - (float(knobValue) * DIV1023);
-      for (int i = 0; i < polyBuffSize; i++)
+      for (int i = 0; i < numPolyVoices; i++)
       {
-        polyBuff[i].ampEnv.sustain(globalState.AMP_SUSTAIN);
+        polyVoices[i].ampEnv.sustain(globalState.AMP_SUSTAIN);
       }
     }
     else
     {
       globalState.FILTER_SUSTAIN = 1 - (float(knobValue) * DIV1023);
-      for (int i = 0; i < polyBuffSize; i++)
+      for (int i = 0; i < numPolyVoices; i++)
       {
-        polyBuff[i].filterEnv.sustain(globalState.FILTER_SUSTAIN);
+        polyVoices[i].filterEnv.sustain(globalState.FILTER_SUSTAIN);
       }
     }
     break;
@@ -222,17 +288,17 @@ void handleKnobChange(pot knob)
     if (globalState.shift == false)
     {
       globalState.AMP_RELEASE = 11880 * (1 - (float(knobValue) * DIV1023));
-      for (int i = 0; i < polyBuffSize; i++)
+      for (int i = 0; i < numPolyVoices; i++)
       {
-        polyBuff[i].ampEnv.release(globalState.AMP_RELEASE);
+        polyVoices[i].ampEnv.release(globalState.AMP_RELEASE);
       }
     }
     else
     {
       globalState.FILTER_RELEASE = 11880 * (1 - (float(knobValue) * DIV1023));
-      for (int i = 0; i < polyBuffSize; i++)
+      for (int i = 0; i < numPolyVoices; i++)
       {
-        polyBuff[i].filterEnv.release(globalState.FILTER_RELEASE);
+        polyVoices[i].filterEnv.release(globalState.FILTER_RELEASE);
       }
     }
     break;
@@ -240,23 +306,23 @@ void handleKnobChange(pot knob)
     break;
   case 10: // FILTER_FREQ
     globalState.FILTER_FREQ = 7000 * (1 - decKnobVal);
-    for (int i = 0; i < polyBuffSize; i++)
+    for (int i = 0; i < numPolyVoices; i++)
     {
-      polyBuff[i].filter.frequency(globalState.FILTER_FREQ);
+      polyVoices[i].filter.frequency(globalState.FILTER_FREQ);
     }
     break;
   case 11: // FILTER_Q
     globalState.FILTER_Q = 4.3 * (1 - (float(knobValue) * DIV1023)) + 1.1;
-    for (int i = 0; i < polyBuffSize; i++)
+    for (int i = 0; i < numPolyVoices; i++)
     {
-      polyBuff[i].filter.resonance(globalState.FILTER_Q);
+      polyVoices[i].filter.resonance(globalState.FILTER_Q);
     }
     break;
   case 12: // FILTER_DEPTH
     globalState.FILTER_OCTAVE = 7 * (1 - decKnobVal);
-    for (int i = 0; i < polyBuffSize; i++)
+    for (int i = 0; i < numPolyVoices; i++)
     {
-      polyBuff[i].filter.octaveControl(globalState.FILTER_OCTAVE);
+      polyVoices[i].filter.octaveControl(globalState.FILTER_OCTAVE);
     }
     break;
   case 13:
@@ -285,11 +351,11 @@ float calculateOscConstant(float osc1Vol, float osc2Vol, float noiseVol)
 
 void setWaveformLevels(float osc1Vol, float osc2Vol, float noiseVol, float oscConstant)
 {
-  for (int i = 0; i < polyBuffSize; i++)
+  for (int i = 0; i < numPolyVoices; i++)
   {
-    polyBuff[i].waveformA.amplitude(osc1Vol * oscConstant);
-    polyBuff[i].waveformB.amplitude(osc2Vol * oscConstant);
-    polyBuff[i].noise.amplitude(noiseVol - (noiseVol * oscConstant));
+    polyVoices[i].waveformA.amplitude(osc1Vol * oscConstant);
+    polyVoices[i].waveformB.amplitude(osc2Vol * oscConstant);
+    polyVoices[i].noise.amplitude(noiseVol - (noiseVol * oscConstant));
   }
 }
 

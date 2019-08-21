@@ -11,15 +11,22 @@
 #include <globalSynthState.h>
 #include <contants.h>
 
-extern const int polyBuffSize;
-extern voice polyBuff[];
+
+extern const int numPolyVoices;
+extern const int numMonoVoices;
+extern polyVoice polyVoices[];
+extern polyVoice monoVoices[];
 extern synthState globalState;
 extern boolean prevButtonsState[];
 extern AudioAmplifier amp1;
 extern AudioSynthWaveformSine LFO;
 extern AudioMixer4 LFO_MIXER_AMP;
-void keyBuffMono(int note, int velocity, boolean isNoteOn);
-void keyBuffPoly(int note, int velocty, boolean playNote);
+extern const byte MONOBUFFERSIZE;
+extern byte monoBuffer[];
+void playNoteMono(byte playMode, byte note, byte velocity);
+void bufferShift(byte indexToRemove, byte currentIndexPlaying);
+void keyBuffMono(byte note, byte velocity, boolean isNoteOn);
+void keyBuffPoly(byte note, byte velocty, boolean playNote);
 void handleButtonPress(boolean *buttonState);
 void handleKnobChange(pot knob);
 float calculateOscConstant(float osc1Vol, float osc2Vol, float noiseVol);

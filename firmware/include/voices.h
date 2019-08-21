@@ -2,12 +2,13 @@
 #ifndef Voices_h
 #define Voices_h
 
-struct voice
+struct polyVoice
 {
   int note;
   float noteFreq;
   int velocity;
-  bool noteOnOff;
+  bool isActive;
+  int order;
   AudioSynthWaveform &waveformA;
   AudioSynthWaveform &waveformB;
   AudioSynthNoiseWhite &noise;
@@ -16,6 +17,13 @@ struct voice
   AudioEffectEnvelope &ampEnv;
   AudioEffectEnvelope &filterEnv;
   AudioFilterStateVariable &filter;
+};
+
+struct monoVoice
+{
+  bool isActive;
+  int note;
+  float noteFreq;
 };
 
 #endif
