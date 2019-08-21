@@ -4,11 +4,10 @@
 
 struct polyVoice
 {
-  int note;
+  byte note;
   float noteFreq;
-  int velocity;
+  byte velocity;
   bool isActive;
-  int order;
   AudioSynthWaveform &waveformA;
   AudioSynthWaveform &waveformB;
   AudioSynthNoiseWhite &noise;
@@ -19,11 +18,5 @@ struct polyVoice
   AudioFilterStateVariable &filter;
 };
 
-struct monoVoice
-{
-  bool isActive;
-  int note;
-  float noteFreq;
-};
 
 #endif

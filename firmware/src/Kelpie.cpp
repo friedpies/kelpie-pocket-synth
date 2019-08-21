@@ -23,7 +23,7 @@ pot Kelpie::pollKnobs(bool forceRead)
 {
     pot changedPot;
     changedPot.didChange = false;
-    for (int i = 0; i < 16; i++)
+    for (byte i = 0; i < 16; i++)
     {
         _kelpieKnobs.value[i] = analogRead(_kelpieKnobs.name[i]); // THIS LINE IS BAD
 
@@ -47,7 +47,7 @@ int *Kelpie::getKnobs(void)
 boolean Kelpie::pollButtons(void)
 {
     boolean didChange = false;
-    for (int i = 0; i < 4; i++)
+    for (byte i = 0; i < 4; i++)
     {
         if (_kelpieButtons.buttonName[i].update())
         {

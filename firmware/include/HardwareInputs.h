@@ -8,13 +8,13 @@
 struct pot
 {
   boolean didChange;
-  int name;
+  byte name;
   int value;
 };
 
 struct potentiometers
 {
-  int name[16];  // variable name of knob
+  byte name[16];  // variable name of knob
   int value[16]; // current polled value
   int state[16]; // actual state value
 };
@@ -22,7 +22,7 @@ struct potentiometers
 struct buttons
 {
   Bounce buttonName[4];
-  int ledName[4];
+  byte ledName[4];
   boolean state[4];
 };
 #endif

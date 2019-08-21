@@ -11,8 +11,7 @@
 #include <globalSynthState.h>
 #include <contants.h>
 
-extern const int numPolyVoices;
-extern const int numMonoVoices;
+extern const byte numPolyVoices;
 extern polyVoice polyVoices[];
 extern polyVoice monoVoices[];
 extern synthState globalState;
