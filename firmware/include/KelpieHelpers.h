@@ -10,6 +10,7 @@
 #include <HardwareInputs.h>
 #include <globalSynthState.h>
 #include <contants.h>
+#include <freqKnobLookup.h>
 
 extern const byte numPolyVoices;
 extern polyVoice polyVoices[];
@@ -21,6 +22,7 @@ extern AudioSynthWaveformSine LFO;
 extern AudioMixer4 LFO_MIXER_AMP;
 extern const byte MONOBUFFERSIZE;
 extern byte monoBuffer[];
+
 void activateVoices(byte index, byte note, float frequency, float gain);
 void decactivateVoices(byte index);
 void playNoteMono(byte playMode, byte note, byte velocity);
@@ -32,4 +34,5 @@ void handleKnobChange(pot knob);
 float calculateOscConstant(float osc1Vol, float osc2Vol, float noiseVol);
 void setWaveformLevels(float osc1Vol, float osc2Vol, float noiseVol, float oscConstant);
 float calculateDetuneValue(int knobReading);
+
 #endif
