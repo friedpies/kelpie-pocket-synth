@@ -1,7 +1,7 @@
 // ENCAPSULATES ALL CODE RELATED TO HARDWARE INTERFACE
 
-#ifndef Kelpie_h
-#define Kelpie_h
+#ifndef Kelpie_io_h
+#define Kelpie_io_h
 
 #include <Arduino.h>
 #include <Bounce.h>
@@ -12,10 +12,9 @@ class Kelpie
 {
 public:
     Kelpie(bool enableSerial);
-    pot pollKnobs(bool forceRead); // this function will return a vector with pots that have changed
+    pot getKnobValOnStartup(byte knobIndex);
+    pot pollKnobs(void); // this function will return a struct with pot that has changed
     boolean pollButtons(void);
-
-    int *getKnobs(void);
     boolean *getButtons(void);
 
 private:

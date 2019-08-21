@@ -14,7 +14,7 @@
 #include <globalSynthState.h>
 #include <keyMappings.h>
 #include <contants.h>
-#include <Kelpie.h>
+#include <KelpieIO.h>
 #include <KelpieHelpers.h>
 
 Kelpie kelpie(true);
@@ -84,63 +84,6 @@ synthState globalState = {
     0.5                // MASTER_VOL
 };
 
-void setup()
-{
-  MIDI.begin();
-  AudioMemory(80);
-  sgtl5000_1.enable();
-  sgtl5000_1.volume(globalState.MASTER_VOL);
-
-  for (byte i = 0; i < numPolyVoices; i++)
-  {
-    polyVoices[i].waveformA.begin(globalState.WAVEFORM1);
-    polyVoices[i].waveformA.amplitude(0.33);
-    polyVoices[i].waveformA.frequency(82.41);
-    polyVoices[i].waveformA.pulseWidth(0.15);
-
-    polyVoices[i].waveformB.begin(globalState.WAVEFORM2);
-    polyVoices[i].waveformB.amplitude(0.33);
-    polyVoices[i].waveformB.frequency(82.41);
-    polyVoices[i].waveformB.pulseWidth(0.15);
-
-    polyVoices[i].noise.amplitude(0.33);
-
-    polyVoices[i].waveformMixer.gain(0, 1.0);
-    polyVoices[i].waveformMixer.gain(1, 1.0);
-    polyVoices[i].waveformMixer.gain(2, 1.0);
-
-    polyVoices[i].waveformAmplifier.gain(1);
-
-    polyVoices[i].ampEnv.attack(globalState.AMP_ATTACK);
-    polyVoices[i].ampEnv.decay(globalState.AMP_DECAY);
-    polyVoices[i].ampEnv.sustain(globalState.AMP_SUSTAIN);
-    polyVoices[i].ampEnv.release(globalState.AMP_RELEASE);
-
-    polyVoices[i].filter.frequency(globalState.FILTER_FREQ);
-    polyVoices[i].filter.resonance(globalState.FILTER_Q);
-    polyVoices[i].filter.octaveControl(2.0);
-  }
-
-  DC_OFFSET.amplitude(1.0);
-  LFO.amplitude(1.0);
-  LFO.frequency(2.0);
-  LFO.phase(90);
-
-  LFO_MIXER_AMP.gain(0, 1); // THIS IS THE AMP THAT ADJUSTS HOW MUCH OF THE LFO IS FED INTO THE FILTER
-  LFO_MIXER_AMP.gain(1, 0);
-
-  // V12_MIX
-  for (byte i = 0; i < 4; i++)
-  {
-    V14_MIX.gain(0, 0.25);
-    V58_MIX.gain(0, 0.25);
-    V912_MIX.gain(0, 0.25);
-  }
-
-  ALL_VOICE_MIX.gain(0, 0.5);
-  ALL_VOICE_MIX.gain(1, 0.5);
-}
-
 void handleMidiEvent(byte channelByte, byte controlByte, byte valueByte)
 {
   byte type = MIDI.getType();
@@ -197,6 +140,70 @@ void handleMidiEvent(byte channelByte, byte controlByte, byte valueByte)
   }
 }
 
+void setup()
+{
+  MIDI.begin();
+  AudioMemory(80);
+  sgtl5000_1.enable();
+  sgtl5000_1.volume(globalState.MASTER_VOL);
+
+  for (byte i = 0; i < numPolyVoices; i++)
+  {
+    polyVoices[i].waveformA.begin(globalState.WAVEFORM1);
+    polyVoices[i].waveformA.amplitude(0.33);
+    polyVoices[i].waveformA.frequency(82.41);
+    polyVoices[i].waveformA.pulseWidth(0.15);
+
+    polyVoices[i].waveformB.begin(globalState.WAVEFORM2);
+    polyVoices[i].waveformB.amplitude(0.33);
+    polyVoices[i].waveformB.frequency(82.41);
+    polyVoices[i].waveformB.pulseWidth(0.15);
+
+    polyVoices[i].noise.amplitude(0.33);
+
+    polyVoices[i].waveformMixer.gain(0, 1.0);
+    polyVoices[i].waveformMixer.gain(1, 1.0);
+    polyVoices[i].waveformMixer.gain(2, 1.0);
+
+    polyVoices[i].waveformAmplifier.gain(1);
+
+    polyVoices[i].ampEnv.attack(globalState.AMP_ATTACK);
+    polyVoices[i].ampEnv.decay(globalState.AMP_DECAY);
+    polyVoices[i].ampEnv.sustain(globalState.AMP_SUSTAIN);
+    polyVoices[i].ampEnv.release(globalState.AMP_RELEASE);
+
+    polyVoices[i].filter.frequency(globalState.FILTER_FREQ);
+    polyVoices[i].filter.resonance(globalState.FILTER_Q);
+    polyVoices[i].filter.octaveControl(2.0);
+  }
+
+  DC_OFFSET.amplitude(1.0);
+  LFO.amplitude(1.0);
+  LFO.frequency(2.0);
+  LFO.phase(90);
+
+  LFO_MIXER_AMP.gain(0, 1); // THIS IS THE AMP THAT ADJUSTS HOW MUCH OF THE LFO IS FED INTO THE FILTER
+  LFO_MIXER_AMP.gain(1, 0);
+
+  // V12_MIX
+  for (byte i = 0; i < 4; i++)
+  {
+    V14_MIX.gain(0, 0.25);
+    V58_MIX.gain(0, 0.25);
+    V912_MIX.gain(0, 0.25);
+  }
+
+  ALL_VOICE_MIX.gain(0, 0.5);
+  ALL_VOICE_MIX.gain(1, 0.5);
+
+  // READ AND INITIALIZE ALL KNOBS
+  for (byte i = 0; i < 16; i++)
+  {
+    changedKnob = kelpie.getKnobValOnStartup(i);
+    handleKnobChange(changedKnob);
+  }
+}
+
 void loop()
 {
   if (MIDI.read())
@@ -207,7 +214,7 @@ void loop()
     handleMidiEvent(channel, controlType, value);
   }
 
-  changedKnob = kelpie.pollKnobs(false);
+  changedKnob = kelpie.pollKnobs();
   if (changedKnob.didChange)
   {
     handleKnobChange(changedKnob);
