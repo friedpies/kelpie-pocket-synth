@@ -37,33 +37,21 @@ polyVoice VOICE_10 = {0, 0.0, 0, false, 0, V10_A, V10_B, V10_N, V10_MIX, V10_AMP
 polyVoice VOICE_11 = {0, 0.0, 0, false, 0, V11_A, V11_B, V11_N, V11_MIX, V11_AMP, V11_ENV, V11_FILT_ENV, V11_FILT};
 polyVoice VOICE_12 = {0, 0.0, 0, false, 0, V12_A, V12_B, V12_N, V12_MIX, V12_AMP, V12_ENV, V12_FILT_ENV, V12_FILT};
 
-const int numPolyVoices = 6; // 12 voices have been causing issues, so running 6 for now
+const int numPolyVoices = 8; // 12 voices have been causing issues, so running 6 for now
 polyVoice polyVoices[numPolyVoices] = {
     VOICE_1,
     VOICE_2,
     VOICE_3,
     VOICE_4,
     VOICE_5,
-    VOICE_6
-    // VOICE_7,
-    // VOICE_8,
+    VOICE_6,
+    VOICE_7,
+    VOICE_8
     // VOICE_9,
     // VOICE_10,
     // VOICE_11,
     // VOICE_12
 };
-
-const byte MONOBUFFERSIZE = 8;
-byte monoBuffer[MONOBUFFERSIZE];
-
-const int numMonoVoices = 6;
-polyVoice monoVoices[numMonoVoices] = {
-    VOICE_1,
-    VOICE_2,
-    VOICE_3,
-    VOICE_4,
-    VOICE_5,
-    VOICE_6};
 
 synthState globalState = {
     WAVEFORM_SAWTOOTH, // WAVEFORM1
@@ -96,7 +84,7 @@ synthState globalState = {
 void setup()
 {
   MIDI.begin();
-  AudioMemory(164);
+  AudioMemory(80);
   sgtl5000_1.enable();
   sgtl5000_1.volume(globalState.MASTER_VOL);
 
