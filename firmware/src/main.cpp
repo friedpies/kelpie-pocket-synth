@@ -53,6 +53,9 @@ polyVoice polyVoices[numPolyVoices] = {
     // VOICE_12
 };
 
+const byte MONOBUFFERSIZE = 8;
+byte monoBuffer[MONOBUFFERSIZE];
+
 synthState globalState = {
     WAVEFORM_SAWTOOTH, // WAVEFORM1
     WAVEFORM_SAWTOOTH, // WAVEFORM2
@@ -144,7 +147,7 @@ void handleMidiEvent(int channelByte, int controlByte, int valueByte)
   int note = MIDI.getData1();
   int velocity = MIDI.getData2();
   int pitch = 0; // initialize to zero, only applies in pitch bend case
-  float pitchBend = 0;
+  float pitchBend = 0.00;
   switch (type)
   {
   case midi::NoteOn:
@@ -164,7 +167,6 @@ void handleMidiEvent(int channelByte, int controlByte, int valueByte)
 
   case midi::NoteOff:
 
-    // envelope1.noteOff();
     if (note > 23 && note < 108)
     {
       if (globalState.isPoly == true) // depending on mode send to buffer
@@ -180,7 +182,7 @@ void handleMidiEvent(int channelByte, int controlByte, int valueByte)
 
   case midi::PitchBend:
     pitch = velocity * 256 + note; // this converts 8 bit values into a 16 bit value for precise pitch control
-    pitchBend = map(float(pitch), 0, 32767, -2, 2);
+    pitchBend = map(double(pitch), 0, 32767, -2, 2);
     globalState.PITCH_BEND = pow(2, pitchBend / 12);
     for (int i = 0; i < numPolyVoices; i++)
     {
