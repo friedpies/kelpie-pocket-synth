@@ -194,15 +194,16 @@ void handleKnobChange(pot knob)
   int knobName = knob.name;
   int knobValue = knob.value;
   float decKnobVal = float(knobValue) * DIV1023;
+
   switch (knobName)
   {
-  case 0: // BALANCE
+  case 0: // BALANCES OSC 1 and 2
     globalState.OSC1_VOL = decKnobVal;
     globalState.OSC2_VOL = 1 - decKnobVal;
     globalState.OSC_CONSTANT = calculateOscConstant(globalState.OSC1_VOL, globalState.OSC2_VOL, globalState.NOISE_VOL);
     setWaveformLevels(globalState.OSC1_VOL, globalState.OSC2_VOL, globalState.NOISE_VOL, globalState.OSC_CONSTANT);
     break;
-  case 1: // PWM
+  case 1: // PWM OF PULSE WAVES (ONLY APPLIES WHEN A PULSE WAVE IS ACTIVATED)
     globalState.PWM = 0.1 + 0.4 * (1 - decKnobVal);
     for (byte i = 0; i < numPolyVoices; i++)
     {
@@ -309,7 +310,8 @@ void handleKnobChange(pot knob)
   case 9:
     break;
   case 10: // FILTER_FREQ
-    globalState.FILTER_FREQ = 7000 * (1 - decKnobVal);
+
+    globalState.FILTER_FREQ = 10000 * freqLog[(1023 - knobValue)] * DIV1023;
     for (byte i = 0; i < numPolyVoices; i++)
     {
       polyVoices[i].filter.frequency(globalState.FILTER_FREQ);
@@ -345,6 +347,7 @@ void handleKnobChange(pot knob)
   }
 }
 
+// this function is responsible to balancing OSC1, OSC2, and NOISE for each voice. This is necessary because KNOB 1 balances OSC1 and 2, while Knob 6 adds and subtracts noise presense from audio
 float calculateOscConstant(float osc1Vol, float osc2Vol, float noiseVol)
 {
   float numerator = (1 - noiseVol);
@@ -367,6 +370,7 @@ float calculateDetuneValue(int knobReading)
 {
   int knobInverse = 1023 - knobReading;
   float mappedKnob = 0.0;
+
   // piecewise function that separates tuning knob into 3 sections
   // mid section is shallower to achieve finer tuning
   // lower and upper limits will push the tuning 1 octave higher or lower
