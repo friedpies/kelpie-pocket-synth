@@ -37,16 +37,16 @@ polyVoice VOICE_10 = {0, 0.0, 0, false, 0, V10_A, V10_B, V10_N, V10_MIX, V10_AMP
 polyVoice VOICE_11 = {0, 0.0, 0, false, 0, V11_A, V11_B, V11_N, V11_MIX, V11_AMP, V11_ENV, V11_FILT_ENV, V11_FILT};
 polyVoice VOICE_12 = {0, 0.0, 0, false, 0, V12_A, V12_B, V12_N, V12_MIX, V12_AMP, V12_ENV, V12_FILT_ENV, V12_FILT};
 
-const int numPolyVoices = 6; // 12 voices have been causing issues, so running 6 for now
+const int numPolyVoices = 8; // 12 voices have been causing issues, so running 6 for now
 polyVoice polyVoices[numPolyVoices] = {
     VOICE_1,
     VOICE_2,
     VOICE_3,
     VOICE_4,
     VOICE_5,
-    VOICE_6
-    // VOICE_7,
-    // VOICE_8,
+    VOICE_6,
+    VOICE_7,
+    VOICE_8
     // VOICE_9,
     // VOICE_10,
     // VOICE_11,
@@ -55,15 +55,6 @@ polyVoice polyVoices[numPolyVoices] = {
 
 const byte MONOBUFFERSIZE = 8;
 byte monoBuffer[MONOBUFFERSIZE];
-
-const int numMonoVoices = 6;
-polyVoice monoVoices[numMonoVoices] = {
-    VOICE_1,
-    VOICE_2,
-    VOICE_3,
-    VOICE_4,
-    VOICE_5,
-    VOICE_6};
 
 synthState globalState = {
     WAVEFORM_SAWTOOTH, // WAVEFORM1
@@ -96,7 +87,7 @@ synthState globalState = {
 void setup()
 {
   MIDI.begin();
-  AudioMemory(164);
+  AudioMemory(80);
   sgtl5000_1.enable();
   sgtl5000_1.volume(globalState.MASTER_VOL);
 
@@ -156,7 +147,7 @@ void handleMidiEvent(int channelByte, int controlByte, int valueByte)
   int note = MIDI.getData1();
   int velocity = MIDI.getData2();
   int pitch = 0; // initialize to zero, only applies in pitch bend case
-  float pitchBend = 0;
+  float pitchBend = 0.00;
   switch (type)
   {
   case midi::NoteOn:
@@ -176,7 +167,6 @@ void handleMidiEvent(int channelByte, int controlByte, int valueByte)
 
   case midi::NoteOff:
 
-    // envelope1.noteOff();
     if (note > 23 && note < 108)
     {
       if (globalState.isPoly == true) // depending on mode send to buffer
@@ -192,7 +182,7 @@ void handleMidiEvent(int channelByte, int controlByte, int valueByte)
 
   case midi::PitchBend:
     pitch = velocity * 256 + note; // this converts 8 bit values into a 16 bit value for precise pitch control
-    pitchBend = map(float(pitch), 0, 32767, -2, 2);
+    pitchBend = map(double(pitch), 0, 32767, -2, 2);
     globalState.PITCH_BEND = pow(2, pitchBend / 12);
     for (int i = 0; i < numPolyVoices; i++)
     {

@@ -1,5 +1,23 @@
 #include <KelpieHelpers.h>
 
+void activateVoices(byte index, byte note, float frequency, float gain)
+{
+  polyVoices[index].note = note;
+  polyVoices[index].noteFreq = frequency;
+  polyVoices[index].waveformA.frequency(frequency * globalState.PITCH_BEND);
+  polyVoices[index].waveformB.frequency(frequency * globalState.PITCH_BEND * globalState.DETUNE);
+  polyVoices[index].waveformAmplifier.gain(gain);
+  polyVoices[index].ampEnv.noteOn();
+  polyVoices[index].filterEnv.noteOn();
+}
+
+void deactivateVoices(byte index)
+{
+  polyVoices[index].ampEnv.noteOff();
+  polyVoices[index].filterEnv.noteOff();
+  polyVoices[index].note = 0;
+}
+
 void playNoteMono(byte playMode, byte note, byte velocity)
 {
   float baseNoteFreq = noteFreqs[note];
@@ -7,30 +25,24 @@ void playNoteMono(byte playMode, byte note, byte velocity)
   switch (playMode) // WILL SWITCH TO ENUMS LATER
   {
   case 0: // PLAYNOTE
-    for (int i = 0; i < numMonoVoices; i++)
+    for (int i = 0; i < numPolyVoices; i++)
     {
-      monoVoices[i].note = note;
-      monoVoices[i].noteFreq = baseNoteFreq;
-      monoVoices[i].waveformA.frequency(baseNoteFreq * globalState.PITCH_BEND);
-      monoVoices[i].waveformB.frequency(baseNoteFreq * globalState.PITCH_BEND * globalState.DETUNE);
-      monoVoices[i].waveformAmplifier.gain(noteGain);
-      monoVoices[i].ampEnv.noteOn();
-      monoVoices[i].filterEnv.noteOn();
+      activateVoices(i, note, baseNoteFreq, noteGain);
     }
     break;
   case 1: // UPDATE NOTE
-    for (int i = 0; i < numMonoVoices; i++)
+    for (int i = 0; i < numPolyVoices; i++)
     {
-      monoVoices[i].note = note;
-      monoVoices[i].noteFreq = baseNoteFreq;
-      monoVoices[i].waveformA.frequency(baseNoteFreq * globalState.PITCH_BEND);
-      monoVoices[i].waveformB.frequency(baseNoteFreq * globalState.PITCH_BEND * globalState.DETUNE);
+      polyVoices[i].note = note;
+      polyVoices[i].noteFreq = baseNoteFreq;
+      polyVoices[i].waveformA.frequency(baseNoteFreq * globalState.PITCH_BEND);
+      polyVoices[i].waveformB.frequency(baseNoteFreq * globalState.PITCH_BEND * globalState.DETUNE);
     }
     break;
   case 2: // STOP NOTE
-    for (int i = 0; i < numMonoVoices; i++)
+    for (int i = 0; i < numPolyVoices; i++)
     {
-      monoVoices[i].ampEnv.noteOff();
+      deactivateVoices(i);
     }
     break;
   }
@@ -85,18 +97,12 @@ void keyBuffPoly(byte note, byte velocity, boolean playNote)
   if (playNote)
   {
     float noteGain = float(velocity) * DIV127;
+    float baseNoteFreq = noteFreqs[note];
     for (int i = 0; i < numPolyVoices; i++)
     {
       if (polyVoices[i].ampEnv.isActive() == false)
       {
-        float baseNoteFreq = noteFreqs[note];
-        polyVoices[i].noteFreq = baseNoteFreq; // SET VOICE FREQUENCY IN STATE
-        polyVoices[i].waveformA.frequency(baseNoteFreq * globalState.PITCH_BEND);
-        polyVoices[i].waveformB.frequency(baseNoteFreq * globalState.PITCH_BEND * globalState.DETUNE);
-        polyVoices[i].note = note;
-        polyVoices[i].waveformAmplifier.gain(noteGain);
-        polyVoices[i].ampEnv.noteOn();
-        polyVoices[i].filterEnv.noteOn();
+        activateVoices(i, note, baseNoteFreq, noteGain);
         break;
       }
     }
@@ -107,9 +113,7 @@ void keyBuffPoly(byte note, byte velocity, boolean playNote)
     {
       if (polyVoices[i].note == note)
       {
-        polyVoices[i].ampEnv.noteOff();
-        polyVoices[i].filterEnv.noteOff();
-        polyVoices[i].note = 0;
+        deactivateVoices(i);
       }
     }
   }
