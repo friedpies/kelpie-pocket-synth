@@ -53,3 +53,4 @@ dkms.conf
 
 .pioenvs/
 .vscode
+.DS_Store

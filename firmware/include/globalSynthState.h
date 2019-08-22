@@ -1,32 +1,35 @@
+// DESCRIBES THE GLOBAL STATE, A DATATYPE TO STORE ALL GLOBAL VARIABLES ACCESSED ACROSS THE PROGRAM
+
+#ifndef globalSynthState_h
+#define globalSynthState_h
+
 struct synthState
 {
   int WAVEFORM1;
   int WAVEFORM2;
   bool isPoly;
+  bool shift;
   float OSC1_VOL;
   float OSC2_VOL;
-  float DETUNE_SLOPE;
+  float NOISE_VOL;
+  float OSC_CONSTANT; // this is a multiplication factor that is calculated based on positions of O1 O2 and N, to ensure sum of gains is 1
+  float PWM;
+  float DETUNE;
+  float PITCH_BEND;
+  float LFO_FREQ;
+  float LFO_MIXER_AMP;
   float AMP_ATTACK;
   float AMP_DECAY;
   float AMP_SUSTAIN;
   float AMP_RELEASE;
+  float FILTER_ATTACK;
+  float FILTER_DECAY;
+  float FILTER_SUSTAIN;
+  float FILTER_RELEASE;
   int FILTER_FREQ;
   float FILTER_Q;
+  float FILTER_OCTAVE;
   float MASTER_VOL;
 };
 
-synthState globalState = {
-    WAVEFORM_SAWTOOTH, // WAVEFORM1
-    WAVEFORM_SAWTOOTH, // WAVEFORM2
-    true,              // isPoly
-    1.0,               // OSC1_VOL
-    0.33,              // OSC2_VOL
-    1.0,               // DETUNE_SLOPE
-    0.0,               // AMP_ATTACK
-    0.0,               // AMP_DECAY
-    1.0,               // AMP_SUSTAIN
-    500,               //  AMP_RELEASE
-    10000,             // FILTER_FREQ
-    0.7,               // FILTER_Q
-    0.5                // MASTER_VOL
-};
+#endif

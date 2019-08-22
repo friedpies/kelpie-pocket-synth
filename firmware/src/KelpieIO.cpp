@@ -1,4 +1,4 @@
-#include <Kelpie.h>
+#include <KelpieIO.h>
 
 Kelpie::Kelpie(bool enableSerial)
 {
@@ -18,14 +18,26 @@ Kelpie::Kelpie(bool enableSerial)
     pinMode(SWLED4, OUTPUT);
 }
 
-// this function detects if a knob was changed and returns TRUE if so
-pot Kelpie::pollKnobs(bool forceRead)
+pot Kelpie::getKnobValOnStartup(byte knobIndex)
+{
+    pot potToRead;
+    _kelpieKnobs.value[knobIndex] = analogRead(_kelpieKnobs.name[knobIndex]);
+    potToRead.didChange = true;
+    potToRead.name = knobIndex;
+    potToRead.value = _kelpieKnobs.value[knobIndex];
+    _kelpieKnobs.state[knobIndex] = _kelpieKnobs.value[knobIndex];
+    return potToRead;
+}
+
+// this function detects if a knob was changed and returns the pot Struct of the changed knob
+pot Kelpie::pollKnobs(void)
 {
     pot changedPot;
     changedPot.didChange = false;
-    for (int i = 0; i < 16; i++)
+    for (byte i = 0; i < 16; i++)
     {
-        _kelpieKnobs.value[i] = analogRead(_kelpieKnobs.name[i]);
+        _kelpieKnobs.value[i] = analogRead(_kelpieKnobs.name[i]); // THIS LINE IS BAD
+
         if ((_kelpieKnobs.value[i] - _kelpieKnobs.state[i]) > 3 || (_kelpieKnobs.value[i] - _kelpieKnobs.state[i]) < -3) // if there is a significant change
         {
             changedPot.didChange = true;
@@ -38,15 +50,10 @@ pot Kelpie::pollKnobs(bool forceRead)
     return changedPot;
 }
 
-int *Kelpie::getKnobs(void)
-{
-    return _kelpieKnobs.state;
-}
-
 boolean Kelpie::pollButtons(void)
 {
     boolean didChange = false;
-    for (int i = 0; i < 4; i++)
+    for (byte i = 0; i < 4; i++)
     {
         if (_kelpieButtons.buttonName[i].update())
         {
