@@ -1,6 +1,0 @@
-"Qty";"Value";"Device";"Package";"Parts";"Description";"DPN";"LINK";"MPN";"SPICEPREFIX";
-"1";"";"LED_RED0805";"CHIPLED_0805";"D1";"LED";"732-4978-1-ND";"https://www.digikey.com/product-detail/en/wurth-electronics-inc/150060RS75000/732-4978-1-ND/4489899";"150060RS75000";"";
-"1";"30_PIN_CONNECTOR_MALE";"30_PIN_CONNECTOR_MALE";"MOLEX_30PINCONNECTOR_2MM";"J1";"";"";"";"";"X";
-"5";"75OHM";"75OHM";"0805";"R1, R2, R3, R4, R5";"";"RNCP0805FTD75R0CT-ND";"https://www.digikey.com/product-detail/en/stackpole-electronics-inc/RNCP0805FTD75R0/RNCP0805FTD75R0CT-ND/2240546";"RNCP0805FTD75R0";"";
-"16";"BOURNS_10K_POTENTIOMETER";"BOURNS_10K_POTENTIOMETER";"BOURNS_PTV09";"U$1, U$2, U$3, U$4, U$5, U$6, U$7, U$8, U$9, U$10, U$12, U$13, U$14, U$15, U$16, U$17";"https://www.digikey.com/product-detail/en/bourns-inc/PTV09A-4020F-B103/PTV09A-4020F-B103-ND/3534181";"PTV09A-4020F-B103-ND";"https://www.digikey.com/product-detail/en/bourns-inc/PTV09A-4020F-B103/PTV09A-4020F-B103-ND/3534181";"PTV09A-4020F-B103  ";"";
-"4";"ESWITCH__YELLOW";"ESWITCH__YELLOW";"ESWITCH_TL1240YQ1JCLR";"U$18, U$19, U$20, U$21";"https://www.digikey.com/product-detail/en/e-switch/TL1240YQ1JCLR/EG4616-ND/1805485";"EG4616-ND";"https://www.digikey.com/product-detail/en/e-switch/TL1240YQ1JCLR/EG4616-ND/1805485";"TL1240YQ1JCLR";"";
