@@ -2,17 +2,20 @@
 
 ![kelpie](https://cdn.hackaday.io/images/1592771566489986528.jpg)
 
-### About 
+### About
 
 The KELPIE is a digital polyphonic synthesizer powered by the SGTL5000 audio DAC and an ARM Cortex M4 microcontroller. For a description of the full project, please visit the [Hackaday Project Page](https://hackaday.io/project/166460-kelpie-synth-module-for-keyboard-controllers)
 
 ### Repository Details
-This repo houses all mechanical, electrical, and software files relating to the project, as well as graphical assets and other additional files. 
+
+This repo houses all mechanical, electrical, and software files relating to the project, as well as graphical assets and other additional files.
+
 - Mechanical CAD (mCAD) files can be found [here](https://github.com/friedpies/kelpie-pocket-synth/tree/master/hardware/enclosure) in both STEP format as well as their native [Fusion 360 Format](https://www.autodesk.com/products/fusion-360/overview)
 - Electronics CAD ([Autodesk Eagle](https://www.autodesk.com/products/eagle/free-download)) files and schematics can be found [here](https://github.com/friedpies/kelpie-pocket-synth/tree/master/hardware/electronics). The parts library and full BOM can be exported from the schematic. This is the most up-to-date BOM.
 - Firmware files, written in Arduino/C++ using [PlatformIO](https://platformio.org/) can be found [here](https://github.com/friedpies/kelpie-pocket-synth/tree/master/firmware)
 
 ### Firmware Directory Structure
+
 The device firmware is written in C++ using the Arduino framework. The main entrypoint is `/src/main.cpp`. The directory structure is as follows:
 
 ```
@@ -27,7 +30,7 @@ The device firmware is written in C++ using the Arduino framework. The main entr
 │   ├── contants.h          // CONSTANTS USED TO CONVERT KNOB READINGS
 │   ├── freqKnobLookup.h    // LOOKUP TABLE FOR LIN->LOG POT READINGS
 │   ├── globalSynthState.h  // SOURCE OF TRUTH FOR GLOBAL STATE OF SYNTH
-│   ├── keyMappings.h       // LOOKUP TABLE FOR NOTE->FREQ CONVERSION 
+│   ├── keyMappings.h       // LOOKUP TABLE FOR NOTE->FREQ CONVERSION
 │   ├── pinDefines.h        // MCU PIN MAPPINGS
 │   └── voices.h            // STRUCTS TO ORGANIZE 'VOICES'
 ├── lib
@@ -41,3 +44,19 @@ The device firmware is written in C++ using the Arduino framework. The main entr
     └── README
 
 ```
+
+### Audio Design
+
+The synthesizer block diagram is shown below and was designed using the [Teensy Audio Design Tool](https://www.pjrc.com/teensy/gui/index.html)
+
+![BlockDiagram](https://github.com/friedpies/kelpie-pocket-synth/blob/master/graphics/OTHER%20ASSETS/Screen%20Shot%202019-08-23%20at%206.13.28%20PM.png?raw=true)
+
+### Acknowledgements
+
+I utilized and referenced a couple of open source libraries + repos for this project, as well as some very useful tools:
+
+- PJRC Audio Library and Audio Design Tool
+- [Bounce](https://github.com/thomasfredericks/Bounce2) library by Thomas Fredericks
+- [MIDI](https://github.com/FortySevenEffects/arduino_midi_library) library by Francois Best
+- thewknd's [Teensy Reference Boards schematics](https://github.com/thewknd/teensy-boards/tree/master/Teensy%203.2%20reference%20board%20clone)
+- [Note's and Volts](https://www.notesandvolts.com/2018/05/teensy-synth-part-1.html) tutorial videos on building a Teensy synth
