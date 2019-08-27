@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="9.3.2">
+<eagle version="9.4.2">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -186,12 +186,14 @@
 <libraries>
 <library name="sirin-clone-library" urn="urn:adsk.eagle:library:9336050">
 <packages>
-<package name="BOURNS_PTV09" urn="urn:adsk.eagle:footprint:9336051/2" library_version="3" library_locally_modified="yes">
+<package name="BOURNS_PTV09" urn="urn:adsk.eagle:footprint:9336051/3" library_version="37">
 <hole x="-5.3" y="0" drill="2.2"/>
 <hole x="5.3" y="0" drill="2.2"/>
 <pad name="2" x="0" y="-7" drill="1" diameter="1.5"/>
 <pad name="1" x="-2.5" y="-7" drill="1" diameter="1.5"/>
 <pad name="3" x="2.5" y="-7" drill="1" diameter="1.5"/>
+<pad name="P$1" x="-5.3" y="0" drill="2.2"/>
+<pad name="P$2" x="5.3" y="0" drill="2.2"/>
 <wire x1="-4.85" y1="-5.5" x2="-4.85" y2="0" width="0.127" layer="21"/>
 <wire x1="-4.85" y1="0" x2="-4.85" y2="5.5" width="0.127" layer="21"/>
 <wire x1="4.85" y1="-5.5" x2="4.85" y2="0" width="0.127" layer="21"/>
@@ -307,7 +309,7 @@
 </package>
 </packages>
 <packages3d>
-<package3d name="BOURNS_PTV09" urn="urn:adsk.eagle:package:9336105/2" type="model" library_version="3" library_locally_modified="yes">
+<package3d name="BOURNS_PTV09" urn="urn:adsk.eagle:package:9336105/3" type="model" library_version="37">
 <packageinstances>
 <packageinstance name="BOURNS_PTV09"/>
 </packageinstances>
@@ -472,7 +474,7 @@
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="BOURNS_10K_POTENTIOMETER" urn="urn:adsk.eagle:component:9336132/4" locally_modified="yes" library_version="35" library_locally_modified="yes">
+<deviceset name="BOURNS_10K_POTENTIOMETER" urn="urn:adsk.eagle:component:9336132/6" library_version="37">
 <description>https://www.digikey.com/product-detail/en/bourns-inc/PTV09A-4020F-B103/PTV09A-4020F-B103-ND/3534181</description>
 <gates>
 <gate name="G$1" symbol="TRIMPOT" x="0" y="0"/>
@@ -485,7 +487,7 @@
 <connect gate="G$1" pin="3" pad="3"/>
 </connects>
 <package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:9336105/2"/>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:9336105/3"/>
 </package3dinstances>
 <technologies>
 <technology name="">
@@ -497,7 +499,7 @@
 </device>
 </devices>
 </deviceset>
-<deviceset name="ESWITCH__YELLOW" urn="urn:adsk.eagle:component:9336177/2" locally_modified="yes" library_version="35" library_locally_modified="yes">
+<deviceset name="ESWITCH__YELLOW" urn="urn:adsk.eagle:component:9336177/3" library_version="37">
 <description>https://www.digikey.com/product-detail/en/e-switch/TL1240YQ1JCLR/EG4616-ND/1805485</description>
 <gates>
 <gate name="G$1" symbol="ILLUMINATED_SWITCH" x="0" y="0"/>
@@ -525,7 +527,7 @@
 </device>
 </devices>
 </deviceset>
-<deviceset name="30_PIN_CONNECTOR_MALE" urn="urn:adsk.eagle:component:9858342/4" locally_modified="yes" prefix="J" library_version="35" library_locally_modified="yes">
+<deviceset name="30_PIN_CONNECTOR_MALE" urn="urn:adsk.eagle:component:9858342/5" prefix="J" library_version="37">
 <gates>
 <gate name="J1" symbol="30_PIN_CONNECTOR" x="0" y="0"/>
 </gates>
@@ -586,7 +588,7 @@
 </device>
 </devices>
 </deviceset>
-<deviceset name="75OHM" urn="urn:adsk.eagle:component:9989559/1" locally_modified="yes" prefix="R" library_version="35" library_locally_modified="yes">
+<deviceset name="75OHM" urn="urn:adsk.eagle:component:9989559/2" prefix="R" library_version="37">
 <gates>
 <gate name="R1" symbol="RESISTOR" x="0" y="0"/>
 </gates>
@@ -609,7 +611,7 @@
 </device>
 </devices>
 </deviceset>
-<deviceset name="LED_RED" urn="urn:adsk.eagle:component:10008991/1" locally_modified="yes" prefix="D" uservalue="yes" library_version="35" library_locally_modified="yes">
+<deviceset name="LED_RED" urn="urn:adsk.eagle:component:10008991/2" prefix="D" uservalue="yes" library_version="37">
 <description>&lt;p&gt;&lt;b&gt;LED&lt;/b&gt;&lt;/p&gt;
 &lt;b&gt;0603&lt;/b&gt; - 0603 Surface Mount Package
 &lt;hr&gt;
@@ -702,22 +704,22 @@
 </class>
 </classes>
 <parts>
-<part name="U$1" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="BOURNS_10K_POTENTIOMETER" device="" package3d_urn="urn:adsk.eagle:package:9336105/2"/>
-<part name="U$2" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="BOURNS_10K_POTENTIOMETER" device="" package3d_urn="urn:adsk.eagle:package:9336105/2"/>
-<part name="U$3" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="BOURNS_10K_POTENTIOMETER" device="" package3d_urn="urn:adsk.eagle:package:9336105/2"/>
-<part name="U$4" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="BOURNS_10K_POTENTIOMETER" device="" package3d_urn="urn:adsk.eagle:package:9336105/2"/>
-<part name="U$5" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="BOURNS_10K_POTENTIOMETER" device="" package3d_urn="urn:adsk.eagle:package:9336105/2"/>
-<part name="U$6" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="BOURNS_10K_POTENTIOMETER" device="" package3d_urn="urn:adsk.eagle:package:9336105/2"/>
-<part name="U$7" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="BOURNS_10K_POTENTIOMETER" device="" package3d_urn="urn:adsk.eagle:package:9336105/2"/>
-<part name="U$8" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="BOURNS_10K_POTENTIOMETER" device="" package3d_urn="urn:adsk.eagle:package:9336105/2"/>
-<part name="U$9" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="BOURNS_10K_POTENTIOMETER" device="" package3d_urn="urn:adsk.eagle:package:9336105/2"/>
-<part name="U$10" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="BOURNS_10K_POTENTIOMETER" device="" package3d_urn="urn:adsk.eagle:package:9336105/2"/>
-<part name="U$12" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="BOURNS_10K_POTENTIOMETER" device="" package3d_urn="urn:adsk.eagle:package:9336105/2"/>
-<part name="U$13" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="BOURNS_10K_POTENTIOMETER" device="" package3d_urn="urn:adsk.eagle:package:9336105/2"/>
-<part name="U$14" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="BOURNS_10K_POTENTIOMETER" device="" package3d_urn="urn:adsk.eagle:package:9336105/2"/>
-<part name="U$15" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="BOURNS_10K_POTENTIOMETER" device="" package3d_urn="urn:adsk.eagle:package:9336105/2"/>
-<part name="U$16" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="BOURNS_10K_POTENTIOMETER" device="" package3d_urn="urn:adsk.eagle:package:9336105/2"/>
-<part name="U$17" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="BOURNS_10K_POTENTIOMETER" device="" package3d_urn="urn:adsk.eagle:package:9336105/2"/>
+<part name="U$1" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="BOURNS_10K_POTENTIOMETER" device="" package3d_urn="urn:adsk.eagle:package:9336105/3"/>
+<part name="U$2" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="BOURNS_10K_POTENTIOMETER" device="" package3d_urn="urn:adsk.eagle:package:9336105/3"/>
+<part name="U$3" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="BOURNS_10K_POTENTIOMETER" device="" package3d_urn="urn:adsk.eagle:package:9336105/3"/>
+<part name="U$4" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="BOURNS_10K_POTENTIOMETER" device="" package3d_urn="urn:adsk.eagle:package:9336105/3"/>
+<part name="U$5" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="BOURNS_10K_POTENTIOMETER" device="" package3d_urn="urn:adsk.eagle:package:9336105/3"/>
+<part name="U$6" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="BOURNS_10K_POTENTIOMETER" device="" package3d_urn="urn:adsk.eagle:package:9336105/3"/>
+<part name="U$7" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="BOURNS_10K_POTENTIOMETER" device="" package3d_urn="urn:adsk.eagle:package:9336105/3"/>
+<part name="U$8" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="BOURNS_10K_POTENTIOMETER" device="" package3d_urn="urn:adsk.eagle:package:9336105/3"/>
+<part name="U$9" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="BOURNS_10K_POTENTIOMETER" device="" package3d_urn="urn:adsk.eagle:package:9336105/3"/>
+<part name="U$10" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="BOURNS_10K_POTENTIOMETER" device="" package3d_urn="urn:adsk.eagle:package:9336105/3"/>
+<part name="U$12" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="BOURNS_10K_POTENTIOMETER" device="" package3d_urn="urn:adsk.eagle:package:9336105/3"/>
+<part name="U$13" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="BOURNS_10K_POTENTIOMETER" device="" package3d_urn="urn:adsk.eagle:package:9336105/3"/>
+<part name="U$14" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="BOURNS_10K_POTENTIOMETER" device="" package3d_urn="urn:adsk.eagle:package:9336105/3"/>
+<part name="U$15" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="BOURNS_10K_POTENTIOMETER" device="" package3d_urn="urn:adsk.eagle:package:9336105/3"/>
+<part name="U$16" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="BOURNS_10K_POTENTIOMETER" device="" package3d_urn="urn:adsk.eagle:package:9336105/3"/>
+<part name="U$17" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="BOURNS_10K_POTENTIOMETER" device="" package3d_urn="urn:adsk.eagle:package:9336105/3"/>
 <part name="U$18" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="ESWITCH__YELLOW" device="" package3d_urn="urn:adsk.eagle:package:9336176/2"/>
 <part name="U$19" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="ESWITCH__YELLOW" device="" package3d_urn="urn:adsk.eagle:package:9336176/2"/>
 <part name="U$20" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="ESWITCH__YELLOW" device="" package3d_urn="urn:adsk.eagle:package:9336176/2"/>
