@@ -186,7 +186,9 @@
 <libraries>
 <library name="sirin-clone-library" urn="urn:adsk.eagle:library:9336050">
 <packages>
-<package name="BOURNS_PTV09" urn="urn:adsk.eagle:footprint:9336051/4" library_version="43">
+<package name="BOURNS_PTV09" urn="urn:adsk.eagle:footprint:9336051/3" library_version="37">
+<hole x="-5.3" y="0" drill="2.2"/>
+<hole x="5.3" y="0" drill="2.2"/>
 <pad name="2" x="0" y="-7" drill="1" diameter="1.5"/>
 <pad name="1" x="-2.5" y="-7" drill="1" diameter="1.5"/>
 <pad name="3" x="2.5" y="-7" drill="1" diameter="1.5"/>
@@ -305,92 +307,9 @@
 <text x="-0.1" y="-1.4" size="0.254" layer="51">A</text>
 <text x="-0.1" y="1.2" size="0.254" layer="51">C</text>
 </package>
-<package name="0204/7" urn="urn:adsk.eagle:footprint:22998/1" library_version="38">
-<description>&lt;b&gt;RESISTOR&lt;/b&gt;&lt;p&gt;
-type 0204, grid 7.5 mm</description>
-<wire x1="3.81" y1="0" x2="2.921" y2="0" width="0.508" layer="51"/>
-<wire x1="-3.81" y1="0" x2="-2.921" y2="0" width="0.508" layer="51"/>
-<wire x1="-2.54" y1="0.762" x2="-2.286" y2="1.016" width="0.1524" layer="21" curve="-90"/>
-<wire x1="-2.54" y1="-0.762" x2="-2.286" y2="-1.016" width="0.1524" layer="21" curve="90"/>
-<wire x1="2.286" y1="-1.016" x2="2.54" y2="-0.762" width="0.1524" layer="21" curve="90"/>
-<wire x1="2.286" y1="1.016" x2="2.54" y2="0.762" width="0.1524" layer="21" curve="-90"/>
-<wire x1="-2.54" y1="-0.762" x2="-2.54" y2="0.762" width="0.1524" layer="21"/>
-<wire x1="-2.286" y1="1.016" x2="-1.905" y2="1.016" width="0.1524" layer="21"/>
-<wire x1="-1.778" y1="0.889" x2="-1.905" y2="1.016" width="0.1524" layer="21"/>
-<wire x1="-2.286" y1="-1.016" x2="-1.905" y2="-1.016" width="0.1524" layer="21"/>
-<wire x1="-1.778" y1="-0.889" x2="-1.905" y2="-1.016" width="0.1524" layer="21"/>
-<wire x1="1.778" y1="0.889" x2="1.905" y2="1.016" width="0.1524" layer="21"/>
-<wire x1="1.778" y1="0.889" x2="-1.778" y2="0.889" width="0.1524" layer="21"/>
-<wire x1="1.778" y1="-0.889" x2="1.905" y2="-1.016" width="0.1524" layer="21"/>
-<wire x1="1.778" y1="-0.889" x2="-1.778" y2="-0.889" width="0.1524" layer="21"/>
-<wire x1="2.286" y1="1.016" x2="1.905" y2="1.016" width="0.1524" layer="21"/>
-<wire x1="2.286" y1="-1.016" x2="1.905" y2="-1.016" width="0.1524" layer="21"/>
-<wire x1="2.54" y1="-0.762" x2="2.54" y2="0.762" width="0.1524" layer="21"/>
-<pad name="1" x="-3.81" y="0" drill="0.8128" shape="octagon"/>
-<pad name="2" x="3.81" y="0" drill="0.8128" shape="octagon"/>
-<text x="-2.54" y="1.2954" size="0.9906" layer="25" ratio="10">&gt;NAME</text>
-<text x="-1.6256" y="-0.4826" size="0.9906" layer="27" ratio="10">&gt;VALUE</text>
-<rectangle x1="2.54" y1="-0.254" x2="2.921" y2="0.254" layer="21"/>
-<rectangle x1="-2.921" y1="-0.254" x2="-2.54" y2="0.254" layer="21"/>
-</package>
-<package name="LEDRD254W60D400H525B" urn="urn:adsk.eagle:footprint:12905165/1" library_version="40">
-<description>Radial LED (Round), 2.54 mm pitch, 4.00 mm body diameter, 5.25 mm body height
-&lt;p&gt;Radial LED (Round) package with 2.54 mm pitch, 0.60 mm lead width, 0.50 mm lead thickness, 4.00 mm body diameter and 5.25 mm body height&lt;/p&gt;</description>
-<wire x1="1.7803" y1="0.9114" x2="-1.7803" y2="0.9114" width="0.12" layer="21" curve="125.7811"/>
-<wire x1="1.7803" y1="-0.9114" x2="-1.7803" y2="-0.9114" width="0.12" layer="21" curve="-125.7811"/>
-<wire x1="-2.0112" y1="2.0113" x2="-1.2612" y2="2.0113" width="0.12" layer="21"/>
-<wire x1="-1.6362" y1="2.3863" x2="-1.6362" y2="1.6363" width="0.12" layer="21"/>
-<pad name="1" x="-1.27" y="0" drill="0.981" diameter="1.581"/>
-<pad name="2" x="1.27" y="0" drill="0.981" diameter="1.581"/>
-<circle x="0" y="0" radius="2" width="0.12" layer="51"/>
-<text x="0" y="3.0213" size="1.27" layer="25" align="bottom-center">&gt;NAME</text>
-<text x="0" y="-2.6351" size="1.27" layer="27" align="top-center">&gt;VALUE</text>
-</package>
-<package name="SLW30S" urn="urn:adsk.eagle:footprint:12919136/3" library_version="44">
-<description>https://www.digikey.com/product-detail/en/SLW30S-1C7LF/609-1959-ND/1002274/?itemSeq=302204736
-
-NOTE: PIN NUMBERS ARE NOT ACCORDING TO MFG, USING MY OWN CONVENTION</description>
-<wire x1="-18.1" y1="2" x2="18.1" y2="2" width="0.127" layer="21"/>
-<wire x1="-18.1" y1="-2" x2="18.1" y2="-2" width="0.127" layer="21"/>
-<wire x1="-18.1" y1="-2" x2="-18.1" y2="2" width="0.127" layer="21"/>
-<wire x1="18.1" y1="-2" x2="18.1" y2="2" width="0.127" layer="21"/>
-<pad name="16" x="-14.5" y="-1" drill="0.8" rot="R90"/>
-<pad name="1" x="-13.5" y="1" drill="0.8" rot="R90"/>
-<pad name="17" x="-12.5" y="-1" drill="0.8" rot="R90"/>
-<pad name="2" x="-11.5" y="1" drill="0.8" rot="R90"/>
-<pad name="18" x="-10.5" y="-1" drill="0.8" rot="R90"/>
-<pad name="3" x="-9.5" y="1" drill="0.8" rot="R90"/>
-<pad name="19" x="-8.5" y="-1" drill="0.8" rot="R90"/>
-<pad name="4" x="-7.5" y="1" drill="0.8" rot="R90"/>
-<pad name="20" x="-6.5" y="-1" drill="0.8" rot="R90"/>
-<pad name="5" x="-5.5" y="1" drill="0.8" rot="R90"/>
-<pad name="21" x="-4.5" y="-1" drill="0.8" rot="R90"/>
-<pad name="6" x="-3.5" y="1" drill="0.8" rot="R90"/>
-<pad name="22" x="-2.5" y="-1" drill="0.8" rot="R90"/>
-<pad name="7" x="-1.5" y="1" drill="0.8" rot="R90"/>
-<pad name="23" x="-0.5" y="-1" drill="0.8" rot="R90"/>
-<pad name="8" x="0.5" y="1" drill="0.8" rot="R90"/>
-<pad name="24" x="1.5" y="-1" drill="0.8" rot="R90"/>
-<pad name="9" x="2.5" y="1" drill="0.8" rot="R90"/>
-<pad name="25" x="3.5" y="-1" drill="0.8" rot="R90"/>
-<pad name="10" x="4.5" y="1" drill="0.8" rot="R90"/>
-<pad name="26" x="5.5" y="-1" drill="0.8" rot="R90"/>
-<pad name="11" x="6.5" y="1" drill="0.8" rot="R90"/>
-<pad name="27" x="7.5" y="-1" drill="0.8" rot="R90"/>
-<pad name="12" x="8.5" y="1" drill="0.8" rot="R90"/>
-<pad name="28" x="9.5" y="-1" drill="0.8" rot="R90"/>
-<pad name="13" x="10.5" y="1" drill="0.8" rot="R90"/>
-<pad name="29" x="11.5" y="-1" drill="0.8" rot="R90"/>
-<pad name="14" x="12.5" y="1" drill="0.8" rot="R90"/>
-<pad name="30" x="13.5" y="-1" drill="0.8" rot="R90"/>
-<pad name="15" x="14.5" y="1" drill="0.8" rot="R90"/>
-<text x="-18.1" y="2.953" size="1.27" layer="25">&gt;NAME</text>
-<text x="-18.227" y="-3.905" size="1.27" layer="27">&gt;VALUE</text>
-<text x="-16.322" y="0.413" size="1.27" layer="21">(1)</text>
-</package>
 </packages>
 <packages3d>
-<package3d name="BOURNS_PTV09" urn="urn:adsk.eagle:package:9336105/4" type="model" library_version="43">
+<package3d name="BOURNS_PTV09" urn="urn:adsk.eagle:package:9336105/3" type="model" library_version="37">
 <packageinstances>
 <packageinstance name="BOURNS_PTV09"/>
 </packageinstances>
@@ -417,28 +336,6 @@ NOTE: PIN NUMBERS ARE NOT ACCORDING TO MFG, USING MY OWN CONVENTION</description
 <description>&lt;b&gt;CHIPLED 0805&lt;/b&gt;</description>
 <packageinstances>
 <packageinstance name="CHIPLED_0805"/>
-</packageinstances>
-</package3d>
-<package3d name="0204/7" urn="urn:adsk.eagle:package:23498/2" type="model" library_version="38">
-<description>RESISTOR
-type 0204, grid 7.5 mm</description>
-<packageinstances>
-<packageinstance name="0204/7"/>
-</packageinstances>
-</package3d>
-<package3d name="LEDRD254W60D400H525B" urn="urn:adsk.eagle:package:12905163/1" type="model" library_version="40">
-<description>Radial LED (Round), 2.54 mm pitch, 4.00 mm body diameter, 5.25 mm body height
-&lt;p&gt;Radial LED (Round) package with 2.54 mm pitch, 0.60 mm lead width, 0.50 mm lead thickness, 4.00 mm body diameter and 5.25 mm body height&lt;/p&gt;</description>
-<packageinstances>
-<packageinstance name="LEDRD254W60D400H525B"/>
-</packageinstances>
-</package3d>
-<package3d name="SLW30S" urn="urn:adsk.eagle:package:12919137/6" type="model" library_version="46">
-<description>https://www.digikey.com/product-detail/en/SLW30S-1C7LF/609-1959-ND/1002274/?itemSeq=302204736
-
-NOTE: PIN NUMBERS ARE NOT ACCORDING TO MFG, USING MY OWN CONVENTION</description>
-<packageinstances>
-<packageinstance name="SLW30S"/>
 </packageinstances>
 </package3d>
 </packages3d>
@@ -577,7 +474,7 @@ NOTE: PIN NUMBERS ARE NOT ACCORDING TO MFG, USING MY OWN CONVENTION</description
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="BOURNS_10K_POTENTIOMETER" urn="urn:adsk.eagle:component:9336132/7" library_version="43">
+<deviceset name="BOURNS_10K_POTENTIOMETER" urn="urn:adsk.eagle:component:9336132/6" library_version="37">
 <description>https://www.digikey.com/product-detail/en/bourns-inc/PTV09A-4020F-B103/PTV09A-4020F-B103-ND/3534181</description>
 <gates>
 <gate name="G$1" symbol="TRIMPOT" x="0" y="0"/>
@@ -590,7 +487,7 @@ NOTE: PIN NUMBERS ARE NOT ACCORDING TO MFG, USING MY OWN CONVENTION</description
 <connect gate="G$1" pin="3" pad="3"/>
 </connects>
 <package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:9336105/4"/>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:9336105/3"/>
 </package3dinstances>
 <technologies>
 <technology name="">
@@ -630,7 +527,7 @@ NOTE: PIN NUMBERS ARE NOT ACCORDING TO MFG, USING MY OWN CONVENTION</description
 </device>
 </devices>
 </deviceset>
-<deviceset name="30_PIN_CONNECTOR_MALE" urn="urn:adsk.eagle:component:9858342/9" prefix="J" library_version="46">
+<deviceset name="30_PIN_CONNECTOR_MALE" urn="urn:adsk.eagle:component:9858342/5" prefix="J" library_version="37">
 <gates>
 <gate name="J1" symbol="30_PIN_CONNECTOR" x="0" y="0"/>
 </gates>
@@ -675,46 +572,6 @@ NOTE: PIN NUMBERS ARE NOT ACCORDING TO MFG, USING MY OWN CONVENTION</description
 <technology name=""/>
 </technologies>
 </device>
-<device name="FLEX_CONNECTOR" package="SLW30S">
-<connects>
-<connect gate="J1" pin="P$1" pad="1"/>
-<connect gate="J1" pin="P$10" pad="10"/>
-<connect gate="J1" pin="P$11" pad="11"/>
-<connect gate="J1" pin="P$12" pad="12"/>
-<connect gate="J1" pin="P$13" pad="13"/>
-<connect gate="J1" pin="P$14" pad="14"/>
-<connect gate="J1" pin="P$15" pad="15"/>
-<connect gate="J1" pin="P$16" pad="16"/>
-<connect gate="J1" pin="P$17" pad="17"/>
-<connect gate="J1" pin="P$18" pad="18"/>
-<connect gate="J1" pin="P$19" pad="19"/>
-<connect gate="J1" pin="P$2" pad="2"/>
-<connect gate="J1" pin="P$20" pad="20"/>
-<connect gate="J1" pin="P$21" pad="21"/>
-<connect gate="J1" pin="P$22" pad="22"/>
-<connect gate="J1" pin="P$23" pad="23"/>
-<connect gate="J1" pin="P$24" pad="24"/>
-<connect gate="J1" pin="P$25" pad="25"/>
-<connect gate="J1" pin="P$26" pad="26"/>
-<connect gate="J1" pin="P$27" pad="27"/>
-<connect gate="J1" pin="P$28" pad="28"/>
-<connect gate="J1" pin="P$29" pad="29"/>
-<connect gate="J1" pin="P$3" pad="3"/>
-<connect gate="J1" pin="P$30" pad="30"/>
-<connect gate="J1" pin="P$4" pad="4"/>
-<connect gate="J1" pin="P$5" pad="5"/>
-<connect gate="J1" pin="P$6" pad="6"/>
-<connect gate="J1" pin="P$7" pad="7"/>
-<connect gate="J1" pin="P$8" pad="8"/>
-<connect gate="J1" pin="P$9" pad="9"/>
-</connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:12919137/6"/>
-</package3dinstances>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
 </devices>
 </deviceset>
 <deviceset name="GND" urn="urn:adsk.eagle:component:9797922/1" prefix="GND" library_version="29" library_locally_modified="yes">
@@ -731,7 +588,7 @@ NOTE: PIN NUMBERS ARE NOT ACCORDING TO MFG, USING MY OWN CONVENTION</description
 </device>
 </devices>
 </deviceset>
-<deviceset name="75OHM" urn="urn:adsk.eagle:component:9989559/3" prefix="R" library_version="38">
+<deviceset name="75OHM" urn="urn:adsk.eagle:component:9989559/2" prefix="R" library_version="37">
 <gates>
 <gate name="R1" symbol="RESISTOR" x="0" y="0"/>
 </gates>
@@ -752,21 +609,9 @@ NOTE: PIN NUMBERS ARE NOT ACCORDING TO MFG, USING MY OWN CONVENTION</description
 </technology>
 </technologies>
 </device>
-<device name="THRUHOLE" package="0204/7">
-<connects>
-<connect gate="R1" pin="1" pad="1"/>
-<connect gate="R1" pin="2" pad="2"/>
-</connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:23498/2"/>
-</package3dinstances>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
 </devices>
 </deviceset>
-<deviceset name="LED_RED" urn="urn:adsk.eagle:component:10008991/4" prefix="D" uservalue="yes" library_version="40">
+<deviceset name="LED_RED" urn="urn:adsk.eagle:component:10008991/2" prefix="D" uservalue="yes" library_version="37">
 <description>&lt;p&gt;&lt;b&gt;LED&lt;/b&gt;&lt;/p&gt;
 &lt;b&gt;0603&lt;/b&gt; - 0603 Surface Mount Package
 &lt;hr&gt;
@@ -845,18 +690,6 @@ NOTE: PIN NUMBERS ARE NOT ACCORDING TO MFG, USING MY OWN CONVENTION</description
 </technology>
 </technologies>
 </device>
-<device name="" package="LEDRD254W60D400H525B">
-<connects>
-<connect gate="D1" pin="A" pad="1"/>
-<connect gate="D1" pin="C" pad="2"/>
-</connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:12905163/1"/>
-</package3dinstances>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
 </devices>
 </deviceset>
 </devicesets>
@@ -871,39 +704,39 @@ NOTE: PIN NUMBERS ARE NOT ACCORDING TO MFG, USING MY OWN CONVENTION</description
 </class>
 </classes>
 <parts>
-<part name="U$1" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="BOURNS_10K_POTENTIOMETER" device="" package3d_urn="urn:adsk.eagle:package:9336105/4"/>
-<part name="U$2" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="BOURNS_10K_POTENTIOMETER" device="" package3d_urn="urn:adsk.eagle:package:9336105/4"/>
-<part name="U$3" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="BOURNS_10K_POTENTIOMETER" device="" package3d_urn="urn:adsk.eagle:package:9336105/4"/>
-<part name="U$4" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="BOURNS_10K_POTENTIOMETER" device="" package3d_urn="urn:adsk.eagle:package:9336105/4"/>
-<part name="U$5" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="BOURNS_10K_POTENTIOMETER" device="" package3d_urn="urn:adsk.eagle:package:9336105/4"/>
-<part name="U$6" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="BOURNS_10K_POTENTIOMETER" device="" package3d_urn="urn:adsk.eagle:package:9336105/4"/>
-<part name="U$7" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="BOURNS_10K_POTENTIOMETER" device="" package3d_urn="urn:adsk.eagle:package:9336105/4"/>
-<part name="U$8" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="BOURNS_10K_POTENTIOMETER" device="" package3d_urn="urn:adsk.eagle:package:9336105/4"/>
-<part name="U$9" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="BOURNS_10K_POTENTIOMETER" device="" package3d_urn="urn:adsk.eagle:package:9336105/4"/>
-<part name="U$10" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="BOURNS_10K_POTENTIOMETER" device="" package3d_urn="urn:adsk.eagle:package:9336105/4"/>
-<part name="U$12" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="BOURNS_10K_POTENTIOMETER" device="" package3d_urn="urn:adsk.eagle:package:9336105/4"/>
-<part name="U$13" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="BOURNS_10K_POTENTIOMETER" device="" package3d_urn="urn:adsk.eagle:package:9336105/4"/>
-<part name="U$14" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="BOURNS_10K_POTENTIOMETER" device="" package3d_urn="urn:adsk.eagle:package:9336105/4"/>
-<part name="U$15" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="BOURNS_10K_POTENTIOMETER" device="" package3d_urn="urn:adsk.eagle:package:9336105/4"/>
-<part name="U$16" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="BOURNS_10K_POTENTIOMETER" device="" package3d_urn="urn:adsk.eagle:package:9336105/4"/>
-<part name="U$17" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="BOURNS_10K_POTENTIOMETER" device="" package3d_urn="urn:adsk.eagle:package:9336105/4"/>
+<part name="U$1" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="BOURNS_10K_POTENTIOMETER" device="" package3d_urn="urn:adsk.eagle:package:9336105/3"/>
+<part name="U$2" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="BOURNS_10K_POTENTIOMETER" device="" package3d_urn="urn:adsk.eagle:package:9336105/3"/>
+<part name="U$3" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="BOURNS_10K_POTENTIOMETER" device="" package3d_urn="urn:adsk.eagle:package:9336105/3"/>
+<part name="U$4" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="BOURNS_10K_POTENTIOMETER" device="" package3d_urn="urn:adsk.eagle:package:9336105/3"/>
+<part name="U$5" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="BOURNS_10K_POTENTIOMETER" device="" package3d_urn="urn:adsk.eagle:package:9336105/3"/>
+<part name="U$6" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="BOURNS_10K_POTENTIOMETER" device="" package3d_urn="urn:adsk.eagle:package:9336105/3"/>
+<part name="U$7" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="BOURNS_10K_POTENTIOMETER" device="" package3d_urn="urn:adsk.eagle:package:9336105/3"/>
+<part name="U$8" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="BOURNS_10K_POTENTIOMETER" device="" package3d_urn="urn:adsk.eagle:package:9336105/3"/>
+<part name="U$9" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="BOURNS_10K_POTENTIOMETER" device="" package3d_urn="urn:adsk.eagle:package:9336105/3"/>
+<part name="U$10" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="BOURNS_10K_POTENTIOMETER" device="" package3d_urn="urn:adsk.eagle:package:9336105/3"/>
+<part name="U$12" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="BOURNS_10K_POTENTIOMETER" device="" package3d_urn="urn:adsk.eagle:package:9336105/3"/>
+<part name="U$13" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="BOURNS_10K_POTENTIOMETER" device="" package3d_urn="urn:adsk.eagle:package:9336105/3"/>
+<part name="U$14" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="BOURNS_10K_POTENTIOMETER" device="" package3d_urn="urn:adsk.eagle:package:9336105/3"/>
+<part name="U$15" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="BOURNS_10K_POTENTIOMETER" device="" package3d_urn="urn:adsk.eagle:package:9336105/3"/>
+<part name="U$16" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="BOURNS_10K_POTENTIOMETER" device="" package3d_urn="urn:adsk.eagle:package:9336105/3"/>
+<part name="U$17" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="BOURNS_10K_POTENTIOMETER" device="" package3d_urn="urn:adsk.eagle:package:9336105/3"/>
 <part name="U$18" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="ESWITCH__YELLOW" device="" package3d_urn="urn:adsk.eagle:package:9336176/2"/>
 <part name="U$19" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="ESWITCH__YELLOW" device="" package3d_urn="urn:adsk.eagle:package:9336176/2"/>
 <part name="U$20" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="ESWITCH__YELLOW" device="" package3d_urn="urn:adsk.eagle:package:9336176/2"/>
 <part name="U$21" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="ESWITCH__YELLOW" device="" package3d_urn="urn:adsk.eagle:package:9336176/2"/>
-<part name="J1" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="30_PIN_CONNECTOR_MALE" device="FLEX_CONNECTOR" package3d_urn="urn:adsk.eagle:package:12919137/6" value="30_PIN_CONNECTOR_MALEFLEX_CONNECTOR">
+<part name="J1" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="30_PIN_CONNECTOR_MALE" device="" package3d_urn="urn:adsk.eagle:package:9975532/4">
 <attribute name="SPICEPREFIX" value="X"/>
 </part>
 <part name="GND6" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="GND" device=""/>
 <part name="GND7" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="GND" device=""/>
 <part name="GND8" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="GND" device=""/>
 <part name="GND9" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="GND" device=""/>
-<part name="R1" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="75OHM" device="THRUHOLE" package3d_urn="urn:adsk.eagle:package:23498/2" value="75OHMTHRUHOLE"/>
-<part name="R2" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="75OHM" device="THRUHOLE" package3d_urn="urn:adsk.eagle:package:23498/2" value="75OHMTHRUHOLE"/>
-<part name="R3" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="75OHM" device="THRUHOLE" package3d_urn="urn:adsk.eagle:package:23498/2" value="75OHMTHRUHOLE"/>
-<part name="R4" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="75OHM" device="THRUHOLE" package3d_urn="urn:adsk.eagle:package:23498/2" value="75OHMTHRUHOLE"/>
-<part name="D1" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="LED_RED" device="" package3d_urn="urn:adsk.eagle:package:12905163/1"/>
-<part name="R5" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="75OHM" device="THRUHOLE" package3d_urn="urn:adsk.eagle:package:23498/2" value="75OHMTHRUHOLE"/>
+<part name="R1" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="75OHM" device="" package3d_urn="urn:adsk.eagle:package:8442354/2"/>
+<part name="R2" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="75OHM" device="" package3d_urn="urn:adsk.eagle:package:8442354/2"/>
+<part name="R3" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="75OHM" device="" package3d_urn="urn:adsk.eagle:package:8442354/2"/>
+<part name="R4" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="75OHM" device="" package3d_urn="urn:adsk.eagle:package:8442354/2"/>
+<part name="D1" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="LED_RED" device="0805" package3d_urn="urn:adsk.eagle:package:8442343/2"/>
+<part name="R5" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="75OHM" device="" package3d_urn="urn:adsk.eagle:package:8442354/2"/>
 <part name="GND1" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="GND" device=""/>
 </parts>
 <sheets>
@@ -1601,10 +1434,6 @@ NOTE: PIN NUMBERS ARE NOT ACCORDING TO MFG, USING MY OWN CONVENTION</description
 </nets>
 </sheet>
 </sheets>
-<errors>
-<approved hash="108,1,-68.58,-86.36,GND,,,,,"/>
-<approved hash="113,1,-44.45,-20.9804,D1,,,,,"/>
-</errors>
 </schematic>
 </drawing>
 <compatibility>
