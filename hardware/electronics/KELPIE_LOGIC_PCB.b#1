@@ -3,7 +3,7 @@
 <eagle version="9.4.2">
 <drawing>
 <settings>
-<setting alwaysvectorfont="yes"/>
+<setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
 <grid distance="50" unitdist="mil" unit="mil" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="mil"/>
@@ -184,7 +184,7 @@
 <layer number="255" name="routoute" color="7" fill="1" visible="no" active="yes"/>
 </layers>
 <board>
-<fusionsync huburn="a.cGVyc29uYWw6dWUyOWViOTli" projecturn="a.cGVyc29uYWw6dWUyOWViOTliIzIwMTkwMjI4MTc5MjYyNDAx" f3durn="urn:adsk.wipprod:dm.lineage:TbYIAYm_SeiHnU5SEeh_ow" pcbguid="427068f0-0b71-4137-912b-b7c28c9918c9" lastpulledtime="2019-03-21T19:34:48Z" lastsyncedchangeguid="47a7285a-653e-e599-082c-2fde6fba6922"/>
+<fusionsync huburn="a.cGVyc29uYWw6dWUyOWViOTli" projecturn="a.cGVyc29uYWw6dWUyOWViOTliIzIwMTkwMjI4MTc5MjYyNDAx" f3durn="urn:adsk.wipprod:dm.lineage:TbYIAYm_SeiHnU5SEeh_ow" pcbguid="427068f0-0b71-4137-912b-b7c28c9918c9" lastpulledtime="2019-03-21T19:34:48Z" lastsyncedchangeguid="dee72c38-ea4a-60d5-5f84-73839d76ee31"/>
 <plain>
 <polygon width="0.1524" layer="30">
 <vertex x="91.821" y="39.624"/>
@@ -4205,15 +4205,16 @@ design rules under a new name.</description>
 <approved hash="5,1,170c1831fc332551"/>
 <approved hash="5,1,a882012da36b1736"/>
 <approved hash="23,16,7aa4744203f1fadc"/>
+<approved hash="5,1,7d1ec2a468a2bf5a"/>
+<approved hash="5,1,8ce98334f02a148b"/>
+<approved hash="5,1,6544e2dab4828c52"/>
+<approved hash="5,1,7cab629ca08650f7"/>
+<approved hash="5,1,39c5de6b3b48e447"/>
 <approved hash="5,1,1285f3d2fecd1ea6"/>
+<approved hash="5,1,619e66237dba0ea5"/>
+<approved hash="5,1,6dd162788658b054"/>
 <approved hash="5,1,9a04bf3f93470ad3"/>
-<approved hash="5,1,9d6f9e918575eec9"/>
-<approved hash="5,1,3bc22aa7dd26b8e1"/>
-<approved hash="5,1,5f2ca89e078ef7da"/>
-<approved hash="5,1,c24cd6ac25158ebb"/>
-<approved hash="5,1,de6b3b48e44739c5"/>
-<approved hash="5,1,148b8ce98334f02a"/>
-<approved hash="5,1,50f77cab629ca086"/>
+<approved hash="5,1,8f77ea6669190bee"/>
 </errors>
 </board>
 </drawing>
