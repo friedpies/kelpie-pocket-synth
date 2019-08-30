@@ -333,23 +333,18 @@ type 0204, grid 7.5 mm</description>
 <rectangle x1="2.54" y1="-0.254" x2="2.921" y2="0.254" layer="21"/>
 <rectangle x1="-2.921" y1="-0.254" x2="-2.54" y2="0.254" layer="21"/>
 </package>
-<package name="LED5MM" urn="urn:adsk.eagle:footprint:15655/1" locally_modified="yes" library_version="38" library_locally_modified="yes">
-<description>&lt;B&gt;LED&lt;/B&gt;&lt;p&gt;
-5 mm, round</description>
-<wire x1="2.54" y1="-1.905" x2="2.54" y2="1.905" width="0.2032" layer="21"/>
-<wire x1="2.54" y1="-1.905" x2="2.54" y2="1.905" width="0.254" layer="21" curve="-286.260205"/>
-<wire x1="-1.143" y1="0" x2="0" y2="1.143" width="0.1524" layer="51" curve="-90"/>
-<wire x1="0" y1="-1.143" x2="1.143" y2="0" width="0.1524" layer="51" curve="90"/>
-<wire x1="-1.651" y1="0" x2="0" y2="1.651" width="0.1524" layer="51" curve="-90"/>
-<wire x1="0" y1="-1.651" x2="1.651" y2="0" width="0.1524" layer="51" curve="90"/>
-<wire x1="-2.159" y1="0" x2="0" y2="2.159" width="0.1524" layer="51" curve="-90"/>
-<wire x1="0" y1="-2.159" x2="2.159" y2="0" width="0.1524" layer="51" curve="90"/>
-<circle x="0" y="0" radius="2.54" width="0.1524" layer="21"/>
-<pad name="A" x="-1.27" y="0" drill="0.8128" shape="octagon"/>
-<pad name="K" x="1.27" y="0" drill="0.8128" shape="octagon"/>
-<text x="-3.556" y="3.7084" size="1.27" layer="25" ratio="10">&gt;NAME</text>
-<text x="-3.9116" y="-4.9784" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
-<text x="-3.81" y="1.27" size="1.27" layer="21">+</text>
+<package name="LEDRD254W60D400H525B" urn="urn:adsk.eagle:footprint:12905165/1" library_version="40">
+<description>Radial LED (Round), 2.54 mm pitch, 4.00 mm body diameter, 5.25 mm body height
+&lt;p&gt;Radial LED (Round) package with 2.54 mm pitch, 0.60 mm lead width, 0.50 mm lead thickness, 4.00 mm body diameter and 5.25 mm body height&lt;/p&gt;</description>
+<wire x1="1.7803" y1="0.9114" x2="-1.7803" y2="0.9114" width="0.12" layer="21" curve="125.7811"/>
+<wire x1="1.7803" y1="-0.9114" x2="-1.7803" y2="-0.9114" width="0.12" layer="21" curve="-125.7811"/>
+<wire x1="-2.0112" y1="2.0113" x2="-1.2612" y2="2.0113" width="0.12" layer="21"/>
+<wire x1="-1.6362" y1="2.3863" x2="-1.6362" y2="1.6363" width="0.12" layer="21"/>
+<pad name="1" x="-1.27" y="0" drill="0.981" diameter="1.581"/>
+<pad name="2" x="1.27" y="0" drill="0.981" diameter="1.581"/>
+<circle x="0" y="0" radius="2" width="0.12" layer="51"/>
+<text x="0" y="3.0213" size="1.27" layer="25" align="bottom-center">&gt;NAME</text>
+<text x="0" y="-2.6351" size="1.27" layer="27" align="top-center">&gt;VALUE</text>
 </package>
 </packages>
 <packages3d>
@@ -387,6 +382,13 @@ type 0204, grid 7.5 mm</description>
 type 0204, grid 7.5 mm</description>
 <packageinstances>
 <packageinstance name="0204/7"/>
+</packageinstances>
+</package3d>
+<package3d name="LEDRD254W60D400H525B" urn="urn:adsk.eagle:package:12905163/1" type="model" library_version="40">
+<description>Radial LED (Round), 2.54 mm pitch, 4.00 mm body diameter, 5.25 mm body height
+&lt;p&gt;Radial LED (Round) package with 2.54 mm pitch, 0.60 mm lead width, 0.50 mm lead thickness, 4.00 mm body diameter and 5.25 mm body height&lt;/p&gt;</description>
+<packageinstances>
+<packageinstance name="LEDRD254W60D400H525B"/>
 </packageinstances>
 </package3d>
 </packages3d>
@@ -674,7 +676,7 @@ type 0204, grid 7.5 mm</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="LED_RED" urn="urn:adsk.eagle:component:10008991/2" locally_modified="yes" prefix="D" uservalue="yes" library_version="38" library_locally_modified="yes">
+<deviceset name="LED_RED" urn="urn:adsk.eagle:component:10008991/4" prefix="D" uservalue="yes" library_version="40">
 <description>&lt;p&gt;&lt;b&gt;LED&lt;/b&gt;&lt;/p&gt;
 &lt;b&gt;0603&lt;/b&gt; - 0603 Surface Mount Package
 &lt;hr&gt;
@@ -753,11 +755,14 @@ type 0204, grid 7.5 mm</description>
 </technology>
 </technologies>
 </device>
-<device name="" package="LED5MM">
+<device name="" package="LEDRD254W60D400H525B">
 <connects>
-<connect gate="D1" pin="A" pad="A"/>
-<connect gate="D1" pin="C" pad="K"/>
+<connect gate="D1" pin="A" pad="1"/>
+<connect gate="D1" pin="C" pad="2"/>
 </connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:12905163/1"/>
+</package3dinstances>
 <technologies>
 <technology name=""/>
 </technologies>
@@ -807,7 +812,7 @@ type 0204, grid 7.5 mm</description>
 <part name="R2" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="75OHM" device="THRUHOLE" package3d_urn="urn:adsk.eagle:package:23498/2" value="75OHMTHRUHOLE"/>
 <part name="R3" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="75OHM" device="THRUHOLE" package3d_urn="urn:adsk.eagle:package:23498/2" value="75OHMTHRUHOLE"/>
 <part name="R4" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="75OHM" device="THRUHOLE" package3d_urn="urn:adsk.eagle:package:23498/2" value="75OHMTHRUHOLE"/>
-<part name="D1" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="LED_RED" device=""/>
+<part name="D1" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="LED_RED" device="" package3d_urn="urn:adsk.eagle:package:12905163/1"/>
 <part name="R5" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="75OHM" device="THRUHOLE" package3d_urn="urn:adsk.eagle:package:23498/2" value="75OHMTHRUHOLE"/>
 <part name="GND1" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="GND" device=""/>
 </parts>

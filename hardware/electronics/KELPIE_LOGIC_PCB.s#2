@@ -695,9 +695,6 @@ NOTE: PIN NUMBERS ARE NOT ACCORDING TO MFG, USING MY OWN CONVENTION</description
 <text x="-18.227" y="-3.905" size="1.27" layer="27">&gt;VALUE</text>
 <text x="-16.322" y="0.413" size="1.27" layer="21">(1)</text>
 </package>
-<package name="TEST_POINT" urn="urn:adsk.eagle:footprint:12955546/1" library_version="47" library_locally_modified="yes">
-<pad name="P$1" x="0" y="0" drill="0.8128" diameter="1.4224"/>
-</package>
 </packages>
 <packages3d>
 <package3d name="CUI_PJ-002A" urn="urn:adsk.eagle:package:9702177/2" type="model" library_version="9" library_locally_modified="yes">
@@ -774,11 +771,6 @@ Source: http://www.onsemi.co.jp .. LM137M-D.PDF</description>
 NOTE: PIN NUMBERS ARE NOT ACCORDING TO MFG, USING MY OWN CONVENTION</description>
 <packageinstances>
 <packageinstance name="SLW30S"/>
-</packageinstances>
-</package3d>
-<package3d name="TEST_POINT" urn="urn:adsk.eagle:package:12955547/1" type="box" library_version="47" library_locally_modified="yes">
-<packageinstances>
-<packageinstance name="TEST_POINT"/>
 </packageinstances>
 </package3d>
 </packages3d>
@@ -1079,14 +1071,9 @@ NOTE: PIN NUMBERS ARE NOT ACCORDING TO MFG, USING MY OWN CONVENTION</description
 <wire x1="2.54" y1="-5.08" x2="1.27" y2="-3.81" width="0.254" layer="94"/>
 <wire x1="2.54" y1="-5.08" x2="3.81" y2="-3.81" width="0.254" layer="94"/>
 </symbol>
-<symbol name="TEST_POINT" urn="urn:adsk.eagle:symbol:12955545/1" library_version="47" library_locally_modified="yes">
-<pin name="P$1" x="0" y="0" length="middle" rot="R90"/>
-<wire x1="-2.54" y1="7.62" x2="0" y2="5.08" width="0.254" layer="94"/>
-<wire x1="0" y1="5.08" x2="2.54" y2="7.62" width="0.254" layer="94"/>
-</symbol>
 </symbols>
 <devicesets>
-<deviceset name="PJ-002A" urn="urn:adsk.eagle:component:9702178/3" prefix="J" library_version="47" library_locally_modified="yes">
+<deviceset name="PJ-002A" urn="urn:adsk.eagle:component:9702178/2" locally_modified="yes" prefix="J" library_version="35" library_locally_modified="yes">
 <description>2.0 mm Center Pin, 2.5 A, Right Angle, Through Hole, Dc Power Jack Connector</description>
 <gates>
 <gate name="G$1" symbol="PJ-002A" x="0" y="0"/>
@@ -1113,7 +1100,7 @@ NOTE: PIN NUMBERS ARE NOT ACCORDING TO MFG, USING MY OWN CONVENTION</description
 </device>
 </devices>
 </deviceset>
-<deviceset name="STEREO_LINE_OUT_JACK" urn="urn:adsk.eagle:component:9797241/2" library_version="47" library_locally_modified="yes">
+<deviceset name="STEREO_LINE_OUT_JACK" urn="urn:adsk.eagle:component:9797241/1" locally_modified="yes" library_version="35" library_locally_modified="yes">
 <gates>
 <gate name="G$1" symbol="STEREO_PHONE_JACK_1_4" x="0" y="0"/>
 </gates>
@@ -1140,7 +1127,7 @@ NOTE: PIN NUMBERS ARE NOT ACCORDING TO MFG, USING MY OWN CONVENTION</description
 </device>
 </devices>
 </deviceset>
-<deviceset name="1N4148WX-TP" urn="urn:adsk.eagle:component:9797240/3" prefix="D" library_version="47" library_locally_modified="yes">
+<deviceset name="1N4148WX-TP" urn="urn:adsk.eagle:component:9797240/2" locally_modified="yes" prefix="D" library_version="35" library_locally_modified="yes">
 <gates>
 <gate name="D1" symbol="DIODE" x="0" y="0"/>
 </gates>
@@ -1163,7 +1150,7 @@ NOTE: PIN NUMBERS ARE NOT ACCORDING TO MFG, USING MY OWN CONVENTION</description
 </device>
 </devices>
 </deviceset>
-<deviceset name="220OHM" urn="urn:adsk.eagle:component:9797250/2" prefix="R" library_version="47" library_locally_modified="yes">
+<deviceset name="220OHM" urn="urn:adsk.eagle:component:9797250/1" locally_modified="yes" prefix="R" library_version="35" library_locally_modified="yes">
 <gates>
 <gate name="R1" symbol="RESISTOR" x="0" y="0"/>
 </gates>
@@ -1186,7 +1173,7 @@ NOTE: PIN NUMBERS ARE NOT ACCORDING TO MFG, USING MY OWN CONVENTION</description
 </device>
 </devices>
 </deviceset>
-<deviceset name="0.1UF" urn="urn:adsk.eagle:component:9797247/2" prefix="C" library_version="47" library_locally_modified="yes">
+<deviceset name="0.1UF" urn="urn:adsk.eagle:component:9797247/1" locally_modified="yes" prefix="C" library_version="35" library_locally_modified="yes">
 <gates>
 <gate name="C1" symbol="CAP" x="0" y="0"/>
 </gates>
@@ -1209,7 +1196,7 @@ NOTE: PIN NUMBERS ARE NOT ACCORDING TO MFG, USING MY OWN CONVENTION</description
 </device>
 </devices>
 </deviceset>
-<deviceset name="470OHM" urn="urn:adsk.eagle:component:9797249/2" prefix="R" library_version="47" library_locally_modified="yes">
+<deviceset name="470OHM" urn="urn:adsk.eagle:component:9797249/1" locally_modified="yes" prefix="R" library_version="35" library_locally_modified="yes">
 <gates>
 <gate name="R1" symbol="RESISTOR" x="0" y="0"/>
 </gates>
@@ -1232,7 +1219,7 @@ NOTE: PIN NUMBERS ARE NOT ACCORDING TO MFG, USING MY OWN CONVENTION</description
 </device>
 </devices>
 </deviceset>
-<deviceset name="MIDI_CONNECTOR" urn="urn:adsk.eagle:component:9699786/5" library_version="47" library_locally_modified="yes">
+<deviceset name="MIDI_CONNECTOR" urn="urn:adsk.eagle:component:9699786/4" locally_modified="yes" library_version="35" library_locally_modified="yes">
 <description>https://www.digikey.com/product-detail/en/cui-inc/SDS-50J/CP-2350-ND/97033</description>
 <gates>
 <gate name="G$1" symbol="MIDI_PORT" x="0" y="0"/>
@@ -1259,7 +1246,7 @@ NOTE: PIN NUMBERS ARE NOT ACCORDING TO MFG, USING MY OWN CONVENTION</description
 </device>
 </devices>
 </deviceset>
-<deviceset name="6N138" urn="urn:adsk.eagle:component:9797261/3" prefix="OK" library_version="47" library_locally_modified="yes">
+<deviceset name="6N138" urn="urn:adsk.eagle:component:9797261/2" locally_modified="yes" prefix="OK" library_version="35" library_locally_modified="yes">
 <gates>
 <gate name="G$1" symbol="138" x="0" y="0"/>
 </gates>
@@ -1387,7 +1374,7 @@ NOTE: PIN NUMBERS ARE NOT ACCORDING TO MFG, USING MY OWN CONVENTION</description
 </device>
 </devices>
 </deviceset>
-<deviceset name="1UF" urn="urn:adsk.eagle:component:9910551/2" prefix="C" library_version="47" library_locally_modified="yes">
+<deviceset name="1UF" urn="urn:adsk.eagle:component:9910551/1" locally_modified="yes" prefix="C" library_version="35" library_locally_modified="yes">
 <gates>
 <gate name="C1" symbol="CAP" x="0" y="0"/>
 </gates>
@@ -1410,7 +1397,7 @@ NOTE: PIN NUMBERS ARE NOT ACCORDING TO MFG, USING MY OWN CONVENTION</description
 </device>
 </devices>
 </deviceset>
-<deviceset name="USB_MICRO-B" urn="urn:adsk.eagle:component:10014005/4" prefix="J" uservalue="yes" library_version="47" library_locally_modified="yes">
+<deviceset name="USB_MICRO-B" urn="urn:adsk.eagle:component:10014005/3" locally_modified="yes" prefix="J" uservalue="yes" library_version="35" library_locally_modified="yes">
 <description>&lt;h3&gt;USB Type Micro-B Connector&lt;/h3&gt;
 &lt;p&gt;Male/female and PTH/SMT variants&lt;/p&gt;
 &lt;p&gt;SparkFun Products:
@@ -1495,24 +1482,6 @@ https://www.digikey.com/product-detail/en/microchip-technology/MCP1826ST-3302E-D
 <attribute name="LINK" value="https://www.digikey.com/product-detail/en/switchcraft-inc/35RASMT4BHNTRX/SC1488-1-ND/2754493" constant="no"/>
 <attribute name="MPN" value="35RASMT4BHNTRX  "/>
 </technology>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="TEST_POINT" urn="urn:adsk.eagle:component:12955548/1" library_version="47" library_locally_modified="yes">
-<gates>
-<gate name="G$1" symbol="TEST_POINT" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="TEST_POINT">
-<connects>
-<connect gate="G$1" pin="P$1" pad="P$1"/>
-</connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:12955547/1"/>
-</package3dinstances>
-<technologies>
-<technology name=""/>
 </technologies>
 </device>
 </devices>
@@ -3338,7 +3307,6 @@ Source: http://www.analog.com/static/imported-files/data_sheets/AD8541_8542_8544
 <part name="GND20" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="GND" device=""/>
 <part name="J2" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="USB_MICRO-B" device="" package3d_urn="urn:adsk.eagle:package:10018607/2"/>
 <part name="GND8" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" deviceset="GND" device=""/>
-<part name="U$2" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="TEST_POINT" device="" package3d_urn="urn:adsk.eagle:package:12955547/1"/>
 </parts>
 <sheets>
 <sheet>
@@ -3649,7 +3617,6 @@ Source: http://www.analog.com/static/imported-files/data_sheets/AD8541_8542_8544
 <instance part="GND8" gate="1" x="-355.6" y="220.98" smashed="yes">
 <attribute name="VALUE" x="-355.6" y="220.726" size="1.778" layer="96" align="top-center"/>
 </instance>
-<instance part="U$2" gate="G$1" x="-342.9" y="238.76" smashed="yes"/>
 </instances>
 <busses>
 </busses>
@@ -4361,9 +4328,6 @@ Source: http://www.analog.com/static/imported-files/data_sheets/AD8541_8542_8544
 <label x="-350.52" y="243.84" size="1.27" layer="95" rot="R90" xref="yes"/>
 <wire x1="-350.52" y1="238.76" x2="-358.14" y2="238.76" width="0.1524" layer="91"/>
 <pinref part="J2" gate="J1" pin="VBUS"/>
-<pinref part="U$2" gate="G$1" pin="P$1"/>
-<wire x1="-350.52" y1="238.76" x2="-342.9" y2="238.76" width="0.1524" layer="91"/>
-<junction x="-350.52" y="238.76"/>
 </segment>
 </net>
 <net name="PINA14/KNOB16" class="0">
@@ -4956,16 +4920,6 @@ Source: http://www.analog.com/static/imported-files/data_sheets/AD8541_8542_8544
 </nets>
 </sheet>
 </sheets>
-<errors>
-<approved hash="104,1,-358.14,238.76,J2,VBUS,VUSB_IN,,,"/>
-<approved hash="106,1,-147.32,162.56,PIN1/MIDIOUT,,,,,"/>
-<approved hash="113,1,-167.64,161.057,K3,,,,,"/>
-<approved hash="113,1,-233.68,117.877,K4,,,,,"/>
-<approved hash="113,1,-339.065,160.02,S2,,,,,"/>
-<approved hash="113,1,-235.086,207.01,L1,,,,,"/>
-<approved hash="113,1,-247.65,184.142,L4,,,,,"/>
-<approved hash="113,1,-360.087,233.754,J2,,,,,"/>
-</errors>
 </schematic>
 </drawing>
 <compatibility>

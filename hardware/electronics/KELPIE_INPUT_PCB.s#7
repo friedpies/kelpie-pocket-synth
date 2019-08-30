@@ -186,9 +186,7 @@
 <libraries>
 <library name="sirin-clone-library" urn="urn:adsk.eagle:library:9336050">
 <packages>
-<package name="BOURNS_PTV09" urn="urn:adsk.eagle:footprint:9336051/3" library_version="37">
-<hole x="-5.3" y="0" drill="2.2"/>
-<hole x="5.3" y="0" drill="2.2"/>
+<package name="BOURNS_PTV09" urn="urn:adsk.eagle:footprint:9336051/3" locally_modified="yes" library_version="38" library_locally_modified="yes">
 <pad name="2" x="0" y="-7" drill="1" diameter="1.5"/>
 <pad name="1" x="-2.5" y="-7" drill="1" diameter="1.5"/>
 <pad name="3" x="2.5" y="-7" drill="1" diameter="1.5"/>
@@ -335,7 +333,7 @@ type 0204, grid 7.5 mm</description>
 <rectangle x1="2.54" y1="-0.254" x2="2.921" y2="0.254" layer="21"/>
 <rectangle x1="-2.921" y1="-0.254" x2="-2.54" y2="0.254" layer="21"/>
 </package>
-<package name="LED5MM" urn="urn:adsk.eagle:footprint:15655/1" locally_modified="yes" library_version="38" library_locally_modified="yes">
+<package name="LED5MM" urn="urn:adsk.eagle:footprint:12905147/1" library_version="39">
 <description>&lt;B&gt;LED&lt;/B&gt;&lt;p&gt;
 5 mm, round</description>
 <wire x1="2.54" y1="-1.905" x2="2.54" y2="1.905" width="0.2032" layer="21"/>
@@ -353,9 +351,23 @@ type 0204, grid 7.5 mm</description>
 <text x="-3.9116" y="-4.9784" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
 <text x="-3.81" y="1.27" size="1.27" layer="21">+</text>
 </package>
+<package name="LEDRD254W60D565H860B" urn="urn:adsk.eagle:footprint:12905137/1" library_version="39">
+<description>Radial LED (Round), 2.54 mm pitch, 5.65 mm body diameter, 8.60 mm body height
+&lt;p&gt;Radial LED (Round) package with 2.54 mm pitch, 0.60 mm lead width, 0.50 mm lead thickness, 5.65 mm body diameter and 8.60 mm body height&lt;/p&gt;</description>
+<wire x1="2.5425" y1="1.2314" x2="-2.825" y2="0" width="0.12" layer="21" curve="154.1581"/>
+<wire x1="2.5425" y1="-1.2314" x2="-2.825" y2="0" width="0.12" layer="21" curve="-154.1581"/>
+<wire x1="2.5425" y1="1.2314" x2="2.5425" y2="-1.2314" width="0.12" layer="21"/>
+<wire x1="-2.5946" y1="2.5946" x2="-1.8446" y2="2.5946" width="0.12" layer="21"/>
+<wire x1="-2.2196" y1="2.9696" x2="-2.2196" y2="2.2196" width="0.12" layer="21"/>
+<pad name="1" x="-1.27" y="0" drill="0.981" diameter="1.581"/>
+<pad name="2" x="1.27" y="0" drill="0.981" diameter="1.581"/>
+<circle x="0" y="0" radius="2.825" width="0.12" layer="51"/>
+<text x="0" y="3.6046" size="1.27" layer="25" align="bottom-center">&gt;NAME</text>
+<text x="0" y="-3.4642" size="1.27" layer="27" align="top-center">&gt;VALUE</text>
+</package>
 </packages>
 <packages3d>
-<package3d name="BOURNS_PTV09" urn="urn:adsk.eagle:package:9336105/3" type="model" library_version="37">
+<package3d name="BOURNS_PTV09" urn="urn:adsk.eagle:package:9336105/3" type="model" library_version="38" library_locally_modified="yes">
 <packageinstances>
 <packageinstance name="BOURNS_PTV09"/>
 </packageinstances>
@@ -389,6 +401,20 @@ type 0204, grid 7.5 mm</description>
 type 0204, grid 7.5 mm</description>
 <packageinstances>
 <packageinstance name="0204/7"/>
+</packageinstances>
+</package3d>
+<package3d name="LED5MM" urn="urn:adsk.eagle:package:12905149/1" type="box" library_version="39">
+<description>&lt;B&gt;LED&lt;/B&gt;&lt;p&gt;
+5 mm, round</description>
+<packageinstances>
+<packageinstance name="LED5MM"/>
+</packageinstances>
+</package3d>
+<package3d name="LEDRD254W60D565H860B" urn="urn:adsk.eagle:package:12905132/1" type="model" library_version="39">
+<description>Radial LED (Round), 2.54 mm pitch, 5.65 mm body diameter, 8.60 mm body height
+&lt;p&gt;Radial LED (Round) package with 2.54 mm pitch, 0.60 mm lead width, 0.50 mm lead thickness, 5.65 mm body diameter and 8.60 mm body height&lt;/p&gt;</description>
+<packageinstances>
+<packageinstance name="LEDRD254W60D565H860B"/>
 </packageinstances>
 </package3d>
 </packages3d>
@@ -527,7 +553,7 @@ type 0204, grid 7.5 mm</description>
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="BOURNS_10K_POTENTIOMETER" urn="urn:adsk.eagle:component:9336132/6" library_version="37">
+<deviceset name="BOURNS_10K_POTENTIOMETER" urn="urn:adsk.eagle:component:9336132/6" library_version="38" library_locally_modified="yes">
 <description>https://www.digikey.com/product-detail/en/bourns-inc/PTV09A-4020F-B103/PTV09A-4020F-B103-ND/3534181</description>
 <gates>
 <gate name="G$1" symbol="TRIMPOT" x="0" y="0"/>
@@ -676,7 +702,7 @@ type 0204, grid 7.5 mm</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="LED_RED" urn="urn:adsk.eagle:component:10008991/2" locally_modified="yes" prefix="D" uservalue="yes" library_version="38" library_locally_modified="yes">
+<deviceset name="LED_RED" urn="urn:adsk.eagle:component:10008991/3" prefix="D" uservalue="yes" library_version="39">
 <description>&lt;p&gt;&lt;b&gt;LED&lt;/b&gt;&lt;/p&gt;
 &lt;b&gt;0603&lt;/b&gt; - 0603 Surface Mount Package
 &lt;hr&gt;
@@ -760,6 +786,21 @@ type 0204, grid 7.5 mm</description>
 <connect gate="D1" pin="A" pad="A"/>
 <connect gate="D1" pin="C" pad="K"/>
 </connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:12905149/1"/>
+</package3dinstances>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="LEDTHRU" package="LEDRD254W60D565H860B">
+<connects>
+<connect gate="D1" pin="A" pad="1"/>
+<connect gate="D1" pin="C" pad="2"/>
+</connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:12905132/1"/>
+</package3dinstances>
 <technologies>
 <technology name=""/>
 </technologies>
@@ -809,7 +850,7 @@ type 0204, grid 7.5 mm</description>
 <part name="R2" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="75OHM" device="THRUHOLE" package3d_urn="urn:adsk.eagle:package:23498/2" value="75OHMTHRUHOLE"/>
 <part name="R3" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="75OHM" device="THRUHOLE" package3d_urn="urn:adsk.eagle:package:23498/2" value="75OHMTHRUHOLE"/>
 <part name="R4" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="75OHM" device="THRUHOLE" package3d_urn="urn:adsk.eagle:package:23498/2" value="75OHMTHRUHOLE"/>
-<part name="D1" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="LED_RED" device=""/>
+<part name="D1" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="LED_RED" device="LEDTHRU" package3d_urn="urn:adsk.eagle:package:12905132/1"/>
 <part name="R5" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="75OHM" device="THRUHOLE" package3d_urn="urn:adsk.eagle:package:23498/2" value="75OHMTHRUHOLE"/>
 <part name="GND1" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="GND" device=""/>
 </parts>
