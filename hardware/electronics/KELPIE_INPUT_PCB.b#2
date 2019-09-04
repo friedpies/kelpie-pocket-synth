@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="9.3.1">
+<eagle version="9.4.2">
 <drawing>
 <settings>
-<setting alwaysvectorfont="yes"/>
+<setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
 <grid distance="12.5" unitdist="mil" unit="mil" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="mil"/>
@@ -183,7 +183,7 @@
 <layer number="255" name="routoute" color="7" fill="1" visible="yes" active="yes"/>
 </layers>
 <board>
-<fusionsync huburn="a.cGVyc29uYWw6dWUyOWViOTli" projecturn="a.cGVyc29uYWw6dWUyOWViOTliIzIwMTkwMjI4MTc5MjYyNDAx" f3durn="urn:adsk.wipprod:dm.lineage:6XGW8_IMTfahicU4G-4h1g" pcbguid="68cec704-b38b-4bc9-8c00-2951139b60a6" lastpulledtime="2019-03-13T20:54:59Z" lastsyncedchangeguid="becbf848-8425-bb94-2f67-66905d30f260"/>
+<fusionsync huburn="a.cGVyc29uYWw6dWUyOWViOTli" projecturn="a.cGVyc29uYWw6dWUyOWViOTliIzIwMTkwMjI4MTc5MjYyNDAx" f3durn="urn:adsk.wipprod:dm.lineage:6XGW8_IMTfahicU4G-4h1g" pcbguid="68cec704-b38b-4bc9-8c00-2951139b60a6" lastpulledtime="2019-03-13T20:54:59Z" lastsyncedchangeguid="6f3d936c-3097-c3c6-2d66-e380907b2441"/>
 <plain>
 <wire x1="0" y1="3.175" x2="3.175" y2="0" width="0.254" layer="20" curve="90"/>
 <wire x1="3.175" y1="0" x2="98.425" y2="0" width="0.254" layer="20"/>
@@ -457,8 +457,6 @@
 V0.1.0
 AUGUST 2019
 BY K. MARUT</text>
-<text x="66.04" y="53.467" size="0.7" layer="21" rot="R180">PIN1</text>
-<text x="63.5" y="50.8" size="0.7" layer="21">PIN16</text>
 <text x="96.901" y="51.689" size="0.7" layer="21">3.3V</text>
 <text x="95.885" y="54.229" size="0.7" layer="21">AGND</text>
 <text x="92.837" y="51.054" size="0.7" layer="21" rot="R180">GND</text>
@@ -1429,15 +1427,14 @@ design rules under a new name.</description>
 <wire x1="51.1175" y1="53.6575" x2="46.355" y2="48.895" width="0.2032" layer="16"/>
 <wire x1="46.355" y1="48.895" x2="33.655" y2="48.895" width="0.2032" layer="16"/>
 <wire x1="66.08639375" y1="54.9305" x2="64.49589375" y2="53.34" width="0.2032" layer="1"/>
-<wire x1="57.4675" y1="53.34" x2="64.49589375" y2="53.34" width="0.2032" layer="1"/>
+<wire x1="64.49589375" y1="53.34" x2="57.4675" y2="53.34" width="0.2032" layer="1"/>
 <wire x1="26.67" y1="45.72" x2="27.305" y2="46.355" width="0.2032" layer="1"/>
 <wire x1="27.305" y1="46.355" x2="27.305" y2="48.26" width="0.2032" layer="1"/>
 <wire x1="27.305" y1="48.26" x2="27.94" y2="48.895" width="0.2032" layer="1"/>
 <wire x1="17.145" y1="45.72" x2="26.67" y2="45.72" width="0.2032" layer="1"/>
 <wire x1="27.94" y1="48.895" x2="33.655" y2="48.895" width="0.2032" layer="1"/>
-<wire x1="66.08639375" y1="54.9305" x2="70.15610625" y2="54.9305" width="0.2032" layer="1"/>
-<wire x1="70.15610625" y1="54.9305" x2="70.78" y2="54.30660625" width="0.2032" layer="1"/>
-<wire x1="70.78" y1="54.30660625" x2="70.78" y2="54.0225" width="0.2032" layer="1"/>
+<wire x1="70.78" y1="54.0225" x2="69.872" y2="54.9305" width="0.2032" layer="1"/>
+<wire x1="69.872" y1="54.9305" x2="66.08639375" y2="54.9305" width="0.2032" layer="1"/>
 </signal>
 <signal name="PIN2/SW1">
 <contactref element="J1" pad="19"/>

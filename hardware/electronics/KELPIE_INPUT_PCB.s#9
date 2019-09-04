@@ -186,9 +186,7 @@
 <libraries>
 <library name="sirin-clone-library" urn="urn:adsk.eagle:library:9336050">
 <packages>
-<package name="BOURNS_PTV09" urn="urn:adsk.eagle:footprint:9336051/3" library_version="37">
-<hole x="-5.3" y="0" drill="2.2"/>
-<hole x="5.3" y="0" drill="2.2"/>
+<package name="BOURNS_PTV09" urn="urn:adsk.eagle:footprint:9336051/3" locally_modified="yes" library_version="38" library_locally_modified="yes">
 <pad name="2" x="0" y="-7" drill="1" diameter="1.5"/>
 <pad name="1" x="-2.5" y="-7" drill="1" diameter="1.5"/>
 <pad name="3" x="2.5" y="-7" drill="1" diameter="1.5"/>
@@ -355,7 +353,7 @@ type 0204, grid 7.5 mm</description>
 </package>
 </packages>
 <packages3d>
-<package3d name="BOURNS_PTV09" urn="urn:adsk.eagle:package:9336105/3" type="model" library_version="37">
+<package3d name="BOURNS_PTV09" urn="urn:adsk.eagle:package:9336105/3" type="model" library_version="38" library_locally_modified="yes">
 <packageinstances>
 <packageinstance name="BOURNS_PTV09"/>
 </packageinstances>
@@ -527,7 +525,7 @@ type 0204, grid 7.5 mm</description>
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="BOURNS_10K_POTENTIOMETER" urn="urn:adsk.eagle:component:9336132/6" library_version="37">
+<deviceset name="BOURNS_10K_POTENTIOMETER" urn="urn:adsk.eagle:component:9336132/6" library_version="38" library_locally_modified="yes">
 <description>https://www.digikey.com/product-detail/en/bourns-inc/PTV09A-4020F-B103/PTV09A-4020F-B103-ND/3534181</description>
 <gates>
 <gate name="G$1" symbol="TRIMPOT" x="0" y="0"/>
