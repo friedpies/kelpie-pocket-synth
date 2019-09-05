@@ -10,7 +10,7 @@ The KELPIE is a digital polyphonic synthesizer powered by the SGTL5000 audio DAC
 
 This repo houses all mechanical, electrical, and software files relating to the project, as well as graphical assets and other additional files.
 
-- Mechanical CAD (mCAD) files can be found [here](https://github.com/friedpies/kelpie-pocket-synth/tree/master/hardware/enclosure) in both STEP format as well as their native [Fusion 360 Format](https://www.autodesk.com/products/fusion-360/overview)
+- Mechanical CAD (mCAD) files can be found and viewed [here](https://a360.co/2Hpqyr5) via Fusion 360's online viewer. They can be downloaded directly in whatever format you need (including STLs for 3D printing). The link provided here directly reflects the most current progress and is kept up-to-date in real time.
 - Electronics CAD ([Autodesk Eagle](https://www.autodesk.com/products/eagle/free-download)) files and schematics can be found [here](https://github.com/friedpies/kelpie-pocket-synth/tree/master/hardware/electronics). The parts library and full BOM can be exported from the schematic. This is the most up-to-date BOM.
 - Firmware files, written in Arduino/C++ using [PlatformIO](https://platformio.org/) can be found [here](https://github.com/friedpies/kelpie-pocket-synth/tree/master/firmware)
 

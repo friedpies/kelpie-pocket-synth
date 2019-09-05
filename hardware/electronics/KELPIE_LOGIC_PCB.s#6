@@ -719,6 +719,33 @@ NOTE: PIN NUMBERS ARE NOT ACCORDING TO MFG, USING MY OWN CONVENTION</description
 <wire x1="-1.95" y1="-1.45" x2="1.95" y2="-1.45" width="0.127" layer="21"/>
 <wire x1="-1.95" y1="1.45" x2="1.95" y2="1.45" width="0.127" layer="21"/>
 </package>
+<package name="TSSOP8" urn="urn:adsk.eagle:footprint:8442303/1" library_version="63">
+<description>&lt;b&gt;8-Lead Thin Shrink Small Outline Package &lt;/b&gt;&lt;p&gt;
+Source: http://www.analog.com/static/imported-files/data_sheets/AD8541_8542_8544.pdf</description>
+<wire x1="-0.6" y1="1.4484" x2="0.6" y2="1.4484" width="0.2032" layer="21" curve="180"/>
+<wire x1="-2.1484" y1="-1.4484" x2="2.1484" y2="-1.4484" width="0.2032" layer="21"/>
+<wire x1="2.1484" y1="-1.4484" x2="2.1484" y2="1.4484" width="0.2032" layer="21"/>
+<wire x1="2.1484" y1="1.4484" x2="-2.1484" y2="1.4484" width="0.2032" layer="21"/>
+<wire x1="-2.1484" y1="1.4484" x2="-2.1484" y2="-1.4484" width="0.2032" layer="21"/>
+<rectangle x1="-3.2" y1="0.825" x2="-2.25" y2="1.125" layer="51"/>
+<rectangle x1="-3.2" y1="0.175" x2="-2.25" y2="0.475" layer="51"/>
+<rectangle x1="-3.2" y1="-0.475" x2="-2.25" y2="-0.175" layer="51"/>
+<rectangle x1="-3.2" y1="-1.125" x2="-2.25" y2="-0.825" layer="51"/>
+<rectangle x1="2.25" y1="-1.125" x2="3.2" y2="-0.825" layer="51" rot="R180"/>
+<rectangle x1="2.25" y1="-0.475" x2="3.2" y2="-0.175" layer="51" rot="R180"/>
+<rectangle x1="2.25" y1="0.175" x2="3.2" y2="0.475" layer="51" rot="R180"/>
+<rectangle x1="2.25" y1="0.825" x2="3.2" y2="1.125" layer="51"/>
+<smd name="1" x="-2.875" y="0.975" dx="0.9" dy="0.35" layer="1"/>
+<smd name="2" x="-2.875" y="0.325" dx="0.9" dy="0.35" layer="1"/>
+<smd name="3" x="-2.875" y="-0.325" dx="0.9" dy="0.35" layer="1"/>
+<smd name="4" x="-2.875" y="-0.975" dx="0.9" dy="0.35" layer="1"/>
+<smd name="5" x="2.875" y="-0.975" dx="0.9" dy="0.35" layer="1" rot="R180"/>
+<smd name="6" x="2.875" y="-0.325" dx="0.9" dy="0.35" layer="1" rot="R180"/>
+<smd name="7" x="2.875" y="0.325" dx="0.9" dy="0.35" layer="1" rot="R180"/>
+<smd name="8" x="2.875" y="0.975" dx="0.9" dy="0.35" layer="1" rot="R180"/>
+<text x="-3.81" y="-3.175" size="1.016" layer="21">&gt;VALUE</text>
+<text x="-3.81" y="1.905" size="1.016" layer="21">&gt;NAME</text>
+</package>
 </packages>
 <packages3d>
 <package3d name="CUI_PJ-002A" urn="urn:adsk.eagle:package:9702177/2" type="model" library_version="9" library_locally_modified="yes">
@@ -808,6 +835,13 @@ NOTE: PIN NUMBERS ARE NOT ACCORDING TO MFG, USING MY OWN CONVENTION</description
 <description>https://www.digikey.com/product-detail/en/c-k/PTS820-J15KP-SMTR-LFS/CKN10928CT-ND/7355849</description>
 <packageinstances>
 <packageinstance name="SWITCH_PTS820"/>
+</packageinstances>
+</package3d>
+<package3d name="TSSOP8" urn="urn:adsk.eagle:package:8442350/2" type="model" library_version="63">
+<description>&lt;b&gt;8-Lead Thin Shrink Small Outline Package &lt;/b&gt;&lt;p&gt;
+Source: http://www.analog.com/static/imported-files/data_sheets/AD8541_8542_8544.pdf</description>
+<packageinstances>
+<packageinstance name="TSSOP8"/>
 </packageinstances>
 </package3d>
 </packages3d>
@@ -1153,6 +1187,57 @@ NOTE: PIN NUMBERS ARE NOT ACCORDING TO MFG, USING MY OWN CONVENTION</description
 <pin name="1" x="-5.08" y="0" visible="off" length="short" direction="pas" swaplevel="1"/>
 <text x="-3.175" y="1.905" size="1.27" layer="95">&gt;NAME</text>
 <text x="-3.175" y="-3.175" size="1.27" layer="96">&gt;VALUE</text>
+</symbol>
+<symbol name="RESISTOR-2" urn="urn:adsk.eagle:symbol:13046319/1" library_version="60">
+<wire x1="-2.54" y1="0" x2="-2.159" y2="1.016" width="0.1524" layer="94"/>
+<wire x1="-2.159" y1="1.016" x2="-1.524" y2="-1.016" width="0.1524" layer="94"/>
+<wire x1="-1.524" y1="-1.016" x2="-0.889" y2="1.016" width="0.1524" layer="94"/>
+<wire x1="-0.889" y1="1.016" x2="-0.254" y2="-1.016" width="0.1524" layer="94"/>
+<wire x1="-0.254" y1="-1.016" x2="0.381" y2="1.016" width="0.1524" layer="94"/>
+<wire x1="0.381" y1="1.016" x2="1.016" y2="-1.016" width="0.1524" layer="94"/>
+<wire x1="1.016" y1="-1.016" x2="1.651" y2="1.016" width="0.1524" layer="94"/>
+<wire x1="1.651" y1="1.016" x2="2.286" y2="-1.016" width="0.1524" layer="94"/>
+<wire x1="2.286" y1="-1.016" x2="2.54" y2="0" width="0.1524" layer="94"/>
+<pin name="2" x="5.08" y="0" visible="off" length="short" direction="pas" swaplevel="1" rot="R180"/>
+<pin name="1" x="-5.08" y="0" visible="off" length="short" direction="pas" swaplevel="1"/>
+<text x="-3.175" y="1.905" size="1.27" layer="95">&gt;NAME</text>
+<text x="-3.175" y="-3.175" size="1.27" layer="96">&gt;VALUE</text>
+</symbol>
+<symbol name="CAP-3" urn="urn:adsk.eagle:symbol:13046321/1" library_version="61">
+<wire x1="0" y1="1.27" x2="0" y2="0.762" width="0.1524" layer="94"/>
+<wire x1="0" y1="-1.27" x2="0" y2="-0.762" width="0.1524" layer="94"/>
+<text x="4.064" y="-4.826" size="1.778" layer="96" font="vector" rot="R90">&gt;VALUE</text>
+<text x="-2.54" y="-4.445" size="1.778" layer="95" rot="R90">&gt;NAME</text>
+<rectangle x1="-2.032" y1="-0.762" x2="2.032" y2="-0.254" layer="94"/>
+<rectangle x1="-2.032" y1="0.254" x2="2.032" y2="0.762" layer="94"/>
+<pin name="+" x="0" y="3.81" visible="off" length="short" direction="pas" swaplevel="1" rot="R270"/>
+<pin name="-" x="0" y="-3.81" visible="off" length="short" direction="pas" swaplevel="1" rot="R90"/>
+</symbol>
+<symbol name="CAP-4" urn="urn:adsk.eagle:symbol:13046340/1" library_version="62">
+<wire x1="0" y1="1.27" x2="0" y2="0.762" width="0.1524" layer="94"/>
+<wire x1="0" y1="-1.27" x2="0" y2="-0.762" width="0.1524" layer="94"/>
+<text x="4.064" y="-4.826" size="1.778" layer="96" font="vector" rot="R90">&gt;VALUE</text>
+<text x="-2.54" y="-4.445" size="1.778" layer="95" rot="R90">&gt;NAME</text>
+<rectangle x1="-2.032" y1="-0.762" x2="2.032" y2="-0.254" layer="94"/>
+<rectangle x1="-2.032" y1="0.254" x2="2.032" y2="0.762" layer="94"/>
+<pin name="+" x="0" y="3.81" visible="off" length="short" direction="pas" swaplevel="1" rot="R270"/>
+<pin name="-" x="0" y="-3.81" visible="off" length="short" direction="pas" swaplevel="1" rot="R90"/>
+</symbol>
+<symbol name="23LC1024" urn="urn:adsk.eagle:symbol:13046343/1" library_version="63">
+<wire x1="-12.7" y1="-7.62" x2="-12.7" y2="5.08" width="0.254" layer="94"/>
+<wire x1="-12.7" y1="5.08" x2="12.7" y2="5.08" width="0.254" layer="94"/>
+<wire x1="12.7" y1="5.08" x2="12.7" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="12.7" y1="-7.62" x2="-12.7" y2="-7.62" width="0.254" layer="94"/>
+<pin name="MISO(2)" x="-17.78" y="2.54" length="middle"/>
+<pin name="SCLK(6)" x="-17.78" y="0" length="middle"/>
+<pin name="MOSI(5)" x="-17.78" y="-2.54" length="middle"/>
+<pin name="CS(1)" x="-17.78" y="-5.08" length="middle"/>
+<pin name="RST(7)" x="17.78" y="0" length="middle" rot="R180"/>
+<pin name="WP(3)" x="17.78" y="-2.54" length="middle" rot="R180"/>
+<pin name="3.3V(8)" x="17.78" y="2.54" length="middle" rot="R180"/>
+<pin name="GND(4)" x="17.78" y="-5.08" length="middle" rot="R180"/>
+<text x="-12.7" y="-10.16" size="1.778" layer="96">&gt;VALUE</text>
+<text x="-12.7" y="5.08" size="1.4224" layer="95">&gt;NAME</text>
 </symbol>
 </symbols>
 <devicesets>
@@ -1654,27 +1739,103 @@ https://www.digikey.com/product-detail/en/microchip-technology/MCP1826ST-3302E-D
 </device>
 </devices>
 </deviceset>
+<deviceset name="2.2KOHM" urn="urn:adsk.eagle:component:13046320/1" prefix="R" library_version="60">
+<description>https://www.digikey.com/product-detail/en/yageo/RC0805FR-072K2L/311-2.20KCRCT-ND/730623</description>
+<gates>
+<gate name="R1" symbol="RESISTOR-2" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="0805">
+<connects>
+<connect gate="R1" pin="1" pad="1"/>
+<connect gate="R1" pin="2" pad="2"/>
+</connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:8442354/2"/>
+</package3dinstances>
+<technologies>
+<technology name="">
+<attribute name="MPN" value="RC0805FR-072K2L" constant="no"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="2.2UF" urn="urn:adsk.eagle:component:13046322/1" prefix="C" library_version="61">
+<description>https://www.digikey.com/product-detail/en/samsung-electro-mechanics/CL21B105KAFNNNE/1276-1066-1-ND/3889152</description>
+<gates>
+<gate name="C1" symbol="CAP-3" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="C_0805">
+<connects>
+<connect gate="C1" pin="+" pad="+"/>
+<connect gate="C1" pin="-" pad="-"/>
+</connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:8442351/2"/>
+</package3dinstances>
+<technologies>
+<technology name="">
+<attribute name="MPN" value="CL21B105KAFNNNE" constant="no"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="22PF" urn="urn:adsk.eagle:component:13046341/1" prefix="C" uservalue="yes" library_version="62">
+<gates>
+<gate name="G$1" symbol="CAP-4" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="C_0805">
+<connects>
+<connect gate="G$1" pin="+" pad="+"/>
+<connect gate="G$1" pin="-" pad="-"/>
+</connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:8442351/2"/>
+</package3dinstances>
+<technologies>
+<technology name="">
+<attribute name="MPN" value="885012007030" constant="no"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="23LC1024" urn="urn:adsk.eagle:component:13046344/1" prefix="U" library_version="63">
+<description>https://www.digikey.com/product-detail/en/microchip-technology/23LC1024T-I-ST/23LC1024T-I-STCT-ND/5818676</description>
+<gates>
+<gate name="U1" symbol="23LC1024" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="TSSOP8">
+<connects>
+<connect gate="U1" pin="3.3V(8)" pad="8"/>
+<connect gate="U1" pin="CS(1)" pad="1"/>
+<connect gate="U1" pin="GND(4)" pad="4"/>
+<connect gate="U1" pin="MISO(2)" pad="2"/>
+<connect gate="U1" pin="MOSI(5)" pad="5"/>
+<connect gate="U1" pin="RST(7)" pad="7"/>
+<connect gate="U1" pin="SCLK(6)" pad="6"/>
+<connect gate="U1" pin="WP(3)" pad="3"/>
+</connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:8442350/2"/>
+</package3dinstances>
+<technologies>
+<technology name="">
+<attribute name="MPN" value="23LC1024T-I/ST" constant="no"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
 </devicesets>
 </library>
 <library name="moon-germs-v1_main" urn="urn:adsk.eagle:library:8442267">
 <packages>
-<package name="C_0805" urn="urn:adsk.eagle:footprint:8442302/1" library_version="3" library_locally_modified="yes">
-<description>&lt;p&gt;&lt;b&gt;Generic 2012 (0805) package&lt;/b&gt;&lt;/p&gt;
-&lt;p&gt;0.2mm courtyard excess rounded to nearest 0.05mm.&lt;/p&gt;</description>
-<smd name="+" x="-0.9" y="0" dx="0.8" dy="1.2" layer="1"/>
-<smd name="-" x="0.9" y="0" dx="0.8" dy="1.2" layer="1"/>
-<wire x1="-1.5" y1="0.8" x2="1.5" y2="0.8" width="0.0508" layer="39"/>
-<wire x1="1.5" y1="0.8" x2="1.5" y2="-0.8" width="0.0508" layer="39"/>
-<wire x1="1.5" y1="-0.8" x2="-1.5" y2="-0.8" width="0.0508" layer="39"/>
-<wire x1="-1.5" y1="-0.8" x2="-1.5" y2="0.8" width="0.0508" layer="39"/>
-<wire x1="-1.524" y1="-0.762" x2="-1.524" y2="0.762" width="0.0762" layer="21"/>
-<wire x1="-1.524" y1="0.762" x2="1.524" y2="0.762" width="0.0762" layer="21"/>
-<wire x1="1.524" y1="0.762" x2="1.524" y2="-0.762" width="0.0762" layer="21"/>
-<wire x1="1.524" y1="-0.762" x2="-1.524" y2="-0.762" width="0.0762" layer="21"/>
-<text x="-2.54" y="0" size="1.27" layer="21">+</text>
-<text x="-2.54" y="1.27" size="0.8128" layer="21">&gt;VALUE</text>
-<text x="-2.54" y="-1.905" size="0.8128" layer="21">&gt;NAME</text>
-</package>
 <package name="LQFP64-05" urn="urn:adsk.eagle:footprint:8700958/1" library_version="8">
 <smd name="1" x="-5.915" y="3.7592" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R270"/>
 <smd name="2" x="-5.915" y="3.2512" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R270"/>
@@ -2174,33 +2335,6 @@ Puhs-Push type.
 <rectangle x1="0.254" y1="-1.016" x2="1.016" y2="-0.254" layer="31"/>
 <rectangle x1="-1.016" y1="-1.016" x2="-0.254" y2="-0.254" layer="31"/>
 </package>
-<package name="TSSOP8" urn="urn:adsk.eagle:footprint:8442303/1" library_version="1" library_locally_modified="yes">
-<description>&lt;b&gt;8-Lead Thin Shrink Small Outline Package &lt;/b&gt;&lt;p&gt;
-Source: http://www.analog.com/static/imported-files/data_sheets/AD8541_8542_8544.pdf</description>
-<wire x1="-0.6" y1="1.4484" x2="0.6" y2="1.4484" width="0.2032" layer="21" curve="180"/>
-<wire x1="-2.1484" y1="-1.4484" x2="2.1484" y2="-1.4484" width="0.2032" layer="21"/>
-<wire x1="2.1484" y1="-1.4484" x2="2.1484" y2="1.4484" width="0.2032" layer="21"/>
-<wire x1="2.1484" y1="1.4484" x2="-2.1484" y2="1.4484" width="0.2032" layer="21"/>
-<wire x1="-2.1484" y1="1.4484" x2="-2.1484" y2="-1.4484" width="0.2032" layer="21"/>
-<rectangle x1="-3.2" y1="0.825" x2="-2.25" y2="1.125" layer="51"/>
-<rectangle x1="-3.2" y1="0.175" x2="-2.25" y2="0.475" layer="51"/>
-<rectangle x1="-3.2" y1="-0.475" x2="-2.25" y2="-0.175" layer="51"/>
-<rectangle x1="-3.2" y1="-1.125" x2="-2.25" y2="-0.825" layer="51"/>
-<rectangle x1="2.25" y1="-1.125" x2="3.2" y2="-0.825" layer="51" rot="R180"/>
-<rectangle x1="2.25" y1="-0.475" x2="3.2" y2="-0.175" layer="51" rot="R180"/>
-<rectangle x1="2.25" y1="0.175" x2="3.2" y2="0.475" layer="51" rot="R180"/>
-<rectangle x1="2.25" y1="0.825" x2="3.2" y2="1.125" layer="51"/>
-<smd name="1" x="-2.875" y="0.975" dx="0.9" dy="0.35" layer="1"/>
-<smd name="2" x="-2.875" y="0.325" dx="0.9" dy="0.35" layer="1"/>
-<smd name="3" x="-2.875" y="-0.325" dx="0.9" dy="0.35" layer="1"/>
-<smd name="4" x="-2.875" y="-0.975" dx="0.9" dy="0.35" layer="1"/>
-<smd name="5" x="2.875" y="-0.975" dx="0.9" dy="0.35" layer="1" rot="R180"/>
-<smd name="6" x="2.875" y="-0.325" dx="0.9" dy="0.35" layer="1" rot="R180"/>
-<smd name="7" x="2.875" y="0.325" dx="0.9" dy="0.35" layer="1" rot="R180"/>
-<smd name="8" x="2.875" y="0.975" dx="0.9" dy="0.35" layer="1" rot="R180"/>
-<text x="-3.81" y="-3.175" size="1.016" layer="21">&gt;VALUE</text>
-<text x="-3.81" y="1.905" size="1.016" layer="21">&gt;NAME</text>
-</package>
 <package name="SOT23-3" urn="urn:adsk.eagle:footprint:8442300/1" library_version="17" library_locally_modified="yes">
 <description>SOT23-3</description>
 <wire x1="1.4224" y1="0.6604" x2="1.4224" y2="-0.6604" width="0.1524" layer="51"/>
@@ -2219,13 +2353,6 @@ Source: http://www.analog.com/static/imported-files/data_sheets/AD8541_8542_8544
 </package>
 </packages>
 <packages3d>
-<package3d name="C_0805" urn="urn:adsk.eagle:package:8442351/2" type="model" library_version="3" library_locally_modified="yes">
-<description>&lt;p&gt;&lt;b&gt;Generic 2012 (0805) package&lt;/b&gt;&lt;/p&gt;
-&lt;p&gt;0.2mm courtyard excess rounded to nearest 0.05mm.&lt;/p&gt;</description>
-<packageinstances>
-<packageinstance name="C_0805"/>
-</packageinstances>
-</package3d>
 <package3d name="QFP50P1200X1200X160-64" urn="urn:adsk.eagle:package:8700970/2" type="model" library_version="9" library_locally_modified="yes">
 <description>64-QFP, 0.50 mm pitch, 12.00 mm span, 10.00 X 10.00 X 1.60 mm body
 &lt;p&gt;64-pin QFP package with 0.50 mm pitch, 12.00 mm lead span1 X 12.00 mm lead span2 with body size 10.00 X 10.00 X 1.60 mm&lt;/p&gt;</description>
@@ -2290,13 +2417,6 @@ Puhs-Push type.
 <packageinstance name="QFN-32-5MM"/>
 </packageinstances>
 </package3d>
-<package3d name="TSSOP8" urn="urn:adsk.eagle:package:8442350/2" type="model" library_version="1" library_locally_modified="yes">
-<description>&lt;b&gt;8-Lead Thin Shrink Small Outline Package &lt;/b&gt;&lt;p&gt;
-Source: http://www.analog.com/static/imported-files/data_sheets/AD8541_8542_8544.pdf</description>
-<packageinstances>
-<packageinstance name="TSSOP8"/>
-</packageinstances>
-</package3d>
 <package3d name="1X5HEADER" urn="urn:adsk.eagle:package:8709581/1" type="box" library_version="17" library_locally_modified="yes">
 <packageinstances>
 <packageinstance name="1X5HEADER"/>
@@ -2315,16 +2435,6 @@ Source: http://www.analog.com/static/imported-files/data_sheets/AD8541_8542_8544
 <wire x1="-1.905" y1="0" x2="1.905" y2="0" width="0.254" layer="94"/>
 <pin name="GND" x="0" y="2.54" visible="off" length="short" direction="sup" rot="R270"/>
 <text x="0" y="-0.254" size="1.778" layer="96" align="top-center">&gt;VALUE</text>
-</symbol>
-<symbol name="CAP" urn="urn:adsk.eagle:symbol:8442292/1" library_version="2" library_locally_modified="yes">
-<wire x1="0" y1="1.27" x2="0" y2="0.762" width="0.1524" layer="94"/>
-<wire x1="0" y1="-1.27" x2="0" y2="-0.762" width="0.1524" layer="94"/>
-<text x="4.064" y="-4.826" size="1.778" layer="96" font="vector" rot="R90">&gt;VALUE</text>
-<text x="-2.54" y="-4.445" size="1.778" layer="95" rot="R90">&gt;NAME</text>
-<rectangle x1="-2.032" y1="-0.762" x2="2.032" y2="-0.254" layer="94"/>
-<rectangle x1="-2.032" y1="0.254" x2="2.032" y2="0.762" layer="94"/>
-<pin name="+" x="0" y="3.81" visible="off" length="short" direction="pas" swaplevel="1" rot="R270"/>
-<pin name="-" x="0" y="-3.81" visible="off" length="short" direction="pas" swaplevel="1" rot="R90"/>
 </symbol>
 <symbol name="MK20DX256VLH7" urn="urn:adsk.eagle:symbol:8700946/1" library_version="8">
 <pin name="PTB16" x="20.32" y="-2.54" length="short" rot="R180"/>
@@ -2564,22 +2674,6 @@ Source: http://www.analog.com/static/imported-files/data_sheets/AD8541_8542_8544
 <pin name="MICBIAS(16)" x="22.86" y="-10.16" length="middle" rot="R180"/>
 <pin name="GND@PAD" x="15.24" y="-30.48" length="middle" rot="R90"/>
 </symbol>
-<symbol name="23LC1024" urn="urn:adsk.eagle:symbol:8442290/1" library_version="1" library_locally_modified="yes">
-<wire x1="-12.7" y1="-7.62" x2="-12.7" y2="5.08" width="0.254" layer="94"/>
-<wire x1="-12.7" y1="5.08" x2="12.7" y2="5.08" width="0.254" layer="94"/>
-<wire x1="12.7" y1="5.08" x2="12.7" y2="-7.62" width="0.254" layer="94"/>
-<wire x1="12.7" y1="-7.62" x2="-12.7" y2="-7.62" width="0.254" layer="94"/>
-<pin name="MISO(2)" x="-17.78" y="2.54" length="middle"/>
-<pin name="SCLK(6)" x="-17.78" y="0" length="middle"/>
-<pin name="MOSI(5)" x="-17.78" y="-2.54" length="middle"/>
-<pin name="CS(1)" x="-17.78" y="-5.08" length="middle"/>
-<pin name="RST(7)" x="17.78" y="0" length="middle" rot="R180"/>
-<pin name="WP(3)" x="17.78" y="-2.54" length="middle" rot="R180"/>
-<pin name="3.3V(8)" x="17.78" y="2.54" length="middle" rot="R180"/>
-<pin name="GND(4)" x="17.78" y="-5.08" length="middle" rot="R180"/>
-<text x="-12.7" y="-10.16" size="1.778" layer="96">&gt;VALUE</text>
-<text x="-12.7" y="5.08" size="1.4224" layer="95">&gt;NAME</text>
-</symbol>
 <symbol name="FERRITE_BEAD" urn="urn:adsk.eagle:symbol:8442293/1" library_version="3" library_locally_modified="yes">
 <description>&lt;h3&gt;Ferrite Bead (blocks, cores, rings, chokes, etc.)&lt;/h3&gt;
 &lt;p&gt;Inductor with layers of ferrite used to suppress high frequencies. Often used to isolate high frequency noise.&lt;/p&gt;</description>
@@ -2615,26 +2709,6 @@ Source: http://www.analog.com/static/imported-files/data_sheets/AD8541_8542_8544
 </gates>
 <devices>
 <device name="">
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="2.2UF" urn="urn:adsk.eagle:component:8442386/2" prefix="C" library_version="17">
-<description>https://www.digikey.com/product-detail/en/samsung-electro-mechanics/CL21B105KAFNNNE/1276-1066-1-ND/3889152</description>
-<gates>
-<gate name="C1" symbol="CAP" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="C_0805">
-<connects>
-<connect gate="C1" pin="+" pad="+"/>
-<connect gate="C1" pin="-" pad="-"/>
-</connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:8442351/2"/>
-</package3dinstances>
 <technologies>
 <technology name=""/>
 </technologies>
@@ -2858,25 +2932,6 @@ Source: http://www.analog.com/static/imported-files/data_sheets/AD8541_8542_8544
 </device>
 </devices>
 </deviceset>
-<deviceset name="470OHM" urn="urn:adsk.eagle:component:8700985/2" prefix="R" library_version="17">
-<gates>
-<gate name="R1" symbol="RESISTOR" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="0805">
-<connects>
-<connect gate="R1" pin="1" pad="1"/>
-<connect gate="R1" pin="2" pad="2"/>
-</connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:8442354/2"/>
-</package3dinstances>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
 <deviceset name="LED_ORANGE" urn="urn:adsk.eagle:component:8442365/2" prefix="D" uservalue="yes" library_version="17">
 <description>&lt;p&gt;&lt;b&gt;LED&lt;/b&gt;&lt;/p&gt;
 &lt;b&gt;0603&lt;/b&gt; - 0603 Surface Mount Package
@@ -2947,25 +3002,6 @@ Source: http://www.analog.com/static/imported-files/data_sheets/AD8541_8542_8544
 </connects>
 <package3dinstances>
 <package3dinstance package3d_urn="urn:adsk.eagle:package:8442343/2"/>
-</package3dinstances>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="22PF" urn="urn:adsk.eagle:component:8700975/2" prefix="C" uservalue="yes" library_version="17">
-<gates>
-<gate name="G$1" symbol="CAP" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="C_0805">
-<connects>
-<connect gate="G$1" pin="+" pad="+"/>
-<connect gate="G$1" pin="-" pad="-"/>
-</connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:8442351/2"/>
 </package3dinstances>
 <technologies>
 <technology name=""/>
@@ -3062,52 +3098,6 @@ Source: http://www.analog.com/static/imported-files/data_sheets/AD8541_8542_8544
 </connects>
 <package3dinstances>
 <package3dinstance package3d_urn="urn:adsk.eagle:package:8442355/2"/>
-</package3dinstances>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="23LC1024" urn="urn:adsk.eagle:component:8442376/2" prefix="U" library_version="17">
-<description>https://www.digikey.com/product-detail/en/microchip-technology/23LC1024T-I-ST/23LC1024T-I-STCT-ND/5818676</description>
-<gates>
-<gate name="U1" symbol="23LC1024" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="TSSOP8">
-<connects>
-<connect gate="U1" pin="3.3V(8)" pad="8"/>
-<connect gate="U1" pin="CS(1)" pad="1"/>
-<connect gate="U1" pin="GND(4)" pad="4"/>
-<connect gate="U1" pin="MISO(2)" pad="2"/>
-<connect gate="U1" pin="MOSI(5)" pad="5"/>
-<connect gate="U1" pin="RST(7)" pad="7"/>
-<connect gate="U1" pin="SCLK(6)" pad="6"/>
-<connect gate="U1" pin="WP(3)" pad="3"/>
-</connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:8442350/2"/>
-</package3dinstances>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="2.2KOHM" urn="urn:adsk.eagle:component:8442378/2" prefix="R" library_version="17">
-<description>https://www.digikey.com/product-detail/en/yageo/RC0805FR-072K2L/311-2.20KCRCT-ND/730623</description>
-<gates>
-<gate name="R1" symbol="RESISTOR" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="0805">
-<connects>
-<connect gate="R1" pin="1" pad="1"/>
-<connect gate="R1" pin="2" pad="2"/>
-</connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:8442354/2"/>
 </package3dinstances>
 <technologies>
 <technology name=""/>
@@ -3218,7 +3208,7 @@ Source: http://www.analog.com/static/imported-files/data_sheets/AD8541_8542_8544
 <part name="C3" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="0.1UF" device="" package3d_urn="urn:adsk.eagle:package:8442351/2"/>
 <part name="GND4" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" deviceset="GND" device=""/>
 <part name="GND6" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" deviceset="GND" device=""/>
-<part name="C7" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" deviceset="2.2UF" device="" package3d_urn="urn:adsk.eagle:package:8442351/2"/>
+<part name="C7" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="2.2UF" device="" package3d_urn="urn:adsk.eagle:package:8442351/2"/>
 <part name="GND7" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" deviceset="GND" device=""/>
 <part name="R5" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" deviceset="33OHM" device="" package3d_urn="urn:adsk.eagle:package:8442354/2" value="33"/>
 <part name="R6" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" deviceset="33OHM" device="" package3d_urn="urn:adsk.eagle:package:8442354/2" value="33"/>
@@ -3232,16 +3222,16 @@ Source: http://www.analog.com/static/imported-files/data_sheets/AD8541_8542_8544
 <part name="C9" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="0.1UF" device="" package3d_urn="urn:adsk.eagle:package:8442351/2"/>
 <part name="C10" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="0.1UF" device="" package3d_urn="urn:adsk.eagle:package:8442351/2"/>
 <part name="GND13" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" deviceset="GND" device=""/>
-<part name="R7" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" deviceset="470OHM" device="" package3d_urn="urn:adsk.eagle:package:8442354/2" value="470"/>
+<part name="R7" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="470OHM" device="" package3d_urn="urn:adsk.eagle:package:8442354/2" value="470"/>
 <part name="D5" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" deviceset="LED_ORANGE" device="0805" package3d_urn="urn:adsk.eagle:package:8442343/2" value="ORANGE"/>
 <part name="GND14" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" deviceset="GND" device=""/>
-<part name="C11" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" deviceset="22PF" device="" package3d_urn="urn:adsk.eagle:package:8442351/2" value="22PF"/>
-<part name="C12" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" deviceset="22PF" device="" package3d_urn="urn:adsk.eagle:package:8442351/2" value="22PF"/>
+<part name="C11" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="22PF" device="" package3d_urn="urn:adsk.eagle:package:8442351/2" value="22PF"/>
+<part name="C12" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="22PF" device="" package3d_urn="urn:adsk.eagle:package:8442351/2" value="22PF"/>
 <part name="GND15" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" deviceset="GND" device=""/>
 <part name="GND16" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" deviceset="GND" device=""/>
 <part name="L1" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" deviceset="FERRITE600_TEENSY" device="" package3d_urn="urn:adsk.eagle:package:8700966/1"/>
-<part name="R8" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" deviceset="470OHM" device="" package3d_urn="urn:adsk.eagle:package:8442354/2" value="470"/>
-<part name="C13" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" deviceset="2.2UF" device="" package3d_urn="urn:adsk.eagle:package:8442351/2"/>
+<part name="R8" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="470OHM" device="" package3d_urn="urn:adsk.eagle:package:8442354/2" value="470"/>
+<part name="C13" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="2.2UF" device="" package3d_urn="urn:adsk.eagle:package:8442351/2"/>
 <part name="L4" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" deviceset="FERRITE600_TEENSY" device="" package3d_urn="urn:adsk.eagle:package:8700966/1"/>
 <part name="C14" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="0.1UF" device="" package3d_urn="urn:adsk.eagle:package:8442351/2"/>
 <part name="C27" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="0.1UF" device="" package3d_urn="urn:adsk.eagle:package:8442351/2"/>
@@ -3259,19 +3249,19 @@ Source: http://www.analog.com/static/imported-files/data_sheets/AD8541_8542_8544
 <part name="GND40" library="moon-germs-v1" deviceset="GND" device=""/>
 <part name="GND41" library="moon-germs-v1" deviceset="GND" device=""/>
 <part name="GND42" library="moon-germs-v1" deviceset="GND" device=""/>
-<part name="C26" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" deviceset="2.2UF" device="" package3d_urn="urn:adsk.eagle:package:8442351/2"/>
+<part name="C26" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="2.2UF" device="" package3d_urn="urn:adsk.eagle:package:8442351/2"/>
 <part name="C31" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="1UF" device="" package3d_urn="urn:adsk.eagle:package:8442351/2"/>
 <part name="C32" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="1UF" device="" package3d_urn="urn:adsk.eagle:package:8442351/2"/>
-<part name="C33" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" deviceset="2.2UF" device="" package3d_urn="urn:adsk.eagle:package:8442351/2"/>
-<part name="C34" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" deviceset="2.2UF" device="" package3d_urn="urn:adsk.eagle:package:8442351/2"/>
+<part name="C33" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="2.2UF" device="" package3d_urn="urn:adsk.eagle:package:8442351/2"/>
+<part name="C34" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="2.2UF" device="" package3d_urn="urn:adsk.eagle:package:8442351/2"/>
 <part name="C35" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="0.1UF" device="" package3d_urn="urn:adsk.eagle:package:8442351/2"/>
 <part name="C36" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="0.15UF" device="" package3d_urn="urn:adsk.eagle:package:8442351/2"/>
 <part name="D6" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" deviceset="AP7313" device="" package3d_urn="urn:adsk.eagle:package:8442353/2"/>
 <part name="L3" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" deviceset="FERRITE600_AUDIO" device="" package3d_urn="urn:adsk.eagle:package:8442354/2" value="FER600"/>
-<part name="R11" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" deviceset="2.2KOHM" device="" package3d_urn="urn:adsk.eagle:package:8442354/2" value="2.2K"/>
-<part name="R12" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" deviceset="2.2KOHM" device="" package3d_urn="urn:adsk.eagle:package:8442354/2" value="2.2K"/>
+<part name="R11" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="2.2KOHM" device="" package3d_urn="urn:adsk.eagle:package:8442354/2" value="2.2K"/>
+<part name="R12" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="2.2KOHM" device="" package3d_urn="urn:adsk.eagle:package:8442354/2" value="2.2K"/>
 <part name="U4" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" deviceset="SGTL5000_32QFN" device="" package3d_urn="urn:adsk.eagle:package:8442355/2"/>
-<part name="U5" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" deviceset="23LC1024" device="" package3d_urn="urn:adsk.eagle:package:8442350/2"/>
+<part name="U5" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="23LC1024" device="" package3d_urn="urn:adsk.eagle:package:8442350/2"/>
 <part name="U$6" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" deviceset="MICROSD" device="" package3d_urn="urn:adsk.eagle:package:8442348/2"/>
 <part name="R13" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="10KOHM" device="" package3d_urn="urn:adsk.eagle:package:8442354/2" value="10K"/>
 <part name="R14" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="10KOHM" device="" package3d_urn="urn:adsk.eagle:package:8442354/2" value="10K"/>

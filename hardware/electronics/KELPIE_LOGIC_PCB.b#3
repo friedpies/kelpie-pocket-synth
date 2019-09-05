@@ -3,7 +3,7 @@
 <eagle version="9.4.2">
 <drawing>
 <settings>
-<setting alwaysvectorfont="no"/>
+<setting alwaysvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
 <grid distance="50" unitdist="mil" unit="mil" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="mil"/>
@@ -184,7 +184,7 @@
 <layer number="255" name="routoute" color="7" fill="1" visible="no" active="yes"/>
 </layers>
 <board>
-<fusionsync huburn="a.cGVyc29uYWw6dWUyOWViOTli" projecturn="a.cGVyc29uYWw6dWUyOWViOTliIzIwMTkwMjI4MTc5MjYyNDAx" f3durn="urn:adsk.wipprod:dm.lineage:TbYIAYm_SeiHnU5SEeh_ow" pcbguid="427068f0-0b71-4137-912b-b7c28c9918c9" lastpulledtime="2019-03-21T19:34:48Z" lastsyncedchangeguid="55244ffd-015e-c170-8bd5-2e9369b636ce"/>
+<fusionsync huburn="a.cGVyc29uYWw6dWUyOWViOTli" projecturn="a.cGVyc29uYWw6dWUyOWViOTliIzIwMTkwMjI4MTc5MjYyNDAx" f3durn="urn:adsk.wipprod:dm.lineage:TbYIAYm_SeiHnU5SEeh_ow" pcbguid="427068f0-0b71-4137-912b-b7c28c9918c9" lastpulledtime="2019-03-21T19:34:48Z" lastsyncedchangeguid="1662cedf-5abc-4a7e-7229-970338ce5390"/>
 <plain>
 <polygon width="0.1524" layer="30">
 <vertex x="91.821" y="39.624"/>
@@ -986,392 +986,34 @@ NOTE: PIN NUMBERS ARE NOT ACCORDING TO MFG, USING MY OWN CONVENTION</description
 <wire x1="-1.95" y1="-1.45" x2="1.95" y2="-1.45" width="0.127" layer="21"/>
 <wire x1="-1.95" y1="1.45" x2="1.95" y2="1.45" width="0.127" layer="21"/>
 </package>
-</packages>
-<packages3d>
-<package3d name="CUI_PJ-002A" urn="urn:adsk.eagle:package:9702177/2" type="model" library_version="9" library_locally_modified="yes">
-<packageinstances>
-<packageinstance name="CUI_PJ-002A"/>
-</packageinstances>
-</package3d>
-<package3d name="AMPHENOL_STEREO_JACK" urn="urn:adsk.eagle:package:9702873/3" type="model" library_version="15" library_locally_modified="yes">
-<packageinstances>
-<packageinstance name="AMPHENOL_STEREO_JACK"/>
-</packageinstances>
-</package3d>
-<package3d name="SOD2512X110" urn="urn:adsk.eagle:package:9797239/2" type="model" library_version="19" library_locally_modified="yes">
-<description>SOD, 2.50 mm span, 1.70 X 1.25 X 1.10 mm body
-&lt;p&gt;SOD package with 2.50 mm span with body size 1.70 X 1.25 X 1.10 mm&lt;/p&gt;</description>
-<packageinstances>
-<packageinstance name="SOD323"/>
-</packageinstances>
-</package3d>
-<package3d name="0805" urn="urn:adsk.eagle:package:8442354/2" type="model" library_version="19" library_locally_modified="yes">
-<description>&lt;p&gt;&lt;b&gt;Generic 2012 (0805) package&lt;/b&gt;&lt;/p&gt;
-&lt;p&gt;0.2mm courtyard excess rounded to nearest 0.05mm.&lt;/p&gt;</description>
-<packageinstances>
-<packageinstance name="0805"/>
-</packageinstances>
-</package3d>
-<package3d name="C_0805" urn="urn:adsk.eagle:package:8442351/2" type="model" library_version="19" library_locally_modified="yes">
-<description>&lt;p&gt;&lt;b&gt;Generic 2012 (0805) package&lt;/b&gt;&lt;/p&gt;
-&lt;p&gt;0.2mm courtyard excess rounded to nearest 0.05mm.&lt;/p&gt;</description>
-<packageinstances>
-<packageinstance name="C_0805"/>
-</packageinstances>
-</package3d>
-<package3d name="DIN_SDS_50J" urn="urn:adsk.eagle:package:9699785/3" type="model" library_version="19" library_locally_modified="yes">
-<packageinstances>
-<packageinstance name="DIN_SDS_50J"/>
-</packageinstances>
-</package3d>
-<package3d name="DIP8" urn="urn:adsk.eagle:package:9797260/2" type="model" library_version="31" library_locally_modified="yes">
-<description>&lt;b&gt;SMD DIL08&lt;/b&gt; &lt;p&gt;
-dual in line package'</description>
-<packageinstances>
-<packageinstance name="DIP8"/>
-</packageinstances>
-</package3d>
-<package3d name="FCI_10103594-0001LF" urn="urn:adsk.eagle:package:10018607/2" type="model" library_version="35" library_locally_modified="yes">
-<packageinstances>
-<packageinstance name="FCI_10103594-0001LF"/>
-</packageinstances>
-</package3d>
-<package3d name="SOT223" urn="urn:adsk.eagle:package:30370/1" type="box" library_version="36">
-<description>Small Outline Transistor 223
-PLASTIC PACKAGE CASE 318E-04
-Source: http://www.onsemi.co.jp .. LM137M-D.PDF</description>
-<packageinstances>
-<packageinstance name="SOT223"/>
-</packageinstances>
-</package3d>
-<package3d name="STEREO_JACK_2SWITCH" urn="urn:adsk.eagle:package:8442329/2" type="model" library_version="36">
-<description>https://www.digikey.com/product-detail/en/switchcraft-inc/35RASMT4BHNTRX/SC1488-1-ND/2754493</description>
-<packageinstances>
-<packageinstance name="STEREO_JACK_2SWITCH"/>
-</packageinstances>
-</package3d>
-<package3d name="SLW30S" urn="urn:adsk.eagle:package:12919137/8" type="model" library_version="55" library_locally_modified="yes">
-<description>https://www.digikey.com/product-detail/en/SLW30S-1C7LF/609-1959-ND/1002274/?itemSeq=302204736
-
-NOTE: PIN NUMBERS ARE NOT ACCORDING TO MFG, USING MY OWN CONVENTION</description>
-<packageinstances>
-<packageinstance name="SLW30S_TOP"/>
-</packageinstances>
-</package3d>
-<package3d name="TEST_POINT" urn="urn:adsk.eagle:package:12955547/1" type="box" library_version="47" library_locally_modified="yes">
-<packageinstances>
-<packageinstance name="TEST_POINT"/>
-</packageinstances>
-</package3d>
-<package3d name="SWITCH_PTS820" urn="urn:adsk.eagle:package:8762249/2" type="model" library_version="56">
-<description>https://www.digikey.com/product-detail/en/c-k/PTS820-J15KP-SMTR-LFS/CKN10928CT-ND/7355849</description>
-<packageinstances>
-<packageinstance name="SWITCH_PTS820"/>
-</packageinstances>
-</package3d>
-</packages3d>
-</library>
-<library name="moon-germs-v1_main" urn="urn:adsk.eagle:library:8442267">
-<packages>
-<package name="CHIPLED_0805" urn="urn:adsk.eagle:footprint:8442310/1" library_version="1" library_locally_modified="yes">
-<description>&lt;b&gt;CHIPLED 0805&lt;/b&gt;</description>
-<circle x="-0.45" y="0.85" radius="0.103" width="0.0762" layer="51"/>
-<wire x1="-0.35" y1="0.925" x2="0.35" y2="0.925" width="0.1016" layer="51" curve="162.394521"/>
-<wire x1="-0.35" y1="-0.925" x2="0.35" y2="-0.925" width="0.1016" layer="51" curve="-162.394521"/>
-<wire x1="0.575" y1="0.525" x2="0.575" y2="-0.525" width="0.1016" layer="51"/>
-<wire x1="-0.575" y1="-0.5" x2="-0.575" y2="0.925" width="0.1016" layer="51"/>
-<wire x1="-0.4" y1="0.2" x2="0" y2="0.2" width="0.2032" layer="21"/>
-<wire x1="0" y1="0.2" x2="0.4" y2="0.2" width="0.2032" layer="21"/>
-<wire x1="0" y1="0.2" x2="-0.4" y2="-0.2" width="0.2032" layer="21"/>
-<wire x1="-0.4" y1="-0.2" x2="0.4" y2="-0.2" width="0.2032" layer="21"/>
-<wire x1="0.4" y1="-0.2" x2="0" y2="0.2" width="0.2032" layer="21"/>
-<wire x1="0.85" y1="-1.9" x2="-0.85" y2="-1.9" width="0.2032" layer="21"/>
-<wire x1="-0.85" y1="-1.9" x2="-0.85" y2="1.9" width="0.2032" layer="21"/>
-<wire x1="-0.85" y1="1.9" x2="0.85" y2="1.9" width="0.2032" layer="21"/>
-<wire x1="0.85" y1="1.9" x2="0.85" y2="-1.9" width="0.2032" layer="21"/>
-<rectangle x1="0.3" y1="0.5" x2="0.625" y2="1" layer="51"/>
-<rectangle x1="-0.325" y1="0.5" x2="-0.175" y2="0.75" layer="51"/>
-<rectangle x1="0.175" y1="0.5" x2="0.325" y2="0.75" layer="51"/>
-<rectangle x1="-0.2" y1="0.5" x2="0.2" y2="0.675" layer="51"/>
-<rectangle x1="0.3" y1="-1" x2="0.625" y2="-0.5" layer="51"/>
-<rectangle x1="-0.625" y1="-1" x2="-0.3" y2="-0.5" layer="51"/>
-<rectangle x1="0.175" y1="-0.75" x2="0.325" y2="-0.5" layer="51"/>
-<rectangle x1="-0.325" y1="-0.75" x2="-0.175" y2="-0.5" layer="51"/>
-<rectangle x1="-0.2" y1="-0.675" x2="0.2" y2="-0.5" layer="51"/>
-<rectangle x1="-0.6" y1="0.5" x2="-0.3" y2="0.762" layer="51"/>
-<rectangle x1="-0.625" y1="0.925" x2="-0.3" y2="1" layer="51"/>
-<smd name="A" x="0" y="-1.05" dx="1.2" dy="1.2" layer="1"/>
-<smd name="C" x="0" y="1.05" dx="1.2" dy="1.2" layer="1"/>
-<text x="-1.016" y="-1.778" size="0.8128" layer="25" ratio="18" rot="R90">&gt;NAME</text>
-<text x="1.397" y="-1.778" size="0.4064" layer="27" ratio="10" rot="R90">&gt;VALUE</text>
-<text x="-0.1" y="-1.4" size="0.254" layer="51">A</text>
-<text x="-0.1" y="1.2" size="0.254" layer="51">C</text>
+<package name="TSSOP8" urn="urn:adsk.eagle:footprint:8442303/1" library_version="63">
+<description>&lt;b&gt;8-Lead Thin Shrink Small Outline Package &lt;/b&gt;&lt;p&gt;
+Source: http://www.analog.com/static/imported-files/data_sheets/AD8541_8542_8544.pdf</description>
+<wire x1="-0.6" y1="1.4484" x2="0.6" y2="1.4484" width="0.2032" layer="21" curve="180"/>
+<wire x1="-2.1484" y1="-1.4484" x2="2.1484" y2="-1.4484" width="0.2032" layer="21"/>
+<wire x1="2.1484" y1="-1.4484" x2="2.1484" y2="1.4484" width="0.2032" layer="21"/>
+<wire x1="2.1484" y1="1.4484" x2="-2.1484" y2="1.4484" width="0.2032" layer="21"/>
+<wire x1="-2.1484" y1="1.4484" x2="-2.1484" y2="-1.4484" width="0.2032" layer="21"/>
+<rectangle x1="-3.2" y1="0.825" x2="-2.25" y2="1.125" layer="51"/>
+<rectangle x1="-3.2" y1="0.175" x2="-2.25" y2="0.475" layer="51"/>
+<rectangle x1="-3.2" y1="-0.475" x2="-2.25" y2="-0.175" layer="51"/>
+<rectangle x1="-3.2" y1="-1.125" x2="-2.25" y2="-0.825" layer="51"/>
+<rectangle x1="2.25" y1="-1.125" x2="3.2" y2="-0.825" layer="51" rot="R180"/>
+<rectangle x1="2.25" y1="-0.475" x2="3.2" y2="-0.175" layer="51" rot="R180"/>
+<rectangle x1="2.25" y1="0.175" x2="3.2" y2="0.475" layer="51" rot="R180"/>
+<rectangle x1="2.25" y1="0.825" x2="3.2" y2="1.125" layer="51"/>
+<smd name="1" x="-2.875" y="0.975" dx="0.9" dy="0.35" layer="1"/>
+<smd name="2" x="-2.875" y="0.325" dx="0.9" dy="0.35" layer="1"/>
+<smd name="3" x="-2.875" y="-0.325" dx="0.9" dy="0.35" layer="1"/>
+<smd name="4" x="-2.875" y="-0.975" dx="0.9" dy="0.35" layer="1"/>
+<smd name="5" x="2.875" y="-0.975" dx="0.9" dy="0.35" layer="1" rot="R180"/>
+<smd name="6" x="2.875" y="-0.325" dx="0.9" dy="0.35" layer="1" rot="R180"/>
+<smd name="7" x="2.875" y="0.325" dx="0.9" dy="0.35" layer="1" rot="R180"/>
+<smd name="8" x="2.875" y="0.975" dx="0.9" dy="0.35" layer="1" rot="R180"/>
+<text x="-3.81" y="-3.175" size="1.016" layer="21">&gt;VALUE</text>
+<text x="-3.81" y="1.905" size="1.016" layer="21">&gt;NAME</text>
 </package>
-<package name="0805" urn="urn:adsk.eagle:footprint:8442299/1" library_version="1" library_locally_modified="yes">
-<description>&lt;p&gt;&lt;b&gt;Generic 2012 (0805) package&lt;/b&gt;&lt;/p&gt;
-&lt;p&gt;0.2mm courtyard excess rounded to nearest 0.05mm.&lt;/p&gt;</description>
-<smd name="1" x="-0.9" y="0" dx="0.8" dy="1.2" layer="1"/>
-<smd name="2" x="0.9" y="0" dx="0.8" dy="1.2" layer="1"/>
-<wire x1="-1.5" y1="0.8" x2="1.5" y2="0.8" width="0.0508" layer="39"/>
-<wire x1="1.5" y1="0.8" x2="1.5" y2="-0.8" width="0.0508" layer="39"/>
-<wire x1="1.5" y1="-0.8" x2="-1.5" y2="-0.8" width="0.0508" layer="39"/>
-<wire x1="-1.5" y1="-0.8" x2="-1.5" y2="0.8" width="0.0508" layer="39"/>
-<wire x1="-1.524" y1="-0.762" x2="-1.524" y2="0.762" width="0.0762" layer="21"/>
-<wire x1="-1.524" y1="0.762" x2="1.524" y2="0.762" width="0.0762" layer="21"/>
-<wire x1="1.524" y1="0.762" x2="1.524" y2="-0.762" width="0.0762" layer="21"/>
-<wire x1="1.524" y1="-0.762" x2="-1.524" y2="-0.762" width="0.0762" layer="21"/>
-<text x="-2.032" y="-1.905" size="0.8128" layer="21">&gt;VALUE</text>
-<text x="-2.032" y="1.016" size="0.8128" layer="21">&gt;NAME</text>
-</package>
-<package name="C_0805" urn="urn:adsk.eagle:footprint:8442302/1" library_version="3" library_locally_modified="yes">
-<description>&lt;p&gt;&lt;b&gt;Generic 2012 (0805) package&lt;/b&gt;&lt;/p&gt;
-&lt;p&gt;0.2mm courtyard excess rounded to nearest 0.05mm.&lt;/p&gt;</description>
-<smd name="+" x="-0.9" y="0" dx="0.8" dy="1.2" layer="1"/>
-<smd name="-" x="0.9" y="0" dx="0.8" dy="1.2" layer="1"/>
-<wire x1="-1.5" y1="0.8" x2="1.5" y2="0.8" width="0.0508" layer="39"/>
-<wire x1="1.5" y1="0.8" x2="1.5" y2="-0.8" width="0.0508" layer="39"/>
-<wire x1="1.5" y1="-0.8" x2="-1.5" y2="-0.8" width="0.0508" layer="39"/>
-<wire x1="-1.5" y1="-0.8" x2="-1.5" y2="0.8" width="0.0508" layer="39"/>
-<wire x1="-1.524" y1="-0.762" x2="-1.524" y2="0.762" width="0.0762" layer="21"/>
-<wire x1="-1.524" y1="0.762" x2="1.524" y2="0.762" width="0.0762" layer="21"/>
-<wire x1="1.524" y1="0.762" x2="1.524" y2="-0.762" width="0.0762" layer="21"/>
-<wire x1="1.524" y1="-0.762" x2="-1.524" y2="-0.762" width="0.0762" layer="21"/>
-<text x="-2.54" y="0" size="1.27" layer="21">+</text>
-<text x="-2.54" y="1.27" size="0.8128" layer="21">&gt;VALUE</text>
-<text x="-2.54" y="-1.905" size="0.8128" layer="21">&gt;NAME</text>
-</package>
-<package name="LQFP64-05" urn="urn:adsk.eagle:footprint:8700958/1" library_version="8">
-<smd name="1" x="-5.915" y="3.7592" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R270"/>
-<smd name="2" x="-5.915" y="3.2512" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R270"/>
-<smd name="3" x="-5.915" y="2.7432" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R270"/>
-<smd name="4" x="-5.915" y="2.2606" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R270"/>
-<smd name="5" x="-5.915" y="1.7526" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R270"/>
-<smd name="6" x="-5.915" y="1.2446" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R270"/>
-<smd name="7" x="-5.915" y="0.762" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R270"/>
-<smd name="8" x="-5.915" y="0.254" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R270"/>
-<smd name="9" x="-5.915" y="-0.254" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R270"/>
-<smd name="10" x="-5.915" y="-0.762" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R270"/>
-<smd name="11" x="-5.915" y="-1.2446" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R270"/>
-<smd name="12" x="-5.915" y="-1.7526" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R270"/>
-<smd name="13" x="-5.915" y="-2.2606" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R270"/>
-<smd name="14" x="-5.915" y="-2.7432" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R270"/>
-<smd name="15" x="-5.915" y="-3.2512" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R270"/>
-<smd name="16" x="-5.915" y="-3.7592" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R270"/>
-<smd name="17" x="-3.7592" y="-5.915" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R180"/>
-<smd name="18" x="-3.2512" y="-5.915" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R180"/>
-<smd name="19" x="-2.7432" y="-5.915" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R180"/>
-<smd name="20" x="-2.2606" y="-5.915" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R180"/>
-<smd name="21" x="-1.7526" y="-5.915" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R180"/>
-<smd name="22" x="-1.2446" y="-5.915" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R180"/>
-<smd name="23" x="-0.762" y="-5.915" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R180"/>
-<smd name="24" x="-0.254" y="-5.915" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R180"/>
-<smd name="25" x="0.254" y="-5.915" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R180"/>
-<smd name="26" x="0.762" y="-5.915" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R180"/>
-<smd name="27" x="1.2446" y="-5.915" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R180"/>
-<smd name="28" x="1.7526" y="-5.915" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R180"/>
-<smd name="29" x="2.2606" y="-5.915" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R180"/>
-<smd name="30" x="2.7432" y="-5.915" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R180"/>
-<smd name="31" x="3.2512" y="-5.915" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R180"/>
-<smd name="32" x="3.7592" y="-5.915" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R180"/>
-<smd name="33" x="5.915" y="-3.7592" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R270"/>
-<smd name="34" x="5.915" y="-3.2512" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R270"/>
-<smd name="35" x="5.915" y="-2.7432" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R270"/>
-<smd name="36" x="5.915" y="-2.2606" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R270"/>
-<smd name="37" x="5.915" y="-1.7526" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R270"/>
-<smd name="38" x="5.915" y="-1.2446" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R270"/>
-<smd name="39" x="5.915" y="-0.762" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R270"/>
-<smd name="40" x="5.915" y="-0.254" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R270"/>
-<smd name="41" x="5.915" y="0.254" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R270"/>
-<smd name="42" x="5.915" y="0.762" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R270"/>
-<smd name="43" x="5.915" y="1.2446" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R270"/>
-<smd name="44" x="5.915" y="1.7526" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R270"/>
-<smd name="45" x="5.915" y="2.2606" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R270"/>
-<smd name="46" x="5.915" y="2.7432" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R270"/>
-<smd name="47" x="5.915" y="3.2512" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R270"/>
-<smd name="48" x="5.915" y="3.7592" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R270"/>
-<smd name="49" x="3.7592" y="5.915" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R180"/>
-<smd name="50" x="3.2512" y="5.915" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R180"/>
-<smd name="51" x="2.7432" y="5.915" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R180"/>
-<smd name="52" x="2.2606" y="5.915" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R180"/>
-<smd name="53" x="1.7526" y="5.915" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R180"/>
-<smd name="54" x="1.2446" y="5.915" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R180"/>
-<smd name="55" x="0.762" y="5.915" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R180"/>
-<smd name="56" x="0.254" y="5.915" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R180"/>
-<smd name="57" x="-0.254" y="5.915" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R180"/>
-<smd name="58" x="-0.762" y="5.915" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R180"/>
-<smd name="59" x="-1.2446" y="5.915" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R180"/>
-<smd name="60" x="-1.7526" y="5.915" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R180"/>
-<smd name="61" x="-2.2606" y="5.915" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R180"/>
-<smd name="62" x="-2.7432" y="5.915" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R180"/>
-<smd name="63" x="-3.2512" y="5.915" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R180"/>
-<smd name="64" x="-3.7592" y="5.915" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R180"/>
-<text x="-1.3844" y="2.81" size="0.8128" layer="25" font="vector" ratio="15" rot="SR0">&gt;NAME</text>
-<text x="-1.9844" y="-3.245" size="0.8128" layer="25" font="vector" ratio="15" rot="SR0">&gt;VALUE</text>
-<text x="0" y="0" size="0.7" layer="51" align="center">&gt;NAME</text>
-<circle x="-2.6" y="2.6" radius="0.508" width="0.2286" layer="21"/>
-<circle x="-2.6" y="2.6" radius="0.4472125" width="0.05" layer="51"/>
-<wire x1="-5" y1="5" x2="5" y2="5" width="0.05" layer="51"/>
-<wire x1="5" y1="5" x2="5" y2="-5" width="0.05" layer="51"/>
-<wire x1="5" y1="-5" x2="-5" y2="-5" width="0.05" layer="51"/>
-<wire x1="-5" y1="-5" x2="-5" y2="5" width="0.05" layer="51"/>
-<wire x1="-4" y1="3" x2="-4" y2="-4" width="0.2" layer="21"/>
-<wire x1="-4" y1="-4" x2="4" y2="-4" width="0.2" layer="21"/>
-<wire x1="4" y1="-4" x2="4" y2="4" width="0.2" layer="21"/>
-<wire x1="4" y1="4" x2="-3" y2="4" width="0.2" layer="21"/>
-<wire x1="-3" y1="4" x2="-4" y2="3" width="0.2" layer="21"/>
-</package>
-<package name="LQFP32-08" urn="urn:adsk.eagle:footprint:8700959/1" library_version="8">
-<description>&lt;B&gt;Thin Plasic Quad Flat Package&lt;/B&gt; Grid 0.8 mm</description>
-<wire x1="3" y1="3" x2="3" y2="-3" width="0.1524" layer="21"/>
-<wire x1="3" y1="-3" x2="-3" y2="-3" width="0.1524" layer="21"/>
-<wire x1="-3" y1="-3" x2="-3" y2="2.4" width="0.1524" layer="21"/>
-<wire x1="-2.4" y1="3" x2="3" y2="3" width="0.1524" layer="21"/>
-<wire x1="-2.4" y1="3" x2="-3" y2="2.4" width="0.1524" layer="21"/>
-<wire x1="-3.6" y1="3.6" x2="-3.6" y2="-3.6" width="0.05" layer="51"/>
-<wire x1="-3.6" y1="-3.6" x2="3.6" y2="-3.6" width="0.05" layer="51"/>
-<wire x1="3.6" y1="-3.6" x2="3.6" y2="3.6" width="0.05" layer="51"/>
-<wire x1="3.6" y1="3.6" x2="-3.6" y2="3.6" width="0.05" layer="51"/>
-<circle x="-2" y="2" radius="0.347865625" width="0.1524" layer="21"/>
-<circle x="-2" y="2" radius="0.282840625" width="0.05" layer="51"/>
-<smd name="1" x="-4.4926" y="2.8" dx="0.4" dy="1.3" layer="1" roundness="40" rot="R90"/>
-<smd name="2" x="-4.4926" y="2" dx="0.4" dy="1.3" layer="1" roundness="40" rot="R90"/>
-<smd name="3" x="-4.4926" y="1.2" dx="0.4" dy="1.3" layer="1" roundness="40" rot="R90"/>
-<smd name="4" x="-4.4926" y="0.4" dx="0.4" dy="1.3" layer="1" roundness="40" rot="R90"/>
-<smd name="5" x="-4.4926" y="-0.4" dx="0.4" dy="1.3" layer="1" roundness="40" rot="R90"/>
-<smd name="6" x="-4.4926" y="-1.2" dx="0.4" dy="1.3" layer="1" roundness="40" rot="R90"/>
-<smd name="7" x="-4.4926" y="-2" dx="0.4" dy="1.3" layer="1" roundness="40" rot="R90"/>
-<smd name="8" x="-4.4926" y="-2.8" dx="0.4" dy="1.3" layer="1" roundness="40" rot="R90"/>
-<smd name="9" x="-2.8" y="-4.4926" dx="0.4" dy="1.3" layer="1" roundness="40"/>
-<smd name="10" x="-2" y="-4.4926" dx="0.4" dy="1.3" layer="1" roundness="40"/>
-<smd name="11" x="-1.2" y="-4.4926" dx="0.4" dy="1.3" layer="1" roundness="40"/>
-<smd name="12" x="-0.4" y="-4.4926" dx="0.4" dy="1.3" layer="1" roundness="40"/>
-<smd name="13" x="0.4" y="-4.4926" dx="0.4" dy="1.3" layer="1" roundness="40"/>
-<smd name="14" x="1.2" y="-4.4926" dx="0.4" dy="1.3" layer="1" roundness="40"/>
-<smd name="15" x="2" y="-4.4926" dx="0.4" dy="1.3" layer="1" roundness="40"/>
-<smd name="16" x="2.8" y="-4.4926" dx="0.4" dy="1.3" layer="1" roundness="40"/>
-<smd name="17" x="4.4926" y="-2.8" dx="0.4" dy="1.3" layer="1" roundness="40" rot="R90"/>
-<smd name="18" x="4.4926" y="-2" dx="0.4" dy="1.3" layer="1" roundness="40" rot="R90"/>
-<smd name="19" x="4.4926" y="-1.2" dx="0.4" dy="1.3" layer="1" roundness="40" rot="R90"/>
-<smd name="20" x="4.4926" y="-0.4" dx="0.4" dy="1.3" layer="1" roundness="40" rot="R90"/>
-<smd name="21" x="4.4926" y="0.4" dx="0.4" dy="1.3" layer="1" roundness="40" rot="R90"/>
-<smd name="22" x="4.4926" y="1.2" dx="0.4" dy="1.3" layer="1" roundness="40" rot="R90"/>
-<smd name="23" x="4.4926" y="2" dx="0.4" dy="1.3" layer="1" roundness="40" rot="R90"/>
-<smd name="24" x="4.4926" y="2.8" dx="0.4" dy="1.3" layer="1" roundness="40" rot="R90"/>
-<smd name="25" x="2.8" y="4.4926" dx="0.4" dy="1.3" layer="1" roundness="40"/>
-<smd name="26" x="2" y="4.4926" dx="0.4" dy="1.3" layer="1" roundness="40"/>
-<smd name="27" x="1.2" y="4.4926" dx="0.4" dy="1.3" layer="1" roundness="40"/>
-<smd name="28" x="0.4" y="4.4926" dx="0.4" dy="1.3" layer="1" roundness="40"/>
-<smd name="29" x="-0.4" y="4.4926" dx="0.4" dy="1.3" layer="1" roundness="40"/>
-<smd name="30" x="-1.2" y="4.4926" dx="0.4" dy="1.3" layer="1" roundness="40"/>
-<smd name="31" x="-2" y="4.4926" dx="0.4" dy="1.3" layer="1" roundness="40"/>
-<smd name="32" x="-2.8" y="4.4926" dx="0.4" dy="1.3" layer="1" roundness="40"/>
-<text x="-3.175" y="5.48" size="1.27" layer="25" font="vector" ratio="10">&gt;NAME</text>
-<text x="0" y="0" size="0.7" layer="51" rot="R90" align="center">&gt;NAME</text>
-</package>
-<package name="HC49US" urn="urn:adsk.eagle:footprint:8700951/1" library_version="8">
-<description>&lt;b&gt;CRYSTAL&lt;/b&gt;</description>
-<wire x1="-3.048" y1="-2.159" x2="3.048" y2="-2.159" width="0.2032" layer="21"/>
-<wire x1="-3.048" y1="2.159" x2="3.048" y2="2.159" width="0.2032" layer="21"/>
-<wire x1="-3.048" y1="2.159" x2="-3.048" y2="-2.159" width="0.2032" layer="21" curve="180"/>
-<wire x1="3.048" y1="-2.159" x2="3.048" y2="2.159" width="0.2032" layer="21" curve="180"/>
-<wire x1="-3.2" y1="-2.2" x2="3.2" y2="-2.2" width="0.05" layer="51"/>
-<wire x1="3.2" y1="-2.2" x2="5.2" y2="-0.2" width="0.05" layer="51" curve="90"/>
-<wire x1="5.2" y1="-0.2" x2="5.2" y2="0" width="0.05" layer="51"/>
-<wire x1="5.2" y1="0" x2="3" y2="2.2" width="0.05" layer="51" curve="90"/>
-<wire x1="3" y1="2.2" x2="-3" y2="2.2" width="0.05" layer="51"/>
-<wire x1="-3" y1="2.2" x2="-5.2" y2="0" width="0.05" layer="51" curve="90"/>
-<wire x1="-5.2" y1="0" x2="-3.2" y2="-2.2" width="0.05" layer="51" curve="90"/>
-<pad name="1" x="-2.413" y="0" drill="0.8128"/>
-<pad name="2" x="2.413" y="0" drill="0.8128"/>
-<text x="-3.175" y="2.667" size="0.889" layer="25" ratio="11">&gt;NAME</text>
-<text x="-3.175" y="-3.556" size="0.889" layer="27" ratio="11">&gt;VALUE</text>
-<text x="0" y="0" size="0.7" layer="51" align="center">&gt;NAME</text>
-<rectangle x1="-4.445" y1="-2.54" x2="4.445" y2="2.54" layer="43"/>
-<rectangle x1="-5.08" y1="-1.905" x2="-4.445" y2="1.905" layer="43"/>
-<rectangle x1="-5.715" y1="-1.27" x2="-5.08" y2="1.27" layer="43"/>
-<rectangle x1="4.445" y1="-1.905" x2="5.08" y2="1.905" layer="43"/>
-<rectangle x1="5.08" y1="-1.27" x2="5.715" y2="1.27" layer="43"/>
-</package>
-<package name="TC26H" urn="urn:adsk.eagle:footprint:8700952/1" library_version="8">
-<description>&lt;b&gt;CRYSTAL&lt;/b&gt;</description>
-<wire x1="0.762" y1="7.747" x2="1.016" y2="7.493" width="0.1524" layer="21" curve="-90"/>
-<wire x1="-1.016" y1="7.493" x2="-0.762" y2="7.747" width="0.1524" layer="21" curve="-90"/>
-<wire x1="-0.762" y1="7.747" x2="0.762" y2="7.747" width="0.1524" layer="21"/>
-<wire x1="1.016" y1="1.524" x2="1.016" y2="7.493" width="0.1524" layer="21"/>
-<wire x1="-1.016" y1="1.524" x2="-0.889" y2="1.524" width="0.1524" layer="21"/>
-<wire x1="-1.016" y1="1.524" x2="-1.016" y2="7.493" width="0.1524" layer="21"/>
-<wire x1="1.016" y1="1.524" x2="0.889" y2="1.524" width="0.1524" layer="21"/>
-<wire x1="0.889" y1="1.524" x2="-0.889" y2="1.524" width="0.1524" layer="21"/>
-<wire x1="-1" y1="7.8" x2="-1" y2="1" width="0.05" layer="51"/>
-<wire x1="-1" y1="1" x2="1" y2="1" width="0.05" layer="51"/>
-<wire x1="1" y1="1" x2="1" y2="7.8" width="0.05" layer="51"/>
-<wire x1="1" y1="7.8" x2="-1" y2="7.8" width="0.05" layer="51"/>
-<pad name="1" x="-0.6858" y="0" drill="0.635"/>
-<pad name="2" x="0.6858" y="0" drill="0.635"/>
-<text x="-1.397" y="2.032" size="1.27" layer="25" ratio="10" rot="R90">&gt;NAME</text>
-<text x="2.667" y="2.032" size="1.27" layer="27" ratio="10" rot="R90">&gt;VALUE</text>
-<text x="0" y="4.4" size="0.7" layer="51" rot="R90" align="center">&gt;NAME</text>
-<rectangle x1="-1.778" y1="0.762" x2="1.778" y2="8.382" layer="43"/>
-</package>
-<package name="1X5HEADER" urn="urn:adsk.eagle:footprint:8709580/1" library_version="17" library_locally_modified="yes">
-<pad name="1" x="0" y="0" drill="1.016" diameter="1.778"/>
-<pad name="2" x="2.54" y="0" drill="1.016" diameter="1.778"/>
-<pad name="3" x="5.08" y="0" drill="1.016" diameter="1.778"/>
-<pad name="4" x="7.62" y="0" drill="1.016" diameter="1.778"/>
-<pad name="5" x="10.16" y="0" drill="1.016" diameter="1.778"/>
-<text x="0" y="1.27" size="1.27" layer="25">&gt;NAME</text>
-</package>
-<package name="L0603" urn="urn:adsk.eagle:footprint:8700954/1" library_version="8" library_locally_modified="yes">
-<wire x1="-1.4605" y1="0.6985" x2="1.4605" y2="0.6985" width="0.127" layer="21"/>
-<wire x1="1.4605" y1="0.6985" x2="1.4605" y2="-0.6985" width="0.127" layer="21"/>
-<wire x1="1.4605" y1="-0.6985" x2="-1.4605" y2="-0.6985" width="0.127" layer="21"/>
-<wire x1="-1.4605" y1="-0.6985" x2="-1.4605" y2="0.6985" width="0.127" layer="21"/>
-<wire x1="-1.4" y1="0.6" x2="1.4" y2="0.6" width="0.05" layer="51"/>
-<wire x1="1.4" y1="0.6" x2="1.4" y2="-0.6" width="0.05" layer="51"/>
-<wire x1="1.4" y1="-0.6" x2="-1.4" y2="-0.6" width="0.05" layer="51"/>
-<wire x1="-1.4" y1="-0.6" x2="-1.4" y2="0.6" width="0.05" layer="51"/>
-<smd name="1" x="-0.762" y="0" dx="0.889" dy="0.889" layer="1" roundness="25"/>
-<smd name="2" x="0.762" y="0" dx="0.889" dy="0.889" layer="1" roundness="25"/>
-<text x="-1.905" y="0.889" size="0.889" layer="25" ratio="11">&gt;NAME</text>
-<text x="-1.905" y="-1.7145" size="0.889" layer="27" ratio="11">&gt;VALUE</text>
-<text x="0" y="0" size="0.7" layer="51" align="center">&gt;NAME</text>
-</package>
-<package name="MICRO-SD-SOCKET" urn="urn:adsk.eagle:footprint:8442305/1" library_version="1" library_locally_modified="yes">
-<description>&lt;h3&gt;microSD Socket SMD&lt;/h3&gt;
-Puhs-Push type.
-&lt;br&gt; tDocu shows location of uSD card in different positions.
-&lt;p&gt;Specifications:
-&lt;ul&gt;&lt;li&gt;Pin count:12&lt;/li&gt;
-&lt;/ul&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=”http://www.4uconnector.com/online/object/4udrawing/15882.pdf”&gt;Datasheet referenced for footprint&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Example device(s):
-&lt;ul&gt;&lt;li&gt;MICRO-SD_CARD_SOCKET&lt;/li&gt;
-&lt;/ul&gt;&lt;/p&gt;</description>
-<wire x1="-14" y1="0" x2="-14" y2="13.2" width="0.2032" layer="21"/>
-<wire x1="0" y1="12.1" x2="0" y2="0" width="0.2032" layer="21"/>
-<wire x1="-11.7" y1="15.3" x2="-12.5" y2="15.3" width="0.2032" layer="21"/>
-<wire x1="-10" y1="13.6" x2="-1.6" y2="13.6" width="0.2032" layer="21"/>
-<wire x1="-14" y1="0" x2="-9.1" y2="0" width="0.2032" layer="21"/>
-<wire x1="-3.4" y1="0" x2="-6.4" y2="0" width="0.2032" layer="21"/>
-<wire x1="0" y1="0" x2="-0.7" y2="0" width="0.2032" layer="21"/>
-<wire x1="-11.7" y1="15.3" x2="-11" y2="14.6" width="0.2032" layer="21" curve="-98.797411"/>
-<wire x1="-11" y1="14.6" x2="-10" y2="13.6" width="0.2032" layer="21" curve="87.205638"/>
-<smd name="CD2" x="-7.75" y="0.4" dx="1.8" dy="1.4" layer="1"/>
-<smd name="CD1" x="-2.05" y="0.4" dx="1.8" dy="1.4" layer="1"/>
-<smd name="GND3" x="-0.45" y="13.55" dx="1.4" dy="1.9" layer="1"/>
-<smd name="GND1" x="-13.6" y="14.55" dx="1.4" dy="1.9" layer="1"/>
-<smd name="RSV1(1)" x="-8.94" y="10.7" dx="0.8" dy="1.5" layer="1"/>
-<smd name="CS(2)" x="-7.84" y="10.3" dx="0.8" dy="1.5" layer="1"/>
-<smd name="DI(3)" x="-6.74" y="10.7" dx="0.8" dy="1.5" layer="1"/>
-<smd name="VCC(4)" x="-5.64" y="10.9" dx="0.8" dy="1.5" layer="1"/>
-<smd name="SCLK(5)" x="-4.54" y="10.7" dx="0.8" dy="1.5" layer="1"/>
-<smd name="GND(6)" x="-3.44" y="10.9" dx="0.8" dy="1.5" layer="1"/>
-<smd name="DO(7)" x="-2.34" y="10.7" dx="0.8" dy="1.5" layer="1"/>
-<smd name="RSV2(8)" x="-1.24" y="10.7" dx="0.8" dy="1.5" layer="1"/>
-<text x="-8.89" y="6.35" size="0.6096" layer="25" font="vector" ratio="20">&gt;Name</text>
-<text x="-8.89" y="5.08" size="0.6096" layer="27" font="vector" ratio="20">&gt;Value</text>
-</package>
-<package name="QFN-32-5MM" urn="urn:adsk.eagle:footprint:8442298/1" library_version="1" library_locally_modified="yes">
+<package name="QFN-32-5MM" urn="urn:adsk.eagle:footprint:8442298/1" library_version="64" library_locally_modified="yes">
 <smd name="9" x="-1.75" y="-2.3" dx="0.29" dy="0.4" layer="1" stop="no" cream="no"/>
 <smd name="8" x="-2.3" y="-1.75" dx="0.29" dy="0.4" layer="1" rot="R270" stop="no" cream="no"/>
 <smd name="10" x="-1.25" y="-2.25" dx="0.29" dy="0.5" layer="1"/>
@@ -1589,32 +1231,406 @@ Puhs-Push type.
 <rectangle x1="0.254" y1="-1.016" x2="1.016" y2="-0.254" layer="31"/>
 <rectangle x1="-1.016" y1="-1.016" x2="-0.254" y2="-0.254" layer="31"/>
 </package>
-<package name="TSSOP8" urn="urn:adsk.eagle:footprint:8442303/1" library_version="1" library_locally_modified="yes">
+<package name="CHIPLED_0805" urn="urn:adsk.eagle:footprint:8442310/1" library_version="64" library_locally_modified="yes">
+<description>&lt;b&gt;CHIPLED 0805&lt;/b&gt;</description>
+<circle x="-0.45" y="0.85" radius="0.103" width="0.0762" layer="51"/>
+<wire x1="-0.35" y1="0.925" x2="0.35" y2="0.925" width="0.1016" layer="51" curve="162.394521"/>
+<wire x1="-0.35" y1="-0.925" x2="0.35" y2="-0.925" width="0.1016" layer="51" curve="-162.394521"/>
+<wire x1="0.575" y1="0.525" x2="0.575" y2="-0.525" width="0.1016" layer="51"/>
+<wire x1="-0.575" y1="-0.5" x2="-0.575" y2="0.925" width="0.1016" layer="51"/>
+<wire x1="-0.4" y1="0.2" x2="0" y2="0.2" width="0.2032" layer="21"/>
+<wire x1="0" y1="0.2" x2="0.4" y2="0.2" width="0.2032" layer="21"/>
+<wire x1="0" y1="0.2" x2="-0.4" y2="-0.2" width="0.2032" layer="21"/>
+<wire x1="-0.4" y1="-0.2" x2="0.4" y2="-0.2" width="0.2032" layer="21"/>
+<wire x1="0.4" y1="-0.2" x2="0" y2="0.2" width="0.2032" layer="21"/>
+<wire x1="0.85" y1="-1.9" x2="-0.85" y2="-1.9" width="0.2032" layer="21"/>
+<wire x1="-0.85" y1="-1.9" x2="-0.85" y2="1.9" width="0.2032" layer="21"/>
+<wire x1="-0.85" y1="1.9" x2="0.85" y2="1.9" width="0.2032" layer="21"/>
+<wire x1="0.85" y1="1.9" x2="0.85" y2="-1.9" width="0.2032" layer="21"/>
+<rectangle x1="0.3" y1="0.5" x2="0.625" y2="1" layer="51"/>
+<rectangle x1="-0.325" y1="0.5" x2="-0.175" y2="0.75" layer="51"/>
+<rectangle x1="0.175" y1="0.5" x2="0.325" y2="0.75" layer="51"/>
+<rectangle x1="-0.2" y1="0.5" x2="0.2" y2="0.675" layer="51"/>
+<rectangle x1="0.3" y1="-1" x2="0.625" y2="-0.5" layer="51"/>
+<rectangle x1="-0.625" y1="-1" x2="-0.3" y2="-0.5" layer="51"/>
+<rectangle x1="0.175" y1="-0.75" x2="0.325" y2="-0.5" layer="51"/>
+<rectangle x1="-0.325" y1="-0.75" x2="-0.175" y2="-0.5" layer="51"/>
+<rectangle x1="-0.2" y1="-0.675" x2="0.2" y2="-0.5" layer="51"/>
+<rectangle x1="-0.6" y1="0.5" x2="-0.3" y2="0.762" layer="51"/>
+<rectangle x1="-0.625" y1="0.925" x2="-0.3" y2="1" layer="51"/>
+<smd name="A" x="0" y="-1.05" dx="1.2" dy="1.2" layer="1"/>
+<smd name="C" x="0" y="1.05" dx="1.2" dy="1.2" layer="1"/>
+<text x="-1.016" y="-1.778" size="0.8128" layer="25" ratio="18" rot="R90">&gt;NAME</text>
+<text x="1.397" y="-1.778" size="0.4064" layer="27" ratio="10" rot="R90">&gt;VALUE</text>
+<text x="-0.1" y="-1.4" size="0.254" layer="51">A</text>
+<text x="-0.1" y="1.2" size="0.254" layer="51">C</text>
+</package>
+<package name="MICRO-SD-SOCKET" urn="urn:adsk.eagle:footprint:8442305/1" library_version="64" library_locally_modified="yes">
+<description>&lt;h3&gt;microSD Socket SMD&lt;/h3&gt;
+Puhs-Push type.
+&lt;br&gt; tDocu shows location of uSD card in different positions.
+&lt;p&gt;Specifications:
+&lt;ul&gt;&lt;li&gt;Pin count:12&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=”http://www.4uconnector.com/online/object/4udrawing/15882.pdf”&gt;Datasheet referenced for footprint&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Example device(s):
+&lt;ul&gt;&lt;li&gt;MICRO-SD_CARD_SOCKET&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;</description>
+<wire x1="-14" y1="0" x2="-14" y2="13.2" width="0.2032" layer="21"/>
+<wire x1="0" y1="12.1" x2="0" y2="0" width="0.2032" layer="21"/>
+<wire x1="-11.7" y1="15.3" x2="-12.5" y2="15.3" width="0.2032" layer="21"/>
+<wire x1="-10" y1="13.6" x2="-1.6" y2="13.6" width="0.2032" layer="21"/>
+<wire x1="-14" y1="0" x2="-9.1" y2="0" width="0.2032" layer="21"/>
+<wire x1="-3.4" y1="0" x2="-6.4" y2="0" width="0.2032" layer="21"/>
+<wire x1="0" y1="0" x2="-0.7" y2="0" width="0.2032" layer="21"/>
+<wire x1="-11.7" y1="15.3" x2="-11" y2="14.6" width="0.2032" layer="21" curve="-98.797411"/>
+<wire x1="-11" y1="14.6" x2="-10" y2="13.6" width="0.2032" layer="21" curve="87.205638"/>
+<smd name="CD2" x="-7.75" y="0.4" dx="1.8" dy="1.4" layer="1"/>
+<smd name="CD1" x="-2.05" y="0.4" dx="1.8" dy="1.4" layer="1"/>
+<smd name="GND3" x="-0.45" y="13.55" dx="1.4" dy="1.9" layer="1"/>
+<smd name="GND1" x="-13.6" y="14.55" dx="1.4" dy="1.9" layer="1"/>
+<smd name="RSV1(1)" x="-8.94" y="10.7" dx="0.8" dy="1.5" layer="1"/>
+<smd name="CS(2)" x="-7.84" y="10.3" dx="0.8" dy="1.5" layer="1"/>
+<smd name="DI(3)" x="-6.74" y="10.7" dx="0.8" dy="1.5" layer="1"/>
+<smd name="VCC(4)" x="-5.64" y="10.9" dx="0.8" dy="1.5" layer="1"/>
+<smd name="SCLK(5)" x="-4.54" y="10.7" dx="0.8" dy="1.5" layer="1"/>
+<smd name="GND(6)" x="-3.44" y="10.9" dx="0.8" dy="1.5" layer="1"/>
+<smd name="DO(7)" x="-2.34" y="10.7" dx="0.8" dy="1.5" layer="1"/>
+<smd name="RSV2(8)" x="-1.24" y="10.7" dx="0.8" dy="1.5" layer="1"/>
+<text x="-8.89" y="6.35" size="0.6096" layer="25" font="vector" ratio="20">&gt;Name</text>
+<text x="-8.89" y="5.08" size="0.6096" layer="27" font="vector" ratio="20">&gt;Value</text>
+</package>
+</packages>
+<packages3d>
+<package3d name="CUI_PJ-002A" urn="urn:adsk.eagle:package:9702177/2" type="model" library_version="9" library_locally_modified="yes">
+<packageinstances>
+<packageinstance name="CUI_PJ-002A"/>
+</packageinstances>
+</package3d>
+<package3d name="AMPHENOL_STEREO_JACK" urn="urn:adsk.eagle:package:9702873/3" type="model" library_version="15" library_locally_modified="yes">
+<packageinstances>
+<packageinstance name="AMPHENOL_STEREO_JACK"/>
+</packageinstances>
+</package3d>
+<package3d name="SOD2512X110" urn="urn:adsk.eagle:package:9797239/2" type="model" library_version="19" library_locally_modified="yes">
+<description>SOD, 2.50 mm span, 1.70 X 1.25 X 1.10 mm body
+&lt;p&gt;SOD package with 2.50 mm span with body size 1.70 X 1.25 X 1.10 mm&lt;/p&gt;</description>
+<packageinstances>
+<packageinstance name="SOD323"/>
+</packageinstances>
+</package3d>
+<package3d name="0805" urn="urn:adsk.eagle:package:8442354/2" type="model" library_version="19" library_locally_modified="yes">
+<description>&lt;p&gt;&lt;b&gt;Generic 2012 (0805) package&lt;/b&gt;&lt;/p&gt;
+&lt;p&gt;0.2mm courtyard excess rounded to nearest 0.05mm.&lt;/p&gt;</description>
+<packageinstances>
+<packageinstance name="0805"/>
+</packageinstances>
+</package3d>
+<package3d name="C_0805" urn="urn:adsk.eagle:package:8442351/2" type="model" library_version="19" library_locally_modified="yes">
+<description>&lt;p&gt;&lt;b&gt;Generic 2012 (0805) package&lt;/b&gt;&lt;/p&gt;
+&lt;p&gt;0.2mm courtyard excess rounded to nearest 0.05mm.&lt;/p&gt;</description>
+<packageinstances>
+<packageinstance name="C_0805"/>
+</packageinstances>
+</package3d>
+<package3d name="DIN_SDS_50J" urn="urn:adsk.eagle:package:9699785/3" type="model" library_version="19" library_locally_modified="yes">
+<packageinstances>
+<packageinstance name="DIN_SDS_50J"/>
+</packageinstances>
+</package3d>
+<package3d name="DIP8" urn="urn:adsk.eagle:package:9797260/2" type="model" library_version="31" library_locally_modified="yes">
+<description>&lt;b&gt;SMD DIL08&lt;/b&gt; &lt;p&gt;
+dual in line package'</description>
+<packageinstances>
+<packageinstance name="DIP8"/>
+</packageinstances>
+</package3d>
+<package3d name="FCI_10103594-0001LF" urn="urn:adsk.eagle:package:10018607/2" type="model" library_version="35" library_locally_modified="yes">
+<packageinstances>
+<packageinstance name="FCI_10103594-0001LF"/>
+</packageinstances>
+</package3d>
+<package3d name="SOT223" urn="urn:adsk.eagle:package:30370/1" type="box" library_version="36">
+<description>Small Outline Transistor 223
+PLASTIC PACKAGE CASE 318E-04
+Source: http://www.onsemi.co.jp .. LM137M-D.PDF</description>
+<packageinstances>
+<packageinstance name="SOT223"/>
+</packageinstances>
+</package3d>
+<package3d name="STEREO_JACK_2SWITCH" urn="urn:adsk.eagle:package:8442329/2" type="model" library_version="36">
+<description>https://www.digikey.com/product-detail/en/switchcraft-inc/35RASMT4BHNTRX/SC1488-1-ND/2754493</description>
+<packageinstances>
+<packageinstance name="STEREO_JACK_2SWITCH"/>
+</packageinstances>
+</package3d>
+<package3d name="SLW30S" urn="urn:adsk.eagle:package:12919137/8" type="model" library_version="55" library_locally_modified="yes">
+<description>https://www.digikey.com/product-detail/en/SLW30S-1C7LF/609-1959-ND/1002274/?itemSeq=302204736
+
+NOTE: PIN NUMBERS ARE NOT ACCORDING TO MFG, USING MY OWN CONVENTION</description>
+<packageinstances>
+<packageinstance name="SLW30S_TOP"/>
+</packageinstances>
+</package3d>
+<package3d name="TEST_POINT" urn="urn:adsk.eagle:package:12955547/1" type="box" library_version="47" library_locally_modified="yes">
+<packageinstances>
+<packageinstance name="TEST_POINT"/>
+</packageinstances>
+</package3d>
+<package3d name="SWITCH_PTS820" urn="urn:adsk.eagle:package:8762249/2" type="model" library_version="56">
+<description>https://www.digikey.com/product-detail/en/c-k/PTS820-J15KP-SMTR-LFS/CKN10928CT-ND/7355849</description>
+<packageinstances>
+<packageinstance name="SWITCH_PTS820"/>
+</packageinstances>
+</package3d>
+<package3d name="TSSOP8" urn="urn:adsk.eagle:package:8442350/2" type="model" library_version="63">
 <description>&lt;b&gt;8-Lead Thin Shrink Small Outline Package &lt;/b&gt;&lt;p&gt;
 Source: http://www.analog.com/static/imported-files/data_sheets/AD8541_8542_8544.pdf</description>
-<wire x1="-0.6" y1="1.4484" x2="0.6" y2="1.4484" width="0.2032" layer="21" curve="180"/>
-<wire x1="-2.1484" y1="-1.4484" x2="2.1484" y2="-1.4484" width="0.2032" layer="21"/>
-<wire x1="2.1484" y1="-1.4484" x2="2.1484" y2="1.4484" width="0.2032" layer="21"/>
-<wire x1="2.1484" y1="1.4484" x2="-2.1484" y2="1.4484" width="0.2032" layer="21"/>
-<wire x1="-2.1484" y1="1.4484" x2="-2.1484" y2="-1.4484" width="0.2032" layer="21"/>
-<rectangle x1="-3.2" y1="0.825" x2="-2.25" y2="1.125" layer="51"/>
-<rectangle x1="-3.2" y1="0.175" x2="-2.25" y2="0.475" layer="51"/>
-<rectangle x1="-3.2" y1="-0.475" x2="-2.25" y2="-0.175" layer="51"/>
-<rectangle x1="-3.2" y1="-1.125" x2="-2.25" y2="-0.825" layer="51"/>
-<rectangle x1="2.25" y1="-1.125" x2="3.2" y2="-0.825" layer="51" rot="R180"/>
-<rectangle x1="2.25" y1="-0.475" x2="3.2" y2="-0.175" layer="51" rot="R180"/>
-<rectangle x1="2.25" y1="0.175" x2="3.2" y2="0.475" layer="51" rot="R180"/>
-<rectangle x1="2.25" y1="0.825" x2="3.2" y2="1.125" layer="51"/>
-<smd name="1" x="-2.875" y="0.975" dx="0.9" dy="0.35" layer="1"/>
-<smd name="2" x="-2.875" y="0.325" dx="0.9" dy="0.35" layer="1"/>
-<smd name="3" x="-2.875" y="-0.325" dx="0.9" dy="0.35" layer="1"/>
-<smd name="4" x="-2.875" y="-0.975" dx="0.9" dy="0.35" layer="1"/>
-<smd name="5" x="2.875" y="-0.975" dx="0.9" dy="0.35" layer="1" rot="R180"/>
-<smd name="6" x="2.875" y="-0.325" dx="0.9" dy="0.35" layer="1" rot="R180"/>
-<smd name="7" x="2.875" y="0.325" dx="0.9" dy="0.35" layer="1" rot="R180"/>
-<smd name="8" x="2.875" y="0.975" dx="0.9" dy="0.35" layer="1" rot="R180"/>
-<text x="-3.81" y="-3.175" size="1.016" layer="21">&gt;VALUE</text>
-<text x="-3.81" y="1.905" size="1.016" layer="21">&gt;NAME</text>
+<packageinstances>
+<packageinstance name="TSSOP8"/>
+</packageinstances>
+</package3d>
+<package3d name="QFN-32-5MM" urn="urn:adsk.eagle:package:8442355/2" type="model" library_version="64" library_locally_modified="yes">
+<packageinstances>
+<packageinstance name="QFN-32-5MM"/>
+</packageinstances>
+</package3d>
+<package3d name="CHIPLED_0805" urn="urn:adsk.eagle:package:8442343/2" type="model" library_version="64" library_locally_modified="yes">
+<description>&lt;b&gt;CHIPLED 0805&lt;/b&gt;</description>
+<packageinstances>
+<packageinstance name="CHIPLED_0805"/>
+</packageinstances>
+</package3d>
+<package3d name="MICRO-SD-SOCKET" urn="urn:adsk.eagle:package:8442348/2" type="model" library_version="64" library_locally_modified="yes">
+<description>&lt;h3&gt;microSD Socket SMD&lt;/h3&gt;
+Puhs-Push type.
+&lt;br&gt; tDocu shows location of uSD card in different positions.
+&lt;p&gt;Specifications:
+&lt;ul&gt;&lt;li&gt;Pin count:12&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=”http://www.4uconnector.com/online/object/4udrawing/15882.pdf”&gt;Datasheet referenced for footprint&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Example device(s):
+&lt;ul&gt;&lt;li&gt;MICRO-SD_CARD_SOCKET&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;</description>
+<packageinstances>
+<packageinstance name="MICRO-SD-SOCKET"/>
+</packageinstances>
+</package3d>
+</packages3d>
+</library>
+<library name="moon-germs-v1_main" urn="urn:adsk.eagle:library:8442267">
+<packages>
+<package name="0805" urn="urn:adsk.eagle:footprint:8442299/1" library_version="1" library_locally_modified="yes">
+<description>&lt;p&gt;&lt;b&gt;Generic 2012 (0805) package&lt;/b&gt;&lt;/p&gt;
+&lt;p&gt;0.2mm courtyard excess rounded to nearest 0.05mm.&lt;/p&gt;</description>
+<smd name="1" x="-0.9" y="0" dx="0.8" dy="1.2" layer="1"/>
+<smd name="2" x="0.9" y="0" dx="0.8" dy="1.2" layer="1"/>
+<wire x1="-1.5" y1="0.8" x2="1.5" y2="0.8" width="0.0508" layer="39"/>
+<wire x1="1.5" y1="0.8" x2="1.5" y2="-0.8" width="0.0508" layer="39"/>
+<wire x1="1.5" y1="-0.8" x2="-1.5" y2="-0.8" width="0.0508" layer="39"/>
+<wire x1="-1.5" y1="-0.8" x2="-1.5" y2="0.8" width="0.0508" layer="39"/>
+<wire x1="-1.524" y1="-0.762" x2="-1.524" y2="0.762" width="0.0762" layer="21"/>
+<wire x1="-1.524" y1="0.762" x2="1.524" y2="0.762" width="0.0762" layer="21"/>
+<wire x1="1.524" y1="0.762" x2="1.524" y2="-0.762" width="0.0762" layer="21"/>
+<wire x1="1.524" y1="-0.762" x2="-1.524" y2="-0.762" width="0.0762" layer="21"/>
+<text x="-2.032" y="-1.905" size="0.8128" layer="21">&gt;VALUE</text>
+<text x="-2.032" y="1.016" size="0.8128" layer="21">&gt;NAME</text>
+</package>
+<package name="LQFP64-05" urn="urn:adsk.eagle:footprint:8700958/1" library_version="8">
+<smd name="1" x="-5.915" y="3.7592" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R270"/>
+<smd name="2" x="-5.915" y="3.2512" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R270"/>
+<smd name="3" x="-5.915" y="2.7432" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R270"/>
+<smd name="4" x="-5.915" y="2.2606" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R270"/>
+<smd name="5" x="-5.915" y="1.7526" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R270"/>
+<smd name="6" x="-5.915" y="1.2446" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R270"/>
+<smd name="7" x="-5.915" y="0.762" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R270"/>
+<smd name="8" x="-5.915" y="0.254" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R270"/>
+<smd name="9" x="-5.915" y="-0.254" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R270"/>
+<smd name="10" x="-5.915" y="-0.762" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R270"/>
+<smd name="11" x="-5.915" y="-1.2446" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R270"/>
+<smd name="12" x="-5.915" y="-1.7526" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R270"/>
+<smd name="13" x="-5.915" y="-2.2606" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R270"/>
+<smd name="14" x="-5.915" y="-2.7432" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R270"/>
+<smd name="15" x="-5.915" y="-3.2512" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R270"/>
+<smd name="16" x="-5.915" y="-3.7592" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R270"/>
+<smd name="17" x="-3.7592" y="-5.915" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R180"/>
+<smd name="18" x="-3.2512" y="-5.915" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R180"/>
+<smd name="19" x="-2.7432" y="-5.915" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R180"/>
+<smd name="20" x="-2.2606" y="-5.915" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R180"/>
+<smd name="21" x="-1.7526" y="-5.915" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R180"/>
+<smd name="22" x="-1.2446" y="-5.915" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R180"/>
+<smd name="23" x="-0.762" y="-5.915" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R180"/>
+<smd name="24" x="-0.254" y="-5.915" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R180"/>
+<smd name="25" x="0.254" y="-5.915" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R180"/>
+<smd name="26" x="0.762" y="-5.915" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R180"/>
+<smd name="27" x="1.2446" y="-5.915" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R180"/>
+<smd name="28" x="1.7526" y="-5.915" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R180"/>
+<smd name="29" x="2.2606" y="-5.915" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R180"/>
+<smd name="30" x="2.7432" y="-5.915" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R180"/>
+<smd name="31" x="3.2512" y="-5.915" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R180"/>
+<smd name="32" x="3.7592" y="-5.915" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R180"/>
+<smd name="33" x="5.915" y="-3.7592" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R270"/>
+<smd name="34" x="5.915" y="-3.2512" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R270"/>
+<smd name="35" x="5.915" y="-2.7432" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R270"/>
+<smd name="36" x="5.915" y="-2.2606" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R270"/>
+<smd name="37" x="5.915" y="-1.7526" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R270"/>
+<smd name="38" x="5.915" y="-1.2446" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R270"/>
+<smd name="39" x="5.915" y="-0.762" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R270"/>
+<smd name="40" x="5.915" y="-0.254" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R270"/>
+<smd name="41" x="5.915" y="0.254" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R270"/>
+<smd name="42" x="5.915" y="0.762" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R270"/>
+<smd name="43" x="5.915" y="1.2446" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R270"/>
+<smd name="44" x="5.915" y="1.7526" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R270"/>
+<smd name="45" x="5.915" y="2.2606" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R270"/>
+<smd name="46" x="5.915" y="2.7432" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R270"/>
+<smd name="47" x="5.915" y="3.2512" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R270"/>
+<smd name="48" x="5.915" y="3.7592" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R270"/>
+<smd name="49" x="3.7592" y="5.915" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R180"/>
+<smd name="50" x="3.2512" y="5.915" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R180"/>
+<smd name="51" x="2.7432" y="5.915" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R180"/>
+<smd name="52" x="2.2606" y="5.915" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R180"/>
+<smd name="53" x="1.7526" y="5.915" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R180"/>
+<smd name="54" x="1.2446" y="5.915" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R180"/>
+<smd name="55" x="0.762" y="5.915" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R180"/>
+<smd name="56" x="0.254" y="5.915" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R180"/>
+<smd name="57" x="-0.254" y="5.915" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R180"/>
+<smd name="58" x="-0.762" y="5.915" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R180"/>
+<smd name="59" x="-1.2446" y="5.915" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R180"/>
+<smd name="60" x="-1.7526" y="5.915" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R180"/>
+<smd name="61" x="-2.2606" y="5.915" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R180"/>
+<smd name="62" x="-2.7432" y="5.915" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R180"/>
+<smd name="63" x="-3.2512" y="5.915" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R180"/>
+<smd name="64" x="-3.7592" y="5.915" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R180"/>
+<text x="-1.3844" y="2.81" size="0.8128" layer="25" font="vector" ratio="15" rot="SR0">&gt;NAME</text>
+<text x="-1.9844" y="-3.245" size="0.8128" layer="25" font="vector" ratio="15" rot="SR0">&gt;VALUE</text>
+<text x="0" y="0" size="0.7" layer="51" align="center">&gt;NAME</text>
+<circle x="-2.6" y="2.6" radius="0.508" width="0.2286" layer="21"/>
+<circle x="-2.6" y="2.6" radius="0.4472125" width="0.05" layer="51"/>
+<wire x1="-5" y1="5" x2="5" y2="5" width="0.05" layer="51"/>
+<wire x1="5" y1="5" x2="5" y2="-5" width="0.05" layer="51"/>
+<wire x1="5" y1="-5" x2="-5" y2="-5" width="0.05" layer="51"/>
+<wire x1="-5" y1="-5" x2="-5" y2="5" width="0.05" layer="51"/>
+<wire x1="-4" y1="3" x2="-4" y2="-4" width="0.2" layer="21"/>
+<wire x1="-4" y1="-4" x2="4" y2="-4" width="0.2" layer="21"/>
+<wire x1="4" y1="-4" x2="4" y2="4" width="0.2" layer="21"/>
+<wire x1="4" y1="4" x2="-3" y2="4" width="0.2" layer="21"/>
+<wire x1="-3" y1="4" x2="-4" y2="3" width="0.2" layer="21"/>
+</package>
+<package name="LQFP32-08" urn="urn:adsk.eagle:footprint:8700959/1" library_version="8">
+<description>&lt;B&gt;Thin Plasic Quad Flat Package&lt;/B&gt; Grid 0.8 mm</description>
+<wire x1="3" y1="3" x2="3" y2="-3" width="0.1524" layer="21"/>
+<wire x1="3" y1="-3" x2="-3" y2="-3" width="0.1524" layer="21"/>
+<wire x1="-3" y1="-3" x2="-3" y2="2.4" width="0.1524" layer="21"/>
+<wire x1="-2.4" y1="3" x2="3" y2="3" width="0.1524" layer="21"/>
+<wire x1="-2.4" y1="3" x2="-3" y2="2.4" width="0.1524" layer="21"/>
+<wire x1="-3.6" y1="3.6" x2="-3.6" y2="-3.6" width="0.05" layer="51"/>
+<wire x1="-3.6" y1="-3.6" x2="3.6" y2="-3.6" width="0.05" layer="51"/>
+<wire x1="3.6" y1="-3.6" x2="3.6" y2="3.6" width="0.05" layer="51"/>
+<wire x1="3.6" y1="3.6" x2="-3.6" y2="3.6" width="0.05" layer="51"/>
+<circle x="-2" y="2" radius="0.347865625" width="0.1524" layer="21"/>
+<circle x="-2" y="2" radius="0.282840625" width="0.05" layer="51"/>
+<smd name="1" x="-4.4926" y="2.8" dx="0.4" dy="1.3" layer="1" roundness="40" rot="R90"/>
+<smd name="2" x="-4.4926" y="2" dx="0.4" dy="1.3" layer="1" roundness="40" rot="R90"/>
+<smd name="3" x="-4.4926" y="1.2" dx="0.4" dy="1.3" layer="1" roundness="40" rot="R90"/>
+<smd name="4" x="-4.4926" y="0.4" dx="0.4" dy="1.3" layer="1" roundness="40" rot="R90"/>
+<smd name="5" x="-4.4926" y="-0.4" dx="0.4" dy="1.3" layer="1" roundness="40" rot="R90"/>
+<smd name="6" x="-4.4926" y="-1.2" dx="0.4" dy="1.3" layer="1" roundness="40" rot="R90"/>
+<smd name="7" x="-4.4926" y="-2" dx="0.4" dy="1.3" layer="1" roundness="40" rot="R90"/>
+<smd name="8" x="-4.4926" y="-2.8" dx="0.4" dy="1.3" layer="1" roundness="40" rot="R90"/>
+<smd name="9" x="-2.8" y="-4.4926" dx="0.4" dy="1.3" layer="1" roundness="40"/>
+<smd name="10" x="-2" y="-4.4926" dx="0.4" dy="1.3" layer="1" roundness="40"/>
+<smd name="11" x="-1.2" y="-4.4926" dx="0.4" dy="1.3" layer="1" roundness="40"/>
+<smd name="12" x="-0.4" y="-4.4926" dx="0.4" dy="1.3" layer="1" roundness="40"/>
+<smd name="13" x="0.4" y="-4.4926" dx="0.4" dy="1.3" layer="1" roundness="40"/>
+<smd name="14" x="1.2" y="-4.4926" dx="0.4" dy="1.3" layer="1" roundness="40"/>
+<smd name="15" x="2" y="-4.4926" dx="0.4" dy="1.3" layer="1" roundness="40"/>
+<smd name="16" x="2.8" y="-4.4926" dx="0.4" dy="1.3" layer="1" roundness="40"/>
+<smd name="17" x="4.4926" y="-2.8" dx="0.4" dy="1.3" layer="1" roundness="40" rot="R90"/>
+<smd name="18" x="4.4926" y="-2" dx="0.4" dy="1.3" layer="1" roundness="40" rot="R90"/>
+<smd name="19" x="4.4926" y="-1.2" dx="0.4" dy="1.3" layer="1" roundness="40" rot="R90"/>
+<smd name="20" x="4.4926" y="-0.4" dx="0.4" dy="1.3" layer="1" roundness="40" rot="R90"/>
+<smd name="21" x="4.4926" y="0.4" dx="0.4" dy="1.3" layer="1" roundness="40" rot="R90"/>
+<smd name="22" x="4.4926" y="1.2" dx="0.4" dy="1.3" layer="1" roundness="40" rot="R90"/>
+<smd name="23" x="4.4926" y="2" dx="0.4" dy="1.3" layer="1" roundness="40" rot="R90"/>
+<smd name="24" x="4.4926" y="2.8" dx="0.4" dy="1.3" layer="1" roundness="40" rot="R90"/>
+<smd name="25" x="2.8" y="4.4926" dx="0.4" dy="1.3" layer="1" roundness="40"/>
+<smd name="26" x="2" y="4.4926" dx="0.4" dy="1.3" layer="1" roundness="40"/>
+<smd name="27" x="1.2" y="4.4926" dx="0.4" dy="1.3" layer="1" roundness="40"/>
+<smd name="28" x="0.4" y="4.4926" dx="0.4" dy="1.3" layer="1" roundness="40"/>
+<smd name="29" x="-0.4" y="4.4926" dx="0.4" dy="1.3" layer="1" roundness="40"/>
+<smd name="30" x="-1.2" y="4.4926" dx="0.4" dy="1.3" layer="1" roundness="40"/>
+<smd name="31" x="-2" y="4.4926" dx="0.4" dy="1.3" layer="1" roundness="40"/>
+<smd name="32" x="-2.8" y="4.4926" dx="0.4" dy="1.3" layer="1" roundness="40"/>
+<text x="-3.175" y="5.48" size="1.27" layer="25" font="vector" ratio="10">&gt;NAME</text>
+<text x="0" y="0" size="0.7" layer="51" rot="R90" align="center">&gt;NAME</text>
+</package>
+<package name="HC49US" urn="urn:adsk.eagle:footprint:8700951/1" library_version="8">
+<description>&lt;b&gt;CRYSTAL&lt;/b&gt;</description>
+<wire x1="-3.048" y1="-2.159" x2="3.048" y2="-2.159" width="0.2032" layer="21"/>
+<wire x1="-3.048" y1="2.159" x2="3.048" y2="2.159" width="0.2032" layer="21"/>
+<wire x1="-3.048" y1="2.159" x2="-3.048" y2="-2.159" width="0.2032" layer="21" curve="180"/>
+<wire x1="3.048" y1="-2.159" x2="3.048" y2="2.159" width="0.2032" layer="21" curve="180"/>
+<wire x1="-3.2" y1="-2.2" x2="3.2" y2="-2.2" width="0.05" layer="51"/>
+<wire x1="3.2" y1="-2.2" x2="5.2" y2="-0.2" width="0.05" layer="51" curve="90"/>
+<wire x1="5.2" y1="-0.2" x2="5.2" y2="0" width="0.05" layer="51"/>
+<wire x1="5.2" y1="0" x2="3" y2="2.2" width="0.05" layer="51" curve="90"/>
+<wire x1="3" y1="2.2" x2="-3" y2="2.2" width="0.05" layer="51"/>
+<wire x1="-3" y1="2.2" x2="-5.2" y2="0" width="0.05" layer="51" curve="90"/>
+<wire x1="-5.2" y1="0" x2="-3.2" y2="-2.2" width="0.05" layer="51" curve="90"/>
+<pad name="1" x="-2.413" y="0" drill="0.8128"/>
+<pad name="2" x="2.413" y="0" drill="0.8128"/>
+<text x="-3.175" y="2.667" size="0.889" layer="25" ratio="11">&gt;NAME</text>
+<text x="-3.175" y="-3.556" size="0.889" layer="27" ratio="11">&gt;VALUE</text>
+<text x="0" y="0" size="0.7" layer="51" align="center">&gt;NAME</text>
+<rectangle x1="-4.445" y1="-2.54" x2="4.445" y2="2.54" layer="43"/>
+<rectangle x1="-5.08" y1="-1.905" x2="-4.445" y2="1.905" layer="43"/>
+<rectangle x1="-5.715" y1="-1.27" x2="-5.08" y2="1.27" layer="43"/>
+<rectangle x1="4.445" y1="-1.905" x2="5.08" y2="1.905" layer="43"/>
+<rectangle x1="5.08" y1="-1.27" x2="5.715" y2="1.27" layer="43"/>
+</package>
+<package name="TC26H" urn="urn:adsk.eagle:footprint:8700952/1" library_version="8">
+<description>&lt;b&gt;CRYSTAL&lt;/b&gt;</description>
+<wire x1="0.762" y1="7.747" x2="1.016" y2="7.493" width="0.1524" layer="21" curve="-90"/>
+<wire x1="-1.016" y1="7.493" x2="-0.762" y2="7.747" width="0.1524" layer="21" curve="-90"/>
+<wire x1="-0.762" y1="7.747" x2="0.762" y2="7.747" width="0.1524" layer="21"/>
+<wire x1="1.016" y1="1.524" x2="1.016" y2="7.493" width="0.1524" layer="21"/>
+<wire x1="-1.016" y1="1.524" x2="-0.889" y2="1.524" width="0.1524" layer="21"/>
+<wire x1="-1.016" y1="1.524" x2="-1.016" y2="7.493" width="0.1524" layer="21"/>
+<wire x1="1.016" y1="1.524" x2="0.889" y2="1.524" width="0.1524" layer="21"/>
+<wire x1="0.889" y1="1.524" x2="-0.889" y2="1.524" width="0.1524" layer="21"/>
+<wire x1="-1" y1="7.8" x2="-1" y2="1" width="0.05" layer="51"/>
+<wire x1="-1" y1="1" x2="1" y2="1" width="0.05" layer="51"/>
+<wire x1="1" y1="1" x2="1" y2="7.8" width="0.05" layer="51"/>
+<wire x1="1" y1="7.8" x2="-1" y2="7.8" width="0.05" layer="51"/>
+<pad name="1" x="-0.6858" y="0" drill="0.635"/>
+<pad name="2" x="0.6858" y="0" drill="0.635"/>
+<text x="-1.397" y="2.032" size="1.27" layer="25" ratio="10" rot="R90">&gt;NAME</text>
+<text x="2.667" y="2.032" size="1.27" layer="27" ratio="10" rot="R90">&gt;VALUE</text>
+<text x="0" y="4.4" size="0.7" layer="51" rot="R90" align="center">&gt;NAME</text>
+<rectangle x1="-1.778" y1="0.762" x2="1.778" y2="8.382" layer="43"/>
+</package>
+<package name="1X5HEADER" urn="urn:adsk.eagle:footprint:8709580/1" library_version="17" library_locally_modified="yes">
+<pad name="1" x="0" y="0" drill="1.016" diameter="1.778"/>
+<pad name="2" x="2.54" y="0" drill="1.016" diameter="1.778"/>
+<pad name="3" x="5.08" y="0" drill="1.016" diameter="1.778"/>
+<pad name="4" x="7.62" y="0" drill="1.016" diameter="1.778"/>
+<pad name="5" x="10.16" y="0" drill="1.016" diameter="1.778"/>
+<text x="0" y="1.27" size="1.27" layer="25">&gt;NAME</text>
+</package>
+<package name="L0603" urn="urn:adsk.eagle:footprint:8700954/1" library_version="8" library_locally_modified="yes">
+<wire x1="-1.4605" y1="0.6985" x2="1.4605" y2="0.6985" width="0.127" layer="21"/>
+<wire x1="1.4605" y1="0.6985" x2="1.4605" y2="-0.6985" width="0.127" layer="21"/>
+<wire x1="1.4605" y1="-0.6985" x2="-1.4605" y2="-0.6985" width="0.127" layer="21"/>
+<wire x1="-1.4605" y1="-0.6985" x2="-1.4605" y2="0.6985" width="0.127" layer="21"/>
+<wire x1="-1.4" y1="0.6" x2="1.4" y2="0.6" width="0.05" layer="51"/>
+<wire x1="1.4" y1="0.6" x2="1.4" y2="-0.6" width="0.05" layer="51"/>
+<wire x1="1.4" y1="-0.6" x2="-1.4" y2="-0.6" width="0.05" layer="51"/>
+<wire x1="-1.4" y1="-0.6" x2="-1.4" y2="0.6" width="0.05" layer="51"/>
+<smd name="1" x="-0.762" y="0" dx="0.889" dy="0.889" layer="1" roundness="25"/>
+<smd name="2" x="0.762" y="0" dx="0.889" dy="0.889" layer="1" roundness="25"/>
+<text x="-1.905" y="0.889" size="0.889" layer="25" ratio="11">&gt;NAME</text>
+<text x="-1.905" y="-1.7145" size="0.889" layer="27" ratio="11">&gt;VALUE</text>
+<text x="0" y="0" size="0.7" layer="51" align="center">&gt;NAME</text>
 </package>
 <package name="SOT23-3" urn="urn:adsk.eagle:footprint:8442300/1" library_version="17" library_locally_modified="yes">
 <description>SOT23-3</description>
@@ -1634,24 +1650,11 @@ Source: http://www.analog.com/static/imported-files/data_sheets/AD8541_8542_8544
 </package>
 </packages>
 <packages3d>
-<package3d name="CHIPLED_0805" urn="urn:adsk.eagle:package:8442343/2" type="model" library_version="8" library_locally_modified="yes">
-<description>&lt;b&gt;CHIPLED 0805&lt;/b&gt;</description>
-<packageinstances>
-<packageinstance name="CHIPLED_0805"/>
-</packageinstances>
-</package3d>
 <package3d name="0805" urn="urn:adsk.eagle:package:8442354/2" type="model" library_version="1" library_locally_modified="yes">
 <description>&lt;p&gt;&lt;b&gt;Generic 2012 (0805) package&lt;/b&gt;&lt;/p&gt;
 &lt;p&gt;0.2mm courtyard excess rounded to nearest 0.05mm.&lt;/p&gt;</description>
 <packageinstances>
 <packageinstance name="0805"/>
-</packageinstances>
-</package3d>
-<package3d name="C_0805" urn="urn:adsk.eagle:package:8442351/2" type="model" library_version="3" library_locally_modified="yes">
-<description>&lt;p&gt;&lt;b&gt;Generic 2012 (0805) package&lt;/b&gt;&lt;/p&gt;
-&lt;p&gt;0.2mm courtyard excess rounded to nearest 0.05mm.&lt;/p&gt;</description>
-<packageinstances>
-<packageinstance name="C_0805"/>
 </packageinstances>
 </package3d>
 <package3d name="QFP50P1200X1200X160-64" urn="urn:adsk.eagle:package:8700970/2" type="model" library_version="9" library_locally_modified="yes">
@@ -1683,33 +1686,6 @@ Source: http://www.analog.com/static/imported-files/data_sheets/AD8541_8542_8544
 <package3d name="L0603" urn="urn:adsk.eagle:package:8700966/1" type="box" library_version="8" library_locally_modified="yes">
 <packageinstances>
 <packageinstance name="L0603"/>
-</packageinstances>
-</package3d>
-<package3d name="QFN-32-5MM" urn="urn:adsk.eagle:package:8442355/2" type="model" library_version="1" library_locally_modified="yes">
-<packageinstances>
-<packageinstance name="QFN-32-5MM"/>
-</packageinstances>
-</package3d>
-<package3d name="MICRO-SD-SOCKET" urn="urn:adsk.eagle:package:8442348/2" type="model" library_version="1" library_locally_modified="yes">
-<description>&lt;h3&gt;microSD Socket SMD&lt;/h3&gt;
-Puhs-Push type.
-&lt;br&gt; tDocu shows location of uSD card in different positions.
-&lt;p&gt;Specifications:
-&lt;ul&gt;&lt;li&gt;Pin count:12&lt;/li&gt;
-&lt;/ul&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=”http://www.4uconnector.com/online/object/4udrawing/15882.pdf”&gt;Datasheet referenced for footprint&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Example device(s):
-&lt;ul&gt;&lt;li&gt;MICRO-SD_CARD_SOCKET&lt;/li&gt;
-&lt;/ul&gt;&lt;/p&gt;</description>
-<packageinstances>
-<packageinstance name="MICRO-SD-SOCKET"/>
-</packageinstances>
-</package3d>
-<package3d name="TSSOP8" urn="urn:adsk.eagle:package:8442350/2" type="model" library_version="1" library_locally_modified="yes">
-<description>&lt;b&gt;8-Lead Thin Shrink Small Outline Package &lt;/b&gt;&lt;p&gt;
-Source: http://www.analog.com/static/imported-files/data_sheets/AD8541_8542_8544.pdf</description>
-<packageinstances>
-<packageinstance name="TSSOP8"/>
 </packageinstances>
 </package3d>
 <package3d name="1X5HEADER" urn="urn:adsk.eagle:package:8709581/1" type="box" library_version="17" library_locally_modified="yes">
@@ -2065,19 +2041,25 @@ design rules under a new name.</description>
 <attribute name="NAME" x="24.736028125" y="28.64384375" size="0.508" layer="21" rot="R45"/>
 <attribute name="VALUE" x="25.0190375" y="28.34813125" size="0.508" layer="21" rot="R45"/>
 </element>
-<element name="R7" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" package="0805" package3d_urn="urn:adsk.eagle:package:8442354/2" value="470" x="25.7937" y="12.1793" smashed="yes" rot="R135">
+<element name="R7" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" package="0805" package3d_urn="urn:adsk.eagle:package:8442354/2" value="470" x="25.7937" y="12.1793" smashed="yes" rot="R135">
+<attribute name="DPN" value="RHM470KCT-ND" x="25.7937" y="12.1793" size="1.778" layer="27" rot="R135" display="off"/>
+<attribute name="LINK" value="https://www.digikey.com/product-detail/en/rohm-semiconductor/ESR10EZPJ471/RHM470KCT-ND/1763027" x="25.7937" y="12.1793" size="1.778" layer="27" rot="R135" display="off"/>
+<attribute name="MPN" value="ESR10EZPJ471" x="25.7937" y="12.1793" size="1.778" layer="27" rot="R135" display="off"/>
 <attribute name="NAME" x="24.362146875" y="12.09214375" size="0.508" layer="25" rot="R225"/>
 <attribute name="VALUE" x="24.88555625" y="11.590525" size="0.508" layer="27" rot="R225"/>
 </element>
-<element name="D5" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" package="CHIPLED_0805" package3d_urn="urn:adsk.eagle:package:8442343/2" value="ORANGE" x="23.182" y="15.096" smashed="yes" rot="R225">
+<element name="D5" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" package="CHIPLED_0805" package3d_urn="urn:adsk.eagle:package:8442343/2" value="ORANGE" x="23.182" y="15.096" smashed="yes" rot="R225">
+<attribute name="MPN" value="LO R976-PS-1" x="23.182" y="15.096" size="1.778" layer="27" rot="R225" display="off"/>
 <attribute name="NAME" x="21.20634375" y="15.904221875" size="0.508" layer="25" ratio="18" rot="R45"/>
 <attribute name="VALUE" x="20.9369375" y="15.36540625" size="0.4064" layer="27" ratio="10" rot="R315"/>
 </element>
-<element name="C11" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" package="C_0805" package3d_urn="urn:adsk.eagle:package:8442351/2" value="22PF" x="7.62" y="26.67" smashed="yes" rot="R90">
+<element name="C11" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" package="C_0805" package3d_urn="urn:adsk.eagle:package:8442351/2" value="22PF" x="7.62" y="26.67" smashed="yes" rot="R90">
+<attribute name="MPN" value="885012007030" x="7.62" y="26.67" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="NAME" x="7.239" y="28.321" size="0.508" layer="21" rot="R90"/>
 <attribute name="VALUE" x="8.128" y="28.321" size="0.508" layer="21" rot="R90"/>
 </element>
-<element name="C12" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" package="C_0805" package3d_urn="urn:adsk.eagle:package:8442351/2" value="22PF" x="7.62" y="22.86" smashed="yes" rot="R270">
+<element name="C12" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" package="C_0805" package3d_urn="urn:adsk.eagle:package:8442351/2" value="22PF" x="7.62" y="22.86" smashed="yes" rot="R270">
+<attribute name="MPN" value="885012007030" x="7.62" y="22.86" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="6.985" y="21.209" size="0.508" layer="21" rot="R270"/>
 <attribute name="VALUE" x="7.747" y="21.209" size="0.508" layer="21" rot="R270"/>
 </element>
@@ -2091,7 +2073,10 @@ design rules under a new name.</description>
 <attribute name="TYPE" value="Ferrite" x="26.302" y="35.827" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="VALUE" x="24.5875" y="37.732" size="0.889" layer="27" ratio="11" rot="R270"/>
 </element>
-<element name="R8" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" package="0805" package3d_urn="urn:adsk.eagle:package:8442354/2" value="470" x="24.4475" y="35.8775" smashed="yes" rot="R90">
+<element name="R8" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" package="0805" package3d_urn="urn:adsk.eagle:package:8442354/2" value="470" x="24.4475" y="35.8775" smashed="yes" rot="R90">
+<attribute name="DPN" value="RHM470KCT-ND" x="24.4475" y="35.8775" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="LINK" value="https://www.digikey.com/product-detail/en/rohm-semiconductor/ESR10EZPJ471/RHM470KCT-ND/1763027" x="24.4475" y="35.8775" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MPN" value="ESR10EZPJ471" x="24.4475" y="35.8775" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="NAME" x="24.7269" y="38.0492" size="0.508" layer="25" rot="R180"/>
 <attribute name="VALUE" x="25.1206" y="38.5699" size="0.508" layer="27" rot="R180"/>
 </element>
@@ -2138,7 +2123,8 @@ design rules under a new name.</description>
 <attribute name="NAME" x="13.3030875" y="17.330984375" size="0.508" layer="21" rot="R135"/>
 <attribute name="VALUE" x="13.344025" y="16.355921875" size="0.508" layer="21" rot="R135"/>
 </element>
-<element name="C26" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" package="C_0805" package3d_urn="urn:adsk.eagle:package:8442351/2" value="2.2UF" x="86.233" y="37.91" smashed="yes">
+<element name="C26" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" package="C_0805" package3d_urn="urn:adsk.eagle:package:8442351/2" value="2.2UF" x="86.233" y="37.91" smashed="yes">
+<attribute name="MPN" value="CL21B105KAFNNNE" x="86.233" y="37.91" size="1.778" layer="27" display="off"/>
 <attribute name="NAME" x="88.011" y="38.1005" size="0.508" layer="21"/>
 <attribute name="VALUE" x="89.8525" y="37.8465" size="0.508" layer="21" rot="R180"/>
 </element>
@@ -2156,11 +2142,13 @@ design rules under a new name.</description>
 <attribute name="NAME" x="88.329" y="29.909" size="0.508" layer="21"/>
 <attribute name="VALUE" x="88.202" y="30.798" size="0.508" layer="21"/>
 </element>
-<element name="C33" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" package="C_0805" package3d_urn="urn:adsk.eagle:package:8442351/2" value="2.2UF" x="81.915" y="32.004" smashed="yes" rot="R180">
+<element name="C33" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" package="C_0805" package3d_urn="urn:adsk.eagle:package:8442351/2" value="2.2UF" x="81.915" y="32.004" smashed="yes" rot="R180">
+<attribute name="MPN" value="CL21B105KAFNNNE" x="81.915" y="32.004" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="NAME" x="83.566" y="33.401" size="0.508" layer="21" rot="R180"/>
 <attribute name="VALUE" x="80.01" y="32.893" size="0.508" layer="21"/>
 </element>
-<element name="C34" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" package="C_0805" package3d_urn="urn:adsk.eagle:package:8442351/2" value="2.2UF" x="78.105" y="34.608" smashed="yes" rot="R90">
+<element name="C34" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" package="C_0805" package3d_urn="urn:adsk.eagle:package:8442351/2" value="2.2UF" x="78.105" y="34.608" smashed="yes" rot="R90">
+<attribute name="MPN" value="CL21B105KAFNNNE" x="78.105" y="34.608" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="NAME" x="77.6605" y="37.4655" size="0.508" layer="21"/>
 <attribute name="VALUE" x="77.6605" y="36.5765" size="0.508" layer="21"/>
 </element>
@@ -2193,11 +2181,15 @@ design rules under a new name.</description>
 <attribute name="NAME" x="84.7725" y="28.6385" size="0.508" layer="21" rot="R180"/>
 <attribute name="VALUE" x="84.8995" y="27.8765" size="0.508" layer="21" rot="R180"/>
 </element>
-<element name="U4" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" package="QFN-32-5MM" package3d_urn="urn:adsk.eagle:package:8442355/2" value="SGTL5000_32QFN" x="76.2" y="29.21" smashed="yes" rot="R270"/>
-<element name="U5" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" package="TSSOP8" package3d_urn="urn:adsk.eagle:package:8442350/2" value="23LC1024" x="54.292" y="10.16" smashed="yes">
+<element name="U4" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" package="QFN-32-5MM" package3d_urn="urn:adsk.eagle:package:8442355/2" value="SGTL5000_32QFN" x="76.2" y="29.21" smashed="yes" rot="R270">
+<attribute name="MPN" value="SGTL5000XNAA3R2" x="76.2" y="29.21" size="1.778" layer="27" rot="R270" display="off"/>
+</element>
+<element name="U5" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" package="TSSOP8" package3d_urn="urn:adsk.eagle:package:8442350/2" value="23LC1024" x="54.292" y="10.16" smashed="yes">
+<attribute name="MPN" value="23LC1024T-I/ST" x="54.292" y="10.16" size="1.778" layer="27" display="off"/>
 <attribute name="VALUE" x="52.768" y="11.811" size="0.508" layer="21"/>
 </element>
-<element name="U$6" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" package="MICRO-SD-SOCKET" package3d_urn="urn:adsk.eagle:package:8442348/2" value="MICROSD" x="30.798" y="19.431" smashed="yes" rot="R180">
+<element name="U$6" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" package="MICRO-SD-SOCKET" package3d_urn="urn:adsk.eagle:package:8442348/2" value="MICROSD" x="30.798" y="19.431" smashed="yes" rot="R180">
+<attribute name="MPN" value="0473340001" x="30.798" y="19.431" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="VALUE" x="38.418" y="14.0335" size="0.6096" layer="27" font="vector" ratio="20" rot="R180"/>
 </element>
 <element name="R13" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" package="0805" package3d_urn="urn:adsk.eagle:package:8442354/2" value="10K" x="60.325" y="10.16" smashed="yes" rot="R270">

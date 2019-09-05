@@ -3,7 +3,7 @@
 <eagle version="9.4.2">
 <drawing>
 <settings>
-<setting alwaysvectorfont="no"/>
+<setting alwaysvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
 <grid distance="50" unitdist="mil" unit="mil" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="mil"/>
@@ -184,7 +184,7 @@
 <layer number="255" name="routoute" color="7" fill="1" visible="no" active="yes"/>
 </layers>
 <board>
-<fusionsync huburn="a.cGVyc29uYWw6dWUyOWViOTli" projecturn="a.cGVyc29uYWw6dWUyOWViOTliIzIwMTkwMjI4MTc5MjYyNDAx" f3durn="urn:adsk.wipprod:dm.lineage:TbYIAYm_SeiHnU5SEeh_ow" pcbguid="427068f0-0b71-4137-912b-b7c28c9918c9" lastpulledtime="2019-03-21T19:34:48Z" lastsyncedchangeguid="55244ffd-015e-c170-8bd5-2e9369b636ce"/>
+<fusionsync huburn="a.cGVyc29uYWw6dWUyOWViOTli" projecturn="a.cGVyc29uYWw6dWUyOWViOTliIzIwMTkwMjI4MTc5MjYyNDAx" f3durn="urn:adsk.wipprod:dm.lineage:TbYIAYm_SeiHnU5SEeh_ow" pcbguid="427068f0-0b71-4137-912b-b7c28c9918c9" lastpulledtime="2019-03-21T19:34:48Z" lastsyncedchangeguid="1662cedf-5abc-4a7e-7229-970338ce5390"/>
 <plain>
 <polygon width="0.1524" layer="30">
 <vertex x="91.821" y="39.624"/>
@@ -986,6 +986,33 @@ NOTE: PIN NUMBERS ARE NOT ACCORDING TO MFG, USING MY OWN CONVENTION</description
 <wire x1="-1.95" y1="-1.45" x2="1.95" y2="-1.45" width="0.127" layer="21"/>
 <wire x1="-1.95" y1="1.45" x2="1.95" y2="1.45" width="0.127" layer="21"/>
 </package>
+<package name="TSSOP8" urn="urn:adsk.eagle:footprint:8442303/1" library_version="63">
+<description>&lt;b&gt;8-Lead Thin Shrink Small Outline Package &lt;/b&gt;&lt;p&gt;
+Source: http://www.analog.com/static/imported-files/data_sheets/AD8541_8542_8544.pdf</description>
+<wire x1="-0.6" y1="1.4484" x2="0.6" y2="1.4484" width="0.2032" layer="21" curve="180"/>
+<wire x1="-2.1484" y1="-1.4484" x2="2.1484" y2="-1.4484" width="0.2032" layer="21"/>
+<wire x1="2.1484" y1="-1.4484" x2="2.1484" y2="1.4484" width="0.2032" layer="21"/>
+<wire x1="2.1484" y1="1.4484" x2="-2.1484" y2="1.4484" width="0.2032" layer="21"/>
+<wire x1="-2.1484" y1="1.4484" x2="-2.1484" y2="-1.4484" width="0.2032" layer="21"/>
+<rectangle x1="-3.2" y1="0.825" x2="-2.25" y2="1.125" layer="51"/>
+<rectangle x1="-3.2" y1="0.175" x2="-2.25" y2="0.475" layer="51"/>
+<rectangle x1="-3.2" y1="-0.475" x2="-2.25" y2="-0.175" layer="51"/>
+<rectangle x1="-3.2" y1="-1.125" x2="-2.25" y2="-0.825" layer="51"/>
+<rectangle x1="2.25" y1="-1.125" x2="3.2" y2="-0.825" layer="51" rot="R180"/>
+<rectangle x1="2.25" y1="-0.475" x2="3.2" y2="-0.175" layer="51" rot="R180"/>
+<rectangle x1="2.25" y1="0.175" x2="3.2" y2="0.475" layer="51" rot="R180"/>
+<rectangle x1="2.25" y1="0.825" x2="3.2" y2="1.125" layer="51"/>
+<smd name="1" x="-2.875" y="0.975" dx="0.9" dy="0.35" layer="1"/>
+<smd name="2" x="-2.875" y="0.325" dx="0.9" dy="0.35" layer="1"/>
+<smd name="3" x="-2.875" y="-0.325" dx="0.9" dy="0.35" layer="1"/>
+<smd name="4" x="-2.875" y="-0.975" dx="0.9" dy="0.35" layer="1"/>
+<smd name="5" x="2.875" y="-0.975" dx="0.9" dy="0.35" layer="1" rot="R180"/>
+<smd name="6" x="2.875" y="-0.325" dx="0.9" dy="0.35" layer="1" rot="R180"/>
+<smd name="7" x="2.875" y="0.325" dx="0.9" dy="0.35" layer="1" rot="R180"/>
+<smd name="8" x="2.875" y="0.975" dx="0.9" dy="0.35" layer="1" rot="R180"/>
+<text x="-3.81" y="-3.175" size="1.016" layer="21">&gt;VALUE</text>
+<text x="-3.81" y="1.905" size="1.016" layer="21">&gt;NAME</text>
+</package>
 </packages>
 <packages3d>
 <package3d name="CUI_PJ-002A" urn="urn:adsk.eagle:package:9702177/2" type="model" library_version="9" library_locally_modified="yes">
@@ -1069,6 +1096,13 @@ NOTE: PIN NUMBERS ARE NOT ACCORDING TO MFG, USING MY OWN CONVENTION</description
 <packageinstance name="SWITCH_PTS820"/>
 </packageinstances>
 </package3d>
+<package3d name="TSSOP8" urn="urn:adsk.eagle:package:8442350/2" type="model" library_version="63">
+<description>&lt;b&gt;8-Lead Thin Shrink Small Outline Package &lt;/b&gt;&lt;p&gt;
+Source: http://www.analog.com/static/imported-files/data_sheets/AD8541_8542_8544.pdf</description>
+<packageinstances>
+<packageinstance name="TSSOP8"/>
+</packageinstances>
+</package3d>
 </packages3d>
 </library>
 <library name="moon-germs-v1_main" urn="urn:adsk.eagle:library:8442267">
@@ -1122,23 +1156,6 @@ NOTE: PIN NUMBERS ARE NOT ACCORDING TO MFG, USING MY OWN CONVENTION</description
 <wire x1="1.524" y1="-0.762" x2="-1.524" y2="-0.762" width="0.0762" layer="21"/>
 <text x="-2.032" y="-1.905" size="0.8128" layer="21">&gt;VALUE</text>
 <text x="-2.032" y="1.016" size="0.8128" layer="21">&gt;NAME</text>
-</package>
-<package name="C_0805" urn="urn:adsk.eagle:footprint:8442302/1" library_version="3" library_locally_modified="yes">
-<description>&lt;p&gt;&lt;b&gt;Generic 2012 (0805) package&lt;/b&gt;&lt;/p&gt;
-&lt;p&gt;0.2mm courtyard excess rounded to nearest 0.05mm.&lt;/p&gt;</description>
-<smd name="+" x="-0.9" y="0" dx="0.8" dy="1.2" layer="1"/>
-<smd name="-" x="0.9" y="0" dx="0.8" dy="1.2" layer="1"/>
-<wire x1="-1.5" y1="0.8" x2="1.5" y2="0.8" width="0.0508" layer="39"/>
-<wire x1="1.5" y1="0.8" x2="1.5" y2="-0.8" width="0.0508" layer="39"/>
-<wire x1="1.5" y1="-0.8" x2="-1.5" y2="-0.8" width="0.0508" layer="39"/>
-<wire x1="-1.5" y1="-0.8" x2="-1.5" y2="0.8" width="0.0508" layer="39"/>
-<wire x1="-1.524" y1="-0.762" x2="-1.524" y2="0.762" width="0.0762" layer="21"/>
-<wire x1="-1.524" y1="0.762" x2="1.524" y2="0.762" width="0.0762" layer="21"/>
-<wire x1="1.524" y1="0.762" x2="1.524" y2="-0.762" width="0.0762" layer="21"/>
-<wire x1="1.524" y1="-0.762" x2="-1.524" y2="-0.762" width="0.0762" layer="21"/>
-<text x="-2.54" y="0" size="1.27" layer="21">+</text>
-<text x="-2.54" y="1.27" size="0.8128" layer="21">&gt;VALUE</text>
-<text x="-2.54" y="-1.905" size="0.8128" layer="21">&gt;NAME</text>
 </package>
 <package name="LQFP64-05" urn="urn:adsk.eagle:footprint:8700958/1" library_version="8">
 <smd name="1" x="-5.915" y="3.7592" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R270"/>
@@ -1589,33 +1606,6 @@ Puhs-Push type.
 <rectangle x1="0.254" y1="-1.016" x2="1.016" y2="-0.254" layer="31"/>
 <rectangle x1="-1.016" y1="-1.016" x2="-0.254" y2="-0.254" layer="31"/>
 </package>
-<package name="TSSOP8" urn="urn:adsk.eagle:footprint:8442303/1" library_version="1" library_locally_modified="yes">
-<description>&lt;b&gt;8-Lead Thin Shrink Small Outline Package &lt;/b&gt;&lt;p&gt;
-Source: http://www.analog.com/static/imported-files/data_sheets/AD8541_8542_8544.pdf</description>
-<wire x1="-0.6" y1="1.4484" x2="0.6" y2="1.4484" width="0.2032" layer="21" curve="180"/>
-<wire x1="-2.1484" y1="-1.4484" x2="2.1484" y2="-1.4484" width="0.2032" layer="21"/>
-<wire x1="2.1484" y1="-1.4484" x2="2.1484" y2="1.4484" width="0.2032" layer="21"/>
-<wire x1="2.1484" y1="1.4484" x2="-2.1484" y2="1.4484" width="0.2032" layer="21"/>
-<wire x1="-2.1484" y1="1.4484" x2="-2.1484" y2="-1.4484" width="0.2032" layer="21"/>
-<rectangle x1="-3.2" y1="0.825" x2="-2.25" y2="1.125" layer="51"/>
-<rectangle x1="-3.2" y1="0.175" x2="-2.25" y2="0.475" layer="51"/>
-<rectangle x1="-3.2" y1="-0.475" x2="-2.25" y2="-0.175" layer="51"/>
-<rectangle x1="-3.2" y1="-1.125" x2="-2.25" y2="-0.825" layer="51"/>
-<rectangle x1="2.25" y1="-1.125" x2="3.2" y2="-0.825" layer="51" rot="R180"/>
-<rectangle x1="2.25" y1="-0.475" x2="3.2" y2="-0.175" layer="51" rot="R180"/>
-<rectangle x1="2.25" y1="0.175" x2="3.2" y2="0.475" layer="51" rot="R180"/>
-<rectangle x1="2.25" y1="0.825" x2="3.2" y2="1.125" layer="51"/>
-<smd name="1" x="-2.875" y="0.975" dx="0.9" dy="0.35" layer="1"/>
-<smd name="2" x="-2.875" y="0.325" dx="0.9" dy="0.35" layer="1"/>
-<smd name="3" x="-2.875" y="-0.325" dx="0.9" dy="0.35" layer="1"/>
-<smd name="4" x="-2.875" y="-0.975" dx="0.9" dy="0.35" layer="1"/>
-<smd name="5" x="2.875" y="-0.975" dx="0.9" dy="0.35" layer="1" rot="R180"/>
-<smd name="6" x="2.875" y="-0.325" dx="0.9" dy="0.35" layer="1" rot="R180"/>
-<smd name="7" x="2.875" y="0.325" dx="0.9" dy="0.35" layer="1" rot="R180"/>
-<smd name="8" x="2.875" y="0.975" dx="0.9" dy="0.35" layer="1" rot="R180"/>
-<text x="-3.81" y="-3.175" size="1.016" layer="21">&gt;VALUE</text>
-<text x="-3.81" y="1.905" size="1.016" layer="21">&gt;NAME</text>
-</package>
 <package name="SOT23-3" urn="urn:adsk.eagle:footprint:8442300/1" library_version="17" library_locally_modified="yes">
 <description>SOT23-3</description>
 <wire x1="1.4224" y1="0.6604" x2="1.4224" y2="-0.6604" width="0.1524" layer="51"/>
@@ -1645,13 +1635,6 @@ Source: http://www.analog.com/static/imported-files/data_sheets/AD8541_8542_8544
 &lt;p&gt;0.2mm courtyard excess rounded to nearest 0.05mm.&lt;/p&gt;</description>
 <packageinstances>
 <packageinstance name="0805"/>
-</packageinstances>
-</package3d>
-<package3d name="C_0805" urn="urn:adsk.eagle:package:8442351/2" type="model" library_version="3" library_locally_modified="yes">
-<description>&lt;p&gt;&lt;b&gt;Generic 2012 (0805) package&lt;/b&gt;&lt;/p&gt;
-&lt;p&gt;0.2mm courtyard excess rounded to nearest 0.05mm.&lt;/p&gt;</description>
-<packageinstances>
-<packageinstance name="C_0805"/>
 </packageinstances>
 </package3d>
 <package3d name="QFP50P1200X1200X160-64" urn="urn:adsk.eagle:package:8700970/2" type="model" library_version="9" library_locally_modified="yes">
@@ -1703,13 +1686,6 @@ Puhs-Push type.
 &lt;/ul&gt;&lt;/p&gt;</description>
 <packageinstances>
 <packageinstance name="MICRO-SD-SOCKET"/>
-</packageinstances>
-</package3d>
-<package3d name="TSSOP8" urn="urn:adsk.eagle:package:8442350/2" type="model" library_version="1" library_locally_modified="yes">
-<description>&lt;b&gt;8-Lead Thin Shrink Small Outline Package &lt;/b&gt;&lt;p&gt;
-Source: http://www.analog.com/static/imported-files/data_sheets/AD8541_8542_8544.pdf</description>
-<packageinstances>
-<packageinstance name="TSSOP8"/>
 </packageinstances>
 </package3d>
 <package3d name="1X5HEADER" urn="urn:adsk.eagle:package:8709581/1" type="box" library_version="17" library_locally_modified="yes">
@@ -2026,7 +2002,8 @@ design rules under a new name.</description>
 <attribute name="NAME" x="93.2561" y="28.2575" size="0.508" layer="21" rot="R180"/>
 <attribute name="VALUE" x="94.0308" y="27.6225" size="0.508" layer="21" rot="R180"/>
 </element>
-<element name="C7" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" package="C_0805" package3d_urn="urn:adsk.eagle:package:8442351/2" value="2.2UF" x="97.79" y="29.21" smashed="yes" rot="R180">
+<element name="C7" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" package="C_0805" package3d_urn="urn:adsk.eagle:package:8442351/2" value="2.2UF" x="97.79" y="29.21" smashed="yes" rot="R180">
+<attribute name="MPN" value="CL21B105KAFNNNE" x="97.79" y="29.21" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="NAME" x="96.4692" y="27.7368" size="0.508" layer="21"/>
 <attribute name="VALUE" x="96.4565" y="26.9748" size="0.508" layer="21"/>
 </element>
@@ -2064,7 +2041,10 @@ design rules under a new name.</description>
 <attribute name="NAME" x="24.736028125" y="28.64384375" size="0.508" layer="21" rot="R45"/>
 <attribute name="VALUE" x="25.0190375" y="28.34813125" size="0.508" layer="21" rot="R45"/>
 </element>
-<element name="R7" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" package="0805" package3d_urn="urn:adsk.eagle:package:8442354/2" value="470" x="25.7937" y="12.1793" smashed="yes" rot="R135">
+<element name="R7" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" package="0805" package3d_urn="urn:adsk.eagle:package:8442354/2" value="470" x="25.7937" y="12.1793" smashed="yes" rot="R135">
+<attribute name="DPN" value="RHM470KCT-ND" x="25.7937" y="12.1793" size="1.778" layer="27" rot="R135" display="off"/>
+<attribute name="LINK" value="https://www.digikey.com/product-detail/en/rohm-semiconductor/ESR10EZPJ471/RHM470KCT-ND/1763027" x="25.7937" y="12.1793" size="1.778" layer="27" rot="R135" display="off"/>
+<attribute name="MPN" value="ESR10EZPJ471" x="25.7937" y="12.1793" size="1.778" layer="27" rot="R135" display="off"/>
 <attribute name="NAME" x="24.362146875" y="12.09214375" size="0.508" layer="25" rot="R225"/>
 <attribute name="VALUE" x="24.88555625" y="11.590525" size="0.508" layer="27" rot="R225"/>
 </element>
@@ -2072,11 +2052,13 @@ design rules under a new name.</description>
 <attribute name="NAME" x="21.20634375" y="15.904221875" size="0.508" layer="25" ratio="18" rot="R45"/>
 <attribute name="VALUE" x="20.9369375" y="15.36540625" size="0.4064" layer="27" ratio="10" rot="R315"/>
 </element>
-<element name="C11" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" package="C_0805" package3d_urn="urn:adsk.eagle:package:8442351/2" value="22PF" x="7.62" y="26.67" smashed="yes" rot="R90">
+<element name="C11" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" package="C_0805" package3d_urn="urn:adsk.eagle:package:8442351/2" value="22PF" x="7.62" y="26.67" smashed="yes" rot="R90">
+<attribute name="MPN" value="885012007030" x="7.62" y="26.67" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="NAME" x="7.239" y="28.321" size="0.508" layer="21" rot="R90"/>
 <attribute name="VALUE" x="8.128" y="28.321" size="0.508" layer="21" rot="R90"/>
 </element>
-<element name="C12" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" package="C_0805" package3d_urn="urn:adsk.eagle:package:8442351/2" value="22PF" x="7.62" y="22.86" smashed="yes" rot="R270">
+<element name="C12" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" package="C_0805" package3d_urn="urn:adsk.eagle:package:8442351/2" value="22PF" x="7.62" y="22.86" smashed="yes" rot="R270">
+<attribute name="MPN" value="885012007030" x="7.62" y="22.86" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="6.985" y="21.209" size="0.508" layer="21" rot="R270"/>
 <attribute name="VALUE" x="7.747" y="21.209" size="0.508" layer="21" rot="R270"/>
 </element>
@@ -2090,11 +2072,15 @@ design rules under a new name.</description>
 <attribute name="TYPE" value="Ferrite" x="26.302" y="35.827" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="VALUE" x="24.5875" y="37.732" size="0.889" layer="27" ratio="11" rot="R270"/>
 </element>
-<element name="R8" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" package="0805" package3d_urn="urn:adsk.eagle:package:8442354/2" value="470" x="24.4475" y="35.8775" smashed="yes" rot="R90">
+<element name="R8" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" package="0805" package3d_urn="urn:adsk.eagle:package:8442354/2" value="470" x="24.4475" y="35.8775" smashed="yes" rot="R90">
+<attribute name="DPN" value="RHM470KCT-ND" x="24.4475" y="35.8775" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="LINK" value="https://www.digikey.com/product-detail/en/rohm-semiconductor/ESR10EZPJ471/RHM470KCT-ND/1763027" x="24.4475" y="35.8775" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MPN" value="ESR10EZPJ471" x="24.4475" y="35.8775" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="NAME" x="24.7269" y="38.0492" size="0.508" layer="25" rot="R180"/>
 <attribute name="VALUE" x="25.1206" y="38.5699" size="0.508" layer="27" rot="R180"/>
 </element>
-<element name="C13" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" package="C_0805" package3d_urn="urn:adsk.eagle:package:8442351/2" value="2.2UF" x="21.272" y="34.925" smashed="yes" rot="R180">
+<element name="C13" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" package="C_0805" package3d_urn="urn:adsk.eagle:package:8442351/2" value="2.2UF" x="21.272" y="34.925" smashed="yes" rot="R180">
+<attribute name="MPN" value="CL21B105KAFNNNE" x="21.272" y="34.925" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="NAME" x="21.018" y="34.036" size="0.508" layer="21" rot="R180"/>
 <attribute name="VALUE" x="23.177" y="34.163" size="0.508" layer="21" rot="R180"/>
 </element>
@@ -2136,7 +2122,8 @@ design rules under a new name.</description>
 <attribute name="NAME" x="13.3030875" y="17.330984375" size="0.508" layer="21" rot="R135"/>
 <attribute name="VALUE" x="13.344025" y="16.355921875" size="0.508" layer="21" rot="R135"/>
 </element>
-<element name="C26" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" package="C_0805" package3d_urn="urn:adsk.eagle:package:8442351/2" value="2.2UF" x="86.233" y="37.91" smashed="yes">
+<element name="C26" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" package="C_0805" package3d_urn="urn:adsk.eagle:package:8442351/2" value="2.2UF" x="86.233" y="37.91" smashed="yes">
+<attribute name="MPN" value="CL21B105KAFNNNE" x="86.233" y="37.91" size="1.778" layer="27" display="off"/>
 <attribute name="NAME" x="88.011" y="38.1005" size="0.508" layer="21"/>
 <attribute name="VALUE" x="89.8525" y="37.8465" size="0.508" layer="21" rot="R180"/>
 </element>
@@ -2154,11 +2141,13 @@ design rules under a new name.</description>
 <attribute name="NAME" x="88.329" y="29.909" size="0.508" layer="21"/>
 <attribute name="VALUE" x="88.202" y="30.798" size="0.508" layer="21"/>
 </element>
-<element name="C33" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" package="C_0805" package3d_urn="urn:adsk.eagle:package:8442351/2" value="2.2UF" x="81.915" y="32.004" smashed="yes" rot="R180">
+<element name="C33" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" package="C_0805" package3d_urn="urn:adsk.eagle:package:8442351/2" value="2.2UF" x="81.915" y="32.004" smashed="yes" rot="R180">
+<attribute name="MPN" value="CL21B105KAFNNNE" x="81.915" y="32.004" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="NAME" x="83.566" y="33.401" size="0.508" layer="21" rot="R180"/>
 <attribute name="VALUE" x="80.01" y="32.893" size="0.508" layer="21"/>
 </element>
-<element name="C34" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" package="C_0805" package3d_urn="urn:adsk.eagle:package:8442351/2" value="2.2UF" x="78.105" y="34.608" smashed="yes" rot="R90">
+<element name="C34" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" package="C_0805" package3d_urn="urn:adsk.eagle:package:8442351/2" value="2.2UF" x="78.105" y="34.608" smashed="yes" rot="R90">
+<attribute name="MPN" value="CL21B105KAFNNNE" x="78.105" y="34.608" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="NAME" x="77.6605" y="37.4655" size="0.508" layer="21"/>
 <attribute name="VALUE" x="77.6605" y="36.5765" size="0.508" layer="21"/>
 </element>
@@ -2181,26 +2170,31 @@ design rules under a new name.</description>
 <attribute name="NAME" x="69.9643" y="26.1239" size="0.508" layer="21" rot="R90"/>
 <attribute name="VALUE" x="70.5993" y="24.6888" size="0.508" layer="21" rot="R90"/>
 </element>
-<element name="R11" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" package="0805" package3d_urn="urn:adsk.eagle:package:8442354/2" value="2.2K" x="81.915" y="29.845" smashed="yes">
+<element name="R11" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" package="0805" package3d_urn="urn:adsk.eagle:package:8442354/2" value="2.2K" x="81.915" y="29.845" smashed="yes">
+<attribute name="MPN" value="RC0805FR-072K2L" x="81.915" y="29.845" size="1.778" layer="27" display="off"/>
 <attribute name="NAME" x="84.7725" y="30.4165" size="0.508" layer="21" rot="R180"/>
 <attribute name="VALUE" x="85.0265" y="29.5275" size="0.508" layer="21" rot="R180"/>
 </element>
-<element name="R12" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" package="0805" package3d_urn="urn:adsk.eagle:package:8442354/2" value="2.2K" x="81.788" y="28.067" smashed="yes">
+<element name="R12" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" package="0805" package3d_urn="urn:adsk.eagle:package:8442354/2" value="2.2K" x="81.788" y="28.067" smashed="yes">
+<attribute name="MPN" value="RC0805FR-072K2L" x="81.788" y="28.067" size="1.778" layer="27" display="off"/>
 <attribute name="NAME" x="84.7725" y="28.6385" size="0.508" layer="21" rot="R180"/>
 <attribute name="VALUE" x="84.8995" y="27.8765" size="0.508" layer="21" rot="R180"/>
 </element>
 <element name="U4" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" package="QFN-32-5MM" package3d_urn="urn:adsk.eagle:package:8442355/2" value="SGTL5000_32QFN" x="76.2" y="29.21" smashed="yes" rot="R270"/>
-<element name="U5" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" package="TSSOP8" package3d_urn="urn:adsk.eagle:package:8442350/2" value="23LC1024" x="54.292" y="10.16" smashed="yes">
+<element name="U5" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" package="TSSOP8" package3d_urn="urn:adsk.eagle:package:8442350/2" value="23LC1024" x="54.292" y="10.16" smashed="yes">
+<attribute name="MPN" value="23LC1024T-I/ST" x="54.292" y="10.16" size="1.778" layer="27" display="off"/>
 <attribute name="VALUE" x="52.768" y="11.811" size="0.508" layer="21"/>
 </element>
 <element name="U$6" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" package="MICRO-SD-SOCKET" package3d_urn="urn:adsk.eagle:package:8442348/2" value="MICROSD" x="30.798" y="19.431" smashed="yes" rot="R180">
 <attribute name="VALUE" x="38.418" y="14.0335" size="0.6096" layer="27" font="vector" ratio="20" rot="R180"/>
 </element>
-<element name="R13" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" package="0805" package3d_urn="urn:adsk.eagle:package:8442354/2" value="10K" x="60.325" y="10.16" smashed="yes" rot="R270">
+<element name="R13" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" package="0805" package3d_urn="urn:adsk.eagle:package:8442354/2" value="10K" x="60.325" y="10.16" smashed="yes" rot="R270">
+<attribute name="MPN" value="RNCP0805FTD10K0" x="60.325" y="10.16" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="61.214" y="11.684" size="0.508" layer="21" rot="R270"/>
 <attribute name="VALUE" x="61.214" y="9.779" size="0.508" layer="21" rot="R270"/>
 </element>
-<element name="R14" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" package="0805" package3d_urn="urn:adsk.eagle:package:8442354/2" value="10K" x="46.6725" y="9.525" smashed="yes">
+<element name="R14" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" package="0805" package3d_urn="urn:adsk.eagle:package:8442354/2" value="10K" x="46.6725" y="9.525" smashed="yes">
+<attribute name="MPN" value="RNCP0805FTD10K0" x="46.6725" y="9.525" size="1.778" layer="27" display="off"/>
 <attribute name="NAME" x="46.355" y="10.9855" size="0.508" layer="21" rot="R180"/>
 <attribute name="VALUE" x="47.879" y="10.9855" size="0.508" layer="21" rot="R180"/>
 </element>

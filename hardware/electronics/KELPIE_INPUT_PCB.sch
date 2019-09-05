@@ -183,6 +183,7 @@
 <layer number="255" name="routoute" color="7" fill="1" visible="yes" active="yes"/>
 </layers>
 <schematic xreflabel="%F%N/%S.%C%R" xrefpart="/%S.%C%R">
+<fusionteam huburn="a.cGVyc29uYWw6dWUyOWViOTli" projecturn="a.cGVyc29uYWw6dWUyOWViOTliIzIwMTkwMjI4MTc5MjYyNDAx" folderUrn="urn:adsk.wipprod:fs.folder:co.8dNkGeL_QFqK5y_dgGXRbQ" urn="urn:adsk.wipprod:dm.lineage:BYS8sflGQwW14_zJf-K1ag"  versionUrn="urn:adsk.wipprod:fs.file:vf.BYS8sflGQwW14_zJf-K1ag?version=1" camFileUrn="" camFileVersionUrn="" lastpublishedchangeguid="a80d7bb8-daa2-eed1-9f4a-17211334ad6f"/>
 <libraries>
 <library name="sirin-clone-library" urn="urn:adsk.eagle:library:9336050">
 <packages>

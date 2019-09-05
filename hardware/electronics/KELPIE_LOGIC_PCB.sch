@@ -184,6 +184,7 @@
 <layer number="255" name="routoute" color="7" fill="1" visible="yes" active="yes"/>
 </layers>
 <schematic xreflabel="%F%N/%S.%C%R" xrefpart="/%S.%C%R">
+<fusionteam huburn="a.cGVyc29uYWw6dWUyOWViOTli" projecturn="a.cGVyc29uYWw6dWUyOWViOTliIzIwMTkwMjI4MTc5MjYyNDAx" folderUrn="urn:adsk.wipprod:fs.folder:co.8dNkGeL_QFqK5y_dgGXRbQ" urn="urn:adsk.wipprod:dm.lineage:QgZpCW-WRcCZpYZAvfiirQ"  versionUrn="urn:adsk.wipprod:fs.file:vf.QgZpCW-WRcCZpYZAvfiirQ?version=1" camFileUrn="" camFileVersionUrn="" lastpublishedchangeguid="415e3ca6-8c7f-efed-292d-886c2249df73"/>
 <libraries>
 <library name="sirin-clone-library" urn="urn:adsk.eagle:library:9336050">
 <packages>
@@ -719,6 +720,336 @@ NOTE: PIN NUMBERS ARE NOT ACCORDING TO MFG, USING MY OWN CONVENTION</description
 <wire x1="-1.95" y1="-1.45" x2="1.95" y2="-1.45" width="0.127" layer="21"/>
 <wire x1="-1.95" y1="1.45" x2="1.95" y2="1.45" width="0.127" layer="21"/>
 </package>
+<package name="TSSOP8" urn="urn:adsk.eagle:footprint:8442303/1" library_version="63">
+<description>&lt;b&gt;8-Lead Thin Shrink Small Outline Package &lt;/b&gt;&lt;p&gt;
+Source: http://www.analog.com/static/imported-files/data_sheets/AD8541_8542_8544.pdf</description>
+<wire x1="-0.6" y1="1.4484" x2="0.6" y2="1.4484" width="0.2032" layer="21" curve="180"/>
+<wire x1="-2.1484" y1="-1.4484" x2="2.1484" y2="-1.4484" width="0.2032" layer="21"/>
+<wire x1="2.1484" y1="-1.4484" x2="2.1484" y2="1.4484" width="0.2032" layer="21"/>
+<wire x1="2.1484" y1="1.4484" x2="-2.1484" y2="1.4484" width="0.2032" layer="21"/>
+<wire x1="-2.1484" y1="1.4484" x2="-2.1484" y2="-1.4484" width="0.2032" layer="21"/>
+<rectangle x1="-3.2" y1="0.825" x2="-2.25" y2="1.125" layer="51"/>
+<rectangle x1="-3.2" y1="0.175" x2="-2.25" y2="0.475" layer="51"/>
+<rectangle x1="-3.2" y1="-0.475" x2="-2.25" y2="-0.175" layer="51"/>
+<rectangle x1="-3.2" y1="-1.125" x2="-2.25" y2="-0.825" layer="51"/>
+<rectangle x1="2.25" y1="-1.125" x2="3.2" y2="-0.825" layer="51" rot="R180"/>
+<rectangle x1="2.25" y1="-0.475" x2="3.2" y2="-0.175" layer="51" rot="R180"/>
+<rectangle x1="2.25" y1="0.175" x2="3.2" y2="0.475" layer="51" rot="R180"/>
+<rectangle x1="2.25" y1="0.825" x2="3.2" y2="1.125" layer="51"/>
+<smd name="1" x="-2.875" y="0.975" dx="0.9" dy="0.35" layer="1"/>
+<smd name="2" x="-2.875" y="0.325" dx="0.9" dy="0.35" layer="1"/>
+<smd name="3" x="-2.875" y="-0.325" dx="0.9" dy="0.35" layer="1"/>
+<smd name="4" x="-2.875" y="-0.975" dx="0.9" dy="0.35" layer="1"/>
+<smd name="5" x="2.875" y="-0.975" dx="0.9" dy="0.35" layer="1" rot="R180"/>
+<smd name="6" x="2.875" y="-0.325" dx="0.9" dy="0.35" layer="1" rot="R180"/>
+<smd name="7" x="2.875" y="0.325" dx="0.9" dy="0.35" layer="1" rot="R180"/>
+<smd name="8" x="2.875" y="0.975" dx="0.9" dy="0.35" layer="1" rot="R180"/>
+<text x="-3.81" y="-3.175" size="1.016" layer="21">&gt;VALUE</text>
+<text x="-3.81" y="1.905" size="1.016" layer="21">&gt;NAME</text>
+</package>
+<package name="QFN-32-5MM" urn="urn:adsk.eagle:footprint:8442298/1" library_version="64" library_locally_modified="yes">
+<smd name="9" x="-1.75" y="-2.3" dx="0.29" dy="0.4" layer="1" stop="no" cream="no"/>
+<smd name="8" x="-2.3" y="-1.75" dx="0.29" dy="0.4" layer="1" rot="R270" stop="no" cream="no"/>
+<smd name="10" x="-1.25" y="-2.25" dx="0.29" dy="0.5" layer="1"/>
+<smd name="11" x="-0.75" y="-2.25" dx="0.29" dy="0.5" layer="1"/>
+<smd name="12" x="-0.25" y="-2.25" dx="0.29" dy="0.5" layer="1"/>
+<smd name="13" x="0.25" y="-2.25" dx="0.29" dy="0.5" layer="1"/>
+<smd name="14" x="0.75" y="-2.25" dx="0.29" dy="0.5" layer="1"/>
+<smd name="15" x="1.25" y="-2.25" dx="0.29" dy="0.5" layer="1"/>
+<smd name="18" x="2.25" y="-1.25" dx="0.29" dy="0.5" layer="1" rot="R90"/>
+<smd name="19" x="2.25" y="-0.75" dx="0.29" dy="0.5" layer="1" rot="R90"/>
+<smd name="20" x="2.25" y="-0.25" dx="0.29" dy="0.5" layer="1" rot="R90"/>
+<smd name="21" x="2.25" y="0.25" dx="0.29" dy="0.5" layer="1" rot="R90"/>
+<smd name="22" x="2.25" y="0.75" dx="0.29" dy="0.5" layer="1" rot="R90"/>
+<smd name="23" x="2.25" y="1.25" dx="0.29" dy="0.5" layer="1" rot="R90"/>
+<smd name="26" x="1.25" y="2.25" dx="0.29" dy="0.5" layer="1" rot="R180"/>
+<smd name="27" x="0.75" y="2.25" dx="0.29" dy="0.5" layer="1" rot="R180"/>
+<smd name="28" x="0.25" y="2.25" dx="0.29" dy="0.5" layer="1" rot="R180"/>
+<smd name="29" x="-0.25" y="2.25" dx="0.29" dy="0.5" layer="1" rot="R180"/>
+<smd name="30" x="-0.75" y="2.25" dx="0.29" dy="0.5" layer="1" rot="R180"/>
+<smd name="31" x="-1.25" y="2.25" dx="0.29" dy="0.5" layer="1" rot="R180"/>
+<smd name="2" x="-2.25" y="1.25" dx="0.29" dy="0.5" layer="1" rot="R270"/>
+<smd name="3" x="-2.25" y="0.75" dx="0.29" dy="0.5" layer="1" rot="R270"/>
+<smd name="4" x="-2.25" y="0.25" dx="0.29" dy="0.5" layer="1" rot="R270"/>
+<smd name="5" x="-2.25" y="-0.25" dx="0.29" dy="0.5" layer="1" rot="R270"/>
+<smd name="6" x="-2.25" y="-0.75" dx="0.29" dy="0.5" layer="1" rot="R270"/>
+<smd name="7" x="-2.25" y="-1.25" dx="0.29" dy="0.5" layer="1" rot="R270"/>
+<smd name="17" x="2.3" y="-1.75" dx="0.29" dy="0.4" layer="1" rot="R90" stop="no" cream="no"/>
+<smd name="16" x="1.75" y="-2.3" dx="0.29" dy="0.4" layer="1" stop="no" cream="no"/>
+<smd name="25" x="1.75" y="2.3" dx="0.29" dy="0.4" layer="1" rot="R180" stop="no" cream="no"/>
+<smd name="24" x="2.3" y="1.75" dx="0.29" dy="0.4" layer="1" rot="R90" stop="no" cream="no"/>
+<smd name="1" x="-2.3" y="1.75" dx="0.29" dy="0.4" layer="1" rot="R270" stop="no" cream="no"/>
+<smd name="32" x="-1.75" y="2.3" dx="0.29" dy="0.4" layer="1" rot="R180" stop="no" cream="no"/>
+<smd name="PAD" x="0" y="0" dx="3.175" dy="3.175" layer="1" cream="no"/>
+<polygon width="0" layer="1">
+<vertex x="-1.895" y="-2.1"/>
+<vertex x="-1.795" y="-2"/>
+<vertex x="-1.605" y="-2"/>
+<vertex x="-1.605" y="-2.1"/>
+</polygon>
+<polygon width="0" layer="31">
+<vertex x="-1.895" y="-2.1"/>
+<vertex x="-1.795" y="-2"/>
+<vertex x="-1.605" y="-2"/>
+<vertex x="-1.605" y="-2.5"/>
+<vertex x="-1.895" y="-2.5"/>
+</polygon>
+<polygon width="0" layer="29">
+<vertex x="-1.995" y="-2.1"/>
+<vertex x="-1.795" y="-1.9"/>
+<vertex x="-1.505" y="-1.9"/>
+<vertex x="-1.505" y="-2.6"/>
+<vertex x="-1.995" y="-2.6"/>
+</polygon>
+<polygon width="0" layer="1">
+<vertex x="-2.1" y="-1.605"/>
+<vertex x="-2" y="-1.605"/>
+<vertex x="-2" y="-1.795"/>
+<vertex x="-2.1" y="-1.895"/>
+</polygon>
+<polygon width="0" layer="31">
+<vertex x="-2.5" y="-1.605"/>
+<vertex x="-2" y="-1.605"/>
+<vertex x="-2" y="-1.795"/>
+<vertex x="-2.1" y="-1.895"/>
+<vertex x="-2.5" y="-1.895"/>
+</polygon>
+<polygon width="0" layer="29">
+<vertex x="-2.6" y="-1.505"/>
+<vertex x="-1.9" y="-1.505"/>
+<vertex x="-1.9" y="-1.795"/>
+<vertex x="-2.1" y="-1.995"/>
+<vertex x="-2.6" y="-1.995"/>
+</polygon>
+<polygon width="0" layer="1">
+<vertex x="2.1" y="-1.895"/>
+<vertex x="2" y="-1.795"/>
+<vertex x="2" y="-1.605"/>
+<vertex x="2.1" y="-1.605"/>
+</polygon>
+<polygon width="0" layer="31">
+<vertex x="2.1" y="-1.895"/>
+<vertex x="2" y="-1.795"/>
+<vertex x="2" y="-1.605"/>
+<vertex x="2.5" y="-1.605"/>
+<vertex x="2.5" y="-1.895"/>
+</polygon>
+<polygon width="0" layer="29">
+<vertex x="2.1" y="-1.995"/>
+<vertex x="1.9" y="-1.795"/>
+<vertex x="1.9" y="-1.505"/>
+<vertex x="2.6" y="-1.505"/>
+<vertex x="2.6" y="-1.995"/>
+</polygon>
+<polygon width="0" layer="1">
+<vertex x="1.605" y="-2.1"/>
+<vertex x="1.605" y="-2"/>
+<vertex x="1.795" y="-2"/>
+<vertex x="1.895" y="-2.1"/>
+</polygon>
+<polygon width="0" layer="31">
+<vertex x="1.605" y="-2.5"/>
+<vertex x="1.605" y="-2"/>
+<vertex x="1.795" y="-2"/>
+<vertex x="1.895" y="-2.1"/>
+<vertex x="1.895" y="-2.5"/>
+</polygon>
+<polygon width="0" layer="29">
+<vertex x="1.505" y="-2.6"/>
+<vertex x="1.505" y="-1.9"/>
+<vertex x="1.795" y="-1.9"/>
+<vertex x="1.995" y="-2.1"/>
+<vertex x="1.995" y="-2.6"/>
+</polygon>
+<polygon width="0" layer="1">
+<vertex x="1.895" y="2.1"/>
+<vertex x="1.795" y="2"/>
+<vertex x="1.605" y="2"/>
+<vertex x="1.605" y="2.1"/>
+</polygon>
+<polygon width="0" layer="31">
+<vertex x="1.895" y="2.1"/>
+<vertex x="1.795" y="2"/>
+<vertex x="1.605" y="2"/>
+<vertex x="1.605" y="2.5"/>
+<vertex x="1.895" y="2.5"/>
+</polygon>
+<polygon width="0" layer="29">
+<vertex x="1.995" y="2.1"/>
+<vertex x="1.795" y="1.9"/>
+<vertex x="1.505" y="1.9"/>
+<vertex x="1.505" y="2.6"/>
+<vertex x="1.995" y="2.6"/>
+</polygon>
+<polygon width="0" layer="1">
+<vertex x="2.1" y="1.605"/>
+<vertex x="2" y="1.605"/>
+<vertex x="2" y="1.795"/>
+<vertex x="2.1" y="1.895"/>
+</polygon>
+<polygon width="0" layer="31">
+<vertex x="2.5" y="1.605"/>
+<vertex x="2" y="1.605"/>
+<vertex x="2" y="1.795"/>
+<vertex x="2.1" y="1.895"/>
+<vertex x="2.5" y="1.895"/>
+</polygon>
+<polygon width="0" layer="29">
+<vertex x="2.6" y="1.505"/>
+<vertex x="1.9" y="1.505"/>
+<vertex x="1.9" y="1.795"/>
+<vertex x="2.1" y="1.995"/>
+<vertex x="2.6" y="1.995"/>
+</polygon>
+<polygon width="0" layer="1">
+<vertex x="-2.1" y="1.895"/>
+<vertex x="-2" y="1.795"/>
+<vertex x="-2" y="1.605"/>
+<vertex x="-2.1" y="1.605"/>
+</polygon>
+<polygon width="0" layer="31">
+<vertex x="-2.1" y="1.895"/>
+<vertex x="-2" y="1.795"/>
+<vertex x="-2" y="1.605"/>
+<vertex x="-2.5" y="1.605"/>
+<vertex x="-2.5" y="1.895"/>
+</polygon>
+<polygon width="0" layer="29">
+<vertex x="-2.1" y="1.995"/>
+<vertex x="-1.9" y="1.795"/>
+<vertex x="-1.9" y="1.505"/>
+<vertex x="-2.6" y="1.505"/>
+<vertex x="-2.6" y="1.995"/>
+</polygon>
+<polygon width="0" layer="1">
+<vertex x="-1.605" y="2.1"/>
+<vertex x="-1.605" y="2"/>
+<vertex x="-1.795" y="2"/>
+<vertex x="-1.895" y="2.1"/>
+</polygon>
+<polygon width="0" layer="31">
+<vertex x="-1.605" y="2.5"/>
+<vertex x="-1.605" y="2"/>
+<vertex x="-1.795" y="2"/>
+<vertex x="-1.895" y="2.1"/>
+<vertex x="-1.895" y="2.5"/>
+</polygon>
+<polygon width="0" layer="29">
+<vertex x="-1.505" y="2.6"/>
+<vertex x="-1.505" y="1.9"/>
+<vertex x="-1.795" y="1.9"/>
+<vertex x="-1.995" y="2.1"/>
+<vertex x="-1.995" y="2.6"/>
+</polygon>
+<wire x1="-2.5" y1="2.35" x2="-2.5" y2="-2.35" width="0.127" layer="51"/>
+<wire x1="-2.5" y1="-2.35" x2="-2.35" y2="-2.5" width="0.127" layer="51"/>
+<wire x1="-2.35" y1="-2.5" x2="2.35" y2="-2.5" width="0.127" layer="51"/>
+<wire x1="2.35" y1="-2.5" x2="2.5" y2="-2.35" width="0.127" layer="51"/>
+<wire x1="2.5" y1="-2.35" x2="2.5" y2="2.35" width="0.127" layer="51"/>
+<wire x1="2.5" y1="2.35" x2="2.35" y2="2.5" width="0.127" layer="51"/>
+<wire x1="2.35" y1="2.5" x2="-2.35" y2="2.5" width="0.127" layer="51"/>
+<wire x1="-2.35" y1="2.5" x2="-2.5" y2="2.35" width="0.127" layer="51"/>
+<wire x1="-2.4" y1="2.7" x2="2.4" y2="2.7" width="0.1905" layer="21"/>
+<wire x1="2.4" y1="2.7" x2="2.7" y2="2.4" width="0.1905" layer="21"/>
+<wire x1="2.7" y1="2.4" x2="2.7" y2="-2.4" width="0.1905" layer="21"/>
+<wire x1="2.7" y1="-2.4" x2="2.4" y2="-2.7" width="0.1905" layer="21"/>
+<wire x1="2.4" y1="-2.7" x2="-2.4" y2="-2.7" width="0.1905" layer="21"/>
+<wire x1="-2.4" y1="-2.7" x2="-2.7" y2="-2.4" width="0.1905" layer="21"/>
+<wire x1="-2.7" y1="-2.4" x2="-2.7" y2="2.4" width="0.1905" layer="21"/>
+<wire x1="-2.7" y1="2.4" x2="-2.4" y2="2.7" width="0.1905" layer="21"/>
+<circle x="-2.9" y="2.9" radius="0.1" width="0.254" layer="21"/>
+<text x="-2.35" y="-4.035" size="0.8128" layer="21" ratio="12">&gt;VALUE</text>
+<text x="-2.54" y="3.175" size="0.8128" layer="21">&gt;NAME</text>
+<rectangle x1="-1.016" y1="0.254" x2="-0.254" y2="1.016" layer="31"/>
+<rectangle x1="0.254" y1="0.254" x2="1.016" y2="1.016" layer="31"/>
+<rectangle x1="0.254" y1="-1.016" x2="1.016" y2="-0.254" layer="31"/>
+<rectangle x1="-1.016" y1="-1.016" x2="-0.254" y2="-0.254" layer="31"/>
+</package>
+<package name="CHIPLED_0805" urn="urn:adsk.eagle:footprint:8442310/1" library_version="64" library_locally_modified="yes">
+<description>&lt;b&gt;CHIPLED 0805&lt;/b&gt;</description>
+<circle x="-0.45" y="0.85" radius="0.103" width="0.0762" layer="51"/>
+<wire x1="-0.35" y1="0.925" x2="0.35" y2="0.925" width="0.1016" layer="51" curve="162.394521"/>
+<wire x1="-0.35" y1="-0.925" x2="0.35" y2="-0.925" width="0.1016" layer="51" curve="-162.394521"/>
+<wire x1="0.575" y1="0.525" x2="0.575" y2="-0.525" width="0.1016" layer="51"/>
+<wire x1="-0.575" y1="-0.5" x2="-0.575" y2="0.925" width="0.1016" layer="51"/>
+<wire x1="-0.4" y1="0.2" x2="0" y2="0.2" width="0.2032" layer="21"/>
+<wire x1="0" y1="0.2" x2="0.4" y2="0.2" width="0.2032" layer="21"/>
+<wire x1="0" y1="0.2" x2="-0.4" y2="-0.2" width="0.2032" layer="21"/>
+<wire x1="-0.4" y1="-0.2" x2="0.4" y2="-0.2" width="0.2032" layer="21"/>
+<wire x1="0.4" y1="-0.2" x2="0" y2="0.2" width="0.2032" layer="21"/>
+<wire x1="0.85" y1="-1.9" x2="-0.85" y2="-1.9" width="0.2032" layer="21"/>
+<wire x1="-0.85" y1="-1.9" x2="-0.85" y2="1.9" width="0.2032" layer="21"/>
+<wire x1="-0.85" y1="1.9" x2="0.85" y2="1.9" width="0.2032" layer="21"/>
+<wire x1="0.85" y1="1.9" x2="0.85" y2="-1.9" width="0.2032" layer="21"/>
+<rectangle x1="0.3" y1="0.5" x2="0.625" y2="1" layer="51"/>
+<rectangle x1="-0.325" y1="0.5" x2="-0.175" y2="0.75" layer="51"/>
+<rectangle x1="0.175" y1="0.5" x2="0.325" y2="0.75" layer="51"/>
+<rectangle x1="-0.2" y1="0.5" x2="0.2" y2="0.675" layer="51"/>
+<rectangle x1="0.3" y1="-1" x2="0.625" y2="-0.5" layer="51"/>
+<rectangle x1="-0.625" y1="-1" x2="-0.3" y2="-0.5" layer="51"/>
+<rectangle x1="0.175" y1="-0.75" x2="0.325" y2="-0.5" layer="51"/>
+<rectangle x1="-0.325" y1="-0.75" x2="-0.175" y2="-0.5" layer="51"/>
+<rectangle x1="-0.2" y1="-0.675" x2="0.2" y2="-0.5" layer="51"/>
+<rectangle x1="-0.6" y1="0.5" x2="-0.3" y2="0.762" layer="51"/>
+<rectangle x1="-0.625" y1="0.925" x2="-0.3" y2="1" layer="51"/>
+<smd name="A" x="0" y="-1.05" dx="1.2" dy="1.2" layer="1"/>
+<smd name="C" x="0" y="1.05" dx="1.2" dy="1.2" layer="1"/>
+<text x="-1.016" y="-1.778" size="0.8128" layer="25" ratio="18" rot="R90">&gt;NAME</text>
+<text x="1.397" y="-1.778" size="0.4064" layer="27" ratio="10" rot="R90">&gt;VALUE</text>
+<text x="-0.1" y="-1.4" size="0.254" layer="51">A</text>
+<text x="-0.1" y="1.2" size="0.254" layer="51">C</text>
+</package>
+<package name="MICRO-SD-SOCKET" urn="urn:adsk.eagle:footprint:8442305/1" library_version="64" library_locally_modified="yes">
+<description>&lt;h3&gt;microSD Socket SMD&lt;/h3&gt;
+Puhs-Push type.
+&lt;br&gt; tDocu shows location of uSD card in different positions.
+&lt;p&gt;Specifications:
+&lt;ul&gt;&lt;li&gt;Pin count:12&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=”http://www.4uconnector.com/online/object/4udrawing/15882.pdf”&gt;Datasheet referenced for footprint&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Example device(s):
+&lt;ul&gt;&lt;li&gt;MICRO-SD_CARD_SOCKET&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;</description>
+<wire x1="-14" y1="0" x2="-14" y2="13.2" width="0.2032" layer="21"/>
+<wire x1="0" y1="12.1" x2="0" y2="0" width="0.2032" layer="21"/>
+<wire x1="-11.7" y1="15.3" x2="-12.5" y2="15.3" width="0.2032" layer="21"/>
+<wire x1="-10" y1="13.6" x2="-1.6" y2="13.6" width="0.2032" layer="21"/>
+<wire x1="-14" y1="0" x2="-9.1" y2="0" width="0.2032" layer="21"/>
+<wire x1="-3.4" y1="0" x2="-6.4" y2="0" width="0.2032" layer="21"/>
+<wire x1="0" y1="0" x2="-0.7" y2="0" width="0.2032" layer="21"/>
+<wire x1="-11.7" y1="15.3" x2="-11" y2="14.6" width="0.2032" layer="21" curve="-98.797411"/>
+<wire x1="-11" y1="14.6" x2="-10" y2="13.6" width="0.2032" layer="21" curve="87.205638"/>
+<smd name="CD2" x="-7.75" y="0.4" dx="1.8" dy="1.4" layer="1"/>
+<smd name="CD1" x="-2.05" y="0.4" dx="1.8" dy="1.4" layer="1"/>
+<smd name="GND3" x="-0.45" y="13.55" dx="1.4" dy="1.9" layer="1"/>
+<smd name="GND1" x="-13.6" y="14.55" dx="1.4" dy="1.9" layer="1"/>
+<smd name="RSV1(1)" x="-8.94" y="10.7" dx="0.8" dy="1.5" layer="1"/>
+<smd name="CS(2)" x="-7.84" y="10.3" dx="0.8" dy="1.5" layer="1"/>
+<smd name="DI(3)" x="-6.74" y="10.7" dx="0.8" dy="1.5" layer="1"/>
+<smd name="VCC(4)" x="-5.64" y="10.9" dx="0.8" dy="1.5" layer="1"/>
+<smd name="SCLK(5)" x="-4.54" y="10.7" dx="0.8" dy="1.5" layer="1"/>
+<smd name="GND(6)" x="-3.44" y="10.9" dx="0.8" dy="1.5" layer="1"/>
+<smd name="DO(7)" x="-2.34" y="10.7" dx="0.8" dy="1.5" layer="1"/>
+<smd name="RSV2(8)" x="-1.24" y="10.7" dx="0.8" dy="1.5" layer="1"/>
+<text x="-8.89" y="6.35" size="0.6096" layer="25" font="vector" ratio="20">&gt;Name</text>
+<text x="-8.89" y="5.08" size="0.6096" layer="27" font="vector" ratio="20">&gt;Value</text>
+</package>
+<package name="SOT23-3" urn="urn:adsk.eagle:footprint:8442300/1" library_version="64" library_locally_modified="yes">
+<description>SOT23-3</description>
+<wire x1="1.4224" y1="0.6604" x2="1.4224" y2="-0.6604" width="0.1524" layer="51"/>
+<wire x1="1.4224" y1="-0.6604" x2="-1.4224" y2="-0.6604" width="0.1524" layer="51"/>
+<wire x1="-1.4224" y1="-0.6604" x2="-1.4224" y2="0.6604" width="0.1524" layer="51"/>
+<wire x1="-1.4224" y1="0.6604" x2="1.4224" y2="0.6604" width="0.1524" layer="51"/>
+<wire x1="-0.8" y1="0.7" x2="-1.4" y2="0.7" width="0.2032" layer="21"/>
+<wire x1="-1.4" y1="0.7" x2="-1.4" y2="-0.1" width="0.2032" layer="21"/>
+<wire x1="0.8" y1="0.7" x2="1.4" y2="0.7" width="0.2032" layer="21"/>
+<wire x1="1.4" y1="0.7" x2="1.4" y2="-0.1" width="0.2032" layer="21"/>
+<smd name="GND" x="-0.95" y="-1" dx="0.8" dy="0.9" layer="1"/>
+<smd name="OUT" x="0.95" y="-1" dx="0.8" dy="0.9" layer="1"/>
+<smd name="IN" x="0" y="1.1" dx="0.8" dy="0.9" layer="1"/>
+<text x="2.54" y="-2.54" size="0.8128" layer="21" rot="R90">&gt;VALUE</text>
+<text x="-1.905" y="-2.54" size="0.8128" layer="21" rot="R90">&gt;NAME</text>
+</package>
 </packages>
 <packages3d>
 <package3d name="CUI_PJ-002A" urn="urn:adsk.eagle:package:9702177/2" type="model" library_version="9" library_locally_modified="yes">
@@ -808,6 +1139,45 @@ NOTE: PIN NUMBERS ARE NOT ACCORDING TO MFG, USING MY OWN CONVENTION</description
 <description>https://www.digikey.com/product-detail/en/c-k/PTS820-J15KP-SMTR-LFS/CKN10928CT-ND/7355849</description>
 <packageinstances>
 <packageinstance name="SWITCH_PTS820"/>
+</packageinstances>
+</package3d>
+<package3d name="TSSOP8" urn="urn:adsk.eagle:package:8442350/2" type="model" library_version="63">
+<description>&lt;b&gt;8-Lead Thin Shrink Small Outline Package &lt;/b&gt;&lt;p&gt;
+Source: http://www.analog.com/static/imported-files/data_sheets/AD8541_8542_8544.pdf</description>
+<packageinstances>
+<packageinstance name="TSSOP8"/>
+</packageinstances>
+</package3d>
+<package3d name="QFN-32-5MM" urn="urn:adsk.eagle:package:8442355/2" type="model" library_version="64" library_locally_modified="yes">
+<packageinstances>
+<packageinstance name="QFN-32-5MM"/>
+</packageinstances>
+</package3d>
+<package3d name="CHIPLED_0805" urn="urn:adsk.eagle:package:8442343/2" type="model" library_version="64" library_locally_modified="yes">
+<description>&lt;b&gt;CHIPLED 0805&lt;/b&gt;</description>
+<packageinstances>
+<packageinstance name="CHIPLED_0805"/>
+</packageinstances>
+</package3d>
+<package3d name="MICRO-SD-SOCKET" urn="urn:adsk.eagle:package:8442348/2" type="model" library_version="64" library_locally_modified="yes">
+<description>&lt;h3&gt;microSD Socket SMD&lt;/h3&gt;
+Puhs-Push type.
+&lt;br&gt; tDocu shows location of uSD card in different positions.
+&lt;p&gt;Specifications:
+&lt;ul&gt;&lt;li&gt;Pin count:12&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=”http://www.4uconnector.com/online/object/4udrawing/15882.pdf”&gt;Datasheet referenced for footprint&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Example device(s):
+&lt;ul&gt;&lt;li&gt;MICRO-SD_CARD_SOCKET&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;</description>
+<packageinstances>
+<packageinstance name="MICRO-SD-SOCKET"/>
+</packageinstances>
+</package3d>
+<package3d name="SOT23-3" urn="urn:adsk.eagle:package:8442353/2" type="model" library_version="64" library_locally_modified="yes">
+<description>SOT23-3</description>
+<packageinstances>
+<packageinstance name="SOT23-3"/>
 </packageinstances>
 </package3d>
 </packages3d>
@@ -1178,6 +1548,141 @@ NOTE: PIN NUMBERS ARE NOT ACCORDING TO MFG, USING MY OWN CONVENTION</description
 <rectangle x1="-2.032" y1="0.254" x2="2.032" y2="0.762" layer="94"/>
 <pin name="+" x="0" y="3.81" visible="off" length="short" direction="pas" swaplevel="1" rot="R270"/>
 <pin name="-" x="0" y="-3.81" visible="off" length="short" direction="pas" swaplevel="1" rot="R90"/>
+</symbol>
+<symbol name="CAP-4" urn="urn:adsk.eagle:symbol:13046340/1" library_version="62">
+<wire x1="0" y1="1.27" x2="0" y2="0.762" width="0.1524" layer="94"/>
+<wire x1="0" y1="-1.27" x2="0" y2="-0.762" width="0.1524" layer="94"/>
+<text x="4.064" y="-4.826" size="1.778" layer="96" font="vector" rot="R90">&gt;VALUE</text>
+<text x="-2.54" y="-4.445" size="1.778" layer="95" rot="R90">&gt;NAME</text>
+<rectangle x1="-2.032" y1="-0.762" x2="2.032" y2="-0.254" layer="94"/>
+<rectangle x1="-2.032" y1="0.254" x2="2.032" y2="0.762" layer="94"/>
+<pin name="+" x="0" y="3.81" visible="off" length="short" direction="pas" swaplevel="1" rot="R270"/>
+<pin name="-" x="0" y="-3.81" visible="off" length="short" direction="pas" swaplevel="1" rot="R90"/>
+</symbol>
+<symbol name="23LC1024" urn="urn:adsk.eagle:symbol:13046343/1" library_version="63">
+<wire x1="-12.7" y1="-7.62" x2="-12.7" y2="5.08" width="0.254" layer="94"/>
+<wire x1="-12.7" y1="5.08" x2="12.7" y2="5.08" width="0.254" layer="94"/>
+<wire x1="12.7" y1="5.08" x2="12.7" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="12.7" y1="-7.62" x2="-12.7" y2="-7.62" width="0.254" layer="94"/>
+<pin name="MISO(2)" x="-17.78" y="2.54" length="middle"/>
+<pin name="SCLK(6)" x="-17.78" y="0" length="middle"/>
+<pin name="MOSI(5)" x="-17.78" y="-2.54" length="middle"/>
+<pin name="CS(1)" x="-17.78" y="-5.08" length="middle"/>
+<pin name="RST(7)" x="17.78" y="0" length="middle" rot="R180"/>
+<pin name="WP(3)" x="17.78" y="-2.54" length="middle" rot="R180"/>
+<pin name="3.3V(8)" x="17.78" y="2.54" length="middle" rot="R180"/>
+<pin name="GND(4)" x="17.78" y="-5.08" length="middle" rot="R180"/>
+<text x="-12.7" y="-10.16" size="1.778" layer="96">&gt;VALUE</text>
+<text x="-12.7" y="5.08" size="1.4224" layer="95">&gt;NAME</text>
+</symbol>
+<symbol name="SGTL5000-32" urn="urn:adsk.eagle:symbol:13046357/1" library_version="64" library_locally_modified="yes">
+<wire x1="-17.78" y1="33.02" x2="-17.78" y2="-25.4" width="0.254" layer="94"/>
+<wire x1="-17.78" y1="-25.4" x2="17.78" y2="-25.4" width="0.254" layer="94"/>
+<wire x1="17.78" y1="-25.4" x2="17.78" y2="33.02" width="0.254" layer="94"/>
+<wire x1="17.78" y1="33.02" x2="-17.78" y2="33.02" width="0.254" layer="94"/>
+<text x="-17.145" y="-27.305" size="1.9304" layer="96">&gt;VALUE</text>
+<text x="-17.78" y="33.02" size="1.4224" layer="95">&gt;NAME</text>
+<pin name="SDA(27)" x="-22.86" y="17.78" length="middle"/>
+<pin name="SCL(29)" x="-22.86" y="15.24" length="middle"/>
+<pin name="MCLK(21)" x="-22.86" y="10.16" length="middle"/>
+<pin name="BCLK(24)" x="-22.86" y="7.62" length="middle"/>
+<pin name="LRCLK(23)" x="-22.86" y="5.08" length="middle"/>
+<pin name="TX(26)" x="-22.86" y="2.54" length="middle"/>
+<pin name="RX(25)" x="-22.86" y="0" length="middle"/>
+<pin name="VAG(10)" x="-22.86" y="-5.08" length="middle"/>
+<pin name="CPFILT(18)" x="-22.86" y="-7.62" length="middle"/>
+<pin name="ADDR(31)" x="-22.86" y="-10.16" length="middle"/>
+<pin name="MODE(32)" x="-22.86" y="-12.7" length="middle"/>
+<pin name="GND@1" x="-7.62" y="-30.48" length="middle" rot="R90"/>
+<pin name="GND@3" x="0" y="-30.48" length="middle" rot="R90"/>
+<pin name="AGND(7)" x="7.62" y="-30.48" length="middle" rot="R90"/>
+<pin name="VDDD(30)" x="-5.08" y="38.1" length="middle" rot="R270"/>
+<pin name="VDDIO(20)" x="0" y="38.1" length="middle" rot="R270"/>
+<pin name="VDDA(5)" x="5.08" y="38.1" length="middle" rot="R270"/>
+<pin name="LINEINL(14)" x="22.86" y="17.78" length="middle" rot="R180"/>
+<pin name="LINEINR(13)" x="22.86" y="15.24" length="middle" rot="R180"/>
+<pin name="LINEOUTR(11)" x="22.86" y="12.7" length="middle" rot="R180"/>
+<pin name="LINEOUTL(12)" x="22.86" y="10.16" length="middle" rot="R180"/>
+<pin name="HPL(6)" x="22.86" y="5.08" length="middle" rot="R180"/>
+<pin name="HPR(2)" x="22.86" y="2.54" length="middle" rot="R180"/>
+<pin name="HPVGND(4)" x="22.86" y="0" length="middle" rot="R180"/>
+<pin name="MIC(15)" x="22.86" y="-5.08" length="middle" rot="R180"/>
+<pin name="MICBIAS(16)" x="22.86" y="-10.16" length="middle" rot="R180"/>
+<pin name="GND@PAD" x="15.24" y="-30.48" length="middle" rot="R90"/>
+</symbol>
+<symbol name="LED-1" urn="urn:adsk.eagle:symbol:13046352/1" library_version="64" library_locally_modified="yes">
+<wire x1="-2.54" y1="1.27" x2="-2.54" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="-1.27" x2="0" y2="0" width="0.254" layer="94"/>
+<wire x1="0" y1="0" x2="-2.54" y2="1.27" width="0.254" layer="94"/>
+<wire x1="0" y1="1.27" x2="0" y2="0" width="0.254" layer="94"/>
+<wire x1="0" y1="0" x2="0" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="-0.635" y1="1.27" x2="0.635" y2="2.54" width="0.254" layer="94"/>
+<wire x1="-1.905" y1="1.27" x2="-0.635" y2="2.54" width="0.254" layer="94"/>
+<wire x1="-0.9525" y1="2.8575" x2="-0.3175" y2="2.2225" width="0.254" layer="94"/>
+<wire x1="-0.3175" y1="2.2225" x2="0" y2="3.175" width="0.254" layer="94"/>
+<wire x1="0" y1="3.175" x2="-0.9525" y2="2.8575" width="0.254" layer="94"/>
+<wire x1="0.3175" y1="2.8575" x2="0.9525" y2="2.2225" width="0.254" layer="94"/>
+<wire x1="1.27" y1="3.175" x2="0.3175" y2="2.8575" width="0.254" layer="94"/>
+<wire x1="0.9525" y1="2.2225" x2="1.27" y2="3.175" width="0.254" layer="94"/>
+<pin name="A" x="-5.08" y="0" visible="off" length="short" direction="pas"/>
+<pin name="C" x="2.54" y="0" visible="off" length="short" direction="pas" rot="R180"/>
+<text x="-1.27" y="4.445" size="1.27" layer="95" align="center">&gt;NAME</text>
+<text x="-1.27" y="-2.794" size="1.27" layer="96" align="center">&gt;VALUE</text>
+</symbol>
+<symbol name="MICROSD" urn="urn:adsk.eagle:symbol:13046353/1" library_version="64" library_locally_modified="yes">
+<pin name="DAT1(8)" x="-10.16" y="7.62" length="middle"/>
+<pin name="DAT0(D0,7)" x="-10.16" y="5.08" length="middle"/>
+<pin name="VSS(6)" x="-10.16" y="2.54" length="middle"/>
+<pin name="CLK(SCLK,5)" x="-10.16" y="0" length="middle"/>
+<pin name="VDD(4)" x="-10.16" y="-2.54" length="middle"/>
+<pin name="CMD(DI,3)" x="-10.16" y="-5.08" length="middle"/>
+<pin name="DAT3(CS,2)" x="-10.16" y="-7.62" length="middle"/>
+<pin name="DAT2(1)" x="-10.16" y="-10.16" length="middle"/>
+<wire x1="-5.08" y1="10.16" x2="-5.08" y2="-12.7" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="-12.7" x2="12.7" y2="-12.7" width="0.254" layer="94"/>
+<wire x1="12.7" y1="-12.7" x2="12.7" y2="10.16" width="0.254" layer="94"/>
+<wire x1="12.7" y1="10.16" x2="-5.08" y2="10.16" width="0.254" layer="94"/>
+<text x="-5.715" y="-15.24" size="1.9304" layer="96">&gt;VALUE</text>
+</symbol>
+<symbol name="FERRITE_BEAD" urn="urn:adsk.eagle:symbol:13046356/1" library_version="64" library_locally_modified="yes">
+<description>&lt;h3&gt;Ferrite Bead (blocks, cores, rings, chokes, etc.)&lt;/h3&gt;
+&lt;p&gt;Inductor with layers of ferrite used to suppress high frequencies. Often used to isolate high frequency noise.&lt;/p&gt;</description>
+<text x="1.27" y="2.54" size="1.778" layer="95" font="vector">&gt;NAME</text>
+<text x="1.27" y="-2.54" size="1.778" layer="96" font="vector" align="top-left">&gt;VALUE</text>
+<pin name="1" x="0" y="5.08" visible="off" length="short" direction="pas" swaplevel="1" rot="R270"/>
+<pin name="2" x="0" y="-5.08" visible="off" length="short" direction="pas" swaplevel="1" rot="R90"/>
+<wire x1="0" y1="2.54" x2="0" y2="1.27" width="0.1524" layer="94" curve="-180"/>
+<wire x1="0" y1="1.27" x2="0" y2="0" width="0.1524" layer="94" curve="-180"/>
+<wire x1="0" y1="0" x2="0" y2="-1.27" width="0.1524" layer="94" curve="-180"/>
+<wire x1="0" y1="-1.27" x2="0" y2="-2.54" width="0.1524" layer="94" curve="-180"/>
+<wire x1="0.889" y1="2.54" x2="0.889" y2="-2.54" width="0.1524" layer="94"/>
+<wire x1="1.143" y1="2.54" x2="1.143" y2="-2.54" width="0.1524" layer="94"/>
+</symbol>
+<symbol name="AP7313" urn="urn:adsk.eagle:symbol:13046355/1" library_version="64" library_locally_modified="yes">
+<wire x1="-7.62" y1="5.08" x2="-7.62" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="-7.62" y1="-5.08" x2="7.62" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="7.62" y1="-5.08" x2="7.62" y2="5.08" width="0.254" layer="94"/>
+<wire x1="7.62" y1="5.08" x2="-7.62" y2="5.08" width="0.254" layer="94"/>
+<pin name="IN" x="-12.7" y="2.54" length="middle"/>
+<pin name="OUT" x="12.7" y="2.54" length="middle" rot="R180"/>
+<pin name="GND" x="0" y="-10.16" length="middle" rot="R90"/>
+<text x="-7.62" y="-6.985" size="1.778" layer="96">&gt;VALUE</text>
+<text x="-7.62" y="5.08" size="1.4224" layer="95">&gt;NAME</text>
+</symbol>
+<symbol name="RESISTOR-3" urn="urn:adsk.eagle:symbol:13046354/1" library_version="64" library_locally_modified="yes">
+<wire x1="-2.54" y1="0" x2="-2.159" y2="1.016" width="0.1524" layer="94"/>
+<wire x1="-2.159" y1="1.016" x2="-1.524" y2="-1.016" width="0.1524" layer="94"/>
+<wire x1="-1.524" y1="-1.016" x2="-0.889" y2="1.016" width="0.1524" layer="94"/>
+<wire x1="-0.889" y1="1.016" x2="-0.254" y2="-1.016" width="0.1524" layer="94"/>
+<wire x1="-0.254" y1="-1.016" x2="0.381" y2="1.016" width="0.1524" layer="94"/>
+<wire x1="0.381" y1="1.016" x2="1.016" y2="-1.016" width="0.1524" layer="94"/>
+<wire x1="1.016" y1="-1.016" x2="1.651" y2="1.016" width="0.1524" layer="94"/>
+<wire x1="1.651" y1="1.016" x2="2.286" y2="-1.016" width="0.1524" layer="94"/>
+<wire x1="2.286" y1="-1.016" x2="2.54" y2="0" width="0.1524" layer="94"/>
+<pin name="2" x="5.08" y="0" visible="off" length="short" direction="pas" swaplevel="1" rot="R180"/>
+<pin name="1" x="-5.08" y="0" visible="off" length="short" direction="pas" swaplevel="1"/>
+<text x="-3.175" y="1.905" size="1.27" layer="95">&gt;NAME</text>
+<text x="-3.175" y="-3.175" size="1.27" layer="96">&gt;VALUE</text>
 </symbol>
 </symbols>
 <devicesets>
@@ -1723,27 +2228,278 @@ https://www.digikey.com/product-detail/en/microchip-technology/MCP1826ST-3302E-D
 </device>
 </devices>
 </deviceset>
+<deviceset name="22PF" urn="urn:adsk.eagle:component:13046341/1" prefix="C" uservalue="yes" library_version="62">
+<gates>
+<gate name="G$1" symbol="CAP-4" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="C_0805">
+<connects>
+<connect gate="G$1" pin="+" pad="+"/>
+<connect gate="G$1" pin="-" pad="-"/>
+</connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:8442351/2"/>
+</package3dinstances>
+<technologies>
+<technology name="">
+<attribute name="MPN" value="885012007030" constant="no"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="23LC1024" urn="urn:adsk.eagle:component:13046344/1" prefix="U" library_version="63">
+<description>https://www.digikey.com/product-detail/en/microchip-technology/23LC1024T-I-ST/23LC1024T-I-STCT-ND/5818676</description>
+<gates>
+<gate name="U1" symbol="23LC1024" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="TSSOP8">
+<connects>
+<connect gate="U1" pin="3.3V(8)" pad="8"/>
+<connect gate="U1" pin="CS(1)" pad="1"/>
+<connect gate="U1" pin="GND(4)" pad="4"/>
+<connect gate="U1" pin="MISO(2)" pad="2"/>
+<connect gate="U1" pin="MOSI(5)" pad="5"/>
+<connect gate="U1" pin="RST(7)" pad="7"/>
+<connect gate="U1" pin="SCLK(6)" pad="6"/>
+<connect gate="U1" pin="WP(3)" pad="3"/>
+</connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:8442350/2"/>
+</package3dinstances>
+<technologies>
+<technology name="">
+<attribute name="MPN" value="23LC1024T-I/ST" constant="no"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="SGTL5000_32QFN" urn="urn:adsk.eagle:component:13046363/1" prefix="U" library_version="64" library_locally_modified="yes">
+<description>https://www.digikey.com/product-detail/en/nxp-usa-inc/SGTL5000XNAA3R2/SGTL5000XNAA3R2TR-ND/2186898</description>
+<gates>
+<gate name="U1" symbol="SGTL5000-32" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="QFN-32-5MM">
+<connects>
+<connect gate="U1" pin="ADDR(31)" pad="31"/>
+<connect gate="U1" pin="AGND(7)" pad="7"/>
+<connect gate="U1" pin="BCLK(24)" pad="24"/>
+<connect gate="U1" pin="CPFILT(18)" pad="18"/>
+<connect gate="U1" pin="GND@1" pad="1"/>
+<connect gate="U1" pin="GND@3" pad="3"/>
+<connect gate="U1" pin="GND@PAD" pad="PAD"/>
+<connect gate="U1" pin="HPL(6)" pad="6"/>
+<connect gate="U1" pin="HPR(2)" pad="2"/>
+<connect gate="U1" pin="HPVGND(4)" pad="4"/>
+<connect gate="U1" pin="LINEINL(14)" pad="14"/>
+<connect gate="U1" pin="LINEINR(13)" pad="13"/>
+<connect gate="U1" pin="LINEOUTL(12)" pad="12"/>
+<connect gate="U1" pin="LINEOUTR(11)" pad="11"/>
+<connect gate="U1" pin="LRCLK(23)" pad="23"/>
+<connect gate="U1" pin="MCLK(21)" pad="21"/>
+<connect gate="U1" pin="MIC(15)" pad="15"/>
+<connect gate="U1" pin="MICBIAS(16)" pad="16"/>
+<connect gate="U1" pin="MODE(32)" pad="32"/>
+<connect gate="U1" pin="RX(25)" pad="25"/>
+<connect gate="U1" pin="SCL(29)" pad="29"/>
+<connect gate="U1" pin="SDA(27)" pad="27"/>
+<connect gate="U1" pin="TX(26)" pad="26"/>
+<connect gate="U1" pin="VAG(10)" pad="10"/>
+<connect gate="U1" pin="VDDA(5)" pad="5"/>
+<connect gate="U1" pin="VDDD(30)" pad="30"/>
+<connect gate="U1" pin="VDDIO(20)" pad="20"/>
+</connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:8442355/2"/>
+</package3dinstances>
+<technologies>
+<technology name="">
+<attribute name="MPN" value="SGTL5000XNAA3R2" constant="no"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="LED_ORANGE" urn="urn:adsk.eagle:component:13046362/1" prefix="D" uservalue="yes" library_version="64" library_locally_modified="yes">
+<description>&lt;p&gt;&lt;b&gt;LED&lt;/b&gt;&lt;/p&gt;
+&lt;b&gt;0603&lt;/b&gt; - 0603 Surface Mount Package
+&lt;hr&gt;
+&lt;p&gt;&lt;b&gt;&lt;u&gt;2mA:&lt;/u&gt;&lt;/b&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Green LED - Low Power (3.9mcd, 2ma, 1.7Vf) - Digikey: 475-2709-2-ND&lt;/li&gt;
+&lt;li&gt;Orange LED - Low Power (9.8mcd, 2ma, 1.8Vf) - Digikey: 475-1194-2-ND&lt;/li&gt;
+&lt;li&gt;Red LED - Low Power (5mcd, 2ma, 1.8Vf) - Digikey: 475-1195-2-ND&lt;/li&gt;
+&lt;li&gt;Yellow LED - Low Power (7mcd, 2ma, 1.8Vf) - Digikey: 475-1196-2-ND&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;b&gt;&lt;u&gt;5mA:&lt;/u&gt;&lt;/b&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Blue LED - Low Power (17mcd, 5ma, 2.9Vf) - Digikey: LNJ937W8CRACT-ND&lt;/li&gt;
+&lt;/ul&gt;
+&lt;b&gt;0805&lt;/b&gt; - 0805 Surface Mount Package
+&lt;hr&gt;
+&lt;p&gt;&lt;b&gt;&lt;u&gt;2mA:&lt;/u&gt;&lt;/b&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Red LED (8.8mcd, 2mA, 1.8Vf, Clear) - Low Power [Digikey: 475-2510-1-ND]&lt;/li&gt;
+&lt;li&gt;Green LED (5mcd, 2mA, 1.8Vf, Clear) - Low Power [Digikey: 475-2730-1-ND]&lt;/li&gt;
+&lt;li&gt;Yellow LED (11.3mcd, 2mA, 1.8Vf, Clear) - Low Power [Digikey: 475-2555-1-ND]&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;b&gt;&lt;u&gt;20mA:&lt;/u&gt;&lt;/b&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Red LED (104mcd, 20mA, Diffused) - LS R976 [Digikey: 475-1278-6-ND]&lt;/li&gt;
+&lt;li&gt;Red LED (12mcd, 20mA, 2.0Vf, Clear) - APT2012EC [Digikey: 754-1128-1-ND]&lt;/li&gt;
+&lt;li&gt;Green LED (15mcd, 20mA, 2.2Vf, Clear) - APT2012GC [Digikey: 754-1131-1-ND]&lt;/li&gt;
+&lt;li&gt;Orange LED (160mcd, 20mA, 2.1Vf, Clear) - APT2012SECK [Digikey: 754-1130-1-ND]&lt;/li&gt;
+&lt;/ul&gt;
+&lt;li&gt;&lt;b&gt;1206&lt;/b&gt; - 1206 Surface Mount Package
+&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;Green LED (26mcd, 20mA, Diffused) - LG N971  [Digikey: 475-1407-6-ND]&lt;/li&gt;
+&lt;li&gt;Red LED (15mcd, 20mA, Diffused) - LH N974 [Digikey: 475-1416-6-ND]&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;li&gt;&lt;b&gt;Cree&lt;/b&gt; - Cree High-Power Surface Mount LEDs
+&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;XPEBWT-L1-0000-00D50 - White 111lm 350mA 2.9Vf 6200K 110°&lt;/li&gt;
+&lt;li&gt;XTEAWT-00-0000-00000LEE3 - White 114lm 350mA 2.85Vf 5000K 115°&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;li&gt;&lt;b&gt;Everlight&lt;/b&gt; - Everlight 45-21 Series Surface Mount LEDs
+&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;45-21/QK2C-B2832AC2CB2/2T - Warm White 2000mcd 20mA 3.25Vf 3050K 120°&lt;/li&gt;
+&lt;li&gt;45-21/LK2C-B38452C4CB2/2T - Nuetral White 2000mcd 20mA 3.25Vf 4150K 120°&lt;/li&gt;
+&lt;li&gt;45-21/LK2C-B50634C6CB2/2T - Cold White 2200mcd 20mA 3.25Vf 5650K 120°&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;li&gt;&lt;b&gt;PLCC2 Reverse Mount&lt;/b&gt;
+&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;LS T77K-J1L2-1-0-2-R18-Z - Red 11.25mcd 2mA 1.8Vf 630nm 120°&lt;/li&gt;
+&lt;li&gt;LO T77K-L1M2-24-Z - Orange 19.6mcd 2mA 1.8Vf 606nm 120°&lt;/li&gt;
+&lt;li&gt;LY T77K-K2M1-26-Z - Yellow 15.7mcd 2mA 1.8Vf 587nm 120°&lt;/li&gt;
+&lt;/ul&gt;</description>
+<gates>
+<gate name="D1" symbol="LED-1" x="0" y="0"/>
+</gates>
+<devices>
+<device name="0805" package="CHIPLED_0805">
+<connects>
+<connect gate="D1" pin="A" pad="A"/>
+<connect gate="D1" pin="C" pad="C"/>
+</connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:8442343/2"/>
+</package3dinstances>
+<technologies>
+<technology name="">
+<attribute name="MPN" value="LO R976-PS-1" constant="no"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="MICROSD" urn="urn:adsk.eagle:component:13046361/1" library_version="64" library_locally_modified="yes">
+<gates>
+<gate name="G$1" symbol="MICROSD" x="-2.54" y="0"/>
+</gates>
+<devices>
+<device name="" package="MICRO-SD-SOCKET">
+<connects>
+<connect gate="G$1" pin="CLK(SCLK,5)" pad="SCLK(5)"/>
+<connect gate="G$1" pin="CMD(DI,3)" pad="DI(3)"/>
+<connect gate="G$1" pin="DAT0(D0,7)" pad="DO(7)"/>
+<connect gate="G$1" pin="DAT1(8)" pad="RSV2(8)"/>
+<connect gate="G$1" pin="DAT2(1)" pad="RSV1(1)"/>
+<connect gate="G$1" pin="DAT3(CS,2)" pad="CS(2)"/>
+<connect gate="G$1" pin="VDD(4)" pad="VCC(4)"/>
+<connect gate="G$1" pin="VSS(6)" pad="GND(6)"/>
+</connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:8442348/2"/>
+</package3dinstances>
+<technologies>
+<technology name="">
+<attribute name="MPN" value="0473340001" constant="no"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="FERRITE600_AUDIO" urn="urn:adsk.eagle:component:13046358/1" prefix="L" library_version="64" library_locally_modified="yes">
+<description>https://www.digikey.com/product-detail/en/tdk-corporation/MPZ2012S601AT000/445-2206-1-ND/765104</description>
+<gates>
+<gate name="L1" symbol="FERRITE_BEAD" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="0805">
+<connects>
+<connect gate="L1" pin="1" pad="1"/>
+<connect gate="L1" pin="2" pad="2"/>
+</connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:8442354/2"/>
+</package3dinstances>
+<technologies>
+<technology name="">
+<attribute name="MPN" value="MPZ2012S601AT000" constant="no"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="AP7313" urn="urn:adsk.eagle:component:13046359/1" prefix="D" library_version="64" library_locally_modified="yes">
+<description>https://www.digikey.com/product-detail/en/diodes-incorporated/AP7313-33SRG-7/AP7313-33SRG-7DICT-ND/2270841</description>
+<gates>
+<gate name="D1" symbol="AP7313" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="SOT23-3">
+<connects>
+<connect gate="D1" pin="GND" pad="GND"/>
+<connect gate="D1" pin="IN" pad="IN"/>
+<connect gate="D1" pin="OUT" pad="OUT"/>
+</connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:8442353/2"/>
+</package3dinstances>
+<technologies>
+<technology name="">
+<attribute name="MPN" value="AP7313-33SRG-7" constant="no"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="33OHM" urn="urn:adsk.eagle:component:13046360/1" prefix="R" library_version="64" library_locally_modified="yes">
+<gates>
+<gate name="R1" symbol="RESISTOR-3" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="0805">
+<connects>
+<connect gate="R1" pin="1" pad="1"/>
+<connect gate="R1" pin="2" pad="2"/>
+</connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:8442354/2"/>
+</package3dinstances>
+<technologies>
+<technology name="">
+<attribute name="MPN" value="ESR10EZPJ330" constant="no"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
 </devicesets>
 </library>
 <library name="moon-germs-v1_main" urn="urn:adsk.eagle:library:8442267">
 <packages>
-<package name="C_0805" urn="urn:adsk.eagle:footprint:8442302/1" library_version="3" library_locally_modified="yes">
-<description>&lt;p&gt;&lt;b&gt;Generic 2012 (0805) package&lt;/b&gt;&lt;/p&gt;
-&lt;p&gt;0.2mm courtyard excess rounded to nearest 0.05mm.&lt;/p&gt;</description>
-<smd name="+" x="-0.9" y="0" dx="0.8" dy="1.2" layer="1"/>
-<smd name="-" x="0.9" y="0" dx="0.8" dy="1.2" layer="1"/>
-<wire x1="-1.5" y1="0.8" x2="1.5" y2="0.8" width="0.0508" layer="39"/>
-<wire x1="1.5" y1="0.8" x2="1.5" y2="-0.8" width="0.0508" layer="39"/>
-<wire x1="1.5" y1="-0.8" x2="-1.5" y2="-0.8" width="0.0508" layer="39"/>
-<wire x1="-1.5" y1="-0.8" x2="-1.5" y2="0.8" width="0.0508" layer="39"/>
-<wire x1="-1.524" y1="-0.762" x2="-1.524" y2="0.762" width="0.0762" layer="21"/>
-<wire x1="-1.524" y1="0.762" x2="1.524" y2="0.762" width="0.0762" layer="21"/>
-<wire x1="1.524" y1="0.762" x2="1.524" y2="-0.762" width="0.0762" layer="21"/>
-<wire x1="1.524" y1="-0.762" x2="-1.524" y2="-0.762" width="0.0762" layer="21"/>
-<text x="-2.54" y="0" size="1.27" layer="21">+</text>
-<text x="-2.54" y="1.27" size="0.8128" layer="21">&gt;VALUE</text>
-<text x="-2.54" y="-1.905" size="0.8128" layer="21">&gt;NAME</text>
-</package>
 <package name="LQFP64-05" urn="urn:adsk.eagle:footprint:8700958/1" library_version="8">
 <smd name="1" x="-5.915" y="3.7592" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R270"/>
 <smd name="2" x="-5.915" y="3.2512" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R270"/>
@@ -1917,22 +2673,6 @@ https://www.digikey.com/product-detail/en/microchip-technology/MCP1826ST-3302E-D
 <text x="0" y="4.4" size="0.7" layer="51" rot="R90" align="center">&gt;NAME</text>
 <rectangle x1="-1.778" y1="0.762" x2="1.778" y2="8.382" layer="43"/>
 </package>
-<package name="0805" urn="urn:adsk.eagle:footprint:8442299/1" library_version="1" library_locally_modified="yes">
-<description>&lt;p&gt;&lt;b&gt;Generic 2012 (0805) package&lt;/b&gt;&lt;/p&gt;
-&lt;p&gt;0.2mm courtyard excess rounded to nearest 0.05mm.&lt;/p&gt;</description>
-<smd name="1" x="-0.9" y="0" dx="0.8" dy="1.2" layer="1"/>
-<smd name="2" x="0.9" y="0" dx="0.8" dy="1.2" layer="1"/>
-<wire x1="-1.5" y1="0.8" x2="1.5" y2="0.8" width="0.0508" layer="39"/>
-<wire x1="1.5" y1="0.8" x2="1.5" y2="-0.8" width="0.0508" layer="39"/>
-<wire x1="1.5" y1="-0.8" x2="-1.5" y2="-0.8" width="0.0508" layer="39"/>
-<wire x1="-1.5" y1="-0.8" x2="-1.5" y2="0.8" width="0.0508" layer="39"/>
-<wire x1="-1.524" y1="-0.762" x2="-1.524" y2="0.762" width="0.0762" layer="21"/>
-<wire x1="-1.524" y1="0.762" x2="1.524" y2="0.762" width="0.0762" layer="21"/>
-<wire x1="1.524" y1="0.762" x2="1.524" y2="-0.762" width="0.0762" layer="21"/>
-<wire x1="1.524" y1="-0.762" x2="-1.524" y2="-0.762" width="0.0762" layer="21"/>
-<text x="-2.032" y="-1.905" size="0.8128" layer="21">&gt;VALUE</text>
-<text x="-2.032" y="1.016" size="0.8128" layer="21">&gt;NAME</text>
-</package>
 <package name="1X5HEADER" urn="urn:adsk.eagle:footprint:8709580/1" library_version="17" library_locally_modified="yes">
 <pad name="1" x="0" y="0" drill="1.016" diameter="1.778"/>
 <pad name="2" x="2.54" y="0" drill="1.016" diameter="1.778"/>
@@ -1940,40 +2680,6 @@ https://www.digikey.com/product-detail/en/microchip-technology/MCP1826ST-3302E-D
 <pad name="4" x="7.62" y="0" drill="1.016" diameter="1.778"/>
 <pad name="5" x="10.16" y="0" drill="1.016" diameter="1.778"/>
 <text x="0" y="1.27" size="1.27" layer="25">&gt;NAME</text>
-</package>
-<package name="CHIPLED_0805" urn="urn:adsk.eagle:footprint:8442310/1" library_version="1" library_locally_modified="yes">
-<description>&lt;b&gt;CHIPLED 0805&lt;/b&gt;</description>
-<circle x="-0.45" y="0.85" radius="0.103" width="0.0762" layer="51"/>
-<wire x1="-0.35" y1="0.925" x2="0.35" y2="0.925" width="0.1016" layer="51" curve="162.394521"/>
-<wire x1="-0.35" y1="-0.925" x2="0.35" y2="-0.925" width="0.1016" layer="51" curve="-162.394521"/>
-<wire x1="0.575" y1="0.525" x2="0.575" y2="-0.525" width="0.1016" layer="51"/>
-<wire x1="-0.575" y1="-0.5" x2="-0.575" y2="0.925" width="0.1016" layer="51"/>
-<wire x1="-0.4" y1="0.2" x2="0" y2="0.2" width="0.2032" layer="21"/>
-<wire x1="0" y1="0.2" x2="0.4" y2="0.2" width="0.2032" layer="21"/>
-<wire x1="0" y1="0.2" x2="-0.4" y2="-0.2" width="0.2032" layer="21"/>
-<wire x1="-0.4" y1="-0.2" x2="0.4" y2="-0.2" width="0.2032" layer="21"/>
-<wire x1="0.4" y1="-0.2" x2="0" y2="0.2" width="0.2032" layer="21"/>
-<wire x1="0.85" y1="-1.9" x2="-0.85" y2="-1.9" width="0.2032" layer="21"/>
-<wire x1="-0.85" y1="-1.9" x2="-0.85" y2="1.9" width="0.2032" layer="21"/>
-<wire x1="-0.85" y1="1.9" x2="0.85" y2="1.9" width="0.2032" layer="21"/>
-<wire x1="0.85" y1="1.9" x2="0.85" y2="-1.9" width="0.2032" layer="21"/>
-<rectangle x1="0.3" y1="0.5" x2="0.625" y2="1" layer="51"/>
-<rectangle x1="-0.325" y1="0.5" x2="-0.175" y2="0.75" layer="51"/>
-<rectangle x1="0.175" y1="0.5" x2="0.325" y2="0.75" layer="51"/>
-<rectangle x1="-0.2" y1="0.5" x2="0.2" y2="0.675" layer="51"/>
-<rectangle x1="0.3" y1="-1" x2="0.625" y2="-0.5" layer="51"/>
-<rectangle x1="-0.625" y1="-1" x2="-0.3" y2="-0.5" layer="51"/>
-<rectangle x1="0.175" y1="-0.75" x2="0.325" y2="-0.5" layer="51"/>
-<rectangle x1="-0.325" y1="-0.75" x2="-0.175" y2="-0.5" layer="51"/>
-<rectangle x1="-0.2" y1="-0.675" x2="0.2" y2="-0.5" layer="51"/>
-<rectangle x1="-0.6" y1="0.5" x2="-0.3" y2="0.762" layer="51"/>
-<rectangle x1="-0.625" y1="0.925" x2="-0.3" y2="1" layer="51"/>
-<smd name="A" x="0" y="-1.05" dx="1.2" dy="1.2" layer="1"/>
-<smd name="C" x="0" y="1.05" dx="1.2" dy="1.2" layer="1"/>
-<text x="-1.016" y="-1.778" size="0.8128" layer="25" ratio="18" rot="R90">&gt;NAME</text>
-<text x="1.397" y="-1.778" size="0.4064" layer="27" ratio="10" rot="R90">&gt;VALUE</text>
-<text x="-0.1" y="-1.4" size="0.254" layer="51">A</text>
-<text x="-0.1" y="1.2" size="0.254" layer="51">C</text>
 </package>
 <package name="L0603" urn="urn:adsk.eagle:footprint:8700954/1" library_version="8" library_locally_modified="yes">
 <wire x1="-1.4605" y1="0.6985" x2="1.4605" y2="0.6985" width="0.127" layer="21"/>
@@ -1990,311 +2696,8 @@ https://www.digikey.com/product-detail/en/microchip-technology/MCP1826ST-3302E-D
 <text x="-1.905" y="-1.7145" size="0.889" layer="27" ratio="11">&gt;VALUE</text>
 <text x="0" y="0" size="0.7" layer="51" align="center">&gt;NAME</text>
 </package>
-<package name="MICRO-SD-SOCKET" urn="urn:adsk.eagle:footprint:8442305/1" library_version="1" library_locally_modified="yes">
-<description>&lt;h3&gt;microSD Socket SMD&lt;/h3&gt;
-Puhs-Push type.
-&lt;br&gt; tDocu shows location of uSD card in different positions.
-&lt;p&gt;Specifications:
-&lt;ul&gt;&lt;li&gt;Pin count:12&lt;/li&gt;
-&lt;/ul&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=”http://www.4uconnector.com/online/object/4udrawing/15882.pdf”&gt;Datasheet referenced for footprint&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Example device(s):
-&lt;ul&gt;&lt;li&gt;MICRO-SD_CARD_SOCKET&lt;/li&gt;
-&lt;/ul&gt;&lt;/p&gt;</description>
-<wire x1="-14" y1="0" x2="-14" y2="13.2" width="0.2032" layer="21"/>
-<wire x1="0" y1="12.1" x2="0" y2="0" width="0.2032" layer="21"/>
-<wire x1="-11.7" y1="15.3" x2="-12.5" y2="15.3" width="0.2032" layer="21"/>
-<wire x1="-10" y1="13.6" x2="-1.6" y2="13.6" width="0.2032" layer="21"/>
-<wire x1="-14" y1="0" x2="-9.1" y2="0" width="0.2032" layer="21"/>
-<wire x1="-3.4" y1="0" x2="-6.4" y2="0" width="0.2032" layer="21"/>
-<wire x1="0" y1="0" x2="-0.7" y2="0" width="0.2032" layer="21"/>
-<wire x1="-11.7" y1="15.3" x2="-11" y2="14.6" width="0.2032" layer="21" curve="-98.797411"/>
-<wire x1="-11" y1="14.6" x2="-10" y2="13.6" width="0.2032" layer="21" curve="87.205638"/>
-<smd name="CD2" x="-7.75" y="0.4" dx="1.8" dy="1.4" layer="1"/>
-<smd name="CD1" x="-2.05" y="0.4" dx="1.8" dy="1.4" layer="1"/>
-<smd name="GND3" x="-0.45" y="13.55" dx="1.4" dy="1.9" layer="1"/>
-<smd name="GND1" x="-13.6" y="14.55" dx="1.4" dy="1.9" layer="1"/>
-<smd name="RSV1(1)" x="-8.94" y="10.7" dx="0.8" dy="1.5" layer="1"/>
-<smd name="CS(2)" x="-7.84" y="10.3" dx="0.8" dy="1.5" layer="1"/>
-<smd name="DI(3)" x="-6.74" y="10.7" dx="0.8" dy="1.5" layer="1"/>
-<smd name="VCC(4)" x="-5.64" y="10.9" dx="0.8" dy="1.5" layer="1"/>
-<smd name="SCLK(5)" x="-4.54" y="10.7" dx="0.8" dy="1.5" layer="1"/>
-<smd name="GND(6)" x="-3.44" y="10.9" dx="0.8" dy="1.5" layer="1"/>
-<smd name="DO(7)" x="-2.34" y="10.7" dx="0.8" dy="1.5" layer="1"/>
-<smd name="RSV2(8)" x="-1.24" y="10.7" dx="0.8" dy="1.5" layer="1"/>
-<text x="-8.89" y="6.35" size="0.6096" layer="25" font="vector" ratio="20">&gt;Name</text>
-<text x="-8.89" y="5.08" size="0.6096" layer="27" font="vector" ratio="20">&gt;Value</text>
-</package>
-<package name="QFN-32-5MM" urn="urn:adsk.eagle:footprint:8442298/1" library_version="1" library_locally_modified="yes">
-<smd name="9" x="-1.75" y="-2.3" dx="0.29" dy="0.4" layer="1" stop="no" cream="no"/>
-<smd name="8" x="-2.3" y="-1.75" dx="0.29" dy="0.4" layer="1" rot="R270" stop="no" cream="no"/>
-<smd name="10" x="-1.25" y="-2.25" dx="0.29" dy="0.5" layer="1"/>
-<smd name="11" x="-0.75" y="-2.25" dx="0.29" dy="0.5" layer="1"/>
-<smd name="12" x="-0.25" y="-2.25" dx="0.29" dy="0.5" layer="1"/>
-<smd name="13" x="0.25" y="-2.25" dx="0.29" dy="0.5" layer="1"/>
-<smd name="14" x="0.75" y="-2.25" dx="0.29" dy="0.5" layer="1"/>
-<smd name="15" x="1.25" y="-2.25" dx="0.29" dy="0.5" layer="1"/>
-<smd name="18" x="2.25" y="-1.25" dx="0.29" dy="0.5" layer="1" rot="R90"/>
-<smd name="19" x="2.25" y="-0.75" dx="0.29" dy="0.5" layer="1" rot="R90"/>
-<smd name="20" x="2.25" y="-0.25" dx="0.29" dy="0.5" layer="1" rot="R90"/>
-<smd name="21" x="2.25" y="0.25" dx="0.29" dy="0.5" layer="1" rot="R90"/>
-<smd name="22" x="2.25" y="0.75" dx="0.29" dy="0.5" layer="1" rot="R90"/>
-<smd name="23" x="2.25" y="1.25" dx="0.29" dy="0.5" layer="1" rot="R90"/>
-<smd name="26" x="1.25" y="2.25" dx="0.29" dy="0.5" layer="1" rot="R180"/>
-<smd name="27" x="0.75" y="2.25" dx="0.29" dy="0.5" layer="1" rot="R180"/>
-<smd name="28" x="0.25" y="2.25" dx="0.29" dy="0.5" layer="1" rot="R180"/>
-<smd name="29" x="-0.25" y="2.25" dx="0.29" dy="0.5" layer="1" rot="R180"/>
-<smd name="30" x="-0.75" y="2.25" dx="0.29" dy="0.5" layer="1" rot="R180"/>
-<smd name="31" x="-1.25" y="2.25" dx="0.29" dy="0.5" layer="1" rot="R180"/>
-<smd name="2" x="-2.25" y="1.25" dx="0.29" dy="0.5" layer="1" rot="R270"/>
-<smd name="3" x="-2.25" y="0.75" dx="0.29" dy="0.5" layer="1" rot="R270"/>
-<smd name="4" x="-2.25" y="0.25" dx="0.29" dy="0.5" layer="1" rot="R270"/>
-<smd name="5" x="-2.25" y="-0.25" dx="0.29" dy="0.5" layer="1" rot="R270"/>
-<smd name="6" x="-2.25" y="-0.75" dx="0.29" dy="0.5" layer="1" rot="R270"/>
-<smd name="7" x="-2.25" y="-1.25" dx="0.29" dy="0.5" layer="1" rot="R270"/>
-<smd name="17" x="2.3" y="-1.75" dx="0.29" dy="0.4" layer="1" rot="R90" stop="no" cream="no"/>
-<smd name="16" x="1.75" y="-2.3" dx="0.29" dy="0.4" layer="1" stop="no" cream="no"/>
-<smd name="25" x="1.75" y="2.3" dx="0.29" dy="0.4" layer="1" rot="R180" stop="no" cream="no"/>
-<smd name="24" x="2.3" y="1.75" dx="0.29" dy="0.4" layer="1" rot="R90" stop="no" cream="no"/>
-<smd name="1" x="-2.3" y="1.75" dx="0.29" dy="0.4" layer="1" rot="R270" stop="no" cream="no"/>
-<smd name="32" x="-1.75" y="2.3" dx="0.29" dy="0.4" layer="1" rot="R180" stop="no" cream="no"/>
-<smd name="PAD" x="0" y="0" dx="3.175" dy="3.175" layer="1" cream="no"/>
-<polygon width="0" layer="1">
-<vertex x="-1.895" y="-2.1"/>
-<vertex x="-1.795" y="-2"/>
-<vertex x="-1.605" y="-2"/>
-<vertex x="-1.605" y="-2.1"/>
-</polygon>
-<polygon width="0" layer="31">
-<vertex x="-1.895" y="-2.1"/>
-<vertex x="-1.795" y="-2"/>
-<vertex x="-1.605" y="-2"/>
-<vertex x="-1.605" y="-2.5"/>
-<vertex x="-1.895" y="-2.5"/>
-</polygon>
-<polygon width="0" layer="29">
-<vertex x="-1.995" y="-2.1"/>
-<vertex x="-1.795" y="-1.9"/>
-<vertex x="-1.505" y="-1.9"/>
-<vertex x="-1.505" y="-2.6"/>
-<vertex x="-1.995" y="-2.6"/>
-</polygon>
-<polygon width="0" layer="1">
-<vertex x="-2.1" y="-1.605"/>
-<vertex x="-2" y="-1.605"/>
-<vertex x="-2" y="-1.795"/>
-<vertex x="-2.1" y="-1.895"/>
-</polygon>
-<polygon width="0" layer="31">
-<vertex x="-2.5" y="-1.605"/>
-<vertex x="-2" y="-1.605"/>
-<vertex x="-2" y="-1.795"/>
-<vertex x="-2.1" y="-1.895"/>
-<vertex x="-2.5" y="-1.895"/>
-</polygon>
-<polygon width="0" layer="29">
-<vertex x="-2.6" y="-1.505"/>
-<vertex x="-1.9" y="-1.505"/>
-<vertex x="-1.9" y="-1.795"/>
-<vertex x="-2.1" y="-1.995"/>
-<vertex x="-2.6" y="-1.995"/>
-</polygon>
-<polygon width="0" layer="1">
-<vertex x="2.1" y="-1.895"/>
-<vertex x="2" y="-1.795"/>
-<vertex x="2" y="-1.605"/>
-<vertex x="2.1" y="-1.605"/>
-</polygon>
-<polygon width="0" layer="31">
-<vertex x="2.1" y="-1.895"/>
-<vertex x="2" y="-1.795"/>
-<vertex x="2" y="-1.605"/>
-<vertex x="2.5" y="-1.605"/>
-<vertex x="2.5" y="-1.895"/>
-</polygon>
-<polygon width="0" layer="29">
-<vertex x="2.1" y="-1.995"/>
-<vertex x="1.9" y="-1.795"/>
-<vertex x="1.9" y="-1.505"/>
-<vertex x="2.6" y="-1.505"/>
-<vertex x="2.6" y="-1.995"/>
-</polygon>
-<polygon width="0" layer="1">
-<vertex x="1.605" y="-2.1"/>
-<vertex x="1.605" y="-2"/>
-<vertex x="1.795" y="-2"/>
-<vertex x="1.895" y="-2.1"/>
-</polygon>
-<polygon width="0" layer="31">
-<vertex x="1.605" y="-2.5"/>
-<vertex x="1.605" y="-2"/>
-<vertex x="1.795" y="-2"/>
-<vertex x="1.895" y="-2.1"/>
-<vertex x="1.895" y="-2.5"/>
-</polygon>
-<polygon width="0" layer="29">
-<vertex x="1.505" y="-2.6"/>
-<vertex x="1.505" y="-1.9"/>
-<vertex x="1.795" y="-1.9"/>
-<vertex x="1.995" y="-2.1"/>
-<vertex x="1.995" y="-2.6"/>
-</polygon>
-<polygon width="0" layer="1">
-<vertex x="1.895" y="2.1"/>
-<vertex x="1.795" y="2"/>
-<vertex x="1.605" y="2"/>
-<vertex x="1.605" y="2.1"/>
-</polygon>
-<polygon width="0" layer="31">
-<vertex x="1.895" y="2.1"/>
-<vertex x="1.795" y="2"/>
-<vertex x="1.605" y="2"/>
-<vertex x="1.605" y="2.5"/>
-<vertex x="1.895" y="2.5"/>
-</polygon>
-<polygon width="0" layer="29">
-<vertex x="1.995" y="2.1"/>
-<vertex x="1.795" y="1.9"/>
-<vertex x="1.505" y="1.9"/>
-<vertex x="1.505" y="2.6"/>
-<vertex x="1.995" y="2.6"/>
-</polygon>
-<polygon width="0" layer="1">
-<vertex x="2.1" y="1.605"/>
-<vertex x="2" y="1.605"/>
-<vertex x="2" y="1.795"/>
-<vertex x="2.1" y="1.895"/>
-</polygon>
-<polygon width="0" layer="31">
-<vertex x="2.5" y="1.605"/>
-<vertex x="2" y="1.605"/>
-<vertex x="2" y="1.795"/>
-<vertex x="2.1" y="1.895"/>
-<vertex x="2.5" y="1.895"/>
-</polygon>
-<polygon width="0" layer="29">
-<vertex x="2.6" y="1.505"/>
-<vertex x="1.9" y="1.505"/>
-<vertex x="1.9" y="1.795"/>
-<vertex x="2.1" y="1.995"/>
-<vertex x="2.6" y="1.995"/>
-</polygon>
-<polygon width="0" layer="1">
-<vertex x="-2.1" y="1.895"/>
-<vertex x="-2" y="1.795"/>
-<vertex x="-2" y="1.605"/>
-<vertex x="-2.1" y="1.605"/>
-</polygon>
-<polygon width="0" layer="31">
-<vertex x="-2.1" y="1.895"/>
-<vertex x="-2" y="1.795"/>
-<vertex x="-2" y="1.605"/>
-<vertex x="-2.5" y="1.605"/>
-<vertex x="-2.5" y="1.895"/>
-</polygon>
-<polygon width="0" layer="29">
-<vertex x="-2.1" y="1.995"/>
-<vertex x="-1.9" y="1.795"/>
-<vertex x="-1.9" y="1.505"/>
-<vertex x="-2.6" y="1.505"/>
-<vertex x="-2.6" y="1.995"/>
-</polygon>
-<polygon width="0" layer="1">
-<vertex x="-1.605" y="2.1"/>
-<vertex x="-1.605" y="2"/>
-<vertex x="-1.795" y="2"/>
-<vertex x="-1.895" y="2.1"/>
-</polygon>
-<polygon width="0" layer="31">
-<vertex x="-1.605" y="2.5"/>
-<vertex x="-1.605" y="2"/>
-<vertex x="-1.795" y="2"/>
-<vertex x="-1.895" y="2.1"/>
-<vertex x="-1.895" y="2.5"/>
-</polygon>
-<polygon width="0" layer="29">
-<vertex x="-1.505" y="2.6"/>
-<vertex x="-1.505" y="1.9"/>
-<vertex x="-1.795" y="1.9"/>
-<vertex x="-1.995" y="2.1"/>
-<vertex x="-1.995" y="2.6"/>
-</polygon>
-<wire x1="-2.5" y1="2.35" x2="-2.5" y2="-2.35" width="0.127" layer="51"/>
-<wire x1="-2.5" y1="-2.35" x2="-2.35" y2="-2.5" width="0.127" layer="51"/>
-<wire x1="-2.35" y1="-2.5" x2="2.35" y2="-2.5" width="0.127" layer="51"/>
-<wire x1="2.35" y1="-2.5" x2="2.5" y2="-2.35" width="0.127" layer="51"/>
-<wire x1="2.5" y1="-2.35" x2="2.5" y2="2.35" width="0.127" layer="51"/>
-<wire x1="2.5" y1="2.35" x2="2.35" y2="2.5" width="0.127" layer="51"/>
-<wire x1="2.35" y1="2.5" x2="-2.35" y2="2.5" width="0.127" layer="51"/>
-<wire x1="-2.35" y1="2.5" x2="-2.5" y2="2.35" width="0.127" layer="51"/>
-<wire x1="-2.4" y1="2.7" x2="2.4" y2="2.7" width="0.1905" layer="21"/>
-<wire x1="2.4" y1="2.7" x2="2.7" y2="2.4" width="0.1905" layer="21"/>
-<wire x1="2.7" y1="2.4" x2="2.7" y2="-2.4" width="0.1905" layer="21"/>
-<wire x1="2.7" y1="-2.4" x2="2.4" y2="-2.7" width="0.1905" layer="21"/>
-<wire x1="2.4" y1="-2.7" x2="-2.4" y2="-2.7" width="0.1905" layer="21"/>
-<wire x1="-2.4" y1="-2.7" x2="-2.7" y2="-2.4" width="0.1905" layer="21"/>
-<wire x1="-2.7" y1="-2.4" x2="-2.7" y2="2.4" width="0.1905" layer="21"/>
-<wire x1="-2.7" y1="2.4" x2="-2.4" y2="2.7" width="0.1905" layer="21"/>
-<circle x="-2.9" y="2.9" radius="0.1" width="0.254" layer="21"/>
-<text x="-2.35" y="-4.035" size="0.8128" layer="21" ratio="12">&gt;VALUE</text>
-<text x="-2.54" y="3.175" size="0.8128" layer="21">&gt;NAME</text>
-<rectangle x1="-1.016" y1="0.254" x2="-0.254" y2="1.016" layer="31"/>
-<rectangle x1="0.254" y1="0.254" x2="1.016" y2="1.016" layer="31"/>
-<rectangle x1="0.254" y1="-1.016" x2="1.016" y2="-0.254" layer="31"/>
-<rectangle x1="-1.016" y1="-1.016" x2="-0.254" y2="-0.254" layer="31"/>
-</package>
-<package name="TSSOP8" urn="urn:adsk.eagle:footprint:8442303/1" library_version="1" library_locally_modified="yes">
-<description>&lt;b&gt;8-Lead Thin Shrink Small Outline Package &lt;/b&gt;&lt;p&gt;
-Source: http://www.analog.com/static/imported-files/data_sheets/AD8541_8542_8544.pdf</description>
-<wire x1="-0.6" y1="1.4484" x2="0.6" y2="1.4484" width="0.2032" layer="21" curve="180"/>
-<wire x1="-2.1484" y1="-1.4484" x2="2.1484" y2="-1.4484" width="0.2032" layer="21"/>
-<wire x1="2.1484" y1="-1.4484" x2="2.1484" y2="1.4484" width="0.2032" layer="21"/>
-<wire x1="2.1484" y1="1.4484" x2="-2.1484" y2="1.4484" width="0.2032" layer="21"/>
-<wire x1="-2.1484" y1="1.4484" x2="-2.1484" y2="-1.4484" width="0.2032" layer="21"/>
-<rectangle x1="-3.2" y1="0.825" x2="-2.25" y2="1.125" layer="51"/>
-<rectangle x1="-3.2" y1="0.175" x2="-2.25" y2="0.475" layer="51"/>
-<rectangle x1="-3.2" y1="-0.475" x2="-2.25" y2="-0.175" layer="51"/>
-<rectangle x1="-3.2" y1="-1.125" x2="-2.25" y2="-0.825" layer="51"/>
-<rectangle x1="2.25" y1="-1.125" x2="3.2" y2="-0.825" layer="51" rot="R180"/>
-<rectangle x1="2.25" y1="-0.475" x2="3.2" y2="-0.175" layer="51" rot="R180"/>
-<rectangle x1="2.25" y1="0.175" x2="3.2" y2="0.475" layer="51" rot="R180"/>
-<rectangle x1="2.25" y1="0.825" x2="3.2" y2="1.125" layer="51"/>
-<smd name="1" x="-2.875" y="0.975" dx="0.9" dy="0.35" layer="1"/>
-<smd name="2" x="-2.875" y="0.325" dx="0.9" dy="0.35" layer="1"/>
-<smd name="3" x="-2.875" y="-0.325" dx="0.9" dy="0.35" layer="1"/>
-<smd name="4" x="-2.875" y="-0.975" dx="0.9" dy="0.35" layer="1"/>
-<smd name="5" x="2.875" y="-0.975" dx="0.9" dy="0.35" layer="1" rot="R180"/>
-<smd name="6" x="2.875" y="-0.325" dx="0.9" dy="0.35" layer="1" rot="R180"/>
-<smd name="7" x="2.875" y="0.325" dx="0.9" dy="0.35" layer="1" rot="R180"/>
-<smd name="8" x="2.875" y="0.975" dx="0.9" dy="0.35" layer="1" rot="R180"/>
-<text x="-3.81" y="-3.175" size="1.016" layer="21">&gt;VALUE</text>
-<text x="-3.81" y="1.905" size="1.016" layer="21">&gt;NAME</text>
-</package>
-<package name="SOT23-3" urn="urn:adsk.eagle:footprint:8442300/1" library_version="17" library_locally_modified="yes">
-<description>SOT23-3</description>
-<wire x1="1.4224" y1="0.6604" x2="1.4224" y2="-0.6604" width="0.1524" layer="51"/>
-<wire x1="1.4224" y1="-0.6604" x2="-1.4224" y2="-0.6604" width="0.1524" layer="51"/>
-<wire x1="-1.4224" y1="-0.6604" x2="-1.4224" y2="0.6604" width="0.1524" layer="51"/>
-<wire x1="-1.4224" y1="0.6604" x2="1.4224" y2="0.6604" width="0.1524" layer="51"/>
-<wire x1="-0.8" y1="0.7" x2="-1.4" y2="0.7" width="0.2032" layer="21"/>
-<wire x1="-1.4" y1="0.7" x2="-1.4" y2="-0.1" width="0.2032" layer="21"/>
-<wire x1="0.8" y1="0.7" x2="1.4" y2="0.7" width="0.2032" layer="21"/>
-<wire x1="1.4" y1="0.7" x2="1.4" y2="-0.1" width="0.2032" layer="21"/>
-<smd name="GND" x="-0.95" y="-1" dx="0.8" dy="0.9" layer="1"/>
-<smd name="OUT" x="0.95" y="-1" dx="0.8" dy="0.9" layer="1"/>
-<smd name="IN" x="0" y="1.1" dx="0.8" dy="0.9" layer="1"/>
-<text x="2.54" y="-2.54" size="0.8128" layer="21" rot="R90">&gt;VALUE</text>
-<text x="-1.905" y="-2.54" size="0.8128" layer="21" rot="R90">&gt;NAME</text>
-</package>
 </packages>
 <packages3d>
-<package3d name="C_0805" urn="urn:adsk.eagle:package:8442351/2" type="model" library_version="3" library_locally_modified="yes">
-<description>&lt;p&gt;&lt;b&gt;Generic 2012 (0805) package&lt;/b&gt;&lt;/p&gt;
-&lt;p&gt;0.2mm courtyard excess rounded to nearest 0.05mm.&lt;/p&gt;</description>
-<packageinstances>
-<packageinstance name="C_0805"/>
-</packageinstances>
-</package3d>
 <package3d name="QFP50P1200X1200X160-64" urn="urn:adsk.eagle:package:8700970/2" type="model" library_version="9" library_locally_modified="yes">
 <description>64-QFP, 0.50 mm pitch, 12.00 mm span, 10.00 X 10.00 X 1.60 mm body
 &lt;p&gt;64-pin QFP package with 0.50 mm pitch, 12.00 mm lead span1 X 12.00 mm lead span2 with body size 10.00 X 10.00 X 1.60 mm&lt;/p&gt;</description>
@@ -2321,60 +2724,14 @@ Source: http://www.analog.com/static/imported-files/data_sheets/AD8541_8542_8544
 <packageinstance name="TC26H"/>
 </packageinstances>
 </package3d>
-<package3d name="0805" urn="urn:adsk.eagle:package:8442354/2" type="model" library_version="1" library_locally_modified="yes">
-<description>&lt;p&gt;&lt;b&gt;Generic 2012 (0805) package&lt;/b&gt;&lt;/p&gt;
-&lt;p&gt;0.2mm courtyard excess rounded to nearest 0.05mm.&lt;/p&gt;</description>
-<packageinstances>
-<packageinstance name="0805"/>
-</packageinstances>
-</package3d>
-<package3d name="CHIPLED_0805" urn="urn:adsk.eagle:package:8442343/2" type="model" library_version="8" library_locally_modified="yes">
-<description>&lt;b&gt;CHIPLED 0805&lt;/b&gt;</description>
-<packageinstances>
-<packageinstance name="CHIPLED_0805"/>
-</packageinstances>
-</package3d>
 <package3d name="L0603" urn="urn:adsk.eagle:package:8700966/1" type="box" library_version="8" library_locally_modified="yes">
 <packageinstances>
 <packageinstance name="L0603"/>
 </packageinstances>
 </package3d>
-<package3d name="MICRO-SD-SOCKET" urn="urn:adsk.eagle:package:8442348/2" type="model" library_version="1" library_locally_modified="yes">
-<description>&lt;h3&gt;microSD Socket SMD&lt;/h3&gt;
-Puhs-Push type.
-&lt;br&gt; tDocu shows location of uSD card in different positions.
-&lt;p&gt;Specifications:
-&lt;ul&gt;&lt;li&gt;Pin count:12&lt;/li&gt;
-&lt;/ul&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=”http://www.4uconnector.com/online/object/4udrawing/15882.pdf”&gt;Datasheet referenced for footprint&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Example device(s):
-&lt;ul&gt;&lt;li&gt;MICRO-SD_CARD_SOCKET&lt;/li&gt;
-&lt;/ul&gt;&lt;/p&gt;</description>
-<packageinstances>
-<packageinstance name="MICRO-SD-SOCKET"/>
-</packageinstances>
-</package3d>
-<package3d name="QFN-32-5MM" urn="urn:adsk.eagle:package:8442355/2" type="model" library_version="1" library_locally_modified="yes">
-<packageinstances>
-<packageinstance name="QFN-32-5MM"/>
-</packageinstances>
-</package3d>
-<package3d name="TSSOP8" urn="urn:adsk.eagle:package:8442350/2" type="model" library_version="1" library_locally_modified="yes">
-<description>&lt;b&gt;8-Lead Thin Shrink Small Outline Package &lt;/b&gt;&lt;p&gt;
-Source: http://www.analog.com/static/imported-files/data_sheets/AD8541_8542_8544.pdf</description>
-<packageinstances>
-<packageinstance name="TSSOP8"/>
-</packageinstances>
-</package3d>
 <package3d name="1X5HEADER" urn="urn:adsk.eagle:package:8709581/1" type="box" library_version="17" library_locally_modified="yes">
 <packageinstances>
 <packageinstance name="1X5HEADER"/>
-</packageinstances>
-</package3d>
-<package3d name="SOT23-3" urn="urn:adsk.eagle:package:8442353/2" type="model" library_version="17" library_locally_modified="yes">
-<description>SOT23-3</description>
-<packageinstances>
-<packageinstance name="SOT23-3"/>
 </packageinstances>
 </package3d>
 </packages3d>
@@ -2384,16 +2741,6 @@ Source: http://www.analog.com/static/imported-files/data_sheets/AD8541_8542_8544
 <wire x1="-1.905" y1="0" x2="1.905" y2="0" width="0.254" layer="94"/>
 <pin name="GND" x="0" y="2.54" visible="off" length="short" direction="sup" rot="R270"/>
 <text x="0" y="-0.254" size="1.778" layer="96" align="top-center">&gt;VALUE</text>
-</symbol>
-<symbol name="CAP" urn="urn:adsk.eagle:symbol:8442292/1" library_version="2" library_locally_modified="yes">
-<wire x1="0" y1="1.27" x2="0" y2="0.762" width="0.1524" layer="94"/>
-<wire x1="0" y1="-1.27" x2="0" y2="-0.762" width="0.1524" layer="94"/>
-<text x="4.064" y="-4.826" size="1.778" layer="96" font="vector" rot="R90">&gt;VALUE</text>
-<text x="-2.54" y="-4.445" size="1.778" layer="95" rot="R90">&gt;NAME</text>
-<rectangle x1="-2.032" y1="-0.762" x2="2.032" y2="-0.254" layer="94"/>
-<rectangle x1="-2.032" y1="0.254" x2="2.032" y2="0.762" layer="94"/>
-<pin name="+" x="0" y="3.81" visible="off" length="short" direction="pas" swaplevel="1" rot="R270"/>
-<pin name="-" x="0" y="-3.81" visible="off" length="short" direction="pas" swaplevel="1" rot="R90"/>
 </symbol>
 <symbol name="MK20DX256VLH7" urn="urn:adsk.eagle:symbol:8700946/1" library_version="8">
 <pin name="PTB16" x="20.32" y="-2.54" length="short" rot="R180"/>
@@ -2525,21 +2872,6 @@ Source: http://www.analog.com/static/imported-files/data_sheets/AD8541_8542_8544
 <pin name="2" x="2.54" y="0" visible="off" length="point" direction="pas" swaplevel="1" rot="R180"/>
 <pin name="1" x="-2.54" y="0" visible="off" length="point" direction="pas" swaplevel="1"/>
 </symbol>
-<symbol name="RESISTOR" urn="urn:adsk.eagle:symbol:8442291/1" library_version="1" library_locally_modified="yes">
-<wire x1="-2.54" y1="0" x2="-2.159" y2="1.016" width="0.1524" layer="94"/>
-<wire x1="-2.159" y1="1.016" x2="-1.524" y2="-1.016" width="0.1524" layer="94"/>
-<wire x1="-1.524" y1="-1.016" x2="-0.889" y2="1.016" width="0.1524" layer="94"/>
-<wire x1="-0.889" y1="1.016" x2="-0.254" y2="-1.016" width="0.1524" layer="94"/>
-<wire x1="-0.254" y1="-1.016" x2="0.381" y2="1.016" width="0.1524" layer="94"/>
-<wire x1="0.381" y1="1.016" x2="1.016" y2="-1.016" width="0.1524" layer="94"/>
-<wire x1="1.016" y1="-1.016" x2="1.651" y2="1.016" width="0.1524" layer="94"/>
-<wire x1="1.651" y1="1.016" x2="2.286" y2="-1.016" width="0.1524" layer="94"/>
-<wire x1="2.286" y1="-1.016" x2="2.54" y2="0" width="0.1524" layer="94"/>
-<pin name="2" x="5.08" y="0" visible="off" length="short" direction="pas" swaplevel="1" rot="R180"/>
-<pin name="1" x="-5.08" y="0" visible="off" length="short" direction="pas" swaplevel="1"/>
-<text x="-3.175" y="1.905" size="1.27" layer="95">&gt;NAME</text>
-<text x="-3.175" y="-3.175" size="1.27" layer="96">&gt;VALUE</text>
-</symbol>
 <symbol name="SWD_CONNECTOR" urn="urn:adsk.eagle:symbol:8709578/1" library_version="17" library_locally_modified="yes">
 <pin name="SWC" x="-5.08" y="0" length="middle"/>
 <pin name="SWD" x="-5.08" y="2.54" length="middle"/>
@@ -2553,25 +2885,6 @@ Source: http://www.analog.com/static/imported-files/data_sheets/AD8541_8542_8544
 <text x="0.508" y="8.636" size="1.27" layer="95">&gt;NAME</text>
 <text x="0.508" y="-9.398" size="1.27" layer="96">&gt;VALUE</text>
 </symbol>
-<symbol name="LED" urn="urn:adsk.eagle:symbol:8442281/1" library_version="1" library_locally_modified="yes">
-<wire x1="-2.54" y1="1.27" x2="-2.54" y2="-1.27" width="0.254" layer="94"/>
-<wire x1="-2.54" y1="-1.27" x2="0" y2="0" width="0.254" layer="94"/>
-<wire x1="0" y1="0" x2="-2.54" y2="1.27" width="0.254" layer="94"/>
-<wire x1="0" y1="1.27" x2="0" y2="0" width="0.254" layer="94"/>
-<wire x1="0" y1="0" x2="0" y2="-1.27" width="0.254" layer="94"/>
-<wire x1="-0.635" y1="1.27" x2="0.635" y2="2.54" width="0.254" layer="94"/>
-<wire x1="-1.905" y1="1.27" x2="-0.635" y2="2.54" width="0.254" layer="94"/>
-<wire x1="-0.9525" y1="2.8575" x2="-0.3175" y2="2.2225" width="0.254" layer="94"/>
-<wire x1="-0.3175" y1="2.2225" x2="0" y2="3.175" width="0.254" layer="94"/>
-<wire x1="0" y1="3.175" x2="-0.9525" y2="2.8575" width="0.254" layer="94"/>
-<wire x1="0.3175" y1="2.8575" x2="0.9525" y2="2.2225" width="0.254" layer="94"/>
-<wire x1="1.27" y1="3.175" x2="0.3175" y2="2.8575" width="0.254" layer="94"/>
-<wire x1="0.9525" y1="2.2225" x2="1.27" y2="3.175" width="0.254" layer="94"/>
-<pin name="A" x="-5.08" y="0" visible="off" length="short" direction="pas"/>
-<pin name="C" x="2.54" y="0" visible="off" length="short" direction="pas" rot="R180"/>
-<text x="-1.27" y="4.445" size="1.27" layer="95" align="center">&gt;NAME</text>
-<text x="-1.27" y="-2.794" size="1.27" layer="96" align="center">&gt;VALUE</text>
-</symbol>
 <symbol name="INDUCTOR/FERRITE-BEAD" urn="urn:adsk.eagle:symbol:8700942/1" library_version="8" library_locally_modified="yes">
 <wire x1="-1.905" y1="0" x2="-0.635" y2="0" width="0.254" layer="94" curve="-180"/>
 <wire x1="-0.635" y1="0" x2="0.635" y2="0" width="0.254" layer="94" curve="-180"/>
@@ -2582,97 +2895,6 @@ Source: http://www.analog.com/static/imported-files/data_sheets/AD8541_8542_8544
 <text x="1.778" y="-2.54" size="1.27" layer="96" ratio="10">&gt;VALUE</text>
 <pin name="1" x="-2.54" y="0" visible="off" length="point" direction="pas" swaplevel="1"/>
 <pin name="2" x="2.54" y="0" visible="off" length="point" direction="pas" swaplevel="1" rot="R180"/>
-</symbol>
-<symbol name="MICROSD" urn="urn:adsk.eagle:symbol:8442287/1" library_version="1" library_locally_modified="yes">
-<pin name="DAT1(8)" x="-10.16" y="7.62" length="middle"/>
-<pin name="DAT0(D0,7)" x="-10.16" y="5.08" length="middle"/>
-<pin name="VSS(6)" x="-10.16" y="2.54" length="middle"/>
-<pin name="CLK(SCLK,5)" x="-10.16" y="0" length="middle"/>
-<pin name="VDD(4)" x="-10.16" y="-2.54" length="middle"/>
-<pin name="CMD(DI,3)" x="-10.16" y="-5.08" length="middle"/>
-<pin name="DAT3(CS,2)" x="-10.16" y="-7.62" length="middle"/>
-<pin name="DAT2(1)" x="-10.16" y="-10.16" length="middle"/>
-<wire x1="-5.08" y1="10.16" x2="-5.08" y2="-12.7" width="0.254" layer="94"/>
-<wire x1="-5.08" y1="-12.7" x2="12.7" y2="-12.7" width="0.254" layer="94"/>
-<wire x1="12.7" y1="-12.7" x2="12.7" y2="10.16" width="0.254" layer="94"/>
-<wire x1="12.7" y1="10.16" x2="-5.08" y2="10.16" width="0.254" layer="94"/>
-<text x="-5.715" y="-15.24" size="1.9304" layer="96">&gt;VALUE</text>
-</symbol>
-<symbol name="SGTL5000-32" urn="urn:adsk.eagle:symbol:8442297/1" library_version="1" library_locally_modified="yes">
-<wire x1="-17.78" y1="33.02" x2="-17.78" y2="-25.4" width="0.254" layer="94"/>
-<wire x1="-17.78" y1="-25.4" x2="17.78" y2="-25.4" width="0.254" layer="94"/>
-<wire x1="17.78" y1="-25.4" x2="17.78" y2="33.02" width="0.254" layer="94"/>
-<wire x1="17.78" y1="33.02" x2="-17.78" y2="33.02" width="0.254" layer="94"/>
-<text x="-17.145" y="-27.305" size="1.9304" layer="96">&gt;VALUE</text>
-<text x="-17.78" y="33.02" size="1.4224" layer="95">&gt;NAME</text>
-<pin name="SDA(27)" x="-22.86" y="17.78" length="middle"/>
-<pin name="SCL(29)" x="-22.86" y="15.24" length="middle"/>
-<pin name="MCLK(21)" x="-22.86" y="10.16" length="middle"/>
-<pin name="BCLK(24)" x="-22.86" y="7.62" length="middle"/>
-<pin name="LRCLK(23)" x="-22.86" y="5.08" length="middle"/>
-<pin name="TX(26)" x="-22.86" y="2.54" length="middle"/>
-<pin name="RX(25)" x="-22.86" y="0" length="middle"/>
-<pin name="VAG(10)" x="-22.86" y="-5.08" length="middle"/>
-<pin name="CPFILT(18)" x="-22.86" y="-7.62" length="middle"/>
-<pin name="ADDR(31)" x="-22.86" y="-10.16" length="middle"/>
-<pin name="MODE(32)" x="-22.86" y="-12.7" length="middle"/>
-<pin name="GND@1" x="-7.62" y="-30.48" length="middle" rot="R90"/>
-<pin name="GND@3" x="0" y="-30.48" length="middle" rot="R90"/>
-<pin name="AGND(7)" x="7.62" y="-30.48" length="middle" rot="R90"/>
-<pin name="VDDD(30)" x="-5.08" y="38.1" length="middle" rot="R270"/>
-<pin name="VDDIO(20)" x="0" y="38.1" length="middle" rot="R270"/>
-<pin name="VDDA(5)" x="5.08" y="38.1" length="middle" rot="R270"/>
-<pin name="LINEINL(14)" x="22.86" y="17.78" length="middle" rot="R180"/>
-<pin name="LINEINR(13)" x="22.86" y="15.24" length="middle" rot="R180"/>
-<pin name="LINEOUTR(11)" x="22.86" y="12.7" length="middle" rot="R180"/>
-<pin name="LINEOUTL(12)" x="22.86" y="10.16" length="middle" rot="R180"/>
-<pin name="HPL(6)" x="22.86" y="5.08" length="middle" rot="R180"/>
-<pin name="HPR(2)" x="22.86" y="2.54" length="middle" rot="R180"/>
-<pin name="HPVGND(4)" x="22.86" y="0" length="middle" rot="R180"/>
-<pin name="MIC(15)" x="22.86" y="-5.08" length="middle" rot="R180"/>
-<pin name="MICBIAS(16)" x="22.86" y="-10.16" length="middle" rot="R180"/>
-<pin name="GND@PAD" x="15.24" y="-30.48" length="middle" rot="R90"/>
-</symbol>
-<symbol name="23LC1024" urn="urn:adsk.eagle:symbol:8442290/1" library_version="1" library_locally_modified="yes">
-<wire x1="-12.7" y1="-7.62" x2="-12.7" y2="5.08" width="0.254" layer="94"/>
-<wire x1="-12.7" y1="5.08" x2="12.7" y2="5.08" width="0.254" layer="94"/>
-<wire x1="12.7" y1="5.08" x2="12.7" y2="-7.62" width="0.254" layer="94"/>
-<wire x1="12.7" y1="-7.62" x2="-12.7" y2="-7.62" width="0.254" layer="94"/>
-<pin name="MISO(2)" x="-17.78" y="2.54" length="middle"/>
-<pin name="SCLK(6)" x="-17.78" y="0" length="middle"/>
-<pin name="MOSI(5)" x="-17.78" y="-2.54" length="middle"/>
-<pin name="CS(1)" x="-17.78" y="-5.08" length="middle"/>
-<pin name="RST(7)" x="17.78" y="0" length="middle" rot="R180"/>
-<pin name="WP(3)" x="17.78" y="-2.54" length="middle" rot="R180"/>
-<pin name="3.3V(8)" x="17.78" y="2.54" length="middle" rot="R180"/>
-<pin name="GND(4)" x="17.78" y="-5.08" length="middle" rot="R180"/>
-<text x="-12.7" y="-10.16" size="1.778" layer="96">&gt;VALUE</text>
-<text x="-12.7" y="5.08" size="1.4224" layer="95">&gt;NAME</text>
-</symbol>
-<symbol name="FERRITE_BEAD" urn="urn:adsk.eagle:symbol:8442293/1" library_version="3" library_locally_modified="yes">
-<description>&lt;h3&gt;Ferrite Bead (blocks, cores, rings, chokes, etc.)&lt;/h3&gt;
-&lt;p&gt;Inductor with layers of ferrite used to suppress high frequencies. Often used to isolate high frequency noise.&lt;/p&gt;</description>
-<text x="1.27" y="2.54" size="1.778" layer="95" font="vector">&gt;NAME</text>
-<text x="1.27" y="-2.54" size="1.778" layer="96" font="vector" align="top-left">&gt;VALUE</text>
-<pin name="1" x="0" y="5.08" visible="off" length="short" direction="pas" swaplevel="1" rot="R270"/>
-<pin name="2" x="0" y="-5.08" visible="off" length="short" direction="pas" swaplevel="1" rot="R90"/>
-<wire x1="0" y1="2.54" x2="0" y2="1.27" width="0.1524" layer="94" curve="-180"/>
-<wire x1="0" y1="1.27" x2="0" y2="0" width="0.1524" layer="94" curve="-180"/>
-<wire x1="0" y1="0" x2="0" y2="-1.27" width="0.1524" layer="94" curve="-180"/>
-<wire x1="0" y1="-1.27" x2="0" y2="-2.54" width="0.1524" layer="94" curve="-180"/>
-<wire x1="0.889" y1="2.54" x2="0.889" y2="-2.54" width="0.1524" layer="94"/>
-<wire x1="1.143" y1="2.54" x2="1.143" y2="-2.54" width="0.1524" layer="94"/>
-</symbol>
-<symbol name="AP7313" urn="urn:adsk.eagle:symbol:8442295/1" library_version="17" library_locally_modified="yes">
-<wire x1="-7.62" y1="5.08" x2="-7.62" y2="-5.08" width="0.254" layer="94"/>
-<wire x1="-7.62" y1="-5.08" x2="7.62" y2="-5.08" width="0.254" layer="94"/>
-<wire x1="7.62" y1="-5.08" x2="7.62" y2="5.08" width="0.254" layer="94"/>
-<wire x1="7.62" y1="5.08" x2="-7.62" y2="5.08" width="0.254" layer="94"/>
-<pin name="IN" x="-12.7" y="2.54" length="middle"/>
-<pin name="OUT" x="12.7" y="2.54" length="middle" rot="R180"/>
-<pin name="GND" x="0" y="-10.16" length="middle" rot="R90"/>
-<text x="-7.62" y="-6.985" size="1.778" layer="96">&gt;VALUE</text>
-<text x="-7.62" y="5.08" size="1.4224" layer="95">&gt;NAME</text>
 </symbol>
 </symbols>
 <devicesets>
@@ -2866,25 +3088,6 @@ Source: http://www.analog.com/static/imported-files/data_sheets/AD8541_8542_8544
 </device>
 </devices>
 </deviceset>
-<deviceset name="33OHM" urn="urn:adsk.eagle:component:8700984/2" prefix="R" library_version="17">
-<gates>
-<gate name="R1" symbol="RESISTOR" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="0805">
-<connects>
-<connect gate="R1" pin="1" pad="1"/>
-<connect gate="R1" pin="2" pad="2"/>
-</connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:8442354/2"/>
-</package3dinstances>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
 <deviceset name="SWD_CONNECTOR" urn="urn:adsk.eagle:component:8709582/1" prefix="J" library_version="17" library_locally_modified="yes">
 <gates>
 <gate name="J1" symbol="SWD_CONNECTOR" x="0" y="0"/>
@@ -2900,121 +3103,6 @@ Source: http://www.analog.com/static/imported-files/data_sheets/AD8541_8542_8544
 </connects>
 <package3dinstances>
 <package3dinstance package3d_urn="urn:adsk.eagle:package:8709581/1"/>
-</package3dinstances>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="470OHM" urn="urn:adsk.eagle:component:8700985/2" prefix="R" library_version="17">
-<gates>
-<gate name="R1" symbol="RESISTOR" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="0805">
-<connects>
-<connect gate="R1" pin="1" pad="1"/>
-<connect gate="R1" pin="2" pad="2"/>
-</connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:8442354/2"/>
-</package3dinstances>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="LED_ORANGE" urn="urn:adsk.eagle:component:8442365/2" prefix="D" uservalue="yes" library_version="17">
-<description>&lt;p&gt;&lt;b&gt;LED&lt;/b&gt;&lt;/p&gt;
-&lt;b&gt;0603&lt;/b&gt; - 0603 Surface Mount Package
-&lt;hr&gt;
-&lt;p&gt;&lt;b&gt;&lt;u&gt;2mA:&lt;/u&gt;&lt;/b&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Green LED - Low Power (3.9mcd, 2ma, 1.7Vf) - Digikey: 475-2709-2-ND&lt;/li&gt;
-&lt;li&gt;Orange LED - Low Power (9.8mcd, 2ma, 1.8Vf) - Digikey: 475-1194-2-ND&lt;/li&gt;
-&lt;li&gt;Red LED - Low Power (5mcd, 2ma, 1.8Vf) - Digikey: 475-1195-2-ND&lt;/li&gt;
-&lt;li&gt;Yellow LED - Low Power (7mcd, 2ma, 1.8Vf) - Digikey: 475-1196-2-ND&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;b&gt;&lt;u&gt;5mA:&lt;/u&gt;&lt;/b&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Blue LED - Low Power (17mcd, 5ma, 2.9Vf) - Digikey: LNJ937W8CRACT-ND&lt;/li&gt;
-&lt;/ul&gt;
-&lt;b&gt;0805&lt;/b&gt; - 0805 Surface Mount Package
-&lt;hr&gt;
-&lt;p&gt;&lt;b&gt;&lt;u&gt;2mA:&lt;/u&gt;&lt;/b&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Red LED (8.8mcd, 2mA, 1.8Vf, Clear) - Low Power [Digikey: 475-2510-1-ND]&lt;/li&gt;
-&lt;li&gt;Green LED (5mcd, 2mA, 1.8Vf, Clear) - Low Power [Digikey: 475-2730-1-ND]&lt;/li&gt;
-&lt;li&gt;Yellow LED (11.3mcd, 2mA, 1.8Vf, Clear) - Low Power [Digikey: 475-2555-1-ND]&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;b&gt;&lt;u&gt;20mA:&lt;/u&gt;&lt;/b&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Red LED (104mcd, 20mA, Diffused) - LS R976 [Digikey: 475-1278-6-ND]&lt;/li&gt;
-&lt;li&gt;Red LED (12mcd, 20mA, 2.0Vf, Clear) - APT2012EC [Digikey: 754-1128-1-ND]&lt;/li&gt;
-&lt;li&gt;Green LED (15mcd, 20mA, 2.2Vf, Clear) - APT2012GC [Digikey: 754-1131-1-ND]&lt;/li&gt;
-&lt;li&gt;Orange LED (160mcd, 20mA, 2.1Vf, Clear) - APT2012SECK [Digikey: 754-1130-1-ND]&lt;/li&gt;
-&lt;/ul&gt;
-&lt;li&gt;&lt;b&gt;1206&lt;/b&gt; - 1206 Surface Mount Package
-&lt;hr&gt;
-&lt;ul&gt;
-&lt;li&gt;Green LED (26mcd, 20mA, Diffused) - LG N971  [Digikey: 475-1407-6-ND]&lt;/li&gt;
-&lt;li&gt;Red LED (15mcd, 20mA, Diffused) - LH N974 [Digikey: 475-1416-6-ND]&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;li&gt;&lt;b&gt;Cree&lt;/b&gt; - Cree High-Power Surface Mount LEDs
-&lt;hr&gt;
-&lt;ul&gt;
-&lt;li&gt;XPEBWT-L1-0000-00D50 - White 111lm 350mA 2.9Vf 6200K 110°&lt;/li&gt;
-&lt;li&gt;XTEAWT-00-0000-00000LEE3 - White 114lm 350mA 2.85Vf 5000K 115°&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;li&gt;&lt;b&gt;Everlight&lt;/b&gt; - Everlight 45-21 Series Surface Mount LEDs
-&lt;hr&gt;
-&lt;ul&gt;
-&lt;li&gt;45-21/QK2C-B2832AC2CB2/2T - Warm White 2000mcd 20mA 3.25Vf 3050K 120°&lt;/li&gt;
-&lt;li&gt;45-21/LK2C-B38452C4CB2/2T - Nuetral White 2000mcd 20mA 3.25Vf 4150K 120°&lt;/li&gt;
-&lt;li&gt;45-21/LK2C-B50634C6CB2/2T - Cold White 2200mcd 20mA 3.25Vf 5650K 120°&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;li&gt;&lt;b&gt;PLCC2 Reverse Mount&lt;/b&gt;
-&lt;hr&gt;
-&lt;ul&gt;
-&lt;li&gt;LS T77K-J1L2-1-0-2-R18-Z - Red 11.25mcd 2mA 1.8Vf 630nm 120°&lt;/li&gt;
-&lt;li&gt;LO T77K-L1M2-24-Z - Orange 19.6mcd 2mA 1.8Vf 606nm 120°&lt;/li&gt;
-&lt;li&gt;LY T77K-K2M1-26-Z - Yellow 15.7mcd 2mA 1.8Vf 587nm 120°&lt;/li&gt;
-&lt;/ul&gt;</description>
-<gates>
-<gate name="D1" symbol="LED" x="0" y="0"/>
-</gates>
-<devices>
-<device name="0805" package="CHIPLED_0805">
-<connects>
-<connect gate="D1" pin="A" pad="A"/>
-<connect gate="D1" pin="C" pad="C"/>
-</connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:8442343/2"/>
-</package3dinstances>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="22PF" urn="urn:adsk.eagle:component:8700975/2" prefix="C" uservalue="yes" library_version="17">
-<gates>
-<gate name="G$1" symbol="CAP" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="C_0805">
-<connects>
-<connect gate="G$1" pin="+" pad="+"/>
-<connect gate="G$1" pin="-" pad="-"/>
-</connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:8442351/2"/>
 </package3dinstances>
 <technologies>
 <technology name=""/>
@@ -3044,143 +3132,6 @@ Source: http://www.analog.com/static/imported-files/data_sheets/AD8541_8542_8544
 <attribute name="PACKAGE" value="0603" constant="no"/>
 <attribute name="TYPE" value="Ferrite" constant="no"/>
 </technology>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="MICROSD" urn="urn:adsk.eagle:component:8442373/2" library_version="17">
-<gates>
-<gate name="G$1" symbol="MICROSD" x="-2.54" y="0"/>
-</gates>
-<devices>
-<device name="" package="MICRO-SD-SOCKET">
-<connects>
-<connect gate="G$1" pin="CLK(SCLK,5)" pad="SCLK(5)"/>
-<connect gate="G$1" pin="CMD(DI,3)" pad="DI(3)"/>
-<connect gate="G$1" pin="DAT0(D0,7)" pad="DO(7)"/>
-<connect gate="G$1" pin="DAT1(8)" pad="RSV2(8)"/>
-<connect gate="G$1" pin="DAT2(1)" pad="RSV1(1)"/>
-<connect gate="G$1" pin="DAT3(CS,2)" pad="CS(2)"/>
-<connect gate="G$1" pin="VDD(4)" pad="VCC(4)"/>
-<connect gate="G$1" pin="VSS(6)" pad="GND(6)"/>
-</connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:8442348/2"/>
-</package3dinstances>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="SGTL5000_32QFN" urn="urn:adsk.eagle:component:8442385/2" prefix="U" library_version="17">
-<description>https://www.digikey.com/product-detail/en/nxp-usa-inc/SGTL5000XNAA3R2/SGTL5000XNAA3R2TR-ND/2186898</description>
-<gates>
-<gate name="U1" symbol="SGTL5000-32" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="QFN-32-5MM">
-<connects>
-<connect gate="U1" pin="ADDR(31)" pad="31"/>
-<connect gate="U1" pin="AGND(7)" pad="7"/>
-<connect gate="U1" pin="BCLK(24)" pad="24"/>
-<connect gate="U1" pin="CPFILT(18)" pad="18"/>
-<connect gate="U1" pin="GND@1" pad="1"/>
-<connect gate="U1" pin="GND@3" pad="3"/>
-<connect gate="U1" pin="GND@PAD" pad="PAD"/>
-<connect gate="U1" pin="HPL(6)" pad="6"/>
-<connect gate="U1" pin="HPR(2)" pad="2"/>
-<connect gate="U1" pin="HPVGND(4)" pad="4"/>
-<connect gate="U1" pin="LINEINL(14)" pad="14"/>
-<connect gate="U1" pin="LINEINR(13)" pad="13"/>
-<connect gate="U1" pin="LINEOUTL(12)" pad="12"/>
-<connect gate="U1" pin="LINEOUTR(11)" pad="11"/>
-<connect gate="U1" pin="LRCLK(23)" pad="23"/>
-<connect gate="U1" pin="MCLK(21)" pad="21"/>
-<connect gate="U1" pin="MIC(15)" pad="15"/>
-<connect gate="U1" pin="MICBIAS(16)" pad="16"/>
-<connect gate="U1" pin="MODE(32)" pad="32"/>
-<connect gate="U1" pin="RX(25)" pad="25"/>
-<connect gate="U1" pin="SCL(29)" pad="29"/>
-<connect gate="U1" pin="SDA(27)" pad="27"/>
-<connect gate="U1" pin="TX(26)" pad="26"/>
-<connect gate="U1" pin="VAG(10)" pad="10"/>
-<connect gate="U1" pin="VDDA(5)" pad="5"/>
-<connect gate="U1" pin="VDDD(30)" pad="30"/>
-<connect gate="U1" pin="VDDIO(20)" pad="20"/>
-</connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:8442355/2"/>
-</package3dinstances>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="23LC1024" urn="urn:adsk.eagle:component:8442376/2" prefix="U" library_version="17">
-<description>https://www.digikey.com/product-detail/en/microchip-technology/23LC1024T-I-ST/23LC1024T-I-STCT-ND/5818676</description>
-<gates>
-<gate name="U1" symbol="23LC1024" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="TSSOP8">
-<connects>
-<connect gate="U1" pin="3.3V(8)" pad="8"/>
-<connect gate="U1" pin="CS(1)" pad="1"/>
-<connect gate="U1" pin="GND(4)" pad="4"/>
-<connect gate="U1" pin="MISO(2)" pad="2"/>
-<connect gate="U1" pin="MOSI(5)" pad="5"/>
-<connect gate="U1" pin="RST(7)" pad="7"/>
-<connect gate="U1" pin="SCLK(6)" pad="6"/>
-<connect gate="U1" pin="WP(3)" pad="3"/>
-</connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:8442350/2"/>
-</package3dinstances>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="FERRITE600_AUDIO" urn="urn:adsk.eagle:component:8442382/3" prefix="L" library_version="17">
-<description>https://www.digikey.com/product-detail/en/tdk-corporation/MPZ2012S601AT000/445-2206-1-ND/765104</description>
-<gates>
-<gate name="L1" symbol="FERRITE_BEAD" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="0805">
-<connects>
-<connect gate="L1" pin="1" pad="1"/>
-<connect gate="L1" pin="2" pad="2"/>
-</connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:8442354/2"/>
-</package3dinstances>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="AP7313" urn="urn:adsk.eagle:component:8442384/2" prefix="D" library_version="17">
-<description>https://www.digikey.com/product-detail/en/diodes-incorporated/AP7313-33SRG-7/AP7313-33SRG-7DICT-ND/2270841</description>
-<gates>
-<gate name="D1" symbol="AP7313" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="SOT23-3">
-<connects>
-<connect gate="D1" pin="GND" pad="GND"/>
-<connect gate="D1" pin="IN" pad="IN"/>
-<connect gate="D1" pin="OUT" pad="OUT"/>
-</connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:8442353/2"/>
-</package3dinstances>
-<technologies>
-<technology name=""/>
 </technologies>
 </device>
 </devices>
@@ -3249,8 +3200,8 @@ Source: http://www.analog.com/static/imported-files/data_sheets/AD8541_8542_8544
 <part name="GND6" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" deviceset="GND" device=""/>
 <part name="C7" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="2.2UF" device="" package3d_urn="urn:adsk.eagle:package:8442351/2"/>
 <part name="GND7" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" deviceset="GND" device=""/>
-<part name="R5" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" deviceset="33OHM" device="" package3d_urn="urn:adsk.eagle:package:8442354/2" value="33"/>
-<part name="R6" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" deviceset="33OHM" device="" package3d_urn="urn:adsk.eagle:package:8442354/2" value="33"/>
+<part name="R5" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="33OHM" device="" package3d_urn="urn:adsk.eagle:package:8442354/2" value="33"/>
+<part name="R6" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="33OHM" device="" package3d_urn="urn:adsk.eagle:package:8442354/2" value="33"/>
 <part name="J6" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" deviceset="SWD_CONNECTOR" device="" package3d_urn="urn:adsk.eagle:package:8709581/1"/>
 <part name="GND9" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" deviceset="GND" device=""/>
 <part name="S2" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="TACT_SWITCH" device="" package3d_urn="urn:adsk.eagle:package:8762249/2"/>
@@ -3261,15 +3212,15 @@ Source: http://www.analog.com/static/imported-files/data_sheets/AD8541_8542_8544
 <part name="C9" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="0.1UF" device="" package3d_urn="urn:adsk.eagle:package:8442351/2"/>
 <part name="C10" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="0.1UF" device="" package3d_urn="urn:adsk.eagle:package:8442351/2"/>
 <part name="GND13" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" deviceset="GND" device=""/>
-<part name="R7" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" deviceset="470OHM" device="" package3d_urn="urn:adsk.eagle:package:8442354/2" value="470"/>
-<part name="D5" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" deviceset="LED_ORANGE" device="0805" package3d_urn="urn:adsk.eagle:package:8442343/2" value="ORANGE"/>
+<part name="R7" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="470OHM" device="" package3d_urn="urn:adsk.eagle:package:8442354/2" value="470"/>
+<part name="D5" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="LED_ORANGE" device="0805" package3d_urn="urn:adsk.eagle:package:8442343/2" value="ORANGE"/>
 <part name="GND14" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" deviceset="GND" device=""/>
-<part name="C11" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" deviceset="22PF" device="" package3d_urn="urn:adsk.eagle:package:8442351/2" value="22PF"/>
-<part name="C12" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" deviceset="22PF" device="" package3d_urn="urn:adsk.eagle:package:8442351/2" value="22PF"/>
+<part name="C11" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="22PF" device="" package3d_urn="urn:adsk.eagle:package:8442351/2" value="22PF"/>
+<part name="C12" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="22PF" device="" package3d_urn="urn:adsk.eagle:package:8442351/2" value="22PF"/>
 <part name="GND15" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" deviceset="GND" device=""/>
 <part name="GND16" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" deviceset="GND" device=""/>
 <part name="L1" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" deviceset="FERRITE600_TEENSY" device="" package3d_urn="urn:adsk.eagle:package:8700966/1"/>
-<part name="R8" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" deviceset="470OHM" device="" package3d_urn="urn:adsk.eagle:package:8442354/2" value="470"/>
+<part name="R8" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="470OHM" device="" package3d_urn="urn:adsk.eagle:package:8442354/2" value="470"/>
 <part name="C13" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="2.2UF" device="" package3d_urn="urn:adsk.eagle:package:8442351/2"/>
 <part name="L4" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" deviceset="FERRITE600_TEENSY" device="" package3d_urn="urn:adsk.eagle:package:8700966/1"/>
 <part name="C14" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="0.1UF" device="" package3d_urn="urn:adsk.eagle:package:8442351/2"/>
@@ -3295,13 +3246,13 @@ Source: http://www.analog.com/static/imported-files/data_sheets/AD8541_8542_8544
 <part name="C34" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="2.2UF" device="" package3d_urn="urn:adsk.eagle:package:8442351/2"/>
 <part name="C35" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="0.1UF" device="" package3d_urn="urn:adsk.eagle:package:8442351/2"/>
 <part name="C36" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="0.15UF" device="" package3d_urn="urn:adsk.eagle:package:8442351/2"/>
-<part name="D6" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" deviceset="AP7313" device="" package3d_urn="urn:adsk.eagle:package:8442353/2"/>
-<part name="L3" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" deviceset="FERRITE600_AUDIO" device="" package3d_urn="urn:adsk.eagle:package:8442354/2" value="FER600"/>
+<part name="D6" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="AP7313" device="" package3d_urn="urn:adsk.eagle:package:8442353/2"/>
+<part name="L3" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="FERRITE600_AUDIO" device="" package3d_urn="urn:adsk.eagle:package:8442354/2" value="FER600"/>
 <part name="R11" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="2.2KOHM" device="" package3d_urn="urn:adsk.eagle:package:8442354/2" value="2.2K"/>
 <part name="R12" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="2.2KOHM" device="" package3d_urn="urn:adsk.eagle:package:8442354/2" value="2.2K"/>
-<part name="U4" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" deviceset="SGTL5000_32QFN" device="" package3d_urn="urn:adsk.eagle:package:8442355/2"/>
-<part name="U5" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" deviceset="23LC1024" device="" package3d_urn="urn:adsk.eagle:package:8442350/2"/>
-<part name="U$6" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" deviceset="MICROSD" device="" package3d_urn="urn:adsk.eagle:package:8442348/2"/>
+<part name="U4" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="SGTL5000_32QFN" device="" package3d_urn="urn:adsk.eagle:package:8442355/2"/>
+<part name="U5" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="23LC1024" device="" package3d_urn="urn:adsk.eagle:package:8442350/2"/>
+<part name="U$6" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="MICROSD" device="" package3d_urn="urn:adsk.eagle:package:8442348/2"/>
 <part name="R13" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="10KOHM" device="" package3d_urn="urn:adsk.eagle:package:8442354/2" value="10K"/>
 <part name="R14" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" deviceset="10KOHM" device="" package3d_urn="urn:adsk.eagle:package:8442354/2" value="10K"/>
 <part name="GND43" library="moon-germs-v1" deviceset="GND" device=""/>
