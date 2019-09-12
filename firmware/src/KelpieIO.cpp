@@ -16,6 +16,9 @@ Kelpie::Kelpie(bool enableSerial)
     pinMode(SWLED2, OUTPUT);
     pinMode(SWLED3, OUTPUT);
     pinMode(SWLED4, OUTPUT);
+
+    pinMode(MIDILED, OUTPUT);
+    digitalWrite(MIDILED, HIGH);
 }
 
 pot Kelpie::getKnobValOnStartup(byte knobIndex)
