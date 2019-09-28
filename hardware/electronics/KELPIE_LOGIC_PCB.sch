@@ -2206,8 +2206,8 @@ https://www.digikey.com/product-detail/en/microchip-technology/MCP1826ST-3302E-D
 </device>
 </devices>
 </deviceset>
-<deviceset name="2.2UF" urn="urn:adsk.eagle:component:13046322/1" prefix="C" library_version="61">
-<description>https://www.digikey.com/product-detail/en/samsung-electro-mechanics/CL21B105KAFNNNE/1276-1066-1-ND/3889152</description>
+<deviceset name="2.2UF" urn="urn:adsk.eagle:component:13046322/2" prefix="C" library_version="65">
+<description>https://www.digikey.com/product-detail/en/samsung-electro-mechanics/CL21B225KAFNFNE/1276-2953-1-ND/3891039</description>
 <gates>
 <gate name="C1" symbol="CAP-3" x="0" y="0"/>
 </gates>
@@ -2222,7 +2222,7 @@ https://www.digikey.com/product-detail/en/microchip-technology/MCP1826ST-3302E-D
 </package3dinstances>
 <technologies>
 <technology name="">
-<attribute name="MPN" value="CL21B105KAFNNNE" constant="no"/>
+<attribute name="MPN" value="CL21B225KAFNFNE" constant="no"/>
 </technology>
 </technologies>
 </device>
@@ -2452,8 +2452,10 @@ https://www.digikey.com/product-detail/en/microchip-technology/MCP1826ST-3302E-D
 </device>
 </devices>
 </deviceset>
-<deviceset name="AP7313" urn="urn:adsk.eagle:component:13046359/1" prefix="D" library_version="64" library_locally_modified="yes">
-<description>https://www.digikey.com/product-detail/en/diodes-incorporated/AP7313-33SRG-7/AP7313-33SRG-7DICT-ND/2270841</description>
+<deviceset name="AP7313" urn="urn:adsk.eagle:component:13046359/2" prefix="D" library_version="65">
+<description>https://www.digikey.com/product-detail/en/diodes-incorporated/AP7313-18SRG-7/AP7313-18SRG-7DICT-ND/2270839
+
+1.8V Regulator</description>
 <gates>
 <gate name="D1" symbol="AP7313" x="0" y="0"/>
 </gates>
@@ -2469,7 +2471,7 @@ https://www.digikey.com/product-detail/en/microchip-technology/MCP1826ST-3302E-D
 </package3dinstances>
 <technologies>
 <technology name="">
-<attribute name="MPN" value="AP7313-33SRG-7" constant="no"/>
+<attribute name="MPN" value="AP7313-18SRG-7" constant="no"/>
 </technology>
 </technologies>
 </device>
@@ -4742,7 +4744,7 @@ https://www.digikey.com/product-detail/en/microchip-technology/MCP1826ST-3302E-D
 <label x="124.46" y="279.4" size="1.27" layer="95" rot="R90" xref="yes"/>
 </segment>
 </net>
-<net name="N$20" class="0">
+<net name="1.8V" class="0">
 <segment>
 <wire x1="52.07" y1="337.82" x2="54.61" y2="337.82" width="0.1524" layer="91"/>
 <wire x1="54.61" y1="337.82" x2="54.61" y2="331.47" width="0.1524" layer="91"/>
