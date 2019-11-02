@@ -262,7 +262,7 @@ void handleKnobChange(pot knob)
     break;
   case 4: // MASTER_VOL
     globalState.MASTER_VOL = 2 * (1 - decKnobVal);
-    amp1.gain(globalState.MASTER_VOL);
+    MASTER_GAIN.gain(globalState.MASTER_VOL);
     break;
   case 5: // NOISE_PRESENSE
     globalState.NOISE_VOL = 1 - decKnobVal;
@@ -338,14 +338,17 @@ void handleKnobChange(pot knob)
     }
     break;
   case 13:
-    globalState.LFO_FREQ = LFO_FREQ_MAX * (1 - decKnobVal);
+    globalState.LFO_FREQ = LFO_FREQ_MAX * pow((1 - decKnobVal), 5);
     LFO.frequency(globalState.LFO_FREQ);
     break;
-  case 14:
+  case 14: // LFO SIGNAL TO FILTER
+    globalState.LFO_FILTER_GAIN = (1 - decKnobVal);
+    LFO_MIXER_FILTER.gain(1, globalState.LFO_FILTER_GAIN);
+    break;
 
   case 15:
-    globalState.LFO_MIXER_AMP = (1 - decKnobVal);
-    LFO_MIXER_AMP.gain(1, globalState.LFO_MIXER_AMP);
+    globalState.LFO_AMP_GAIN = (1 - decKnobVal);
+    LFO_MIXER_AMP.gain(1, globalState.LFO_AMP_GAIN);
     break;
 
   default:

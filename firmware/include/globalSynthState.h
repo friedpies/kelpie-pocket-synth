@@ -17,7 +17,8 @@ struct synthState
   float DETUNE;
   float PITCH_BEND;
   float LFO_FREQ;
-  float LFO_MIXER_AMP;
+  float LFO_FILTER_GAIN;
+  float LFO_AMP_GAIN;
   float AMP_ATTACK;
   float AMP_DECAY;
   float AMP_SUSTAIN;

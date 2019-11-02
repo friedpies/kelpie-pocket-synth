@@ -6,87 +6,89 @@
 #define Audio_Connections_h
 
 // GUItool: begin automatically generated code
-AudioSynthNoiseWhite     V8_N;           //xy=121.00390625,1267.9999987483025
-AudioSynthWaveform       V6_B;           //xy=123.00390625,943.9999987483025
-AudioSynthWaveform       V6_A;           //xy=124.00390625,902.9999987483025
-AudioSynthNoiseWhite     V7_N;           //xy=124.00390625,1127.9999987483025
-AudioSynthWaveform       V8_B;           //xy=124.00390625,1224.9999987483025
-AudioSynthNoiseWhite     V6_N;           //xy=125.00390625,985.9999987483025
-AudioSynthWaveform       V7_A;           //xy=125.00390625,1046.9999987483025
-AudioSynthWaveform       V7_B;           //xy=126.00390625,1088.9999987483025
-AudioSynthWaveform       V8_A;           //xy=126.00390625,1182.9999987483025
-AudioSynthWaveform       V5_B;           //xy=129.00390625,801.9999987483025
-AudioSynthWaveform       V3_A;           //xy=131.00390625,473.99999874830246
-AudioSynthWaveform       V5_A;           //xy=131.00390625,761.9999987483025
-AudioSynthNoiseWhite     V2_N;           //xy=133.00390625,426.99999874830246
-AudioSynthWaveform       V3_B;           //xy=133.00390625,523.9999987483025
-AudioSynthNoiseWhite     V3_N;           //xy=133.00390625,567.9999987483025
-AudioSynthWaveform       V2_B;           //xy=134.00390625,378.99999874830246
-AudioSynthNoiseWhite     V1_N;           //xy=135.00390625,282.99999874830246
-AudioSynthWaveform       V4_A;           //xy=134.00390625,616.9999987483025
-AudioSynthWaveform       V4_B;           //xy=134.00390625,658.9999987483025
-AudioSynthWaveform       V2_A;           //xy=136.00390625,330.99999874830246
-AudioSynthNoiseWhite     V5_N;           //xy=134.00390625,845.9999987483025
-AudioSynthWaveform       V1_B;           //xy=139.00390625,243.99999874830246
-AudioSynthNoiseWhite     V4_N;           //xy=140.00390625,697.9999987483025
-AudioSynthWaveform       V1_A;           //xy=143.00390625,203.99999874830246
-AudioSynthWaveformDc     DC_OFFSET;      //xy=227.00390625,138.99999874830246
-AudioMixer4              V3_MIX;         //xy=288.00390625,506.99999874830246
-AudioMixer4              V8_MIX;         //xy=290.00390625,1224.9999987483025
-AudioMixer4              V5_MIX;         //xy=295.00390625,793.9999987483025
-AudioMixer4              V7_MIX;         //xy=294.00390625,1081.9999987483025
-AudioMixer4              V6_MIX;         //xy=296.00390625,930.9999987483025
-AudioMixer4              V4_MIX;         //xy=300.00390625,630.9999987483025
-AudioMixer4              V1_MIX;         //xy=305.00390625,246.99999874830246
-AudioMixer4              V2_MIX;         //xy=309.00390625,367.99999874830246
-AudioSynthWaveformSine   LFO;            //xy=351.00390625,92.99999874830246
-AudioEffectEnvelope      V7_FILT_ENV;    //xy=439.00390625,1051.9999987483025
-AudioEffectEnvelope      V6_FILT_ENV;    //xy=445.00390625,909.9999987483025
-AudioEffectEnvelope      V8_FILT_ENV;    //xy=445.00390625,1202.9999987483025
-AudioAmplifier           V8_AMP;         //xy=446.00390625,1250.9999987483025
-AudioAmplifier           V5_AMP;         //xy=454.00390625,805.9999987483025
-AudioAmplifier           V7_AMP;         //xy=453.00390625,1088.9999987483025
-AudioEffectEnvelope      V3_FILT_ENV;    //xy=458.00390625,489.99999874830246
-AudioEffectEnvelope      V5_FILT_ENV;    //xy=459.00390625,760.9999987483025
-AudioAmplifier           V6_AMP;         //xy=460.00390625,949.9999987483025
-AudioAmplifier           V2_AMP;         //xy=465.00390625,411.99999874830246
-AudioAmplifier           V4_AMP;         //xy=465.00390625,662.9999987483025
-AudioEffectEnvelope      V4_FILT_ENV;    //xy=466.00390625,621.9999987483025
-AudioAmplifier           V3_AMP;         //xy=468.00390625,536.9999987483025
-AudioAmplifier           V1_AMP;         //xy=477.00390625,239.99999874830246
-AudioEffectEnvelope      V2_FILT_ENV;    //xy=481.00390625,353.99999874830246
-AudioEffectEnvelope      V1_FILT_ENV;    //xy=484.00390625,295.99999874830246
-AudioMixer4              LFO_MIXER_AMP;  //xy=507.00390625,180.99999874830246
-AudioEffectMultiply      MULT_7;         //xy=613.00390625,1061.9999987483025
-AudioEffectMultiply      MULT_8;         //xy=615.00390625,1200.9999987483025
-AudioEffectMultiply      MULT_3;         //xy=631.00390625,483.99999874830246
-AudioEffectMultiply      MULT_6;         //xy=632.00390625,909.9999987483025
-AudioEffectMultiply      MULT_5;         //xy=638.00390625,777.9999987483025
-AudioEffectMultiply      MULT_1;         //xy=642.00390625,234.99999874830246
-AudioEffectMultiply      MULT_4;         //xy=642.00390625,610.9999987483025
-AudioEffectMultiply      MULT_2;         //xy=648.00390625,352.99999874830246
-AudioFilterStateVariable V7_FILT;        //xy=770.00390625,1097.9999987483025
-AudioFilterStateVariable V3_FILT;        //xy=773.00390625,523.9999987483025
-AudioFilterStateVariable V2_FILT;        //xy=775.00390625,409.99999874830246
-AudioFilterStateVariable V6_FILT;        //xy=774.00390625,948.9999987483025
-AudioFilterStateVariable V8_FILT;        //xy=774.00390625,1233.9999987483025
-AudioFilterStateVariable V1_FILT;        //xy=797.00390625,297.99999874830246
-AudioFilterStateVariable V4_FILT;        //xy=796.00390625,642.9999987483025
-AudioFilterStateVariable V5_FILT;        //xy=798.00390625,796.9999987483025
-AudioEffectEnvelope      V1_ENV;         //xy=960.00390625,313.99999874830246
-AudioEffectEnvelope      V2_ENV;         //xy=967.00390625,400.99999874830246
-AudioEffectEnvelope      V6_ENV;         //xy=976.00390625,892.9999987483025
-AudioEffectEnvelope      V7_ENV;         //xy=979.00390625,955.9999987483025
-AudioEffectEnvelope      V3_ENV;         //xy=982.00390625,524.9999987483025
-AudioEffectEnvelope      V5_ENV;         //xy=990.00390625,805.9999987483025
-AudioEffectEnvelope      V4_ENV;         //xy=994.00390625,649.9999987483025
-AudioEffectEnvelope      V8_ENV;         //xy=995.00390625,1097.9999987483025
-AudioMixer4              V14_MIX;        //xy=1292.00390625,662.9999987483025
-AudioMixer4              V58_MIX;        //xy=1293.00390625,732.9999987483025
-AudioMixer4              ALL_VOICE_MIX;  //xy=1513.00390625,748.9999987483025
-AudioAmplifier           amp1;           //xy=1678.00390625,744.9999987483025
-AudioAnalyzeRMS         rms1;          //xy=1811.00390625,574.00390625
-AudioOutputI2S           i2s1;           //xy=1823.00390625,744.9999987483025
+AudioSynthNoiseWhite     V8_N;           //xy=122.52603149414062,1380
+AudioSynthWaveform       V6_B;           //xy=124.52603149414062,1056
+AudioSynthWaveform       V6_A;           //xy=125.52603149414062,1015
+AudioSynthNoiseWhite     V7_N;           //xy=125.52603149414062,1240
+AudioSynthWaveform       V8_B;           //xy=125.52603149414062,1337
+AudioSynthNoiseWhite     V6_N;           //xy=126.52603149414062,1098
+AudioSynthWaveform       V7_A;           //xy=126.52603149414062,1159
+AudioSynthWaveform       V7_B;           //xy=127.52603149414062,1201
+AudioSynthWaveform       V8_A;           //xy=127.52603149414062,1295
+AudioSynthWaveform       V5_B;           //xy=130.52603149414062,914
+AudioSynthWaveform       V3_A;           //xy=132.52603149414062,586
+AudioSynthWaveform       V5_A;           //xy=132.52603149414062,874
+AudioSynthNoiseWhite     V2_N;           //xy=134.52603149414062,539
+AudioSynthWaveform       V3_B;           //xy=134.52603149414062,636
+AudioSynthNoiseWhite     V3_N;           //xy=134.52603149414062,680
+AudioSynthWaveform       V2_B;           //xy=135.52603149414062,491
+AudioSynthNoiseWhite     V1_N;           //xy=136.52603149414062,395
+AudioSynthWaveform       V4_A;           //xy=135.52603149414062,729
+AudioSynthWaveform       V4_B;           //xy=135.52603149414062,771
+AudioSynthWaveform       V2_A;           //xy=137.52603149414062,443
+AudioSynthNoiseWhite     V5_N;           //xy=135.52603149414062,958
+AudioSynthWaveform       V1_B;           //xy=140.52603149414062,356
+AudioSynthNoiseWhite     V4_N;           //xy=141.52603149414062,810
+AudioSynthWaveform       V1_A;           //xy=144.52603149414062,316
+AudioSynthWaveformDc     DC_OFFSET;      //xy=228.52603149414062,251
+AudioMixer4              V3_MIX;         //xy=289.5260314941406,619
+AudioMixer4              V8_MIX;         //xy=291.5260314941406,1337
+AudioMixer4              V5_MIX;         //xy=296.5260314941406,906
+AudioMixer4              V7_MIX;         //xy=295.5260314941406,1194
+AudioMixer4              V6_MIX;         //xy=297.5260314941406,1043
+AudioMixer4              V4_MIX;         //xy=301.5260314941406,743
+AudioMixer4              V1_MIX;         //xy=306.5260314941406,359
+AudioMixer4              V2_MIX;         //xy=310.5260314941406,480
+AudioSynthWaveformSine   LFO;            //xy=366.2760314941406,187.50000858306885
+AudioEffectEnvelope      V7_FILT_ENV;    //xy=440.5260314941406,1164
+AudioEffectEnvelope      V6_FILT_ENV;    //xy=446.5260314941406,1022
+AudioEffectEnvelope      V8_FILT_ENV;    //xy=446.5260314941406,1315
+AudioAmplifier           V8_AMP;         //xy=447.5260314941406,1363
+AudioAmplifier           V5_AMP;         //xy=455.5260314941406,918
+AudioAmplifier           V7_AMP;         //xy=454.5260314941406,1201
+AudioEffectEnvelope      V3_FILT_ENV;    //xy=459.5260314941406,602
+AudioEffectEnvelope      V5_FILT_ENV;    //xy=460.5260314941406,873
+AudioAmplifier           V6_AMP;         //xy=461.5260314941406,1062
+AudioMixer4              LFO_MIXER_FILTER;  //xy=466.0261001586914,275.49999237060547
+AudioAmplifier           V2_AMP;         //xy=466.5260314941406,524
+AudioAmplifier           V4_AMP;         //xy=466.5260314941406,775
+AudioEffectEnvelope      V4_FILT_ENV;    //xy=467.5260314941406,734
+AudioAmplifier           V3_AMP;         //xy=469.5260314941406,649
+AudioAmplifier           V1_AMP;         //xy=478.5260314941406,352
+AudioEffectEnvelope      V2_FILT_ENV;    //xy=482.5260314941406,466
+AudioEffectEnvelope      V1_FILT_ENV;    //xy=485.5260314941406,408
+AudioEffectMultiply      MULT_7;         //xy=614.5260314941406,1174
+AudioEffectMultiply      MULT_8;         //xy=616.5260314941406,1313
+AudioEffectMultiply      MULT_3;         //xy=632.5260314941406,596
+AudioEffectMultiply      MULT_6;         //xy=633.5260314941406,1022
+AudioEffectMultiply      MULT_5;         //xy=639.5260314941406,890
+AudioEffectMultiply      MULT_1;         //xy=643.5260314941406,347
+AudioEffectMultiply      MULT_4;         //xy=643.5260314941406,723
+AudioEffectMultiply      MULT_2;         //xy=649.5260314941406,465
+AudioFilterStateVariable V7_FILT;        //xy=771.5260314941406,1210
+AudioFilterStateVariable V3_FILT;        //xy=774.5260314941406,636
+AudioFilterStateVariable V2_FILT;        //xy=776.5260314941406,522
+AudioFilterStateVariable V6_FILT;        //xy=775.5260314941406,1061
+AudioFilterStateVariable V8_FILT;        //xy=775.5260314941406,1346
+AudioFilterStateVariable V1_FILT;        //xy=798.5260314941406,410
+AudioFilterStateVariable V4_FILT;        //xy=797.5260314941406,755
+AudioFilterStateVariable V5_FILT;        //xy=799.5260314941406,909
+AudioEffectEnvelope      V1_ENV;         //xy=961.5260314941406,426
+AudioEffectEnvelope      V2_ENV;         //xy=968.5260314941406,513
+AudioEffectEnvelope      V6_ENV;         //xy=977.5260314941406,1005
+AudioEffectEnvelope      V7_ENV;         //xy=980.5260314941406,1068
+AudioEffectEnvelope      V3_ENV;         //xy=983.5260314941406,637
+AudioEffectEnvelope      V5_ENV;         //xy=991.5260314941406,918
+AudioEffectEnvelope      V4_ENV;         //xy=995.5260314941406,762
+AudioEffectEnvelope      V8_ENV;         //xy=996.5260314941406,1210
+AudioAnalyzeRMS          rms1;           //xy=1110.026044845581,157.0000238418579
+AudioMixer4              V14_MIX;        //xy=1293.5260314941406,775
+AudioMixer4              V58_MIX;        //xy=1294.5260314941406,845
+AudioMixer4              ALL_VOICE_MIX;  //xy=1473.2761154174805,817.2499923706055
+AudioMixer4              LFO_MIXER_AMP;         //xy=1666.5408477783203,723.7629752159119
+AudioEffectMultiply      LFO_AMP;      //xy=1670.5688514709473,806.2629842758179
+AudioAmplifier           MASTER_GAIN;           //xy=1670.7761535644531,877.0000228881836
+AudioOutputI2S           i2s1;           //xy=1914.5260848999023,824.500020980835
 AudioConnection          patchCord1(V8_N, 0, V8_MIX, 2);
 AudioConnection          patchCord2(V6_B, 0, V6_MIX, 1);
 AudioConnection          patchCord3(V6_A, 0, V6_MIX, 0);
@@ -119,73 +121,76 @@ AudioConnection          patchCord29(DC_OFFSET, V5_FILT_ENV);
 AudioConnection          patchCord30(DC_OFFSET, V6_FILT_ENV);
 AudioConnection          patchCord31(DC_OFFSET, V7_FILT_ENV);
 AudioConnection          patchCord32(DC_OFFSET, V8_FILT_ENV);
-AudioConnection          patchCord33(DC_OFFSET, 0, LFO_MIXER_AMP, 0);
-AudioConnection          patchCord34(V3_MIX, V3_AMP);
-AudioConnection          patchCord35(V8_MIX, V8_AMP);
-AudioConnection          patchCord36(V5_MIX, V5_AMP);
-AudioConnection          patchCord37(V7_MIX, V7_AMP);
-AudioConnection          patchCord38(V6_MIX, V6_AMP);
-AudioConnection          patchCord39(V4_MIX, V4_AMP);
-AudioConnection          patchCord40(V1_MIX, V1_AMP);
-AudioConnection          patchCord41(V2_MIX, V2_AMP);
-AudioConnection          patchCord42(LFO, 0, LFO_MIXER_AMP, 1);
-AudioConnection          patchCord43(V7_FILT_ENV, 0, MULT_7, 1);
-AudioConnection          patchCord44(V6_FILT_ENV, 0, MULT_6, 1);
-AudioConnection          patchCord45(V8_FILT_ENV, 0, MULT_8, 1);
-AudioConnection          patchCord46(V8_AMP, 0, V8_FILT, 0);
-AudioConnection          patchCord47(V5_AMP, 0, V5_FILT, 0);
-AudioConnection          patchCord48(V7_AMP, 0, V7_FILT, 0);
-AudioConnection          patchCord49(V3_FILT_ENV, 0, MULT_3, 1);
-AudioConnection          patchCord50(V5_FILT_ENV, 0, MULT_5, 1);
-AudioConnection          patchCord51(V6_AMP, 0, V6_FILT, 0);
-AudioConnection          patchCord52(V2_AMP, 0, V2_FILT, 0);
-AudioConnection          patchCord53(V4_AMP, 0, V4_FILT, 0);
-AudioConnection          patchCord54(V4_FILT_ENV, 0, MULT_4, 1);
-AudioConnection          patchCord55(V3_AMP, 0, V3_FILT, 0);
-AudioConnection          patchCord56(V1_AMP, 0, V1_FILT, 0);
-AudioConnection          patchCord57(V2_FILT_ENV, 0, MULT_2, 1);
-AudioConnection          patchCord58(V1_FILT_ENV, 0, MULT_1, 1);
-AudioConnection          patchCord59(LFO_MIXER_AMP, 0, MULT_1, 0);
-AudioConnection          patchCord60(LFO_MIXER_AMP, 0, MULT_2, 0);
-AudioConnection          patchCord61(LFO_MIXER_AMP, 0, MULT_3, 0);
-AudioConnection          patchCord62(LFO_MIXER_AMP, 0, MULT_4, 0);
-AudioConnection          patchCord63(LFO_MIXER_AMP, 0, MULT_5, 0);
-AudioConnection          patchCord64(LFO_MIXER_AMP, 0, MULT_6, 0);
-AudioConnection          patchCord65(LFO_MIXER_AMP, 0, MULT_7, 0);
-AudioConnection          patchCord66(LFO_MIXER_AMP, 0, MULT_8, 0);
-AudioConnection          patchCord67(MULT_7, 0, V7_FILT, 1);
-AudioConnection          patchCord68(MULT_8, 0, V8_FILT, 1);
-AudioConnection          patchCord69(MULT_3, 0, V3_FILT, 1);
-AudioConnection          patchCord70(MULT_6, 0, V6_FILT, 1);
-AudioConnection          patchCord71(MULT_5, 0, V5_FILT, 1);
-AudioConnection          patchCord72(MULT_1, 0, V1_FILT, 1);
-AudioConnection          patchCord73(MULT_4, 0, V4_FILT, 1);
-AudioConnection          patchCord74(MULT_2, 0, V2_FILT, 1);
-AudioConnection          patchCord75(V7_FILT, 0, V7_ENV, 0);
-AudioConnection          patchCord76(V3_FILT, 0, V3_ENV, 0);
-AudioConnection          patchCord77(V2_FILT, 0, V2_ENV, 0);
-AudioConnection          patchCord78(V6_FILT, 0, V6_ENV, 0);
-AudioConnection          patchCord79(V8_FILT, 0, V8_ENV, 0);
-AudioConnection          patchCord80(V1_FILT, 0, V1_ENV, 0);
-AudioConnection          patchCord81(V4_FILT, 0, V4_ENV, 0);
-AudioConnection          patchCord82(V5_FILT, 0, V5_ENV, 0);
-AudioConnection          patchCord83(V1_ENV, 0, V14_MIX, 0);
-AudioConnection          patchCord84(V2_ENV, 0, V14_MIX, 1);
-AudioConnection          patchCord85(V6_ENV, 0, V58_MIX, 1);
-AudioConnection          patchCord86(V7_ENV, 0, V58_MIX, 2);
-AudioConnection          patchCord87(V3_ENV, 0, V14_MIX, 2);
-AudioConnection          patchCord88(V5_ENV, 0, V58_MIX, 0);
-AudioConnection          patchCord89(V4_ENV, 0, V14_MIX, 3);
-AudioConnection          patchCord90(V8_ENV, 0, V58_MIX, 3);
-AudioConnection          patchCord91(V14_MIX, 0, ALL_VOICE_MIX, 0);
-AudioConnection          patchCord92(V58_MIX, 0, ALL_VOICE_MIX, 1);
-AudioConnection          patchCord93(ALL_VOICE_MIX, amp1);
-AudioConnection          patchCord94(amp1, 0, i2s1, 0);
-AudioConnection          patchCord95(amp1, 0, i2s1, 1);
-AudioConnection          patchCord96(V1_AMP, rms1);
-AudioControlSGTL5000     sgtl5000_1;     //xy=1390.00390625,919.9999987483025
+AudioConnection          patchCord33(DC_OFFSET, 0, LFO_MIXER_FILTER, 0);
+AudioConnection          patchCord34(DC_OFFSET, 0, LFO_MIXER_AMP, 0);
+AudioConnection          patchCord35(V3_MIX, V3_AMP);
+AudioConnection          patchCord36(V8_MIX, V8_AMP);
+AudioConnection          patchCord37(V5_MIX, V5_AMP);
+AudioConnection          patchCord38(V7_MIX, V7_AMP);
+AudioConnection          patchCord39(V6_MIX, V6_AMP);
+AudioConnection          patchCord40(V4_MIX, V4_AMP);
+AudioConnection          patchCord41(V1_MIX, V1_AMP);
+AudioConnection          patchCord42(V2_MIX, V2_AMP);
+AudioConnection          patchCord43(LFO, 0, LFO_MIXER_FILTER, 1);
+AudioConnection          patchCord44(LFO, 0, LFO_MIXER_AMP, 1);
+AudioConnection          patchCord45(V7_FILT_ENV, 0, MULT_7, 1);
+AudioConnection          patchCord46(V6_FILT_ENV, 0, MULT_6, 1);
+AudioConnection          patchCord47(V8_FILT_ENV, 0, MULT_8, 1);
+AudioConnection          patchCord48(V8_AMP, 0, V8_FILT, 0);
+AudioConnection          patchCord49(V5_AMP, 0, V5_FILT, 0);
+AudioConnection          patchCord50(V7_AMP, 0, V7_FILT, 0);
+AudioConnection          patchCord51(V3_FILT_ENV, 0, MULT_3, 1);
+AudioConnection          patchCord52(V5_FILT_ENV, 0, MULT_5, 1);
+AudioConnection          patchCord53(V6_AMP, 0, V6_FILT, 0);
+AudioConnection          patchCord54(LFO_MIXER_FILTER, 0, MULT_1, 0);
+AudioConnection          patchCord55(LFO_MIXER_FILTER, 0, MULT_2, 0);
+AudioConnection          patchCord56(LFO_MIXER_FILTER, 0, MULT_3, 0);
+AudioConnection          patchCord57(LFO_MIXER_FILTER, 0, MULT_4, 0);
+AudioConnection          patchCord58(LFO_MIXER_FILTER, 0, MULT_5, 0);
+AudioConnection          patchCord59(LFO_MIXER_FILTER, 0, MULT_6, 0);
+AudioConnection          patchCord60(LFO_MIXER_FILTER, 0, MULT_7, 0);
+AudioConnection          patchCord61(LFO_MIXER_FILTER, 0, MULT_8, 0);
+AudioConnection          patchCord62(V2_AMP, 0, V2_FILT, 0);
+AudioConnection          patchCord63(V4_AMP, 0, V4_FILT, 0);
+AudioConnection          patchCord64(V4_FILT_ENV, 0, MULT_4, 1);
+AudioConnection          patchCord65(V3_AMP, 0, V3_FILT, 0);
+AudioConnection          patchCord66(V1_AMP, 0, V1_FILT, 0);
+AudioConnection          patchCord67(V1_AMP, rms1);
+AudioConnection          patchCord68(V2_FILT_ENV, 0, MULT_2, 1);
+AudioConnection          patchCord69(V1_FILT_ENV, 0, MULT_1, 1);
+AudioConnection          patchCord70(MULT_7, 0, V7_FILT, 1);
+AudioConnection          patchCord71(MULT_8, 0, V8_FILT, 1);
+AudioConnection          patchCord72(MULT_3, 0, V3_FILT, 1);
+AudioConnection          patchCord73(MULT_6, 0, V6_FILT, 1);
+AudioConnection          patchCord74(MULT_5, 0, V5_FILT, 1);
+AudioConnection          patchCord75(MULT_1, 0, V1_FILT, 1);
+AudioConnection          patchCord76(MULT_4, 0, V4_FILT, 1);
+AudioConnection          patchCord77(MULT_2, 0, V2_FILT, 1);
+AudioConnection          patchCord78(V7_FILT, 0, V7_ENV, 0);
+AudioConnection          patchCord79(V3_FILT, 0, V3_ENV, 0);
+AudioConnection          patchCord80(V2_FILT, 0, V2_ENV, 0);
+AudioConnection          patchCord81(V6_FILT, 0, V6_ENV, 0);
+AudioConnection          patchCord82(V8_FILT, 0, V8_ENV, 0);
+AudioConnection          patchCord83(V1_FILT, 0, V1_ENV, 0);
+AudioConnection          patchCord84(V4_FILT, 0, V4_ENV, 0);
+AudioConnection          patchCord85(V5_FILT, 0, V5_ENV, 0);
+AudioConnection          patchCord86(V1_ENV, 0, V14_MIX, 0);
+AudioConnection          patchCord87(V2_ENV, 0, V14_MIX, 1);
+AudioConnection          patchCord88(V6_ENV, 0, V58_MIX, 1);
+AudioConnection          patchCord89(V7_ENV, 0, V58_MIX, 2);
+AudioConnection          patchCord90(V3_ENV, 0, V14_MIX, 2);
+AudioConnection          patchCord91(V5_ENV, 0, V58_MIX, 0);
+AudioConnection          patchCord92(V4_ENV, 0, V14_MIX, 3);
+AudioConnection          patchCord93(V8_ENV, 0, V58_MIX, 3);
+AudioConnection          patchCord94(V14_MIX, 0, ALL_VOICE_MIX, 0);
+AudioConnection          patchCord95(V58_MIX, 0, ALL_VOICE_MIX, 1);
+AudioConnection          patchCord96(ALL_VOICE_MIX, 0, LFO_AMP, 1);
+AudioConnection          patchCord97(LFO_MIXER_AMP, 0, LFO_AMP, 0);
+AudioConnection          patchCord98(LFO_AMP, MASTER_GAIN);
+AudioConnection          patchCord99(MASTER_GAIN, 0, i2s1, 0);
+AudioConnection          patchCord100(MASTER_GAIN, 0, i2s1, 1);
+AudioControlSGTL5000     sgtl5000_1;     //xy=1391.5260314941406,1032
 // GUItool: end automatically generated code
-
 
 
 #endif

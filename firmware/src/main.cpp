@@ -63,7 +63,8 @@ synthState globalState = {
     1.0,               // DETUNE
     1.0,               // PITCH_BEND
     0.0,               // LFO_FREQ
-    0.0,               // LFO_MIXER_AMP
+    0.0,               // LFO_FILTER_GAIN
+    0.0,               // LFO_AMP_GAIN
     0.0,               // AMP_ATTACK
     0.0,               // AMP_DECAY
     1.0,               // AMP_SUSTAIN
@@ -179,8 +180,8 @@ void setup()
   LFO.frequency(2.0);
   LFO.phase(90);
 
-  LFO_MIXER_AMP.gain(0, 1); // THIS IS THE AMP THAT ADJUSTS HOW MUCH OF THE LFO IS FED INTO THE FILTER
-  LFO_MIXER_AMP.gain(1, 0);
+  LFO_MIXER_FILTER.gain(0, 1); // THIS IS THE AMP THAT ADJUSTS HOW MUCH OF THE LFO IS FED INTO THE FILTER
+  LFO_MIXER_FILTER.gain(1, 0);
 
   for (byte i = 0; i < 4; i++)
   {
