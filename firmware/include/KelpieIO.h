@@ -17,6 +17,7 @@ public:
     boolean pollButtons(void);
     boolean *getButtons(void);
     void blinkMidiLED(bool value);
+    void bootupAnimation(void);
 
 private:
     Bounce _switch1 = Bounce(SW1, 10); // 10 ms debounce

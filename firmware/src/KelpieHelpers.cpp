@@ -2,13 +2,17 @@
 
 void activateVoices(byte index, byte note, float frequency, float gain)
 {
+  AudioNoInterrupts();
   polyVoices[index].note = note;
   polyVoices[index].noteFreq = frequency;
   polyVoices[index].waveformA.frequency(frequency * globalState.PITCH_BEND);
+  polyVoices[index].waveformA.phase(0);
   polyVoices[index].waveformB.frequency(frequency * globalState.PITCH_BEND * globalState.DETUNE);
+  polyVoices[index].waveformB.phase(0);
   polyVoices[index].waveformAmplifier.gain(gain);
   polyVoices[index].ampEnv.noteOn();
   polyVoices[index].filterEnv.noteOn();
+  AudioInterrupts();
 }
 
 void deactivateVoices(byte index)
@@ -58,6 +62,12 @@ void bufferShift(byte indexToRemove, byte currentIndexPlaying)
 
 void keyBuffMono(byte note, byte velocity, boolean playNote)
 {
+  Serial.print("MONO BUFFER: [");
+  for (int i = 0; i < MONOBUFFERSIZE; i++) { 
+    Serial.print(monoBuffer[i]);
+    Serial.print(", ");
+  }
+  Serial.println();
   static byte currentNote = 0;
   if (playNote)
   {

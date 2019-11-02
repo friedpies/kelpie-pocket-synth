@@ -202,9 +202,12 @@ void setup()
     changedKnob = kelpie.getKnobValOnStartup(i);
     handleKnobChange(changedKnob);
   }
+  delay(2000); // this is a precaution to avoid the teensy defaulting to the bootloader, this came up as a warning when trying to upload code
+  kelpie.bootupAnimation();
 }
 
 void loop()
+{
 
   if (MIDI.read())
   {

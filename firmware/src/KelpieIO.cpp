@@ -86,3 +86,22 @@ void Kelpie::blinkMidiLED(bool value)
         digitalWrite(MIDILED, LOW);
     }
 }
+
+void Kelpie::bootupAnimation(void)
+{
+    byte delayTimeMS = 25;
+    byte numCycles = 10;
+    for (byte counter = 0; counter < numCycles; counter++)
+    {
+        digitalWrite(MIDILED, HIGH);
+        delay(delayTimeMS);
+        digitalWrite(MIDILED, LOW);
+        for (byte i = 0; i < 4; i++)
+        {
+            digitalWrite(_kelpieButtons.ledName[i], HIGH);
+            delay(delayTimeMS);
+            digitalWrite(_kelpieButtons.ledName[i], LOW);
+            delay(delayTimeMS);
+        }
+    }
+}
