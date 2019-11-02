@@ -222,18 +222,20 @@ void loop()
     handleButtonPress(buttonsState);
   }
 
-  // if (fps > 24)
-  // {
-  //   if (rms1.available())
-  //   {
-  //     fps = 0;
-  //     int monoPeak = rms1.read() * 30.0;
-  //     Serial.print("|");
-  //     for (int cnt = 0; cnt < monoPeak; cnt++)
-  //     {
-  //       Serial.print(">");
-  //     }
-  //     Serial.println();
-  //   }
-  // }
+  if (fps > 24)
+  {
+    if (rms1.available())
+    {
+      fps = 0;
+      int monoPeak = rms1.read() * 100.0;
+      Serial.print("|");
+      for (int cnt = 0; cnt < monoPeak; cnt++)
+      {
+        Serial.print(">");
+      }
+      Serial.print(monoPeak);
+      Serial.println();
+    }
+  }
+  Serial.println(globalState.FILTER_FREQ);
 }

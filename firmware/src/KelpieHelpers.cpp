@@ -24,7 +24,6 @@ void playNoteMono(byte playMode, byte note, byte velocity)
 {
   float baseNoteFreq = noteFreqs[note];
   float noteGain = float(velocity) * DIV127;
-  Serial.println(noteGain);
   AudioNoInterrupts();
   switch (playMode) // WILL SWITCH TO ENUMS LATER
   {
@@ -317,7 +316,7 @@ void handleKnobChange(pot knob)
     break;
   case 10: // FILTER_FREQ
 
-    globalState.FILTER_FREQ = FILTER_CUTOFF_MAX * freqLog[(1023 - knobValue)] * DIV1023;
+    globalState.FILTER_FREQ = FILTER_CUTOFF_MAX * pow((1023 - knobValue) * DIV1023, 3);
     for (byte i = 0; i < numPolyVoices; i++)
     {
       polyVoices[i].filter.frequency(globalState.FILTER_FREQ);

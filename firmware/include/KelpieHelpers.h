@@ -10,7 +10,6 @@
 #include <HardwareInputs.h>
 #include <globalSynthState.h>
 #include <contants.h>
-#include <freqKnobLookup.h>
 
 extern const byte numPolyVoices;
 extern polyVoice polyVoices[];

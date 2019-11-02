@@ -10,7 +10,7 @@
 #define FILTER_DECAY_MAX 5000
 #define FILTER_RELEASE_MAX 8000
 
-#define FILTER_CUTOFF_MAX 10000 // Hertz
+#define FILTER_CUTOFF_MAX 15000 // Hertz
 #define FILTER_Q_MAX 4.3 
 
 #define LFO_FREQ_MAX 30 // hertz
