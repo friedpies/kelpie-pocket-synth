@@ -94,7 +94,7 @@ void handleMidiEvent(byte channelByte, byte controlByte, byte valueByte)
   switch (type)
   {
   case midi::NoteOn:
-
+    kelpie.blinkMidiLED(true);
     if (note > 23 && note < 108)
     {
       if (globalState.isPoly == true) // depending on mode send to buffer
@@ -109,7 +109,7 @@ void handleMidiEvent(byte channelByte, byte controlByte, byte valueByte)
     break;
 
   case midi::NoteOff:
-
+    kelpie.blinkMidiLED(false);
     if (note > 23 && note < 108)
     {
       if (globalState.isPoly == true) // depending on mode send to buffer
@@ -205,7 +205,7 @@ void setup()
 }
 
 void loop()
-{
+
   if (MIDI.read())
   {
     byte channel = MIDI.getChannel();

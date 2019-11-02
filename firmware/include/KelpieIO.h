@@ -16,6 +16,7 @@ public:
     pot pollKnobs(void); // this function will return a struct with pot that has changed
     boolean pollButtons(void);
     boolean *getButtons(void);
+    void blinkMidiLED(bool value);
 
 private:
     Bounce _switch1 = Bounce(SW1, 10); // 10 ms debounce

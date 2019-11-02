@@ -18,7 +18,6 @@ Kelpie::Kelpie(bool enableSerial)
     pinMode(SWLED4, OUTPUT);
 
     pinMode(MIDILED, OUTPUT);
-    digitalWrite(MIDILED, HIGH);
 }
 
 pot Kelpie::getKnobValOnStartup(byte knobIndex)
@@ -74,4 +73,16 @@ boolean Kelpie::pollButtons(void)
 boolean *Kelpie::getButtons(void)
 {
     return _kelpieButtons.state;
+}
+
+void Kelpie::blinkMidiLED(bool value)
+{
+    if (value)
+    {
+        digitalWrite(MIDILED, HIGH);
+    }
+    else
+    {
+        digitalWrite(MIDILED, LOW);
+    }
 }
