@@ -2,7 +2,6 @@
 
 void activateVoices(byte index, byte note, float frequency, float gain)
 {
-  AudioNoInterrupts();
   polyVoices[index].note = note;
   polyVoices[index].noteFreq = frequency;
   polyVoices[index].waveformA.frequency(frequency * globalState.PITCH_BEND);
@@ -12,7 +11,6 @@ void activateVoices(byte index, byte note, float frequency, float gain)
   polyVoices[index].waveformAmplifier.gain(gain);
   polyVoices[index].ampEnv.noteOn();
   polyVoices[index].filterEnv.noteOn();
-  AudioInterrupts();
 }
 
 void deactivateVoices(byte index)
@@ -26,6 +24,7 @@ void playNoteMono(byte playMode, byte note, byte velocity)
 {
   float baseNoteFreq = noteFreqs[note];
   float noteGain = float(velocity) * DIV127;
+  AudioNoInterrupts();
   switch (playMode) // WILL SWITCH TO ENUMS LATER
   {
   case 0: // PLAYNOTE
@@ -50,6 +49,7 @@ void playNoteMono(byte playMode, byte note, byte velocity)
     }
     break;
   }
+  AudioInterrupts();
 };
 
 void bufferShift(byte indexToRemove, byte currentIndexPlaying)
@@ -63,7 +63,8 @@ void bufferShift(byte indexToRemove, byte currentIndexPlaying)
 void keyBuffMono(byte note, byte velocity, boolean playNote)
 {
   Serial.print("MONO BUFFER: [");
-  for (int i = 0; i < MONOBUFFERSIZE; i++) { 
+  for (int i = 0; i < MONOBUFFERSIZE; i++)
+  {
     Serial.print(monoBuffer[i]);
     Serial.print(", ");
   }
@@ -224,7 +225,7 @@ void handleKnobChange(pot knob)
   case 2:                           // ATTACK
     if (globalState.shift == false) // FOR AMP
     {
-      globalState.AMP_ATTACK = 5000 * (1 - (float(knobValue) * DIV1023));
+      globalState.AMP_ATTACK = AMP_ATTACK_MAX * (1 - (float(knobValue) * DIV1023));
       if (globalState.AMP_ATTACK < 15) //
       {
         globalState.AMP_ATTACK = 0;
@@ -236,7 +237,7 @@ void handleKnobChange(pot knob)
     }
     else // FOR FILTER
     {
-      globalState.FILTER_ATTACK = 5000 * (1 - (float(knobValue) * DIV1023));
+      globalState.FILTER_ATTACK = FILTER_ATTACK_MAX * (1 - (float(knobValue) * DIV1023));
       if (globalState.FILTER_ATTACK < 15) //
       {
         globalState.FILTER_ATTACK = 0;
@@ -250,7 +251,7 @@ void handleKnobChange(pot knob)
   case 3:                           // DECAY
     if (globalState.shift == false) // FOR AMP
     {
-      globalState.AMP_DECAY = 5000 * (1 - (float(knobValue) * DIV1023));
+      globalState.AMP_DECAY = AMP_DECAY_MAX * (1 - (float(knobValue) * DIV1023));
       for (byte i = 0; i < numPolyVoices; i++)
       {
         polyVoices[i].ampEnv.decay(globalState.AMP_DECAY);
@@ -258,7 +259,7 @@ void handleKnobChange(pot knob)
     }
     else
     { // FOR FILTER
-      globalState.FILTER_DECAY = 5000 * (1 - (float(knobValue) * DIV1023));
+      globalState.FILTER_DECAY = FILTER_DECAY_MAX * (1 - (float(knobValue) * DIV1023));
       for (byte i = 0; i < numPolyVoices; i++)
       {
         polyVoices[i].filterEnv.decay(globalState.FILTER_DECAY);
@@ -302,7 +303,7 @@ void handleKnobChange(pot knob)
   case 8: // AMP_RELEASE
     if (globalState.shift == false)
     {
-      globalState.AMP_RELEASE = 11880 * (1 - (float(knobValue) * DIV1023));
+      globalState.AMP_RELEASE = AMP_RELEASE_MAX * (1 - (float(knobValue) * DIV1023));
       for (byte i = 0; i < numPolyVoices; i++)
       {
         polyVoices[i].ampEnv.release(globalState.AMP_RELEASE);
@@ -310,7 +311,7 @@ void handleKnobChange(pot knob)
     }
     else
     {
-      globalState.FILTER_RELEASE = 11880 * (1 - (float(knobValue) * DIV1023));
+      globalState.FILTER_RELEASE = FILTER_RELEASE_MAX * (1 - (float(knobValue) * DIV1023));
       for (byte i = 0; i < numPolyVoices; i++)
       {
         polyVoices[i].filterEnv.release(globalState.FILTER_RELEASE);
@@ -321,14 +322,14 @@ void handleKnobChange(pot knob)
     break;
   case 10: // FILTER_FREQ
 
-    globalState.FILTER_FREQ = 10000 * freqLog[(1023 - knobValue)] * DIV1023;
+    globalState.FILTER_FREQ = FILTER_CUTOFF_MAX * freqLog[(1023 - knobValue)] * DIV1023;
     for (byte i = 0; i < numPolyVoices; i++)
     {
       polyVoices[i].filter.frequency(globalState.FILTER_FREQ);
     }
     break;
   case 11: // FILTER_Q
-    globalState.FILTER_Q = 4.3 * (1 - (float(knobValue) * DIV1023)) + 1.1;
+    globalState.FILTER_Q = FILTER_Q_MAX * (1 - (float(knobValue) * DIV1023)) + 1.1;
     for (byte i = 0; i < numPolyVoices; i++)
     {
       polyVoices[i].filter.resonance(globalState.FILTER_Q);
@@ -342,7 +343,7 @@ void handleKnobChange(pot knob)
     }
     break;
   case 13:
-    globalState.LFO_FREQ = 30 * (1 - decKnobVal);
+    globalState.LFO_FREQ = LFO_FREQ_MAX * (1 - decKnobVal);
     LFO.frequency(globalState.LFO_FREQ);
     break;
   case 14:

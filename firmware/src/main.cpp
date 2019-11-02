@@ -32,10 +32,6 @@ polyVoice VOICE_5 = {0, 0.0, 0, false, V5_A, V5_B, V5_N, V5_MIX, V5_AMP, V5_ENV,
 polyVoice VOICE_6 = {0, 0.0, 0, false, V6_A, V6_B, V6_N, V6_MIX, V6_AMP, V6_ENV, V6_FILT_ENV, V6_FILT};
 polyVoice VOICE_7 = {0, 0.0, 0, false, V7_A, V7_B, V7_N, V7_MIX, V7_AMP, V7_ENV, V7_FILT_ENV, V7_FILT};
 polyVoice VOICE_8 = {0, 0.0, 0, false, V8_A, V8_B, V8_N, V8_MIX, V8_AMP, V8_ENV, V8_FILT_ENV, V8_FILT};
-polyVoice VOICE_9 = {0, 0.0, 0, false, V9_A, V9_B, V9_N, V9_MIX, V9_AMP, V9_ENV, V9_FILT_ENV, V9_FILT};
-polyVoice VOICE_10 = {0, 0.0, 0, false, V10_A, V10_B, V10_N, V10_MIX, V10_AMP, V10_ENV, V10_FILT_ENV, V10_FILT};
-polyVoice VOICE_11 = {0, 0.0, 0, false, V11_A, V11_B, V11_N, V11_MIX, V11_AMP, V11_ENV, V11_FILT_ENV, V11_FILT};
-polyVoice VOICE_12 = {0, 0.0, 0, false, V12_A, V12_B, V12_N, V12_MIX, V12_AMP, V12_ENV, V12_FILT_ENV, V12_FILT};
 
 const byte numPolyVoices = 8; // 12 voices have been causing issues, so running 6 for now
 polyVoice polyVoices[numPolyVoices] = {
@@ -46,17 +42,13 @@ polyVoice polyVoices[numPolyVoices] = {
     VOICE_5,
     VOICE_6,
     VOICE_7,
-    VOICE_8
-    // VOICE_9,
-    // VOICE_10,
-    // VOICE_11,
-    // VOICE_12
-};
+    VOICE_8};
 
-const byte MONOBUFFERSIZE = 8;
+const byte MONOBUFFERSIZE = 8; // how many voices we allow to be stored in the MONO buffer
 byte monoBuffer[MONOBUFFERSIZE];
 
 synthState globalState = {
+    // default synth state on startup
     WAVEFORM_SAWTOOTH, // WAVEFORM1
     WAVEFORM_SAWTOOTH, // WAVEFORM2
     false,             // isPoly
@@ -73,7 +65,7 @@ synthState globalState = {
     0.0,               // AMP_ATTACK
     0.0,               // AMP_DECAY
     1.0,               // AMP_SUSTAIN
-    500,               // AMP_RELEASE
+    500,               // AMP_RELEASE ms
     0.0,               // FILTER_ATTACK
     0.0,               // FILTER_DECAY
     1.0,               // FILTER_SUSTAIN
@@ -147,6 +139,7 @@ void setup()
   sgtl5000_1.enable();
   sgtl5000_1.volume(globalState.MASTER_VOL);
 
+  AudioNoInterrupts();
   for (byte i = 0; i < numPolyVoices; i++)
   {
     polyVoices[i].waveformA.begin(globalState.WAVEFORM1);
@@ -176,6 +169,7 @@ void setup()
     polyVoices[i].filter.resonance(globalState.FILTER_Q);
     polyVoices[i].filter.octaveControl(2.0);
   }
+  AudioInterrupts();
 
   DC_OFFSET.amplitude(1.0);
   LFO.amplitude(1.0);
@@ -185,12 +179,10 @@ void setup()
   LFO_MIXER_AMP.gain(0, 1); // THIS IS THE AMP THAT ADJUSTS HOW MUCH OF THE LFO IS FED INTO THE FILTER
   LFO_MIXER_AMP.gain(1, 0);
 
-  // V12_MIX
   for (byte i = 0; i < 4; i++)
   {
     V14_MIX.gain(0, 0.25);
     V58_MIX.gain(0, 0.25);
-    V912_MIX.gain(0, 0.25);
   }
 
   ALL_VOICE_MIX.gain(0, 0.5);
@@ -202,7 +194,6 @@ void setup()
     changedKnob = kelpie.getKnobValOnStartup(i);
     handleKnobChange(changedKnob);
   }
-  delay(2000); // this is a precaution to avoid the teensy defaulting to the bootloader, this came up as a warning when trying to upload code
   kelpie.bootupAnimation();
 }
 
