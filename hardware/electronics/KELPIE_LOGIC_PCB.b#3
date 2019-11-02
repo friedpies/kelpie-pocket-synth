@@ -185,6 +185,7 @@
 </layers>
 <board>
 <fusionsync huburn="a.cGVyc29uYWw6dWUyOWViOTli" projecturn="a.cGVyc29uYWw6dWUyOWViOTliIzIwMTkwMjI4MTc5MjYyNDAx" f3durn="urn:adsk.wipprod:dm.lineage:TbYIAYm_SeiHnU5SEeh_ow" pcbguid="427068f0-0b71-4137-912b-b7c28c9918c9" lastpulledtime="2019-03-21T19:34:48Z" lastsyncedchangeguid="1662cedf-5abc-4a7e-7229-970338ce5390"/>
+<fusionteam huburn="a.cGVyc29uYWw6dWUyOWViOTli" projecturn="a.cGVyc29uYWw6dWUyOWViOTliIzIwMTkwMjI4MTc5MjYyNDAx" folderUrn="urn:adsk.wipprod:fs.folder:co.8dNkGeL_QFqK5y_dgGXRbQ" urn="urn:adsk.wipprod:dm.lineage:jxVheUzjTLW7qJBm-7xWIQ"  versionUrn="urn:adsk.wipprod:fs.file:vf.jxVheUzjTLW7qJBm-7xWIQ?version=1" camFileUrn="" camFileVersionUrn="" lastpublishedchangeguid="6bafd475-53c9-6eb3-e294-141ea19e3e23"/>
 <plain>
 <polygon width="0.1524" layer="30">
 <vertex x="91.821" y="39.624"/>
@@ -1300,6 +1301,22 @@ Puhs-Push type.
 <text x="-8.89" y="6.35" size="0.6096" layer="25" font="vector" ratio="20">&gt;Name</text>
 <text x="-8.89" y="5.08" size="0.6096" layer="27" font="vector" ratio="20">&gt;Value</text>
 </package>
+<package name="SOT23-3" urn="urn:adsk.eagle:footprint:8442300/1" library_version="64" library_locally_modified="yes">
+<description>SOT23-3</description>
+<wire x1="1.4224" y1="0.6604" x2="1.4224" y2="-0.6604" width="0.1524" layer="51"/>
+<wire x1="1.4224" y1="-0.6604" x2="-1.4224" y2="-0.6604" width="0.1524" layer="51"/>
+<wire x1="-1.4224" y1="-0.6604" x2="-1.4224" y2="0.6604" width="0.1524" layer="51"/>
+<wire x1="-1.4224" y1="0.6604" x2="1.4224" y2="0.6604" width="0.1524" layer="51"/>
+<wire x1="-0.8" y1="0.7" x2="-1.4" y2="0.7" width="0.2032" layer="21"/>
+<wire x1="-1.4" y1="0.7" x2="-1.4" y2="-0.1" width="0.2032" layer="21"/>
+<wire x1="0.8" y1="0.7" x2="1.4" y2="0.7" width="0.2032" layer="21"/>
+<wire x1="1.4" y1="0.7" x2="1.4" y2="-0.1" width="0.2032" layer="21"/>
+<smd name="GND" x="-0.95" y="-1" dx="0.8" dy="0.9" layer="1"/>
+<smd name="OUT" x="0.95" y="-1" dx="0.8" dy="0.9" layer="1"/>
+<smd name="IN" x="0" y="1.1" dx="0.8" dy="0.9" layer="1"/>
+<text x="2.54" y="-2.54" size="0.8128" layer="21" rot="R90">&gt;VALUE</text>
+<text x="-1.905" y="-2.54" size="0.8128" layer="21" rot="R90">&gt;NAME</text>
+</package>
 </packages>
 <packages3d>
 <package3d name="CUI_PJ-002A" urn="urn:adsk.eagle:package:9702177/2" type="model" library_version="9" library_locally_modified="yes">
@@ -1416,26 +1433,16 @@ Puhs-Push type.
 <packageinstance name="MICRO-SD-SOCKET"/>
 </packageinstances>
 </package3d>
+<package3d name="SOT23-3" urn="urn:adsk.eagle:package:8442353/2" type="model" library_version="64" library_locally_modified="yes">
+<description>SOT23-3</description>
+<packageinstances>
+<packageinstance name="SOT23-3"/>
+</packageinstances>
+</package3d>
 </packages3d>
 </library>
 <library name="moon-germs-v1_main" urn="urn:adsk.eagle:library:8442267">
 <packages>
-<package name="0805" urn="urn:adsk.eagle:footprint:8442299/1" library_version="1" library_locally_modified="yes">
-<description>&lt;p&gt;&lt;b&gt;Generic 2012 (0805) package&lt;/b&gt;&lt;/p&gt;
-&lt;p&gt;0.2mm courtyard excess rounded to nearest 0.05mm.&lt;/p&gt;</description>
-<smd name="1" x="-0.9" y="0" dx="0.8" dy="1.2" layer="1"/>
-<smd name="2" x="0.9" y="0" dx="0.8" dy="1.2" layer="1"/>
-<wire x1="-1.5" y1="0.8" x2="1.5" y2="0.8" width="0.0508" layer="39"/>
-<wire x1="1.5" y1="0.8" x2="1.5" y2="-0.8" width="0.0508" layer="39"/>
-<wire x1="1.5" y1="-0.8" x2="-1.5" y2="-0.8" width="0.0508" layer="39"/>
-<wire x1="-1.5" y1="-0.8" x2="-1.5" y2="0.8" width="0.0508" layer="39"/>
-<wire x1="-1.524" y1="-0.762" x2="-1.524" y2="0.762" width="0.0762" layer="21"/>
-<wire x1="-1.524" y1="0.762" x2="1.524" y2="0.762" width="0.0762" layer="21"/>
-<wire x1="1.524" y1="0.762" x2="1.524" y2="-0.762" width="0.0762" layer="21"/>
-<wire x1="1.524" y1="-0.762" x2="-1.524" y2="-0.762" width="0.0762" layer="21"/>
-<text x="-2.032" y="-1.905" size="0.8128" layer="21">&gt;VALUE</text>
-<text x="-2.032" y="1.016" size="0.8128" layer="21">&gt;NAME</text>
-</package>
 <package name="LQFP64-05" urn="urn:adsk.eagle:footprint:8700958/1" library_version="8">
 <smd name="1" x="-5.915" y="3.7592" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R270"/>
 <smd name="2" x="-5.915" y="3.2512" dx="0.25" dy="1.2" layer="1" roundness="60" rot="R270"/>
@@ -1632,31 +1639,8 @@ Puhs-Push type.
 <text x="-1.905" y="-1.7145" size="0.889" layer="27" ratio="11">&gt;VALUE</text>
 <text x="0" y="0" size="0.7" layer="51" align="center">&gt;NAME</text>
 </package>
-<package name="SOT23-3" urn="urn:adsk.eagle:footprint:8442300/1" library_version="17" library_locally_modified="yes">
-<description>SOT23-3</description>
-<wire x1="1.4224" y1="0.6604" x2="1.4224" y2="-0.6604" width="0.1524" layer="51"/>
-<wire x1="1.4224" y1="-0.6604" x2="-1.4224" y2="-0.6604" width="0.1524" layer="51"/>
-<wire x1="-1.4224" y1="-0.6604" x2="-1.4224" y2="0.6604" width="0.1524" layer="51"/>
-<wire x1="-1.4224" y1="0.6604" x2="1.4224" y2="0.6604" width="0.1524" layer="51"/>
-<wire x1="-0.8" y1="0.7" x2="-1.4" y2="0.7" width="0.2032" layer="21"/>
-<wire x1="-1.4" y1="0.7" x2="-1.4" y2="-0.1" width="0.2032" layer="21"/>
-<wire x1="0.8" y1="0.7" x2="1.4" y2="0.7" width="0.2032" layer="21"/>
-<wire x1="1.4" y1="0.7" x2="1.4" y2="-0.1" width="0.2032" layer="21"/>
-<smd name="GND" x="-0.95" y="-1" dx="0.8" dy="0.9" layer="1"/>
-<smd name="OUT" x="0.95" y="-1" dx="0.8" dy="0.9" layer="1"/>
-<smd name="IN" x="0" y="1.1" dx="0.8" dy="0.9" layer="1"/>
-<text x="2.54" y="-2.54" size="0.8128" layer="21" rot="R90">&gt;VALUE</text>
-<text x="-1.905" y="-2.54" size="0.8128" layer="21" rot="R90">&gt;NAME</text>
-</package>
 </packages>
 <packages3d>
-<package3d name="0805" urn="urn:adsk.eagle:package:8442354/2" type="model" library_version="1" library_locally_modified="yes">
-<description>&lt;p&gt;&lt;b&gt;Generic 2012 (0805) package&lt;/b&gt;&lt;/p&gt;
-&lt;p&gt;0.2mm courtyard excess rounded to nearest 0.05mm.&lt;/p&gt;</description>
-<packageinstances>
-<packageinstance name="0805"/>
-</packageinstances>
-</package3d>
 <package3d name="QFP50P1200X1200X160-64" urn="urn:adsk.eagle:package:8700970/2" type="model" library_version="9" library_locally_modified="yes">
 <description>64-QFP, 0.50 mm pitch, 12.00 mm span, 10.00 X 10.00 X 1.60 mm body
 &lt;p&gt;64-pin QFP package with 0.50 mm pitch, 12.00 mm lead span1 X 12.00 mm lead span2 with body size 10.00 X 10.00 X 1.60 mm&lt;/p&gt;</description>
@@ -1691,12 +1675,6 @@ Puhs-Push type.
 <package3d name="1X5HEADER" urn="urn:adsk.eagle:package:8709581/1" type="box" library_version="17" library_locally_modified="yes">
 <packageinstances>
 <packageinstance name="1X5HEADER"/>
-</packageinstances>
-</package3d>
-<package3d name="SOT23-3" urn="urn:adsk.eagle:package:8442353/2" type="model" library_version="17" library_locally_modified="yes">
-<description>SOT23-3</description>
-<packageinstances>
-<packageinstance name="SOT23-3"/>
 </packageinstances>
 </package3d>
 </packages3d>
@@ -1964,8 +1942,8 @@ design rules under a new name.</description>
 <attribute name="DESC" value="MKL04Z32VLC4 (preprogrammed)" x="16.51" y="9.525" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MF" value="PJRC" x="16.51" y="9.525" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MPN" value="IC_MKL04Z32_TQFP32" x="16.51" y="9.525" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="NAME" x="18.65" y="7.62" size="1.27" layer="25" font="vector" ratio="10" rot="R90"/>
 <attribute name="NAME" x="15.5575" y="10.4775" size="0.7" layer="51" rot="R180" align="center"/>
+<attribute name="NAME" x="18.65" y="7.62" size="1.27" layer="25" font="vector" ratio="10" rot="R90"/>
 <attribute name="PACKAGE" value="LQFP-32" x="16.51" y="9.525" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="TYPE" value="Microcontroller" x="16.51" y="9.525" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
@@ -1988,8 +1966,8 @@ design rules under a new name.</description>
 <attribute name="DESC" value="32.768kHz / 12.5pF / 20ppm" x="12.954" y="36.512" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MF" value="Citizen FineDevice" x="12.954" y="36.512" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MPN" value=" CFS206-32.768KDZF-UB" x="12.954" y="36.512" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="NAME" x="10.459" y="36.512" size="0.508" layer="51" rot="R180" align="center"/>
 <attribute name="NAME" x="11.938" y="35.623" size="0.508" layer="25" ratio="10" rot="R180"/>
+<attribute name="NAME" x="10.459" y="36.512" size="0.508" layer="51" rot="R180" align="center"/>
 <attribute name="OC_MOUSER" value="695-CFS206-327KF-U" x="12.954" y="36.512" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="PACKAGE" value="TC-26H" x="12.954" y="36.512" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="TYPE" value="Crystal" x="12.954" y="36.512" size="1.778" layer="27" rot="R90" display="off"/>
@@ -2007,11 +1985,13 @@ design rules under a new name.</description>
 <attribute name="NAME" x="96.4692" y="27.7368" size="0.508" layer="21"/>
 <attribute name="VALUE" x="96.4565" y="26.9748" size="0.508" layer="21"/>
 </element>
-<element name="R5" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" package="0805" package3d_urn="urn:adsk.eagle:package:8442354/2" value="33" x="25.781" y="32.004" smashed="yes" rot="R315">
+<element name="R5" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" package="0805" package3d_urn="urn:adsk.eagle:package:8442354/2" value="33" x="25.781" y="32.004" smashed="yes" rot="R315">
+<attribute name="MPN" value="ESR10EZPJ330" x="25.781" y="32.004" size="1.778" layer="27" rot="R315" display="off"/>
 <attribute name="NAME" x="24.254359375" y="32.812221875" size="0.508" layer="25" rot="R45"/>
 <attribute name="VALUE" x="24.074753125" y="34.338865625" size="0.508" layer="27" rot="R225"/>
 </element>
-<element name="R6" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" package="0805" package3d_urn="urn:adsk.eagle:package:8442354/2" value="33" x="27.272796875" y="29.54519375" smashed="yes" rot="R225">
+<element name="R6" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" package="0805" package3d_urn="urn:adsk.eagle:package:8442354/2" value="33" x="27.272796875" y="29.54519375" smashed="yes" rot="R225">
+<attribute name="MPN" value="ESR10EZPJ330" x="27.272796875" y="29.54519375" size="1.778" layer="27" rot="R225" display="off"/>
 <attribute name="NAME" x="28.08101875" y="31.0718375" size="0.508" layer="25" rot="R315"/>
 <attribute name="VALUE" x="28.619834375" y="31.341246875" size="0.508" layer="27" rot="R315"/>
 </element>
@@ -2164,10 +2144,12 @@ design rules under a new name.</description>
 <attribute name="NAME" x="71.6915" y="33.9725" size="0.508" layer="21" rot="R180"/>
 <attribute name="VALUE" x="70.1675" y="32.7025" size="0.508" layer="21"/>
 </element>
-<element name="D6" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" package="SOT23-3" package3d_urn="urn:adsk.eagle:package:8442353/2" value="AP7313" x="86.36" y="35.242" smashed="yes" rot="R90">
+<element name="D6" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" package="SOT23-3" package3d_urn="urn:adsk.eagle:package:8442353/2" value="AP7313" x="86.36" y="35.242" smashed="yes" rot="R90">
+<attribute name="MPN" value="AP7313-33SRG-7" x="86.36" y="35.242" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="VALUE" x="86.1695" y="36.4485" size="0.508" layer="21" rot="R270"/>
 </element>
-<element name="L3" library="moon-germs-v1_main" library_urn="urn:adsk.eagle:library:8442267" package="0805" package3d_urn="urn:adsk.eagle:package:8442354/2" value="FER600" x="71.755" y="26.3525" smashed="yes" rot="R90">
+<element name="L3" library="sirin-clone-library" library_urn="urn:adsk.eagle:library:9336050" package="0805" package3d_urn="urn:adsk.eagle:package:8442354/2" value="FER600" x="71.755" y="26.3525" smashed="yes" rot="R90">
+<attribute name="MPN" value="MPZ2012S601AT000" x="71.755" y="26.3525" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="NAME" x="69.9643" y="26.1239" size="0.508" layer="21" rot="R90"/>
 <attribute name="VALUE" x="70.5993" y="24.6888" size="0.508" layer="21" rot="R90"/>
 </element>
