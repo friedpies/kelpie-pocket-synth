@@ -13,7 +13,7 @@ void activateVoices(byte index, byte note, float frequency, float gain)
   polyVoices[index].filterEnv.noteOn();
 }
 
-void deactivateVoices(byte index)
+void deactivateVoices(byte index, boolean stopOscillator)
 {
   polyVoices[index].ampEnv.noteOff();
   polyVoices[index].filterEnv.noteOff();
@@ -24,6 +24,7 @@ void playNoteMono(byte playMode, byte note, byte velocity)
 {
   float baseNoteFreq = noteFreqs[note];
   float noteGain = float(velocity) * DIV127;
+  Serial.println(noteGain);
   AudioNoInterrupts();
   switch (playMode) // WILL SWITCH TO ENUMS LATER
   {
@@ -45,7 +46,7 @@ void playNoteMono(byte playMode, byte note, byte velocity)
   case 2: // STOP NOTE
     for (byte i = 0; i < numPolyVoices; i++)
     {
-      deactivateVoices(i);
+      deactivateVoices(i, true);
     }
     break;
   }
@@ -62,13 +63,6 @@ void bufferShift(byte indexToRemove, byte currentIndexPlaying)
 
 void keyBuffMono(byte note, byte velocity, boolean playNote)
 {
-  Serial.print("MONO BUFFER: [");
-  for (int i = 0; i < MONOBUFFERSIZE; i++)
-  {
-    Serial.print(monoBuffer[i]);
-    Serial.print(", ");
-  }
-  Serial.println();
   static byte currentNote = 0;
   if (playNote)
   {
@@ -82,7 +76,7 @@ void keyBuffMono(byte note, byte velocity, boolean playNote)
     currentNote++;
   }
 
-  else if (!playNote) // if key is released
+  else // key is released
   {
     byte foundNoteIndex = MONOBUFFERSIZE; // default to index larger than buffer size
     for (byte i = 0; i < (currentNote + 1); i++)
@@ -90,9 +84,10 @@ void keyBuffMono(byte note, byte velocity, boolean playNote)
       if (note == monoBuffer[i])
       {
         foundNoteIndex = i;
+        // note has to be stopped
         bufferShift(foundNoteIndex, currentNote);
         currentNote--;
-        playNoteMono(1, monoBuffer[currentNote - 1], velocity);
+        // playNoteMono(1, monoBuffer[currentNote - 1], velocity);
         break;
       }
     }
@@ -105,7 +100,7 @@ void keyBuffMono(byte note, byte velocity, boolean playNote)
 
 void keyBuffPoly(byte note, byte velocity, boolean playNote)
 {
-  if (playNote)
+  if (playNote) // on keypress
   {
     float noteGain = float(velocity) * DIV127;
     float baseNoteFreq = noteFreqs[note];
@@ -118,13 +113,13 @@ void keyBuffPoly(byte note, byte velocity, boolean playNote)
       }
     }
   }
-  else
+  else // key released
   {
     for (byte i = 0; i < numPolyVoices; i++)
     {
       if (polyVoices[i].note == note)
       {
-        deactivateVoices(i);
+        deactivateVoices(i, false);
       }
     }
   }

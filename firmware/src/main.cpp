@@ -17,6 +17,8 @@
 #include <KelpieIO.h>
 #include <KelpieHelpers.h>
 
+elapsedMillis fps;
+
 Kelpie kelpie(true);
 MIDI_CREATE_INSTANCE(HardwareSerial, Serial1, MIDI);
 
@@ -158,7 +160,7 @@ void setup()
     polyVoices[i].waveformMixer.gain(1, 1.0);
     polyVoices[i].waveformMixer.gain(2, 1.0);
 
-    polyVoices[i].waveformAmplifier.gain(1);
+    polyVoices[i].waveformAmplifier.gain(0.0);
 
     polyVoices[i].ampEnv.attack(globalState.AMP_ATTACK);
     polyVoices[i].ampEnv.decay(globalState.AMP_DECAY);
@@ -219,4 +221,19 @@ void loop()
     buttonsState = kelpie.getButtons();
     handleButtonPress(buttonsState);
   }
+
+  // if (fps > 24)
+  // {
+  //   if (rms1.available())
+  //   {
+  //     fps = 0;
+  //     int monoPeak = rms1.read() * 30.0;
+  //     Serial.print("|");
+  //     for (int cnt = 0; cnt < monoPeak; cnt++)
+  //     {
+  //       Serial.print(">");
+  //     }
+  //     Serial.println();
+  //   }
+  // }
 }

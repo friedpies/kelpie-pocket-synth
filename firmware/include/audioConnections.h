@@ -85,7 +85,7 @@ AudioMixer4              V14_MIX;        //xy=1292.00390625,662.9999987483025
 AudioMixer4              V58_MIX;        //xy=1293.00390625,732.9999987483025
 AudioMixer4              ALL_VOICE_MIX;  //xy=1513.00390625,748.9999987483025
 AudioAmplifier           amp1;           //xy=1678.00390625,744.9999987483025
-AudioAnalyzePeak         peak1;          //xy=1811.00390625,574.00390625
+AudioAnalyzeRMS         rms1;          //xy=1811.00390625,574.00390625
 AudioOutputI2S           i2s1;           //xy=1823.00390625,744.9999987483025
 AudioConnection          patchCord1(V8_N, 0, V8_MIX, 2);
 AudioConnection          patchCord2(V6_B, 0, V6_MIX, 1);
@@ -182,7 +182,7 @@ AudioConnection          patchCord92(V58_MIX, 0, ALL_VOICE_MIX, 1);
 AudioConnection          patchCord93(ALL_VOICE_MIX, amp1);
 AudioConnection          patchCord94(amp1, 0, i2s1, 0);
 AudioConnection          patchCord95(amp1, 0, i2s1, 1);
-AudioConnection          patchCord96(amp1, peak1);
+AudioConnection          patchCord96(V1_AMP, rms1);
 AudioControlSGTL5000     sgtl5000_1;     //xy=1390.00390625,919.9999987483025
 // GUItool: end automatically generated code
 

@@ -24,7 +24,7 @@ extern const byte MONOBUFFERSIZE;
 extern byte monoBuffer[];
 
 void activateVoices(byte index, byte note, float frequency, float gain);
-void decactivateVoices(byte index);
+void decactivateVoices(byte index, boolean stopOscillator);
 void playNoteMono(byte playMode, byte note, byte velocity);
 void bufferShift(byte indexToRemove, byte currentIndexPlaying);
 void keyBuffMono(byte note, byte velocity, boolean isNoteOn);
