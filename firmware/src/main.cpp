@@ -75,7 +75,8 @@ synthState globalState = {
     10000,             // FILTER_FREQ
     1.1,               // FILTER_Q
     1.0,               // FILTER_OCTAVE
-    0.5                // MASTER_VOL
+    0.5,               // MASTER_VOL
+    0.9                // PREFILTER_GAIN
 };
 
 void handleMidiEvent(byte channelByte, byte controlByte, byte valueByte)
@@ -222,20 +223,20 @@ void loop()
     handleButtonPress(buttonsState);
   }
 
-  if (fps > 24)
-  {
-    if (rms1.available())
-    {
-      fps = 0;
-      int monoPeak = rms1.read() * 100.0;
-      Serial.print("|");
-      for (int cnt = 0; cnt < monoPeak; cnt++)
-      {
-        Serial.print(">");
-      }
-      Serial.print(monoPeak);
-      Serial.println();
-    }
-  }
-  Serial.println(globalState.FILTER_FREQ);
+  // if (fps > 24)
+  // {
+  //   if (rms1.available())
+  //   {
+  //     fps = 0;
+  //     int monoPeak = rms1.read() * 100.0;
+  //     Serial.print("|");
+  //     for (int cnt = 0; cnt < monoPeak; cnt++)
+  //     {
+  //       Serial.print(">");
+  //     }
+  //     Serial.print(monoPeak);
+  //     Serial.println();
+  //   }
+  // }
+  Serial.println(globalState.FILTER_Q);
 }

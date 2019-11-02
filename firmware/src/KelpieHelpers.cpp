@@ -8,7 +8,7 @@ void activateVoices(byte index, byte note, float frequency, float gain)
   polyVoices[index].waveformA.phase(0);
   polyVoices[index].waveformB.frequency(frequency * globalState.PITCH_BEND * globalState.DETUNE);
   polyVoices[index].waveformB.phase(0);
-  polyVoices[index].waveformAmplifier.gain(gain);
+  polyVoices[index].waveformAmplifier.gain(gain * globalState.PREFILTER_GAIN);
   polyVoices[index].ampEnv.noteOn();
   polyVoices[index].filterEnv.noteOn();
 }
@@ -324,13 +324,14 @@ void handleKnobChange(pot knob)
     break;
   case 11: // FILTER_Q
     globalState.FILTER_Q = FILTER_Q_MAX * (1 - (float(knobValue) * DIV1023)) + 1.1;
+    globalState.PREFILTER_GAIN = 1 / globalState.FILTER_Q;
     for (byte i = 0; i < numPolyVoices; i++)
     {
       polyVoices[i].filter.resonance(globalState.FILTER_Q);
     }
     break;
   case 12: // FILTER_DEPTH
-    globalState.FILTER_OCTAVE = 7 * (1 - decKnobVal);
+    globalState.FILTER_OCTAVE = FILTER_OCTAVE_DEPTH * (1 - decKnobVal);
     for (byte i = 0; i < numPolyVoices; i++)
     {
       polyVoices[i].filter.octaveControl(globalState.FILTER_OCTAVE);
