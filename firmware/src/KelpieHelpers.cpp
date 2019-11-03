@@ -27,13 +27,13 @@ void playNoteMono(byte playMode, byte note, byte velocity)
   AudioNoInterrupts();
   switch (playMode) // WILL SWITCH TO ENUMS LATER
   {
-  case 0: // PLAYNOTE
+  case PLAY_NOTE: // PLAYNOTE
     for (byte i = 0; i < numPolyVoices; i++)
     {
       activateVoices(i, note, baseNoteFreq, noteGain);
     }
     break;
-  case 1: // UPDATE NOTE
+  case UPDATE_NOTE: // UPDATE NOTE
     for (byte i = 0; i < numPolyVoices; i++)
     {
       polyVoices[i].note = note;
@@ -42,7 +42,7 @@ void playNoteMono(byte playMode, byte note, byte velocity)
       polyVoices[i].waveformB.frequency(baseNoteFreq * globalState.PITCH_BEND * globalState.DETUNE);
     }
     break;
-  case 2: // STOP NOTE
+  case STOP_NOTE: // STOP NOTE
     for (byte i = 0; i < numPolyVoices; i++)
     {
       deactivateVoices(i, true);
@@ -52,17 +52,18 @@ void playNoteMono(byte playMode, byte note, byte velocity)
   AudioInterrupts();
 };
 
-void bufferShift(byte indexToRemove, byte currentIndexPlaying)
+void bufferShift(byte indexToRemove, byte currentSizeOfBuffer)
 {
-  for (byte i = indexToRemove + 1; i < currentIndexPlaying; i++)
+  for (byte i = indexToRemove + 1; i < currentSizeOfBuffer; i++)
   {
     monoBuffer[i - 1] = monoBuffer[i];
   }
+  monoBuffer[currentSizeOfBuffer - 1] = 0;
 }
 
 void keyBuffMono(byte note, byte velocity, boolean playNote)
 {
-  static byte currentNote = 0;
+  static byte currentNote = 0; // this might make more sense to start with -1 to keep indexing legible
   if (playNote)
   {
     if (currentNote == MONOBUFFERSIZE) // if we exceed buffer size, newest note goes on end, remove first note and shift all notes down 1
@@ -71,28 +72,28 @@ void keyBuffMono(byte note, byte velocity, boolean playNote)
       currentNote = MONOBUFFERSIZE - 1;
     }
     monoBuffer[currentNote] = note;
-    playNoteMono(0, note, velocity);
+    playNoteMono(PLAY_NOTE, note, velocity);
     currentNote++;
   }
-
   else // key is released
   {
     byte foundNoteIndex = MONOBUFFERSIZE; // default to index larger than buffer size
-    for (byte i = 0; i < (currentNote + 1); i++)
+    for (byte i = 0; i <= (currentNote); i++)
     {
       if (note == monoBuffer[i])
       {
         foundNoteIndex = i;
+        monoBuffer[i] = 0;
         // note has to be stopped
         bufferShift(foundNoteIndex, currentNote);
         currentNote--;
-        // playNoteMono(1, monoBuffer[currentNote - 1], velocity);
+        // playNoteMono(UPDATE_NOTE, monoBuffer[currentNote - 1], velocity); // this is causing issues with the RELEASE phase of the AMP ENV
         break;
       }
     }
     if (currentNote == 0)
     {
-      playNoteMono(2, note, velocity);
+      playNoteMono(STOP_NOTE, note, velocity);
     }
   }
 }
@@ -135,7 +136,7 @@ void handleButtonPress(boolean *buttonsState)
       boolean buttonState = boolean(buttonsState[i]);
       switch (pressedButton)
       {
-      case 0: // button one was pressed, toggle between waveforms
+      case OSC_1_BUTTON: // button one was pressed, toggle between waveforms
         if (buttonState == true)
         {
           globalState.WAVEFORM1 = WAVEFORM_PULSE;
@@ -150,7 +151,7 @@ void handleButtonPress(boolean *buttonsState)
         }
         break;
 
-      case 1:
+      case OSC_2_BUTTON:
         if (buttonState == true)
         {
           globalState.WAVEFORM2 = WAVEFORM_PULSE;
@@ -165,7 +166,9 @@ void handleButtonPress(boolean *buttonsState)
         }
         break;
 
-      case 2:
+      case POLY_MONO_BUTTON:
+      // wipe out all notes playing just in case
+
         if (buttonState == true)
         {
           globalState.isPoly = true;
@@ -176,7 +179,7 @@ void handleButtonPress(boolean *buttonsState)
         }
         break;
 
-      case 3:
+      case SHIFT_BUTTON:
         if (buttonState == true)
         {
           globalState.shift = true;
@@ -261,7 +264,7 @@ void handleKnobChange(pot knob)
     }
     break;
   case 4: // MASTER_VOL
-    globalState.MASTER_VOL = 2 * (1 - decKnobVal);
+    globalState.MASTER_VOL = MAX_MASTER_GAIN * (1 - decKnobVal);
     MASTER_GAIN.gain(globalState.MASTER_VOL);
     break;
   case 5: // NOISE_PRESENSE
@@ -280,6 +283,7 @@ void handleKnobChange(pot knob)
     if (globalState.shift == false)
     {
       globalState.AMP_SUSTAIN = 1 - (float(knobValue) * DIV1023);
+      Serial.println(globalState.AMP_SUSTAIN);
       for (byte i = 0; i < numPolyVoices; i++)
       {
         polyVoices[i].ampEnv.sustain(globalState.AMP_SUSTAIN);

@@ -23,6 +23,19 @@ extern AudioMixer4 LFO_MIXER_AMP;
 extern const byte MONOBUFFERSIZE;
 extern byte monoBuffer[];
 
+enum playModes {
+  PLAY_NOTE,
+  UPDATE_NOTE,
+  STOP_NOTE
+};
+
+enum buttonNames {
+  OSC_1_BUTTON,
+  OSC_2_BUTTON,
+  POLY_MONO_BUTTON,
+  SHIFT_BUTTON
+};
+
 void activateVoices(byte index, byte note, float frequency, float gain);
 void decactivateVoices(byte index, boolean stopOscillator);
 void playNoteMono(byte playMode, byte note, byte velocity);

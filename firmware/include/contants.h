@@ -15,3 +15,5 @@
 
 #define LFO_FREQ_MAX 60 // hertz
 #define FILTER_OCTAVE_DEPTH 10
+
+#define MAX_MASTER_GAIN 4 

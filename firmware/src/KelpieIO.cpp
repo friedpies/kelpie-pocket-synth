@@ -89,8 +89,8 @@ void Kelpie::blinkMidiLED(bool value)
 
 void Kelpie::bootupAnimation(void)
 {
-    byte delayTimeMS = 25;
-    byte numCycles = 10;
+    byte delayTimeMS = 50;
+    byte numCycles = 5;
     for (byte counter = 0; counter < numCycles; counter++)
     {
         digitalWrite(MIDILED, HIGH);

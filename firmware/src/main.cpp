@@ -132,6 +132,20 @@ void handleMidiEvent(byte channelByte, byte controlByte, byte valueByte)
     break;
 
   case midi::ControlChange:
+    byte ccNum = note; // redefining for clarity
+    byte value = velocity;
+    switch (ccNum) {
+      case 1: // MODULATION WHEEL
+        globalState.LFO_FREQ = value * DIV127 * LFO_FREQ_MAX;
+        LFO.frequency(globalState.LFO_FREQ);
+      break;
+      case 5: // GLIDE
+      break;
+      case 7: // MASTER GAIN
+      break;
+      case 8: // OSC BALANCE
+      break;
+    }
     break;
   }
 }
@@ -239,5 +253,4 @@ void loop()
   //     Serial.println();
   //   }
   // }
-  Serial.println(globalState.FILTER_Q);
 }
