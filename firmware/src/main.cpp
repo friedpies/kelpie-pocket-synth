@@ -134,6 +134,9 @@ void handleMidiEvent(byte channelByte, byte controlByte, byte valueByte)
   case midi::ControlChange:
     byte ccNum = note; // redefining for clarity
     byte value = velocity;
+    Serial.print(ccNum);
+    Serial.print(" ");
+    Serial.println(value);
     switch (ccNum) {
       case 1: // MODULATION WHEEL
         globalState.LFO_FREQ = value * DIV127 * LFO_FREQ_MAX;
@@ -145,6 +148,15 @@ void handleMidiEvent(byte channelByte, byte controlByte, byte valueByte)
       break;
       case 8: // OSC BALANCE
       break;
+      case 102: // OSC 1 PWM
+      break;
+      case 103: // OSC 2 PWM
+      break;
+      case 104: // NOISE VOLUME
+      break;
+      case 105: // FILTER FREQUENCY
+      break;
+
     }
     break;
   }
