@@ -283,7 +283,6 @@ void handleKnobChange(pot knob)
     if (globalState.shift == false)
     {
       globalState.AMP_SUSTAIN = 1 - (float(knobValue) * DIV1023);
-      Serial.println(globalState.AMP_SUSTAIN);
       for (byte i = 0; i < numPolyVoices; i++)
       {
         polyVoices[i].ampEnv.sustain(globalState.AMP_SUSTAIN);
@@ -319,7 +318,6 @@ void handleKnobChange(pot knob)
   case 9:
     break;
   case 10: // FILTER_FREQ
-
     globalState.FILTER_FREQ = FILTER_CUTOFF_MAX * pow((1023 - knobValue) * DIV1023, 3);
     for (byte i = 0; i < numPolyVoices; i++)
     {
@@ -341,7 +339,7 @@ void handleKnobChange(pot knob)
       polyVoices[i].filter.octaveControl(globalState.FILTER_OCTAVE);
     }
     break;
-  case 13:
+  case 13: // LFO RATE
     globalState.LFO_FREQ = LFO_FREQ_MAX * pow((1 - decKnobVal), 5);
     LFO.frequency(globalState.LFO_FREQ);
     break;
@@ -350,7 +348,7 @@ void handleKnobChange(pot knob)
     LFO_MIXER_FILTER.gain(1, globalState.LFO_FILTER_GAIN);
     break;
 
-  case 15:
+  case 15: // LFO SIGNAL TO AMP
     globalState.LFO_AMP_GAIN = (1 - decKnobVal);
     LFO_MIXER_AMP.gain(1, globalState.LFO_AMP_GAIN);
     break;

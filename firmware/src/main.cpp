@@ -134,29 +134,145 @@ void handleMidiEvent(byte channelByte, byte controlByte, byte valueByte)
   case midi::ControlChange:
     byte ccNum = note; // redefining for clarity
     byte value = velocity;
+    float normalizedKnobVal = (value * DIV127);
     Serial.print(ccNum);
     Serial.print(" ");
     Serial.println(value);
     switch (ccNum) {
       case 1: // MODULATION WHEEL
-        globalState.LFO_FREQ = value * DIV127 * LFO_FREQ_MAX;
+        globalState.LFO_FREQ = normalizedKnobVal * LFO_FREQ_MAX;
         LFO.frequency(globalState.LFO_FREQ);
       break;
       case 5: // GLIDE
       break;
-      case 7: // MASTER GAIN
+      case 7: // MASTER VOLUME
+        globalState.MASTER_VOL = normalizedKnobVal * MAX_MASTER_GAIN;
+        MASTER_GAIN.gain(globalState.MASTER_VOL);
       break;
       case 8: // OSC BALANCE
+        globalState.OSC1_VOL = normalizedKnobVal;
+        globalState.OSC2_VOL = 1 - (normalizedKnobVal);
+        globalState.OSC_CONSTANT = calculateOscConstant(globalState.OSC1_VOL, globalState.OSC2_VOL, globalState.NOISE_VOL);
+        setWaveformLevels(globalState.OSC1_VOL, globalState.OSC2_VOL, globalState.NOISE_VOL, globalState.OSC_CONSTANT);
       break;
-      case 102: // OSC 1 PWM
+      case 102: // OSCILLATOR PWM
+        globalState.PWM = 0.1 + 0.4 * (1 - normalizedKnobVal);
+        for (byte i = 0; i < numPolyVoices; i++)
+        {
+          polyVoices[i].waveformA.pulseWidth(globalState.PWM);
+          polyVoices[i].waveformB.pulseWidth(globalState.PWM);
+        }
       break;
-      case 103: // OSC 2 PWM
+      case 103: // NOISE VOLUME
+        globalState.NOISE_VOL = normalizedKnobVal;
+        globalState.OSC_CONSTANT = calculateOscConstant(globalState.OSC1_VOL, globalState.OSC2_VOL, globalState.NOISE_VOL);
+        setWaveformLevels(globalState.OSC1_VOL, globalState.OSC2_VOL, globalState.NOISE_VOL, globalState.OSC_CONSTANT);
       break;
-      case 104: // NOISE VOLUME
+      case 104: // OSC DETUNE
+        globalState.DETUNE = calculateDetuneValue(normalizedKnobVal);
+        for (byte i = 0; i < numPolyVoices; i++)
+        {
+          polyVoices[i].waveformB.frequency(polyVoices[i].noteFreq * globalState.DETUNE * globalState.PITCH_BEND);
+        }
       break;
       case 105: // FILTER FREQUENCY
+        globalState.FILTER_FREQ = FILTER_CUTOFF_MAX * pow(normalizedKnobVal, 3);
+        for (byte i = 0; i < numPolyVoices; i++)
+        {
+          polyVoices[i].filter.frequency(globalState.FILTER_FREQ);
+        }
       break;
-
+      case 106: // FILTER RESONANCE
+        globalState.FILTER_Q = (FILTER_Q_MAX * normalizedKnobVal) + 1.1;
+        globalState.PREFILTER_GAIN = 1 / globalState.FILTER_Q;
+        for (byte i = 0; i < numPolyVoices; i++)
+        {
+          polyVoices[i].filter.resonance(globalState.FILTER_Q);
+        }
+      break;
+      case 107: // FILTER DEPTH
+        globalState.FILTER_OCTAVE = FILTER_OCTAVE_DEPTH * normalizedKnobVal;
+        for (byte i = 0; i < numPolyVoices; i++)
+        {
+          polyVoices[i].filter.octaveControl(globalState.FILTER_OCTAVE);
+        }
+      break;
+      case 108: // LFO RATE
+        globalState.LFO_FREQ = LFO_FREQ_MAX * pow(normalizedKnobVal, 5);
+        LFO.frequency(globalState.LFO_FREQ);
+      break;
+      case 109: // LFO DESTINATION FILTER
+        globalState.LFO_FILTER_GAIN = (normalizedKnobVal);
+        LFO_MIXER_FILTER.gain(1, globalState.LFO_FILTER_GAIN);
+      break;
+      case 110: // LFO DESTINATION AMP
+        globalState.LFO_AMP_GAIN = (normalizedKnobVal);
+        LFO_MIXER_AMP.gain(1, globalState.LFO_AMP_GAIN);
+      break;
+      case 111: // AMP ATTACK
+      globalState.AMP_ATTACK = AMP_ATTACK_MAX * (normalizedKnobVal);
+      if (globalState.AMP_ATTACK < 15) //
+      {
+        globalState.AMP_ATTACK = 0;
+      }
+      for (byte i = 0; i < numPolyVoices; i++)
+      {
+        polyVoices[i].ampEnv.attack(globalState.AMP_ATTACK);
+      }
+      break;
+      case 112: // AMP DECAY
+        globalState.AMP_DECAY = AMP_DECAY_MAX * normalizedKnobVal;
+        for (byte i = 0; i < numPolyVoices; i++)
+        {
+          polyVoices[i].ampEnv.decay(globalState.AMP_DECAY);
+        }
+      break;
+      case 113: // AMP SUSTAIN
+        globalState.AMP_SUSTAIN = normalizedKnobVal;
+        for (byte i = 0; i < numPolyVoices; i++)
+        {
+          polyVoices[i].ampEnv.sustain(globalState.AMP_SUSTAIN);
+        }
+      break;
+      case 114: // AMP RELEASE
+        globalState.AMP_RELEASE = AMP_RELEASE_MAX * normalizedKnobVal;
+        for (byte i = 0; i < numPolyVoices; i++)
+        {
+          polyVoices[i].ampEnv.release(globalState.AMP_RELEASE);
+        }
+      break;
+      case 115: // FILTER ATTACK
+            globalState.FILTER_ATTACK = FILTER_ATTACK_MAX * normalizedKnobVal;
+      if (globalState.FILTER_ATTACK < 15) //
+      {
+        globalState.FILTER_ATTACK = 0;
+      }
+      for (byte i = 0; i < numPolyVoices; i++)
+      {
+        polyVoices[i].filterEnv.attack(globalState.FILTER_ATTACK);
+      }
+      break;
+      case 116: // FILTER DECAY
+        globalState.FILTER_DECAY = FILTER_DECAY_MAX * normalizedKnobVal;
+        for (byte i = 0; i < numPolyVoices; i++)
+        {
+          polyVoices[i].filterEnv.decay(globalState.FILTER_DECAY);
+        }
+      break;
+      case 117: // FILTER SUSTAIN
+        globalState.FILTER_SUSTAIN = normalizedKnobVal;
+        for (byte i = 0; i < numPolyVoices; i++)
+        {
+          polyVoices[i].filterEnv.sustain(globalState.FILTER_SUSTAIN);
+        }
+      break;
+      case 118: // FILTER RELEASE
+        globalState.FILTER_RELEASE = FILTER_RELEASE_MAX * normalizedKnobVal;
+        for (byte i = 0; i < numPolyVoices; i++)
+        {
+          polyVoices[i].filterEnv.release(globalState.FILTER_RELEASE);
+        }
+      break;
     }
     break;
   }
