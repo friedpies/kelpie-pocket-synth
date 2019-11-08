@@ -1,11 +1,12 @@
 ## KELPIE - a polyphonic pocket synth
 
 ![kelpie](https://cdn.hackaday.io/images/3974921568747326146.jpg)
-
+---
 ### About
 
 The KELPIE is a digital polyphonic synthesizer powered by the SGTL5000 audio DAC and an ARM Cortex M4 microcontroller. For a description of the full project, please visit the [Hackaday Project Page](https://hackaday.io/project/166460-kelpie-synth-module-for-keyboard-controllers)
 
+---
 ### Repository Details
 
 This repo houses all mechanical, electrical, and software files relating to the project, as well as graphical assets and other additional files.
@@ -13,6 +14,8 @@ This repo houses all mechanical, electrical, and software files relating to the 
 - Mechanical CAD (mCAD) files can be found and viewed [here](https://a360.co/2Hpqyr5) via Fusion 360's online viewer. They can be downloaded directly in whatever format you need (including STLs for 3D printing). The link provided here directly reflects the most current progress and is kept up-to-date in real time.
 - Electronics CAD ([Autodesk Eagle](https://www.autodesk.com/products/eagle/free-download)) files and schematics can be found [here](https://github.com/friedpies/kelpie-pocket-synth/tree/master/hardware/electronics). The parts library and full BOM can be exported from the schematic. This is the most up-to-date BOM.
 - Firmware files, written in Arduino/C++ using [PlatformIO](https://platformio.org/) can be found [here](https://github.com/friedpies/kelpie-pocket-synth/tree/master/firmware)
+
+---
 
 ### Firmware Directory Structure
 
@@ -45,11 +48,15 @@ The device firmware is written in C++ using the Arduino framework. The main entr
 
 ```
 
+---
+
 ### Audio Design
 
 The synthesizer block diagram is shown below and was designed using the [Teensy Audio Design Tool](https://www.pjrc.com/teensy/gui/index.html)
 
 ![BlockDiagram](https://github.com/friedpies/kelpie-pocket-synth/blob/master/graphics/OTHER%20ASSETS/Screen%20Shot%202019-08-23%20at%206.13.28%20PM.png?raw=true)
+
+---
 
 ### About the Device / How to Use
 ![drawing](https://github.com/friedpies/kelpie-pocket-synth/blob/master/graphics/OTHER%20ASSETS/KELPIE_MASTER_DRAWING_TOP.png)
@@ -79,6 +86,8 @@ Some unique features of the KELPIE that are different and worth pointing out are
 
 #### MIDI CC
   - The KELPIE accepts `MIDI CC` messages from `102 - 119` which allow adjustment of all the parameters on the device. Both the built-in knobs and external MIDI knobs can be used simultaneously.
+
+---
 
 ### Acknowledgements
 
