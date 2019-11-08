@@ -51,6 +51,8 @@ The synthesizer block diagram is shown below and was designed using the [Teensy 
 
 ![BlockDiagram](https://github.com/friedpies/kelpie-pocket-synth/blob/master/graphics/OTHER%20ASSETS/Screen%20Shot%202019-08-23%20at%206.13.28%20PM.png?raw=true)
 
+
+
 ### Acknowledgements
 
 I utilized and referenced a couple of open source libraries + repos for this project, as well as some very useful tools:
