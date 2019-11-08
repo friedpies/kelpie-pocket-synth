@@ -56,7 +56,8 @@ The synthesizer block diagram is shown below and was designed using the [Teensy 
 
 The KELPIE is a subtractive synthesizer that follows the standard 2 oscillator model. For those who have never used a subtractive synth before, there are plenty of resources online, I would recommend [this series of videos](https://www.youtube.com/watch?v=-1iK6drewCE) which do a great job of explaning and demonstrating the basics.
 
-Some unique features of the KELPIE that are different that are worth explaining and pointing out are:
+Some unique features of the KELPIE that are different and worth pointing out are:
+
  #### Oscillators
  - Each oscillator can only generate either a `pulse` waveform or `sawtooth` (both these waveforms are harmonically rich compared to triangle/sine waves, and can easily emulate other waves through filtering)
  - The `Pulse Width Modulation knob` (PWM) can only be heard if one (or both) of the waveforms are switched to a pulse waveform. This knob can be thought of as a "global" PWM
