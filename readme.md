@@ -1,6 +1,6 @@
 ## KELPIE - a polyphonic pocket synth
 
-![kelpie](https://cdn.hackaday.io/images/1592771566489986528.jpg)
+![kelpie](https://cdn.hackaday.io/images/3974921568747326146.jpg)
 
 ### About
 
