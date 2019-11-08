@@ -136,7 +136,7 @@ void handleButtonPress(boolean *buttonsState)
       boolean buttonState = boolean(buttonsState[i]);
       switch (pressedButton)
       {
-      case OSC_1_BUTTON: // button one was pressed, toggle between waveforms
+      case OSC_1_BUTTON: // button 1 was pressed, toggle between waveforms
         if (buttonState == true)
         {
           globalState.WAVEFORM1 = WAVEFORM_PULSE;
