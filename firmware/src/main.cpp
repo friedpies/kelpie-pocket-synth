@@ -35,7 +35,7 @@ polyVoice VOICE_6 = {0, 0.0, 0, false, V6_A, V6_B, V6_N, V6_MIX, V6_AMP, V6_ENV,
 polyVoice VOICE_7 = {0, 0.0, 0, false, V7_A, V7_B, V7_N, V7_MIX, V7_AMP, V7_ENV, V7_FILT_ENV, V7_FILT};
 polyVoice VOICE_8 = {0, 0.0, 0, false, V8_A, V8_B, V8_N, V8_MIX, V8_AMP, V8_ENV, V8_FILT_ENV, V8_FILT};
 
-const byte numPolyVoices = 8; // 12 voices have been causing issues, so running 6 for now
+const byte numPolyVoices = 8; // 
 polyVoice polyVoices[numPolyVoices] = {
     VOICE_1,
     VOICE_2,
@@ -77,6 +77,7 @@ synthState globalState = {
     1.1,               // FILTER_Q
     1.0,               // FILTER_OCTAVE
     0.5,               // MASTER_VOL
+    1.0,               // POLY_GAIN_MULTIPLIER
     0.9                // PREFILTER_GAIN
 };
 
@@ -147,7 +148,7 @@ void handleMidiEvent(byte channelByte, byte controlByte, byte valueByte)
       break;
       case 7: // MASTER VOLUME
         globalState.MASTER_VOL = normalizedKnobVal * MAX_MASTER_GAIN;
-        MASTER_GAIN.gain(globalState.MASTER_VOL);
+        MASTER_GAIN.gain(globalState.MASTER_VOL * globalState.POLY_GAIN_MULTIPLIER);
       break;
       case 8: // OSC BALANCE
         globalState.OSC1_VOL = normalizedKnobVal;

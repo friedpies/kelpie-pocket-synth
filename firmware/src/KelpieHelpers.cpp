@@ -1,6 +1,6 @@
 #include <KelpieHelpers.h>
 
-void activateVoices(byte index, byte note, float frequency, float gain)
+void activateVoice(byte index, byte note, float frequency, float gain)
 {
   polyVoices[index].note = note;
   polyVoices[index].noteFreq = frequency;
@@ -13,7 +13,7 @@ void activateVoices(byte index, byte note, float frequency, float gain)
   polyVoices[index].filterEnv.noteOn();
 }
 
-void deactivateVoices(byte index, boolean stopOscillator)
+void deactivateVoice(byte index)
 {
   polyVoices[index].ampEnv.noteOff();
   polyVoices[index].filterEnv.noteOff();
@@ -30,7 +30,7 @@ void playNoteMono(byte playMode, byte note, byte velocity)
   case PLAY_NOTE: // PLAYNOTE
     for (byte i = 0; i < numPolyVoices; i++)
     {
-      activateVoices(i, note, baseNoteFreq, noteGain);
+      activateVoice(i, note, baseNoteFreq, noteGain);
     }
     break;
   case UPDATE_NOTE: // UPDATE NOTE
@@ -45,7 +45,7 @@ void playNoteMono(byte playMode, byte note, byte velocity)
   case STOP_NOTE: // STOP NOTE
     for (byte i = 0; i < numPolyVoices; i++)
     {
-      deactivateVoices(i, true);
+      deactivateVoice(i);
     }
     break;
   }
@@ -108,7 +108,7 @@ void keyBuffPoly(byte note, byte velocity, boolean playNote)
     {
       if (polyVoices[i].ampEnv.isActive() == false)
       {
-        activateVoices(i, note, baseNoteFreq, noteGain);
+        activateVoice(i, note, baseNoteFreq, noteGain);
         break;
       }
     }
@@ -119,7 +119,7 @@ void keyBuffPoly(byte note, byte velocity, boolean playNote)
     {
       if (polyVoices[i].note == note)
       {
-        deactivateVoices(i, false);
+        deactivateVoice(i);
       }
     }
   }
@@ -168,18 +168,26 @@ void handleButtonPress(boolean *buttonsState)
 
       case POLY_MONO_BUTTON:
       // wipe out all notes playing just in case
-
+        for (byte i = 0; i < numPolyVoices; i++) {
+          deactivateVoice(i);
+        }
         if (buttonState == true)
         {
           globalState.isPoly = true;
+          globalState.POLY_GAIN_MULTIPLIER = 1.0;
+
         }
         else
         {
           globalState.isPoly = false;
+          globalState.POLY_GAIN_MULTIPLIER = 1.0;
         }
+        MASTER_GAIN.gain(globalState.MASTER_VOL * globalState.POLY_GAIN_MULTIPLIER);
+
         break;
 
       case SHIFT_BUTTON:
+
         if (buttonState == true)
         {
           globalState.shift = true;
@@ -265,7 +273,7 @@ void handleKnobChange(pot knob)
     break;
   case 4: // MASTER_VOL
     globalState.MASTER_VOL = MAX_MASTER_GAIN * (1 - decKnobVal);
-    MASTER_GAIN.gain(globalState.MASTER_VOL);
+    MASTER_GAIN.gain(globalState.MASTER_VOL * globalState.POLY_GAIN_MULTIPLIER);
     break;
   case 5: // NOISE_PRESENSE
     globalState.NOISE_VOL = 1 - decKnobVal;
