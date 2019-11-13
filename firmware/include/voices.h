@@ -2,6 +2,7 @@
 #ifndef Voices_h
 #define Voices_h
 
+#include <Audio.h>
 struct polyVoice
 {
   byte note;
