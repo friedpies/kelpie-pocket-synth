@@ -17,3 +17,4 @@
 #define FILTER_OCTAVE_DEPTH 10
 
 #define MAX_MASTER_GAIN 3 
+#define VELOCITY_CURVE 1.5

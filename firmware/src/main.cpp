@@ -96,6 +96,7 @@ void handleMidiEvent(byte channelByte, byte controlByte, byte valueByte)
     kelpie.blinkMidiLED(true);
     if (note > 23 && note < 108)
     {
+      LFO.phase(0); // retrigger LFO on keypress
       if (globalState.isPoly == true) // depending on mode send to buffer
       {
         keyBuffPoly(note, velocity, true);

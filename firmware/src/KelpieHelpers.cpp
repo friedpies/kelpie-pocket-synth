@@ -23,7 +23,7 @@ void deactivateVoice(byte index)
 void playNoteMono(byte playMode, byte note, byte velocity)
 {
   float baseNoteFreq = noteFreqs[note];
-  float noteGain = float(velocity) * DIV127;
+  float noteGain = pow(float(velocity) * DIV127, VELOCITY_CURVE);
   AudioNoInterrupts();
   switch (playMode) 
   {
@@ -92,7 +92,7 @@ void keyBuffMono(byte note, byte velocity, boolean playNote)
         currentNote--;
         if (currentNote == 0)
         {
-          playNoteMono(STOP_NOTE, note, velocity); // BUG IS HERE
+          playNoteMono(STOP_NOTE, note, velocity); 
         } else {
           playNoteMono(UPDATE_NOTE, monoBuffer[currentNote - 1], velocity); // this is causing issues with the RELEASE phase of the AMP ENV
         }
@@ -105,7 +105,7 @@ void keyBuffPoly(byte note, byte velocity, boolean playNote)
 {
   if (playNote) // on keypress
   {
-    float noteGain = float(velocity) * DIV127;
+    float noteGain = pow(float(velocity) * DIV127, VELOCITY_CURVE);
     float baseNoteFreq = noteFreqs[note];
     for (byte i = 0; i < numPolyVoices; i++)
     {
