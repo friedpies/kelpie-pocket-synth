@@ -25,7 +25,7 @@ void playNoteMono(byte playMode, byte note, byte velocity)
   float baseNoteFreq = noteFreqs[note];
   float noteGain = float(velocity) * DIV127;
   AudioNoInterrupts();
-  switch (playMode) // WILL SWITCH TO ENUMS LATER
+  switch (playMode) 
   {
   case PLAY_NOTE: // PLAYNOTE
     for (byte i = 0; i < numPolyVoices; i++)
@@ -34,15 +34,17 @@ void playNoteMono(byte playMode, byte note, byte velocity)
     }
     break;
   case UPDATE_NOTE: // UPDATE NOTE
+  Serial.print(millis());
     for (byte i = 0; i < numPolyVoices; i++)
     {
       polyVoices[i].note = note;
       polyVoices[i].noteFreq = baseNoteFreq;
-      polyVoices[i].waveformA.frequency(baseNoteFreq * globalState.PITCH_BEND);
+      polyVoices[i].waveformA.frequency(baseNoteFreq);// * globalState.PITCH_BEND);
       polyVoices[i].waveformB.frequency(baseNoteFreq * globalState.PITCH_BEND * globalState.DETUNE);
     }
     break;
   case STOP_NOTE: // STOP NOTE
+  Serial.print(millis());
     for (byte i = 0; i < numPolyVoices; i++)
     {
       deactivateVoice(i);
@@ -80,6 +82,7 @@ void keyBuffMono(byte note, byte velocity, boolean playNote)
     byte foundNoteIndex = MONOBUFFERSIZE; // default to index larger than buffer size
     for (byte i = 0; i <= (currentNote); i++)
     {
+
       if (note == monoBuffer[i])
       {
         foundNoteIndex = i;
@@ -87,13 +90,13 @@ void keyBuffMono(byte note, byte velocity, boolean playNote)
         // note has to be stopped
         bufferShift(foundNoteIndex, currentNote);
         currentNote--;
-        // playNoteMono(UPDATE_NOTE, monoBuffer[currentNote - 1], velocity); // this is causing issues with the RELEASE phase of the AMP ENV
-        break;
+        if (currentNote == 0)
+        {
+          playNoteMono(STOP_NOTE, note, velocity); // BUG IS HERE
+        } else {
+          playNoteMono(UPDATE_NOTE, monoBuffer[currentNote - 1], velocity); // this is causing issues with the RELEASE phase of the AMP ENV
+        }
       }
-    }
-    if (currentNote == 0)
-    {
-      playNoteMono(STOP_NOTE, note, velocity);
     }
   }
 }

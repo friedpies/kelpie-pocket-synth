@@ -12,10 +12,12 @@
 #include <audioConnections.h>
 #include <voices.h>
 #include <globalSynthState.h>
+#include <SynthState.h>
 #include <keyMappings.h>
 #include <contants.h>
 #include <KelpieIO.h>
 #include <KelpieHelpers.h>
+
 
 elapsedMillis fps;
 
