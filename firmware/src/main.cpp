@@ -80,7 +80,9 @@ synthState globalState = {
     1.0,               // FILTER_OCTAVE
     0.5,               // MASTER_VOL
     1.0,               // POLY_GAIN_MULTIPLIER
-    0.9                // PREFILTER_GAIN
+    0.9,               // PREFILTER_GAIN
+    0,                 // PREV_NOTE
+    0                  // CURRENT NOTE
 };
 
 void handleMidiEvent(byte channelByte, byte controlByte, byte valueByte)
@@ -139,9 +141,6 @@ void handleMidiEvent(byte channelByte, byte controlByte, byte valueByte)
     byte ccNum = note; // redefining for clarity
     byte value = velocity;
     float normalizedKnobVal = (value * DIV127);
-    Serial.print(ccNum);
-    Serial.print(" ");
-    Serial.println(value);
     switch (ccNum) {
       case 1: // MODULATION WHEEL
         globalState.LFO_FREQ = normalizedKnobVal * LFO_FREQ_MAX;

@@ -22,6 +22,13 @@ void deactivateVoice(byte index)
 
 void playNoteMono(byte playMode, byte note, byte velocity)
 {
+  globalState.PREV_NOTE = globalState.CURRENT_NOTE;
+  globalState.CURRENT_NOTE = note;
+  if (globalState.CURRENT_NOTE == globalState.PREV_NOTE) {
+    globalState.PREV_NOTE = 0; // this is a quick fix
+    globalState.CURRENT_NOTE = 0;
+  }
+  Serial.print(globalState.PREV_NOTE); Serial.print(" "); Serial.println(globalState.CURRENT_NOTE);
   float baseNoteFreq = noteFreqs[note];
   float noteGain = pow(float(velocity) * DIV127, VELOCITY_CURVE);
   AudioNoInterrupts();
@@ -34,7 +41,6 @@ void playNoteMono(byte playMode, byte note, byte velocity)
     }
     break;
   case UPDATE_NOTE: // UPDATE NOTE
-  Serial.print(millis());
     for (byte i = 0; i < numPolyVoices; i++)
     {
       polyVoices[i].note = note;
@@ -44,7 +50,6 @@ void playNoteMono(byte playMode, byte note, byte velocity)
     }
     break;
   case STOP_NOTE: // STOP NOTE
-  Serial.print(millis());
     for (byte i = 0; i < numPolyVoices; i++)
     {
       deactivateVoice(i);

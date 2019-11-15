@@ -33,6 +33,8 @@ struct synthState
   float MASTER_VOL;
   float POLY_GAIN_MULTIPLIER;
   float PREFILTER_GAIN; // gain to attenuate waveform amplifier based on filter resonance amount (a high resonance can cause clipping);
+  byte PREV_NOTE;
+  byte CURRENT_NOTE;
 };
 
 #endif
