@@ -99,13 +99,15 @@ void handleMidiEvent(byte channelByte, byte controlByte, byte valueByte)
     if (note > 23 && note < 108)
     {
       LFO.phase(0); // retrigger LFO on keypress
+      float noteGain = pow(float(velocity) * DIV127, VELOCITY_CURVE);
+
       if (globalState.isPoly == true) // depending on mode send to buffer
       {
-        keyBuffPoly(note, velocity, true);
+        keyBuffPoly(note, noteGain, true);
       }
       else
       {
-        keyBuffMono(note, velocity, true);
+        keyBuffMono(note, noteGain, true);
       }
     }
     break;
@@ -330,8 +332,8 @@ void setup()
 
   for (byte i = 0; i < 4; i++)
   {
-    V14_MIX.gain(0, 0.25);
-    V58_MIX.gain(0, 0.25);
+    V14_MIX.gain(i, 0.25);
+    V58_MIX.gain(i, 0.25);
   }
 
   ALL_VOICE_MIX.gain(0, 0.5);
@@ -369,19 +371,26 @@ void loop()
     handleButtonPress(buttonsState);
   }
 
-  // if (fps > 24)
-  // {
-  //   if (rms1.available())
-  //   {
-  //     fps = 0;
-  //     int monoPeak = rms1.read() * 100.0;
-  //     Serial.print("|");
-  //     for (int cnt = 0; cnt < monoPeak; cnt++)
-  //     {
-  //       Serial.print(">");
-  //     }
-  //     Serial.print(monoPeak);
-  //     Serial.println();
-  //   }
-  // }
+  if (fps > 24)
+  {
+    if (PEAK.available())
+    {
+      fps = 0;
+      int monoPeak = PEAK.read() * 100.0;
+      Serial.print("|");
+      for (int cnt = 0; cnt < 100; cnt++)
+      if (cnt < monoPeak)
+      {
+        Serial.print(">");
+      } else if (cnt >= monoPeak && cnt < 99)
+      {
+        Serial.print(" ");
+      } else if (cnt > 99)
+      {
+        Serial.println("|");
+      }
+      Serial.print(monoPeak);
+      Serial.println();
+    }
+  }
 }

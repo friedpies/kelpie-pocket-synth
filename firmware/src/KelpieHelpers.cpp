@@ -17,10 +17,10 @@ void deactivateVoice(byte index)
 {
   polyVoices[index].ampEnv.noteOff();
   polyVoices[index].filterEnv.noteOff();
-  polyVoices[index].note = 0;
+  polyVoices[index].note = -1;
 }
 
-void playNoteMono(byte playMode, byte note, byte velocity)
+void playNoteMono(byte playMode, byte note, float noteGain)
 {
   globalState.PREV_NOTE = globalState.CURRENT_NOTE;
   globalState.CURRENT_NOTE = note;
@@ -28,9 +28,7 @@ void playNoteMono(byte playMode, byte note, byte velocity)
     globalState.PREV_NOTE = 0; // this is a quick fix
     globalState.CURRENT_NOTE = 0;
   }
-  Serial.print(globalState.PREV_NOTE); Serial.print(" "); Serial.println(globalState.CURRENT_NOTE);
   float baseNoteFreq = noteFreqs[note];
-  float noteGain = pow(float(velocity) * DIV127, VELOCITY_CURVE);
   AudioNoInterrupts();
   switch (playMode) 
   {
@@ -68,7 +66,7 @@ void bufferShift(byte indexToRemove, byte currentSizeOfBuffer)
   monoBuffer[currentSizeOfBuffer - 1] = 0;
 }
 
-void keyBuffMono(byte note, byte velocity, boolean playNote)
+void keyBuffMono(byte note, float noteGain, boolean playNote)
 {
   static byte currentNote = 0; // this might make more sense to start with -1 to keep indexing legible
   if (playNote)
@@ -79,7 +77,7 @@ void keyBuffMono(byte note, byte velocity, boolean playNote)
       currentNote = MONOBUFFERSIZE - 1;
     }
     monoBuffer[currentNote] = note;
-    playNoteMono(PLAY_NOTE, note, velocity);
+    playNoteMono(PLAY_NOTE, note, noteGain);
     currentNote++;
   }
   else // key is released
@@ -97,20 +95,19 @@ void keyBuffMono(byte note, byte velocity, boolean playNote)
         currentNote--;
         if (currentNote == 0)
         {
-          playNoteMono(STOP_NOTE, note, velocity); 
+          playNoteMono(STOP_NOTE, note, noteGain); 
         } else {
-          playNoteMono(UPDATE_NOTE, monoBuffer[currentNote - 1], velocity); // this is causing issues with the RELEASE phase of the AMP ENV
+          playNoteMono(UPDATE_NOTE, monoBuffer[currentNote - 1], noteGain); // this is causing issues with the RELEASE phase of the AMP ENV
         }
       }
     }
   }
 }
 
-void keyBuffPoly(byte note, byte velocity, boolean playNote)
+void keyBuffPoly(byte note, float noteGain, boolean playNote)
 {
   if (playNote) // on keypress
   {
-    float noteGain = pow(float(velocity) * DIV127, VELOCITY_CURVE);
     float baseNoteFreq = noteFreqs[note];
     for (byte i = 0; i < numPolyVoices; i++)
     {
@@ -182,7 +179,7 @@ void handleButtonPress(boolean *buttonsState)
         if (buttonState == true)
         {
           globalState.isPoly = true;
-          globalState.POLY_GAIN_MULTIPLIER = 1.0;
+          globalState.POLY_GAIN_MULTIPLIER = POLY_MULTIPLIER;
 
         }
         else
@@ -191,7 +188,6 @@ void handleButtonPress(boolean *buttonsState)
           globalState.POLY_GAIN_MULTIPLIER = 1.0;
         }
         MASTER_GAIN.gain(globalState.MASTER_VOL * globalState.POLY_GAIN_MULTIPLIER);
-
         break;
 
       case SHIFT_BUTTON:

@@ -38,10 +38,10 @@ enum buttonNames {
 
 void activateVoice(byte index, byte note, float frequency, float gain);
 void decactivateVoice(byte index, boolean stopOscillator);
-void playNoteMono(byte playMode, byte note, byte velocity);
+void playNoteMono(byte playMode, byte note, float noteGain);
 void bufferShift(byte indexToRemove, byte currentIndexPlaying);
-void keyBuffMono(byte note, byte velocity, boolean isNoteOn);
-void keyBuffPoly(byte note, byte velocty, boolean playNote);
+void keyBuffMono(byte note, float noteGain, boolean isNoteOn);
+void keyBuffPoly(byte note, float noteGain, boolean playNote);
 void handleButtonPress(boolean *buttonState);
 void handleKnobChange(pot knob);
 float calculateOscConstant(float osc1Vol, float osc2Vol, float noiseVol);
