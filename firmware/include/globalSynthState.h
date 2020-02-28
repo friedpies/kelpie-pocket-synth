@@ -5,10 +5,10 @@
 
 struct synthState
 {
-  int WAVEFORM1;
-  int WAVEFORM2;
-  bool isPoly;
-  bool shift;
+  byte WAVEFORM1;
+  byte WAVEFORM2;
+  bool IS_POLY;
+  bool SHIFT;
   float OSC1_VOL;
   float OSC2_VOL;
   float NOISE_VOL;

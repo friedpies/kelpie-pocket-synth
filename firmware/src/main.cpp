@@ -55,7 +55,7 @@ synthState globalState = {
     // default synth state on startup
     WAVEFORM_SAWTOOTH, // WAVEFORM1
     WAVEFORM_SAWTOOTH, // WAVEFORM2
-    false,             // isPoly
+    false,             // IS_POLY
     false,             // shift
     1.0,               // OSC1_VOL
     1.0,               // OSC2_VOL
@@ -101,7 +101,7 @@ void handleMidiEvent(byte channelByte, byte controlByte, byte valueByte)
       LFO.phase(0); // retrigger LFO on keypress
       float noteGain = pow(float(velocity) * DIV127, VELOCITY_CURVE);
 
-      if (globalState.isPoly == true) // depending on mode send to buffer
+      if (globalState.IS_POLY == true) // depending on mode send to buffer
       {
         keyBuffPoly(note, noteGain, true);
       }
@@ -116,7 +116,7 @@ void handleMidiEvent(byte channelByte, byte controlByte, byte valueByte)
     kelpie.blinkMidiLED(false);
     if (note > 23 && note < 108)
     {
-      if (globalState.isPoly == true) // depending on mode send to buffer
+      if (globalState.IS_POLY == true) // depending on mode send to buffer
       {
         keyBuffPoly(note, velocity, false);
       }

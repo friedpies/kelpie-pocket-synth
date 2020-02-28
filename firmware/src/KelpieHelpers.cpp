@@ -71,7 +71,7 @@ void keyBuffMono(byte note, float noteGain, boolean playNote)
   static byte currentNote = 0; // this might make more sense to start with -1 to keep indexing legible
   if (playNote)
   {
-    if (currentNote == MONOBUFFERSIZE) // if we exceed buffer size, newest note goes on end, remove first note and shift all notes down 1
+    if (currentNote == MONOBUFFERSIZE) // if we exceed buffer size, newest note goes on end, remove first note and SHIFT all notes down 1
     {
       bufferShift(0, currentNote);
       currentNote = MONOBUFFERSIZE - 1;
@@ -178,13 +178,13 @@ void handleButtonPress(boolean *buttonsState)
         }
         if (buttonState == true)
         {
-          globalState.isPoly = true;
+          globalState.IS_POLY = true;
           globalState.POLY_GAIN_MULTIPLIER = POLY_MULTIPLIER;
 
         }
         else
         {
-          globalState.isPoly = false;
+          globalState.IS_POLY = false;
           globalState.POLY_GAIN_MULTIPLIER = 1.0;
         }
         MASTER_GAIN.gain(globalState.MASTER_VOL * globalState.POLY_GAIN_MULTIPLIER);
@@ -194,11 +194,11 @@ void handleButtonPress(boolean *buttonsState)
 
         if (buttonState == true)
         {
-          globalState.shift = true;
+          globalState.SHIFT = true;
         }
         else
         {
-          globalState.shift = false;
+          globalState.SHIFT = false;
         }
         break;
 
@@ -232,7 +232,7 @@ void handleKnobChange(pot knob)
     }
     break;
   case 2:                           // ATTACK
-    if (globalState.shift == false) // FOR AMP
+    if (globalState.SHIFT == false) // FOR AMP
     {
       globalState.AMP_ATTACK = AMP_ATTACK_MAX * (1 - (float(knobValue) * DIV1023));
       if (globalState.AMP_ATTACK < 15) //
@@ -258,7 +258,7 @@ void handleKnobChange(pot knob)
     }
     break;
   case 3:                           // DECAY
-    if (globalState.shift == false) // FOR AMP
+    if (globalState.SHIFT == false) // FOR AMP
     {
       globalState.AMP_DECAY = AMP_DECAY_MAX * (1 - (float(knobValue) * DIV1023));
       for (byte i = 0; i < numPolyVoices; i++)
@@ -292,7 +292,7 @@ void handleKnobChange(pot knob)
     }
     break;
   case 7: // AMP_SUSTAIN
-    if (globalState.shift == false)
+    if (globalState.SHIFT == false)
     {
       globalState.AMP_SUSTAIN = 1 - (float(knobValue) * DIV1023);
       for (byte i = 0; i < numPolyVoices; i++)
@@ -310,7 +310,7 @@ void handleKnobChange(pot knob)
     }
     break;
   case 8: // AMP_RELEASE
-    if (globalState.shift == false)
+    if (globalState.SHIFT == false)
     {
       globalState.AMP_RELEASE = AMP_RELEASE_MAX * (1 - (float(knobValue) * DIV1023));
       for (byte i = 0; i < numPolyVoices; i++)
