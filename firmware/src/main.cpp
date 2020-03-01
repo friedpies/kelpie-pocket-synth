@@ -5,39 +5,30 @@
 #include <Arduino.h>
 #include <MIDI.h>
 #include <Audio.h>
-#include <Wire.h>
-#include <SPI.h>
-#include <SD.h>
-#include <SerialFlash.h>
 #include <audioConnections.h>
-#include <voices.h>
-#include <globalSynthState.h>
-#include <keyMappings.h>
-#include <contants.h>
-#include <KelpieIO.h>
 #include <KelpieHelpers.h>
+#include <KelpieIO.h>
 
 
 elapsedMillis fps;
-
-Kelpie kelpie(true);
+KelpieIO kelpie(true);
 MIDI_CREATE_INSTANCE(HardwareSerial, Serial1, MIDI);
 
 boolean prevButtonsState[4] = {false, false, false, false}; // initial state on boot
 boolean *buttonsState;
-pot changedKnob;
+Potentiometer changedKnob;
 
-polyVoice VOICE_1 = {0, 0.0, 0, false, V1_A, V1_B, V1_N, V1_MIX, V1_AMP, V1_ENV, V1_FILT_ENV, V1_FILT};
-polyVoice VOICE_2 = {0, 0.0, 0, false, V2_A, V2_B, V2_N, V2_MIX, V2_AMP, V2_ENV, V2_FILT_ENV, V2_FILT};
-polyVoice VOICE_3 = {0, 0.0, 0, false, V3_A, V3_B, V3_N, V3_MIX, V3_AMP, V3_ENV, V3_FILT_ENV, V3_FILT};
-polyVoice VOICE_4 = {0, 0.0, 0, false, V4_A, V4_B, V4_N, V4_MIX, V4_AMP, V4_ENV, V4_FILT_ENV, V4_FILT};
-polyVoice VOICE_5 = {0, 0.0, 0, false, V5_A, V5_B, V5_N, V5_MIX, V5_AMP, V5_ENV, V5_FILT_ENV, V5_FILT};
-polyVoice VOICE_6 = {0, 0.0, 0, false, V6_A, V6_B, V6_N, V6_MIX, V6_AMP, V6_ENV, V6_FILT_ENV, V6_FILT};
-polyVoice VOICE_7 = {0, 0.0, 0, false, V7_A, V7_B, V7_N, V7_MIX, V7_AMP, V7_ENV, V7_FILT_ENV, V7_FILT};
-polyVoice VOICE_8 = {0, 0.0, 0, false, V8_A, V8_B, V8_N, V8_MIX, V8_AMP, V8_ENV, V8_FILT_ENV, V8_FILT};
+SynthVoice VOICE_1 = {0, 0.0, 0, false, V1_A, V1_B, V1_N, V1_MIX, V1_AMP, V1_ENV, V1_FILT_ENV, V1_FILT};
+SynthVoice VOICE_2 = {0, 0.0, 0, false, V2_A, V2_B, V2_N, V2_MIX, V2_AMP, V2_ENV, V2_FILT_ENV, V2_FILT};
+SynthVoice VOICE_3 = {0, 0.0, 0, false, V3_A, V3_B, V3_N, V3_MIX, V3_AMP, V3_ENV, V3_FILT_ENV, V3_FILT};
+SynthVoice VOICE_4 = {0, 0.0, 0, false, V4_A, V4_B, V4_N, V4_MIX, V4_AMP, V4_ENV, V4_FILT_ENV, V4_FILT};
+SynthVoice VOICE_5 = {0, 0.0, 0, false, V5_A, V5_B, V5_N, V5_MIX, V5_AMP, V5_ENV, V5_FILT_ENV, V5_FILT};
+SynthVoice VOICE_6 = {0, 0.0, 0, false, V6_A, V6_B, V6_N, V6_MIX, V6_AMP, V6_ENV, V6_FILT_ENV, V6_FILT};
+SynthVoice VOICE_7 = {0, 0.0, 0, false, V7_A, V7_B, V7_N, V7_MIX, V7_AMP, V7_ENV, V7_FILT_ENV, V7_FILT};
+SynthVoice VOICE_8 = {0, 0.0, 0, false, V8_A, V8_B, V8_N, V8_MIX, V8_AMP, V8_ENV, V8_FILT_ENV, V8_FILT};
 
 const byte numPolyVoices = 8; // 
-polyVoice polyVoices[numPolyVoices] = {
+SynthVoice polyVoices[numPolyVoices] = {
     VOICE_1,
     VOICE_2,
     VOICE_3,
@@ -50,7 +41,7 @@ polyVoice polyVoices[numPolyVoices] = {
 const byte MONOBUFFERSIZE = 8; // how many voices we allow to be stored in the MONO buffer
 byte monoBuffer[MONOBUFFERSIZE];
 
-synthState globalState = {
+SynthState globalState = {
     // default synth state on startup
     WAVEFORM_SAWTOOTH, // WAVEFORM1
     WAVEFORM_SAWTOOTH, // WAVEFORM2
@@ -349,7 +340,6 @@ void setup()
 
 void loop()
 {
-
   if (MIDI.read())
   {
     byte channel = MIDI.getChannel();

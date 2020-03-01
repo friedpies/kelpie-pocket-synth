@@ -1,4 +1,4 @@
-#include <KelpieHelpers.h>
+#include "KelpieHelpers.h"
 
 void activateVoice(byte index, byte note, float frequency, float gain)
 {
@@ -209,10 +209,10 @@ void handleButtonPress(boolean *buttonsState)
   }
 }
 
-void handleKnobChange(pot knob)
+void handleKnobChange(Potentiometer knob)
 {
   int knobName = knob.name;
-  int knobValue = knob.value;
+  int knobValue = knob.polledValue;
   float decKnobVal = float(knobValue) * DIV1023;
 
   switch (knobName)
