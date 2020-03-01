@@ -12,7 +12,6 @@
 #include <audioConnections.h>
 #include <voices.h>
 #include <globalSynthState.h>
-#include <SynthState.h>
 #include <keyMappings.h>
 #include <contants.h>
 #include <KelpieIO.h>
@@ -87,12 +86,12 @@ synthState globalState = {
 
 void handleMidiEvent(byte channelByte, byte controlByte, byte valueByte)
 {
-  byte type = MIDI.getType();
+  byte messageType = MIDI.getType();
   byte note = MIDI.getData1();
   byte velocity = MIDI.getData2();
   int pitch = 0; // initialize to zero, only applies in pitch bend case
   float pitchBend = 0.00;
-  switch (type)
+  switch (messageType)
   {
   case midi::NoteOn:
     kelpie.blinkMidiLED(true);
