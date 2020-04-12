@@ -21,6 +21,9 @@ This repo houses all mechanical, electrical, and software files relating to the 
 
 The device firmware is written in C++ using the Arduino framework. The main entrypoint is `/src/main.cpp`. The directory structure is as follows:
 
+*TODO: THE PROJECT STRUCTURE HAS BEEN UPDATED on April 12, 2020
+The diagram below is no longer accurate
+
 ```
 .
 ├── LICENSE
