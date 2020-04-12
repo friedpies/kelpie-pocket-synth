@@ -29,7 +29,6 @@ struct Potentiometer
 {
   KnobNames knobName;
   byte pinNum;
-  boolean didChange;
   int polledValue;
   int setValue;
 };

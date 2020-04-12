@@ -25,7 +25,6 @@ void KelpieIO::setKnobOnStartup(byte knobIndex)
     int knobValue = analogRead(_knobs[knobIndex].pinNum);
     _knobs[knobIndex].setValue = knobValue;
     _knobs[knobIndex].polledValue = knobValue;
-    _knobs[knobIndex].didChange = true; // force potentiometer to be read
 }
 
 // Detects if a knob was changed and returns the changed Potentiometer
@@ -33,11 +32,9 @@ byte KelpieIO::getIndexOfChangedKnob(void)
 {
     for (byte i = 0; i < 16; i++)
     {
-        _knobs[i].didChange = false; // reset values
         _knobs[i].polledValue = analogRead(_knobs[i].pinNum); // **the dimensions of this struct seem to be reversed**
         if ((_knobs[i].polledValue - _knobs[i].setValue) > 3 || (_knobs[i].polledValue - _knobs[i].setValue) < -3) // if there is a significant change
         {
-            _knobs[i].didChange = true;
             _knobs[i].setValue = _knobs[i].polledValue; //update state
             return i;
             break;

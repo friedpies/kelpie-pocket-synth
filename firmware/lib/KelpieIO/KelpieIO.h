@@ -24,22 +24,22 @@ private:
     Bounce _switches[4] = {Bounce(SW1,10), Bounce(SW2, 10), Bounce(SW3, 10), Bounce(SW4, 10)};
 
     Potentiometer _knobs[16] = {
-        {BALANCE_KNOB, KNOB1_PIN, false, 0, 0},
-        {PWM_KNOB, KNOB2_PIN, false, 0, 0},
-        {ATTACK_KNOB, KNOB3_PIN, false, 0, 0},
-        {DECAY_KNOB, KNOB4_PIN, false, 0, 0},
-        {VOL_KNOB, KNOB5_PIN, false, 0, 0},
-        {NOISE_KNOB, KNOB6_PIN, false, 0, 0},
-        {COARSE_KNOB, KNOB7_PIN, false, 0, 0},
-        {SUSTAIN_KNOB, KNOB8_PIN, false, 0, 0},
-        {RELEASE_KNOB, KNOB9_PIN, false, 0, 0},
-        {GLIDE_KNOB, KNOB10_PIN, false, 0, 0},
-        {FREQ_KNOB, KNOB11_PIN, false, 0, 0},
-        {Q_KNOB, KNOB12_PIN, false, 0, 0},
-        {DEPTH_KNOB, KNOB13_PIN, false, 0, 0},
-        {RATE_KNOB, KNOB14_PIN, false, 0, 0},
-        {FILTER_KNOB, KNOB15_PIN, false, 0, 0},
-        {AMP_KNOB, KNOB16_PIN, false, 0, 0}
+        {BALANCE_KNOB, KNOB1_PIN, 0, 0},
+        {PWM_KNOB, KNOB2_PIN, 0, 0},
+        {ATTACK_KNOB, KNOB3_PIN, 0, 0},
+        {DECAY_KNOB, KNOB4_PIN, 0, 0},
+        {VOL_KNOB, KNOB5_PIN, 0, 0},
+        {NOISE_KNOB, KNOB6_PIN, 0, 0},
+        {COARSE_KNOB, KNOB7_PIN, 0, 0},
+        {SUSTAIN_KNOB, KNOB8_PIN, 0, 0},
+        {RELEASE_KNOB, KNOB9_PIN, 0, 0},
+        {GLIDE_KNOB, KNOB10_PIN, 0, 0},
+        {FREQ_KNOB, KNOB11_PIN, 0, 0},
+        {Q_KNOB, KNOB12_PIN, 0, 0},
+        {DEPTH_KNOB, KNOB13_PIN, 0, 0},
+        {RATE_KNOB, KNOB14_PIN, 0, 0},
+        {FILTER_KNOB, KNOB15_PIN, 0, 0},
+        {AMP_KNOB, KNOB16_PIN, 0, 0}
     };
 
     Buttons _buttons = {
