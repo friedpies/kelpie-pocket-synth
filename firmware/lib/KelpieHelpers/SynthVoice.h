@@ -1,9 +1,9 @@
 // DEFINES A SINGLE 'VOICE'. THERE ARE 12 VOICES TOTAL, THEY ARE INITIALIZED IN THE MAIN.CPP FILE
-#ifndef Voices_h
-#define Voices_h
+#ifndef SynthVoice_h
+#define SynthVoice_h
 
 #include <Audio.h>
-struct polyVoice
+struct SynthVoice
 {
   byte note;
   float noteFreq;

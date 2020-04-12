@@ -3,7 +3,7 @@
 #ifndef globalSynthState_h
 #define globalSynthState_h
 
-struct synthState
+struct SynthState
 {
   byte WAVEFORM1;
   byte WAVEFORM2;

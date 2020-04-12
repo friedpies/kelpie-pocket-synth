@@ -4,17 +4,17 @@
 #define Kelpie_Helpers_h
 
 #include <Arduino.h>
-#include <keyMappings.h>
 #include <Audio.h>
-#include <voices.h>
 #include <HardwareInputs.h>
-#include <globalSynthState.h>
-#include <contants.h>
+#include "keyMappings.h"
+#include "SynthVoice.h"
+#include "SynthState.h"
+#include "constants.h"
 
 extern const byte numPolyVoices;
-extern polyVoice polyVoices[];
-extern polyVoice monoVoices[];
-extern synthState globalState;
+extern SynthVoice polyVoices[];
+extern SynthVoice monoVoices[];
+extern SynthState globalState;
 extern boolean prevButtonsState[];
 extern AudioAmplifier MASTER_GAIN;
 extern AudioSynthWaveformSine LFO;
@@ -43,7 +43,7 @@ void bufferShift(byte indexToRemove, byte currentIndexPlaying);
 void keyBuffMono(byte note, float noteGain, boolean isNoteOn);
 void keyBuffPoly(byte note, float noteGain, boolean playNote);
 void handleButtonPress(boolean *buttonState);
-void handleKnobChange(pot knob);
+void handleKnobChange(Potentiometer knob);
 float calculateOscConstant(float osc1Vol, float osc2Vol, float noiseVol);
 void setWaveformLevels(float osc1Vol, float osc2Vol, float noiseVol, float oscConstant);
 float calculateDetuneValue(int knobReading);
