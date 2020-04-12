@@ -12,20 +12,35 @@ class KelpieIO
 {
 public:
     KelpieIO(bool enableSerial);
-    Potentiometer getKnobValOnStartup(byte knobIndex);
-    Potentiometer pollKnobs(void); // this function will return a struct with Potentiometer that has changed
+    void setKnobOnStartup(byte knobIndex);
+    byte getIndexOfChangedKnob(void); // this function will return a struct with Potentiometer that has changed
     boolean pollButtons(void);
     boolean *getButtons(void);
+    Potentiometer getKnob(byte knobIndex);
     void blinkMidiLED(bool value);
     void bootupAnimation(void);
 
 private:
     Bounce _switches[4] = {Bounce(SW1,10), Bounce(SW2, 10), Bounce(SW3, 10), Bounce(SW4, 10)};
 
-    Knobs _knobs = {
-        {KNOB1_PIN, KNOB2_PIN, KNOB3_PIN, KNOB4_PIN, KNOB5_PIN, KNOB6_PIN, KNOB7_PIN, KNOB8_PIN, KNOB9_PIN, KNOB10_PIN, KNOB11_PIN, KNOB12_PIN, KNOB13_PIN, KNOB14_PIN, KNOB15_PIN, KNOB16_PIN},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}};
+    Potentiometer _knobs[16] = {
+        {BALANCE_KNOB, KNOB1_PIN, 0, 0},
+        {PWM_KNOB, KNOB2_PIN, 0, 0},
+        {ATTACK_KNOB, KNOB3_PIN, 0, 0},
+        {DECAY_KNOB, KNOB4_PIN, 0, 0},
+        {VOL_KNOB, KNOB5_PIN, 0, 0},
+        {NOISE_KNOB, KNOB6_PIN, 0, 0},
+        {COARSE_KNOB, KNOB7_PIN, 0, 0},
+        {SUSTAIN_KNOB, KNOB8_PIN, 0, 0},
+        {RELEASE_KNOB, KNOB9_PIN, 0, 0},
+        {GLIDE_KNOB, KNOB10_PIN, 0, 0},
+        {FREQ_KNOB, KNOB11_PIN, 0, 0},
+        {Q_KNOB, KNOB12_PIN, 0, 0},
+        {DEPTH_KNOB, KNOB13_PIN, 0, 0},
+        {RATE_KNOB, KNOB14_PIN, 0, 0},
+        {FILTER_KNOB, KNOB15_PIN, 0, 0},
+        {AMP_KNOB, KNOB16_PIN, 0, 0}
+    };
 
     Buttons _buttons = {
         // {_switch1, _switch2, _switch3, _switch4},

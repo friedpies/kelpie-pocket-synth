@@ -16,7 +16,7 @@ MIDI_CREATE_INSTANCE(HardwareSerial, Serial1, MIDI);
 
 boolean prevButtonsState[4] = {false, false, false, false}; // initial state on boot
 boolean *buttonsState;
-Potentiometer changedKnob;
+byte changedKnobIndex;
 
 SynthVoice VOICE_1 = {0, 0.0, 0, false, V1_A, V1_B, V1_N, V1_MIX, V1_AMP, V1_ENV, V1_FILT_ENV, V1_FILT};
 SynthVoice VOICE_2 = {0, 0.0, 0, false, V2_A, V2_B, V2_N, V2_MIX, V2_AMP, V2_ENV, V2_FILT_ENV, V2_FILT};
@@ -330,10 +330,10 @@ void setup()
   ALL_VOICE_MIX.gain(1, 0.5);
 
   // READ AND INITIALIZE ALL KNOBS
-  for (byte i = 0; i < 16; i++)
+  for (byte knobIndex = 0; knobIndex < 16; knobIndex++)
   {
-    changedKnob = kelpie.getKnobValOnStartup(i);
-    handleKnobChange(changedKnob);
+    kelpie.setKnobOnStartup(knobIndex);
+    handleKnobChange(kelpie.getKnob(knobIndex));
   }
   kelpie.bootupAnimation();
 }
@@ -348,10 +348,10 @@ void loop()
     handleMidiEvent(channel, controlType, value);
   }
 
-  changedKnob = kelpie.pollKnobs();
-  if (changedKnob.didChange)
+  changedKnobIndex = kelpie.getIndexOfChangedKnob();
+  if (changedKnobIndex > -1)
   {
-    handleKnobChange(changedKnob);
+    handleKnobChange(kelpie.getKnob(changedKnobIndex));
   }
 
   if (kelpie.pollButtons())
