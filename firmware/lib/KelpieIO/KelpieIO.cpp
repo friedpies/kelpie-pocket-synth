@@ -20,36 +20,30 @@ KelpieIO::KelpieIO(bool enableSerial)
     pinMode(MIDILED, OUTPUT);
 }
 
-Potentiometer KelpieIO::getKnobValOnStartup(byte knobIndex)
+void KelpieIO::setKnobOnStartup(byte knobIndex)
 {
-    Potentiometer potToRead;
-    _knobs.value[knobIndex] = analogRead(_knobs.name[knobIndex]);
-    potToRead.didChange = true; // force potentiometer to be read
-    potToRead.name = knobIndex;
-    potToRead.polledValue = _knobs.value[knobIndex];
-    _knobs.state[knobIndex] = _knobs.value[knobIndex];
-    return potToRead;
+    int knobValue = analogRead(_knobs[knobIndex].pinNum);
+    _knobs[knobIndex].setValue = knobValue;
+    _knobs[knobIndex].polledValue = knobValue;
+    _knobs[knobIndex].didChange = true; // force potentiometer to be read
 }
 
 // Detects if a knob was changed and returns the changed Potentiometer
-Potentiometer KelpieIO::pollKnobs(void)
+byte KelpieIO::getIndexOfChangedKnob(void)
 {
-    Potentiometer changedPot;
-    changedPot.didChange = false;
     for (byte i = 0; i < 16; i++)
     {
-        _knobs.value[i] = analogRead(_knobs.name[i]); // **the dimensions of this struct seem to be reversed**
-
-        if ((_knobs.value[i] - _knobs.state[i]) > 3 || (_knobs.value[i] - _knobs.state[i]) < -3) // if there is a significant change
+        _knobs[i].didChange = false; // reset values
+        _knobs[i].polledValue = analogRead(_knobs[i].pinNum); // **the dimensions of this struct seem to be reversed**
+        if ((_knobs[i].polledValue - _knobs[i].setValue) > 3 || (_knobs[i].polledValue - _knobs[i].setValue) < -3) // if there is a significant change
         {
-            changedPot.didChange = true;
-            changedPot.name = i;
-            changedPot.polledValue = _knobs.value[i];
-            _knobs.state[i] = _knobs.value[i]; //update state
+            _knobs[i].didChange = true;
+            _knobs[i].setValue = _knobs[i].polledValue; //update state
+            return i;
             break;
         }
     }
-    return changedPot;
+    return -1;
 }
 
 boolean KelpieIO::pollButtons(void)
@@ -73,6 +67,11 @@ boolean KelpieIO::pollButtons(void)
 boolean *KelpieIO::getButtons(void)
 {
     return _buttons.state;
+}
+
+Potentiometer KelpieIO::getKnob(byte knobIndex) 
+{
+    return _knobs[knobIndex];
 }
 
 void KelpieIO::blinkMidiLED(bool value)

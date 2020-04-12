@@ -5,18 +5,33 @@
 
 #include <Bounce.h>
 // struct to store individual Potentiometer names into a vector
-struct Potentiometer
+enum KnobNames
 {
-  boolean didChange;
-  byte name;
-  int polledValue;
+  BALANCE_KNOB,
+  PWM_KNOB,
+  ATTACK_KNOB,
+  DECAY_KNOB,
+  VOL_KNOB,
+  NOISE_KNOB,
+  COARSE_KNOB,
+  SUSTAIN_KNOB,
+  RELEASE_KNOB,
+  GLIDE_KNOB,
+  FREQ_KNOB,
+  Q_KNOB,
+  DEPTH_KNOB,
+  RATE_KNOB,
+  FILTER_KNOB,
+  AMP_KNOB
 };
 
-struct Knobs
+struct Potentiometer
 {
-  byte name[16];  // variable name of knob
-  int value[16]; // current polled value
-  int state[16]; // actual state value (there is some averaging and filtering that occurs to value before commiting the value to state)
+  KnobNames knobName;
+  byte pinNum;
+  boolean didChange;
+  int polledValue;
+  int setValue;
 };
 
 struct Buttons

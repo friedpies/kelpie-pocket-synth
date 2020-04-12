@@ -211,19 +211,17 @@ void handleButtonPress(boolean *buttonsState)
 
 void handleKnobChange(Potentiometer knob)
 {
-  int knobName = knob.name;
-  int knobValue = knob.polledValue;
-  float decKnobVal = float(knobValue) * DIV1023;
+  float decKnobVal = float(knob.setValue) * DIV1023;
 
-  switch (knobName)
+  switch (knob.knobName)
   {
-  case 0: // BALANCES OSC 1 and 2
+  case BALANCE_KNOB: // BALANCES OSC 1 and 2
     globalState.OSC1_VOL = decKnobVal;
     globalState.OSC2_VOL = 1 - decKnobVal;
     globalState.OSC_CONSTANT = calculateOscConstant(globalState.OSC1_VOL, globalState.OSC2_VOL, globalState.NOISE_VOL);
     setWaveformLevels(globalState.OSC1_VOL, globalState.OSC2_VOL, globalState.NOISE_VOL, globalState.OSC_CONSTANT);
     break;
-  case 1: // PWM OF PULSE WAVES (ONLY APPLIES WHEN A PULSE WAVE IS ACTIVATED)
+  case PWM_KNOB: // PWM OF PULSE WAVES (ONLY APPLIES WHEN A PULSE WAVE IS ACTIVATED)
     globalState.PWM = 0.1 + 0.4 * (1 - decKnobVal);
     for (byte i = 0; i < numPolyVoices; i++)
     {
@@ -231,10 +229,10 @@ void handleKnobChange(Potentiometer knob)
       polyVoices[i].waveformB.pulseWidth(globalState.PWM);
     }
     break;
-  case 2:                           // ATTACK
+  case ATTACK_KNOB:                           // ATTACK
     if (globalState.SHIFT == false) // FOR AMP
     {
-      globalState.AMP_ATTACK = AMP_ATTACK_MAX * (1 - (float(knobValue) * DIV1023));
+      globalState.AMP_ATTACK = AMP_ATTACK_MAX * (1 - (decKnobVal));
       if (globalState.AMP_ATTACK < 15) //
       {
         globalState.AMP_ATTACK = 0;
@@ -246,7 +244,7 @@ void handleKnobChange(Potentiometer knob)
     }
     else // FOR FILTER
     {
-      globalState.FILTER_ATTACK = FILTER_ATTACK_MAX * (1 - (float(knobValue) * DIV1023));
+      globalState.FILTER_ATTACK = FILTER_ATTACK_MAX * (1 - (decKnobVal));
       if (globalState.FILTER_ATTACK < 15) //
       {
         globalState.FILTER_ATTACK = 0;
@@ -257,10 +255,10 @@ void handleKnobChange(Potentiometer knob)
       }
     }
     break;
-  case 3:                           // DECAY
+  case DECAY_KNOB:                           // DECAY
     if (globalState.SHIFT == false) // FOR AMP
     {
-      globalState.AMP_DECAY = AMP_DECAY_MAX * (1 - (float(knobValue) * DIV1023));
+      globalState.AMP_DECAY = AMP_DECAY_MAX * (1 - (decKnobVal));
       for (byte i = 0; i < numPolyVoices; i++)
       {
         polyVoices[i].ampEnv.decay(globalState.AMP_DECAY);
@@ -268,33 +266,33 @@ void handleKnobChange(Potentiometer knob)
     }
     else
     { // FOR FILTER
-      globalState.FILTER_DECAY = FILTER_DECAY_MAX * (1 - (float(knobValue) * DIV1023));
+      globalState.FILTER_DECAY = FILTER_DECAY_MAX * (1 - (decKnobVal));
       for (byte i = 0; i < numPolyVoices; i++)
       {
         polyVoices[i].filterEnv.decay(globalState.FILTER_DECAY);
       }
     }
     break;
-  case 4: // MASTER_VOL
+  case VOL_KNOB: // MASTER_VOL
     globalState.MASTER_VOL = MAX_MASTER_GAIN * (1 - decKnobVal);
     MASTER_GAIN.gain(globalState.MASTER_VOL * globalState.POLY_GAIN_MULTIPLIER);
     break;
-  case 5: // NOISE_PRESENSE
+  case NOISE_KNOB: // NOISE_PRESENSE
     globalState.NOISE_VOL = 1 - decKnobVal;
     globalState.OSC_CONSTANT = calculateOscConstant(globalState.OSC1_VOL, globalState.OSC2_VOL, globalState.NOISE_VOL);
     setWaveformLevels(globalState.OSC1_VOL, globalState.OSC2_VOL, globalState.NOISE_VOL, globalState.OSC_CONSTANT);
     break;
-  case 6: // DETUNE
-    globalState.DETUNE = calculateDetuneValue(knobValue);
+  case COARSE_KNOB: // DETUNE
+    globalState.DETUNE = calculateDetuneValue(knob.setValue);
     for (byte i = 0; i < numPolyVoices; i++)
     {
       polyVoices[i].waveformB.frequency(polyVoices[i].noteFreq * globalState.DETUNE * globalState.PITCH_BEND);
     }
     break;
-  case 7: // AMP_SUSTAIN
+  case SUSTAIN_KNOB: // AMP_SUSTAIN
     if (globalState.SHIFT == false)
     {
-      globalState.AMP_SUSTAIN = 1 - (float(knobValue) * DIV1023);
+      globalState.AMP_SUSTAIN = 1 - (decKnobVal);
       for (byte i = 0; i < numPolyVoices; i++)
       {
         polyVoices[i].ampEnv.sustain(globalState.AMP_SUSTAIN);
@@ -302,17 +300,17 @@ void handleKnobChange(Potentiometer knob)
     }
     else
     {
-      globalState.FILTER_SUSTAIN = 1 - (float(knobValue) * DIV1023);
+      globalState.FILTER_SUSTAIN = 1 - (decKnobVal);
       for (byte i = 0; i < numPolyVoices; i++)
       {
         polyVoices[i].filterEnv.sustain(globalState.FILTER_SUSTAIN);
       }
     }
     break;
-  case 8: // AMP_RELEASE
+  case RELEASE_KNOB: // AMP_RELEASE
     if (globalState.SHIFT == false)
     {
-      globalState.AMP_RELEASE = AMP_RELEASE_MAX * (1 - (float(knobValue) * DIV1023));
+      globalState.AMP_RELEASE = AMP_RELEASE_MAX * (1 - (decKnobVal));
       for (byte i = 0; i < numPolyVoices; i++)
       {
         polyVoices[i].ampEnv.release(globalState.AMP_RELEASE);
@@ -320,47 +318,47 @@ void handleKnobChange(Potentiometer knob)
     }
     else
     {
-      globalState.FILTER_RELEASE = FILTER_RELEASE_MAX * (1 - (float(knobValue) * DIV1023));
+      globalState.FILTER_RELEASE = FILTER_RELEASE_MAX * (1 - (decKnobVal));
       for (byte i = 0; i < numPolyVoices; i++)
       {
         polyVoices[i].filterEnv.release(globalState.FILTER_RELEASE);
       }
     }
     break;
-  case 9:
+  case GLIDE_KNOB:
     break;
-  case 10: // FILTER_FREQ
-    globalState.FILTER_FREQ = FILTER_CUTOFF_MAX * pow((1023 - knobValue) * DIV1023, 3);
+  case FREQ_KNOB: // FILTER_FREQ
+    globalState.FILTER_FREQ = FILTER_CUTOFF_MAX * pow((1023 - knob.setValue) * DIV1023, 3);
     for (byte i = 0; i < numPolyVoices; i++)
     {
       polyVoices[i].filter.frequency(globalState.FILTER_FREQ);
     }
     break;
-  case 11: // FILTER_Q
-    globalState.FILTER_Q = FILTER_Q_MAX * (1 - (float(knobValue) * DIV1023)) + 1.1;
+  case Q_KNOB: // FILTER_Q
+    globalState.FILTER_Q = FILTER_Q_MAX * (1 - (float(knob.setValue) * DIV1023)) + 1.1;
     globalState.PREFILTER_GAIN = 1 / globalState.FILTER_Q;
     for (byte i = 0; i < numPolyVoices; i++)
     {
       polyVoices[i].filter.resonance(globalState.FILTER_Q);
     }
     break;
-  case 12: // FILTER_DEPTH
+  case DEPTH_KNOB: // FILTER_DEPTH
     globalState.FILTER_OCTAVE = FILTER_OCTAVE_DEPTH * (1 - decKnobVal);
     for (byte i = 0; i < numPolyVoices; i++)
     {
       polyVoices[i].filter.octaveControl(globalState.FILTER_OCTAVE);
     }
     break;
-  case 13: // LFO RATE
+  case RATE_KNOB: // LFO RATE
     globalState.LFO_FREQ = LFO_FREQ_MAX * pow((1 - decKnobVal), 5);
     LFO.frequency(globalState.LFO_FREQ);
     break;
-  case 14: // LFO SIGNAL TO FILTER
+  case FILTER_KNOB: // LFO SIGNAL TO FILTER
     globalState.LFO_FILTER_GAIN = (1 - decKnobVal);
     LFO_MIXER_FILTER.gain(1, globalState.LFO_FILTER_GAIN);
     break;
 
-  case 15: // LFO SIGNAL TO AMP
+  case AMP_KNOB: // LFO SIGNAL TO AMP
     globalState.LFO_AMP_GAIN = (1 - decKnobVal);
     LFO_MIXER_AMP.gain(1, globalState.LFO_AMP_GAIN);
     break;
