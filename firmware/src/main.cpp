@@ -11,12 +11,13 @@
 
 
 elapsedMillis fps;
-KelpieIO kelpie(true);
+KelpieIO kelpieIO(true);
 MIDI_CREATE_INSTANCE(HardwareSerial, Serial1, MIDI);
 
 boolean prevButtonsState[4] = {false, false, false, false}; // initial state on boot
 boolean *buttonsState;
 byte changedKnobIndex;
+byte changedButtonIndex;
 
 SynthVoice VOICE_1 = {0, 0.0, 0, false, V1_A, V1_B, V1_N, V1_MIX, V1_AMP, V1_ENV, V1_FILT_ENV, V1_FILT};
 SynthVoice VOICE_2 = {0, 0.0, 0, false, V2_A, V2_B, V2_N, V2_MIX, V2_AMP, V2_ENV, V2_FILT_ENV, V2_FILT};
@@ -85,7 +86,7 @@ void handleMidiEvent(byte channelByte, byte controlByte, byte valueByte)
   switch (messageType)
   {
   case midi::NoteOn:
-    kelpie.blinkMidiLED(true);
+    kelpieIO.blinkMidiLED(true);
     if (note > 23 && note < 108)
     {
       LFO.phase(0); // retrigger LFO on keypress
@@ -103,7 +104,7 @@ void handleMidiEvent(byte channelByte, byte controlByte, byte valueByte)
     break;
 
   case midi::NoteOff:
-    kelpie.blinkMidiLED(false);
+    kelpieIO.blinkMidiLED(false);
     if (note > 23 && note < 108)
     {
       if (globalState.IS_POLY == true) // depending on mode send to buffer
@@ -332,10 +333,10 @@ void setup()
   // READ AND INITIALIZE ALL KNOBS
   for (byte knobIndex = 0; knobIndex < 16; knobIndex++)
   {
-    kelpie.setKnobOnStartup(knobIndex);
-    handleKnobChange(kelpie.getKnob(knobIndex));
+    kelpieIO.setKnobOnStartup(knobIndex);
+    handleKnobChange(kelpieIO.getKnob(knobIndex));
   }
-  kelpie.bootupAnimation();
+  kelpieIO.bootupAnimation();
 }
 
 void loop()
@@ -348,16 +349,16 @@ void loop()
     handleMidiEvent(channel, controlType, value);
   }
 
-  changedKnobIndex = kelpie.getIndexOfChangedKnob();
+  changedKnobIndex = kelpieIO.getIndexOfChangedKnob();
   if (changedKnobIndex > -1)
   {
-    handleKnobChange(kelpie.getKnob(changedKnobIndex));
+    handleKnobChange(kelpieIO.getKnob(changedKnobIndex));
   }
 
-  if (kelpie.pollButtons())
+  changedButtonIndex = kelpieIO.getIndexOfChangedButton();
+  if (changedButtonIndex > -1)
   {
-    buttonsState = kelpie.getButtons();
-    handleButtonPress(buttonsState);
+    handleButtonPress(kelpieIO.getButton(changedButtonIndex));
   }
 
   if (fps > 24)

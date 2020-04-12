@@ -29,20 +29,13 @@ enum playModes {
   STOP_NOTE
 };
 
-enum buttonNames {
-  OSC_1_BUTTON,
-  OSC_2_BUTTON,
-  POLY_MONO_BUTTON,
-  SHIFT_BUTTON
-};
-
 void activateVoice(byte index, byte note, float frequency, float gain);
 void decactivateVoice(byte index, boolean stopOscillator);
 void playNoteMono(byte playMode, byte note, float noteGain);
 void bufferShift(byte indexToRemove, byte currentIndexPlaying);
 void keyBuffMono(byte note, float noteGain, boolean isNoteOn);
 void keyBuffPoly(byte note, float noteGain, boolean playNote);
-void handleButtonPress(boolean *buttonState);
+void handleButtonPress(Button button);
 void handleKnobChange(Potentiometer knob);
 float calculateOscConstant(float osc1Vol, float osc2Vol, float noiseVol);
 void setWaveformLevels(float osc1Vol, float osc2Vol, float noiseVol, float oscConstant);

@@ -43,32 +43,32 @@ byte KelpieIO::getIndexOfChangedKnob(void)
     return -1;
 }
 
-boolean KelpieIO::pollButtons(void)
+byte KelpieIO::getIndexOfChangedButton(void)
 {
-    boolean didChange = false;
+    byte changedIndex = -1;
     for (byte i = 0; i < 4; i++)
     {
-        if (_buttons.buttonName[i].update())
+        if (_buttons[i].debouncedPin.update())
         {
-            if (_buttons.buttonName[i].fallingEdge())
+            if (_buttons[i].debouncedPin.fallingEdge())
             {
-                _buttons.state[i] = !_buttons.state[i];
-                digitalWrite(_buttons.ledName[i], _buttons.state[i]);
-                didChange = true;
+                _buttons[i].buttonState = !_buttons[i].buttonState;
+                digitalWrite(_buttons[i].ledPinNum, _buttons[i].buttonState);
+                return i;
             }
         }
     }
-    return didChange;
-}
-
-boolean *KelpieIO::getButtons(void)
-{
-    return _buttons.state;
+    return changedIndex; 
 }
 
 Potentiometer KelpieIO::getKnob(byte knobIndex) 
 {
     return _knobs[knobIndex];
+}
+
+Button KelpieIO::getButton(byte buttonIndex)
+{
+    return _buttons[buttonIndex];
 }
 
 void KelpieIO::blinkMidiLED(bool value)
@@ -94,9 +94,9 @@ void KelpieIO::bootupAnimation(void)
         digitalWrite(MIDILED, LOW);
         for (byte i = 0; i < 4; i++)
         {
-            digitalWrite(_buttons.ledName[i], HIGH);
+            digitalWrite(_buttons[i].ledPinNum, HIGH);
             delay(delayTimeMS);
-            digitalWrite(_buttons.ledName[i], LOW);
+            digitalWrite(_buttons[i].ledPinNum, LOW);
             delay(delayTimeMS);
         }
     }

@@ -130,19 +130,19 @@ void keyBuffPoly(byte note, float noteGain, boolean playNote)
   }
 }
 
-void handleButtonPress(boolean *buttonsState)
+void handleButtonPress(Button button)
 {
-  for (byte i = 0; i < 4; i++)
-  {
-    if (buttonsState[i] != prevButtonsState[i]) // which button changed?
-    {
-      prevButtonsState[i] = buttonsState[i];
-      int pressedButton = i;
-      boolean buttonState = boolean(buttonsState[i]);
-      switch (pressedButton)
+  // for (byte i = 0; i < 4; i++)
+  // {
+  //   if (buttonsState[i] != prevButtonsState[i]) // which button changed?
+  //   {
+  //     prevButtonsState[i] = buttonsState[i];
+  //     int pressedButton = i;
+  //     boolean buttonState = boolean(buttonsState[i]);
+      switch (button.buttonName)
       {
       case OSC_1_BUTTON: // button 1 was pressed, toggle between waveforms
-        if (buttonState == true)
+        if (button.buttonState == true)
         {
           globalState.WAVEFORM1 = WAVEFORM_PULSE;
         }
@@ -157,7 +157,7 @@ void handleButtonPress(boolean *buttonsState)
         break;
 
       case OSC_2_BUTTON:
-        if (buttonState == true)
+        if (button.buttonState == true)
         {
           globalState.WAVEFORM2 = WAVEFORM_PULSE;
         }
@@ -176,7 +176,7 @@ void handleButtonPress(boolean *buttonsState)
         for (byte i = 0; i < numPolyVoices; i++) {
           deactivateVoice(i);
         }
-        if (buttonState == true)
+        if (button.buttonState == true)
         {
           globalState.IS_POLY = true;
           globalState.POLY_GAIN_MULTIPLIER = POLY_MULTIPLIER;
@@ -192,7 +192,7 @@ void handleButtonPress(boolean *buttonsState)
 
       case SHIFT_BUTTON:
 
-        if (buttonState == true)
+        if (button.buttonState == true)
         {
           globalState.SHIFT = true;
         }
@@ -205,8 +205,6 @@ void handleButtonPress(boolean *buttonsState)
       default:
         break;
       }
-    }
-  }
 }
 
 void handleKnobChange(Potentiometer knob)

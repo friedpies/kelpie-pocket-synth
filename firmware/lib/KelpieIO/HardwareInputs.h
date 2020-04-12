@@ -25,6 +25,13 @@ enum KnobNames
   AMP_KNOB
 };
 
+enum ButtonNames {
+  OSC_1_BUTTON,
+  OSC_2_BUTTON,
+  POLY_MONO_BUTTON,
+  SHIFT_BUTTON
+};
+
 struct Potentiometer
 {
   KnobNames knobName;
@@ -33,10 +40,10 @@ struct Potentiometer
   int setValue;
 };
 
-struct Buttons
-{
-  Bounce buttonName[4];
-  byte ledName[4];
-  boolean state[4];
+struct Button {
+  ButtonNames buttonName;
+  byte ledPinNum;
+  Bounce debouncedPin;
+  boolean buttonState;
 };
 #endif
