@@ -19,5 +19,4 @@ struct SynthVoice
   AudioFilterStateVariable &filter;
 };
 
-
 #endif

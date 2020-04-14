@@ -6,8 +6,8 @@
 #include <Arduino.h>
 #include <Audio.h>
 #include <HardwareInputs.h>
+#include <SynthVoice.h>
 #include "keyMappings.h"
-#include "SynthVoice.h"
 #include "SynthState.h"
 #include "constants.h"
 
@@ -23,7 +23,8 @@ extern AudioMixer4 LFO_MIXER_AMP;
 extern const byte MONOBUFFERSIZE;
 extern byte monoBuffer[];
 
-enum playModes {
+enum playModes
+{
   PLAY_NOTE,
   UPDATE_NOTE,
   STOP_NOTE
