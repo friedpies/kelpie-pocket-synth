@@ -3,8 +3,9 @@
 #define SynthVoice_h
 
 #include <Audio.h>
-struct SynthVoice
+class SynthVoice
 {
+public:
   byte note;
   float noteFreq;
   byte velocity;
