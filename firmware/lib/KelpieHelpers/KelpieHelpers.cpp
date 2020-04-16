@@ -132,13 +132,7 @@ void keyBuffPoly(byte note, float noteGain, boolean playNote)
 
 void handleButtonPress(Button button)
 {
-  // for (byte i = 0; i < 4; i++)
-  // {
-  //   if (buttonsState[i] != prevButtonsState[i]) // which button changed?
-  //   {
-  //     prevButtonsState[i] = buttonsState[i];
-  //     int pressedButton = i;
-  //     boolean buttonState = boolean(buttonsState[i]);
+
       switch (button.buttonName)
       {
       case OSC_1_BUTTON: // button 1 was pressed, toggle between waveforms

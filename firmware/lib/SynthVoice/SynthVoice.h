@@ -3,6 +3,7 @@
 #define SynthVoice_h
 
 #include <Audio.h>
+#include <SynthState.h>
 class SynthVoice
 {
 public:
@@ -18,6 +19,7 @@ public:
   AudioEffectEnvelope &ampEnv;
   AudioEffectEnvelope &filterEnv;
   AudioFilterStateVariable &filter;
+  SynthState &synthState;
 };
 
 #endif

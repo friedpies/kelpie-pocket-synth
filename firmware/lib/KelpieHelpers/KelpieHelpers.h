@@ -8,14 +8,13 @@
 #include <HardwareInputs.h>
 #include <SynthVoice.h>
 #include "keyMappings.h"
-#include "SynthState.h"
+#include <SynthState.h>
 #include "constants.h"
 
 extern const byte numPolyVoices;
 extern SynthVoice polyVoices[];
 extern SynthVoice monoVoices[];
 extern SynthState globalState;
-extern boolean prevButtonsState[];
 extern AudioAmplifier MASTER_GAIN;
 extern AudioSynthWaveformSine LFO;
 extern AudioMixer4 LFO_MIXER_FILTER;

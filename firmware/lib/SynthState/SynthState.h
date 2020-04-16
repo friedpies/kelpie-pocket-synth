@@ -3,8 +3,9 @@
 #ifndef globalSynthState_h
 #define globalSynthState_h
 
-struct SynthState
+class SynthState
 {
+public:
   byte WAVEFORM1;
   byte WAVEFORM2;
   bool IS_POLY;
