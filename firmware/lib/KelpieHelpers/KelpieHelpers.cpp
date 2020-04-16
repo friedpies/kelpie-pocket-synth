@@ -4,13 +4,14 @@ void activateVoice(byte index, byte note, float frequency, float gain)
 {
   polyVoices[index].note = note;
   polyVoices[index].noteFreq = frequency;
-  polyVoices[index].waveformA.frequency(frequency * globalState.PITCH_BEND);
-  polyVoices[index].waveformA.phase(0);
-  polyVoices[index].waveformB.frequency(frequency * globalState.PITCH_BEND * globalState.DETUNE);
-  polyVoices[index].waveformB.phase(0);
-  polyVoices[index].waveformAmplifier.gain(gain * globalState.PREFILTER_GAIN);
-  polyVoices[index].ampEnv.noteOn();
-  polyVoices[index].filterEnv.noteOn();
+  // polyVoices[index].waveformA.frequency(frequency * globalState.PITCH_BEND);
+  // polyVoices[index].waveformA.phase(0);
+  // polyVoices[index].waveformB.frequency(frequency * globalState.PITCH_BEND * globalState.DETUNE);
+  // polyVoices[index].waveformB.phase(0);
+  // polyVoices[index].waveformAmplifier.gain(gain * globalState.PREFILTER_GAIN);
+  // polyVoices[index].ampEnv.noteOn();
+  // polyVoices[index].filterEnv.noteOn();
+  polyVoices[index].triggerKeydown(gain, frequency);
 }
 
 void deactivateVoice(byte index)
@@ -24,13 +25,14 @@ void playNoteMono(byte playMode, byte note, float noteGain)
 {
   globalState.PREV_NOTE = globalState.CURRENT_NOTE;
   globalState.CURRENT_NOTE = note;
-  if (globalState.CURRENT_NOTE == globalState.PREV_NOTE) {
+  if (globalState.CURRENT_NOTE == globalState.PREV_NOTE)
+  {
     globalState.PREV_NOTE = 0; // this is a quick fix
     globalState.CURRENT_NOTE = 0;
   }
   float baseNoteFreq = noteFreqs[note];
   AudioNoInterrupts();
-  switch (playMode) 
+  switch (playMode)
   {
   case PLAY_NOTE: // PLAYNOTE
     for (byte i = 0; i < numPolyVoices; i++)
@@ -43,7 +45,7 @@ void playNoteMono(byte playMode, byte note, float noteGain)
     {
       polyVoices[i].note = note;
       polyVoices[i].noteFreq = baseNoteFreq;
-      polyVoices[i].waveformA.frequency(baseNoteFreq);// * globalState.PITCH_BEND);
+      polyVoices[i].waveformA.frequency(baseNoteFreq); // * globalState.PITCH_BEND);
       polyVoices[i].waveformB.frequency(baseNoteFreq * globalState.PITCH_BEND * globalState.DETUNE);
     }
     break;
@@ -95,8 +97,10 @@ void keyBuffMono(byte note, float noteGain, boolean playNote)
         currentNote--;
         if (currentNote == 0)
         {
-          playNoteMono(STOP_NOTE, note, noteGain); 
-        } else {
+          playNoteMono(STOP_NOTE, note, noteGain);
+        }
+        else
+        {
           playNoteMono(UPDATE_NOTE, monoBuffer[currentNote - 1], noteGain); // this is causing issues with the RELEASE phase of the AMP ENV
         }
       }
@@ -133,72 +137,72 @@ void keyBuffPoly(byte note, float noteGain, boolean playNote)
 void handleButtonPress(Button button)
 {
 
-      switch (button.buttonName)
-      {
-      case OSC_1_BUTTON: // button 1 was pressed, toggle between waveforms
-        if (button.buttonState == true)
-        {
-          globalState.WAVEFORM1 = WAVEFORM_PULSE;
-        }
-        else
-        {
-          globalState.WAVEFORM1 = WAVEFORM_SAWTOOTH;
-        }
-        for (byte i = 0; i < numPolyVoices; i++)
-        {
-          polyVoices[i].waveformA.begin(globalState.WAVEFORM1);
-        }
-        break;
+  switch (button.buttonName)
+  {
+  case OSC_1_BUTTON: // button 1 was pressed, toggle between waveforms
+    if (button.buttonState == true)
+    {
+      globalState.WAVEFORM1 = WAVEFORM_PULSE;
+    }
+    else
+    {
+      globalState.WAVEFORM1 = WAVEFORM_SAWTOOTH;
+    }
+    for (byte i = 0; i < numPolyVoices; i++)
+    {
+      polyVoices[i].waveformA.begin(globalState.WAVEFORM1);
+    }
+    break;
 
-      case OSC_2_BUTTON:
-        if (button.buttonState == true)
-        {
-          globalState.WAVEFORM2 = WAVEFORM_PULSE;
-        }
-        else
-        {
-          globalState.WAVEFORM2 = WAVEFORM_SAWTOOTH;
-        }
-        for (byte i = 0; i < numPolyVoices; i++)
-        {
-          polyVoices[i].waveformB.begin(globalState.WAVEFORM2);
-        }
-        break;
+  case OSC_2_BUTTON:
+    if (button.buttonState == true)
+    {
+      globalState.WAVEFORM2 = WAVEFORM_PULSE;
+    }
+    else
+    {
+      globalState.WAVEFORM2 = WAVEFORM_SAWTOOTH;
+    }
+    for (byte i = 0; i < numPolyVoices; i++)
+    {
+      polyVoices[i].waveformB.begin(globalState.WAVEFORM2);
+    }
+    break;
 
-      case POLY_MONO_BUTTON:
-      // wipe out all notes playing just in case
-        for (byte i = 0; i < numPolyVoices; i++) {
-          deactivateVoice(i);
-        }
-        if (button.buttonState == true)
-        {
-          globalState.IS_POLY = true;
-          globalState.POLY_GAIN_MULTIPLIER = POLY_MULTIPLIER;
+  case POLY_MONO_BUTTON:
+    // wipe out all notes playing just in case
+    for (byte i = 0; i < numPolyVoices; i++)
+    {
+      deactivateVoice(i);
+    }
+    if (button.buttonState == true)
+    {
+      globalState.IS_POLY = true;
+      globalState.POLY_GAIN_MULTIPLIER = POLY_MULTIPLIER;
+    }
+    else
+    {
+      globalState.IS_POLY = false;
+      globalState.POLY_GAIN_MULTIPLIER = 1.0;
+    }
+    MASTER_GAIN.gain(globalState.MASTER_VOL * globalState.POLY_GAIN_MULTIPLIER);
+    break;
 
-        }
-        else
-        {
-          globalState.IS_POLY = false;
-          globalState.POLY_GAIN_MULTIPLIER = 1.0;
-        }
-        MASTER_GAIN.gain(globalState.MASTER_VOL * globalState.POLY_GAIN_MULTIPLIER);
-        break;
+  case SHIFT_BUTTON:
 
-      case SHIFT_BUTTON:
+    if (button.buttonState == true)
+    {
+      globalState.SHIFT = true;
+    }
+    else
+    {
+      globalState.SHIFT = false;
+    }
+    break;
 
-        if (button.buttonState == true)
-        {
-          globalState.SHIFT = true;
-        }
-        else
-        {
-          globalState.SHIFT = false;
-        }
-        break;
-
-      default:
-        break;
-      }
+  default:
+    break;
+  }
 }
 
 void handleKnobChange(Potentiometer knob)
@@ -221,7 +225,7 @@ void handleKnobChange(Potentiometer knob)
       polyVoices[i].waveformB.pulseWidth(globalState.PWM);
     }
     break;
-  case ATTACK_KNOB:                           // ATTACK
+  case ATTACK_KNOB:                 // ATTACK
     if (globalState.SHIFT == false) // FOR AMP
     {
       globalState.AMP_ATTACK = AMP_ATTACK_MAX * (1 - (decKnobVal));
@@ -247,7 +251,7 @@ void handleKnobChange(Potentiometer knob)
       }
     }
     break;
-  case DECAY_KNOB:                           // DECAY
+  case DECAY_KNOB:                  // DECAY
     if (globalState.SHIFT == false) // FOR AMP
     {
       globalState.AMP_DECAY = AMP_DECAY_MAX * (1 - (decKnobVal));

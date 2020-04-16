@@ -20,6 +20,8 @@ public:
   AudioEffectEnvelope &filterEnv;
   AudioFilterStateVariable &filter;
   SynthState &synthState;
+
+  void triggerKeydown(float gain, float frequency);
 };
 
 #endif
