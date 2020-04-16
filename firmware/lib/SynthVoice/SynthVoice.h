@@ -21,7 +21,7 @@ public:
   AudioFilterStateVariable &filter;
   SynthState &synthState;
 
-  void triggerKeydown(float gain, float frequency);
+  void triggerKeydown(byte noteIn, float gain, float frequencyIn);
 };
 
 #endif

@@ -1,17 +1,8 @@
 #include "KelpieHelpers.h"
 
-void activateVoice(byte index, byte note, float frequency, float gain)
+void activateVoice(byte index, byte noteIn, float frequency, float gain)
 {
-  polyVoices[index].note = note;
-  polyVoices[index].noteFreq = frequency;
-  // polyVoices[index].waveformA.frequency(frequency * globalState.PITCH_BEND);
-  // polyVoices[index].waveformA.phase(0);
-  // polyVoices[index].waveformB.frequency(frequency * globalState.PITCH_BEND * globalState.DETUNE);
-  // polyVoices[index].waveformB.phase(0);
-  // polyVoices[index].waveformAmplifier.gain(gain * globalState.PREFILTER_GAIN);
-  // polyVoices[index].ampEnv.noteOn();
-  // polyVoices[index].filterEnv.noteOn();
-  polyVoices[index].triggerKeydown(gain, frequency);
+  polyVoices[index].triggerKeydown(noteIn, gain, frequency);
 }
 
 void deactivateVoice(byte index)
