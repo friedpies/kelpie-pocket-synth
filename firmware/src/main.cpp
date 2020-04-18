@@ -7,7 +7,7 @@
 #include <Audio.h>
 #include <SynthVoice.h>
 #include <SynthState.h>
-#include <audioConnections.h>
+#include <AudioConnections.h>
 #include <KelpieHelpers.h>
 #include <KelpieIO.h>
 
