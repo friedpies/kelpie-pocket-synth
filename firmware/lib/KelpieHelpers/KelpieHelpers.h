@@ -4,7 +4,8 @@
 #define Kelpie_Helpers_h
 
 #include <Arduino.h>
-#include <Audio.h>
+// #include <Audio.h>
+#include <KelpieAudioManager.h>
 #include <HardwareInputs.h>
 #include <SynthVoice.h>
 #include "keyMappings.h"
@@ -15,10 +16,11 @@ extern const byte numPolyVoices;
 extern SynthVoice polyVoices[];
 extern SynthVoice monoVoices[];
 extern SynthState globalState;
-extern AudioAmplifier MASTER_GAIN;
-extern AudioSynthWaveformSine LFO;
-extern AudioMixer4 LFO_MIXER_FILTER;
-extern AudioMixer4 LFO_MIXER_AMP;
+// extern AudioAmplifier MASTER_GAIN;
+// extern AudioSynthWaveformSine LFO;
+// extern AudioMixer4 LFO_MIXER_FILTER;
+// extern AudioMixer4 LFO_MIXER_AMP;
+extern KelpieAudioManager audioManager;
 extern const byte MONOBUFFERSIZE;
 extern byte monoBuffer[];
 

@@ -176,7 +176,7 @@ void handleButtonPress(Button button)
       globalState.IS_POLY = false;
       globalState.POLY_GAIN_MULTIPLIER = 1.0;
     }
-    MASTER_GAIN.gain(globalState.MASTER_VOL * globalState.POLY_GAIN_MULTIPLIER);
+    audioManager.MASTER_GAIN.gain(globalState.MASTER_VOL * globalState.POLY_GAIN_MULTIPLIER);
     break;
 
   case SHIFT_BUTTON:
@@ -262,7 +262,7 @@ void handleKnobChange(Potentiometer knob)
     break;
   case VOL_KNOB: // MASTER_VOL
     globalState.MASTER_VOL = MAX_MASTER_GAIN * (1 - decKnobVal);
-    MASTER_GAIN.gain(globalState.MASTER_VOL * globalState.POLY_GAIN_MULTIPLIER);
+    audioManager.MASTER_GAIN.gain(globalState.MASTER_VOL * globalState.POLY_GAIN_MULTIPLIER);
     break;
   case NOISE_KNOB: // NOISE_PRESENSE
     globalState.NOISE_VOL = 1 - decKnobVal;
@@ -338,16 +338,16 @@ void handleKnobChange(Potentiometer knob)
     break;
   case RATE_KNOB: // LFO RATE
     globalState.LFO_FREQ = LFO_FREQ_MAX * pow((1 - decKnobVal), 5);
-    LFO.frequency(globalState.LFO_FREQ);
+    audioManager.LFO.frequency(globalState.LFO_FREQ);
     break;
   case FILTER_KNOB: // LFO SIGNAL TO FILTER
     globalState.LFO_FILTER_GAIN = (1 - decKnobVal);
-    LFO_MIXER_FILTER.gain(1, globalState.LFO_FILTER_GAIN);
+    audioManager.LFO_MIXER_FILTER.gain(1, globalState.LFO_FILTER_GAIN);
     break;
 
   case AMP_KNOB: // LFO SIGNAL TO AMP
     globalState.LFO_AMP_GAIN = (1 - decKnobVal);
-    LFO_MIXER_AMP.gain(1, globalState.LFO_AMP_GAIN);
+    audioManager.LFO_MIXER_AMP.gain(1, globalState.LFO_AMP_GAIN);
     break;
 
   default:

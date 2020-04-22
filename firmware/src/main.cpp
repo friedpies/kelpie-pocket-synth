@@ -4,10 +4,11 @@
 
 #include <Arduino.h>
 #include <MIDI.h>
-#include <Audio.h>
+// #include <Audio.h>
+#include <KelpieAudioManager.h>
 #include <SynthVoice.h>
 #include <SynthState.h>
-#include <AudioConnections.h>
+// #include <AudioConnections.h>
 #include <KelpieHelpers.h>
 #include <KelpieIO.h>
 
@@ -15,6 +16,7 @@
 
 elapsedMillis fps;
 KelpieIO kelpieIO(true);
+KelpieAudioManager audioManager;
 MIDI_CREATE_INSTANCE(HardwareSerial, Serial1, MIDI);
 
 byte changedKnobIndex;
@@ -57,14 +59,14 @@ SynthState globalState = {
     0                  // CURRENT NOTE
 };
 
-SynthVoice VOICE_1 = {0, 0.0, 0, false, V1_A, V1_B, V1_N, V1_MIX, V1_AMP, V1_ENV, V1_FILT_ENV, V1_FILT, globalState};
-SynthVoice VOICE_2 = {0, 0.0, 0, false, V2_A, V2_B, V2_N, V2_MIX, V2_AMP, V2_ENV, V2_FILT_ENV, V2_FILT, globalState};
-SynthVoice VOICE_3 = {0, 0.0, 0, false, V3_A, V3_B, V3_N, V3_MIX, V3_AMP, V3_ENV, V3_FILT_ENV, V3_FILT, globalState};
-SynthVoice VOICE_4 = {0, 0.0, 0, false, V4_A, V4_B, V4_N, V4_MIX, V4_AMP, V4_ENV, V4_FILT_ENV, V4_FILT, globalState};
-SynthVoice VOICE_5 = {0, 0.0, 0, false, V5_A, V5_B, V5_N, V5_MIX, V5_AMP, V5_ENV, V5_FILT_ENV, V5_FILT, globalState};
-SynthVoice VOICE_6 = {0, 0.0, 0, false, V6_A, V6_B, V6_N, V6_MIX, V6_AMP, V6_ENV, V6_FILT_ENV, V6_FILT, globalState};
-SynthVoice VOICE_7 = {0, 0.0, 0, false, V7_A, V7_B, V7_N, V7_MIX, V7_AMP, V7_ENV, V7_FILT_ENV, V7_FILT, globalState};
-SynthVoice VOICE_8 = {0, 0.0, 0, false, V8_A, V8_B, V8_N, V8_MIX, V8_AMP, V8_ENV, V8_FILT_ENV, V8_FILT, globalState};
+SynthVoice VOICE_1 = {0, 0.0, 0, false, audioManager.V1_A, audioManager.V1_B, audioManager.V1_N, audioManager.V1_MIX, audioManager.V1_AMP, audioManager.V1_ENV, audioManager.V1_FILT_ENV, audioManager.V1_FILT, globalState};
+SynthVoice VOICE_2 = {0, 0.0, 0, false, audioManager.V2_A, audioManager.V2_B, audioManager.V2_N, audioManager.V2_MIX, audioManager.V2_AMP, audioManager.V2_ENV, audioManager.V2_FILT_ENV, audioManager.V2_FILT, globalState};
+SynthVoice VOICE_3 = {0, 0.0, 0, false, audioManager.V3_A, audioManager.V3_B, audioManager.V3_N, audioManager.V3_MIX, audioManager.V3_AMP, audioManager.V3_ENV, audioManager.V3_FILT_ENV, audioManager.V3_FILT, globalState};
+SynthVoice VOICE_4 = {0, 0.0, 0, false, audioManager.V4_A, audioManager.V4_B, audioManager.V4_N, audioManager.V4_MIX, audioManager.V4_AMP, audioManager.V4_ENV, audioManager.V4_FILT_ENV, audioManager.V4_FILT, globalState};
+SynthVoice VOICE_5 = {0, 0.0, 0, false, audioManager.V5_A, audioManager.V5_B, audioManager.V5_N, audioManager.V5_MIX, audioManager.V5_AMP, audioManager.V5_ENV, audioManager.V5_FILT_ENV, audioManager.V5_FILT, globalState};
+SynthVoice VOICE_6 = {0, 0.0, 0, false, audioManager.V6_A, audioManager.V6_B, audioManager.V6_N, audioManager.V6_MIX, audioManager.V6_AMP, audioManager.V6_ENV, audioManager.V6_FILT_ENV, audioManager.V6_FILT, globalState};
+SynthVoice VOICE_7 = {0, 0.0, 0, false, audioManager.V7_A, audioManager.V7_B, audioManager.V7_N, audioManager.V7_MIX, audioManager.V7_AMP, audioManager.V7_ENV, audioManager.V7_FILT_ENV, audioManager.V7_FILT, globalState};
+SynthVoice VOICE_8 = {0, 0.0, 0, false, audioManager.V8_A, audioManager.V8_B, audioManager.V8_N, audioManager.V8_MIX, audioManager.V8_AMP, audioManager.V8_ENV, audioManager.V8_FILT_ENV, audioManager.V8_FILT, globalState};
 
 const byte numPolyVoices = 8; //
 SynthVoice polyVoices[numPolyVoices] = {
@@ -90,7 +92,7 @@ void handleMidiEvent(byte channelByte, byte controlByte, byte valueByte)
     kelpieIO.blinkMidiLED(true);
     if (note > 23 && note < 108)
     {
-      LFO.phase(0); // retrigger LFO on keypress
+      audioManager.LFO.phase(0); // retrigger LFO on keypress
       float noteGain = pow(float(velocity) * DIV127, VELOCITY_CURVE);
 
       if (globalState.IS_POLY == true) // depending on mode send to buffer
@@ -139,13 +141,13 @@ void handleMidiEvent(byte channelByte, byte controlByte, byte valueByte)
     {
     case 1: // MODULATION WHEEL
       globalState.LFO_FREQ = normalizedKnobVal * LFO_FREQ_MAX;
-      LFO.frequency(globalState.LFO_FREQ);
+      audioManager.LFO.frequency(globalState.LFO_FREQ);
       break;
     case 5: // GLIDE
       break;
     case 7: // MASTER VOLUME
       globalState.MASTER_VOL = normalizedKnobVal * MAX_MASTER_GAIN;
-      MASTER_GAIN.gain(globalState.MASTER_VOL * globalState.POLY_GAIN_MULTIPLIER);
+      audioManager.MASTER_GAIN.gain(globalState.MASTER_VOL * globalState.POLY_GAIN_MULTIPLIER);
       break;
     case 8: // OSC BALANCE
       globalState.OSC1_VOL = normalizedKnobVal;
@@ -197,15 +199,15 @@ void handleMidiEvent(byte channelByte, byte controlByte, byte valueByte)
       break;
     case 108: // LFO RATE
       globalState.LFO_FREQ = LFO_FREQ_MAX * pow(normalizedKnobVal, 5);
-      LFO.frequency(globalState.LFO_FREQ);
+      audioManager.LFO.frequency(globalState.LFO_FREQ);
       break;
     case 109: // LFO DESTINATION FILTER
       globalState.LFO_FILTER_GAIN = (normalizedKnobVal);
-      LFO_MIXER_FILTER.gain(1, globalState.LFO_FILTER_GAIN);
+      audioManager.LFO_MIXER_FILTER.gain(1, globalState.LFO_FILTER_GAIN);
       break;
     case 110: // LFO DESTINATION AMP
       globalState.LFO_AMP_GAIN = (normalizedKnobVal);
-      LFO_MIXER_AMP.gain(1, globalState.LFO_AMP_GAIN);
+      audioManager.LFO_MIXER_AMP.gain(1, globalState.LFO_AMP_GAIN);
       break;
     case 111: // AMP ATTACK
       globalState.AMP_ATTACK = AMP_ATTACK_MAX * (normalizedKnobVal);
@@ -279,9 +281,8 @@ void handleMidiEvent(byte channelByte, byte controlByte, byte valueByte)
 void setup()
 {
   MIDI.begin();
-  AudioMemory(80);
-  sgtl5000_1.enable();
-  sgtl5000_1.volume(globalState.MASTER_VOL);
+  audioManager.init();
+  audioManager.sgtl5000_1.volume(globalState.MASTER_VOL);
 
   AudioNoInterrupts();
   for (byte i = 0; i < numPolyVoices; i++)
@@ -315,22 +316,22 @@ void setup()
   }
   AudioInterrupts();
 
-  DC_OFFSET.amplitude(1.0);
-  LFO.amplitude(1.0);
-  LFO.frequency(2.0);
-  LFO.phase(90);
+  audioManager.DC_OFFSET.amplitude(1.0);
+  audioManager.LFO.amplitude(1.0);
+  audioManager.LFO.frequency(2.0);
+  audioManager.LFO.phase(90);
 
-  LFO_MIXER_FILTER.gain(0, 1); // THIS IS THE AMP THAT ADJUSTS HOW MUCH OF THE LFO IS FED INTO THE FILTER
-  LFO_MIXER_FILTER.gain(1, 0);
+  audioManager.LFO_MIXER_FILTER.gain(0, 1); // THIS IS THE AMP THAT ADJUSTS HOW MUCH OF THE LFO IS FED INTO THE FILTER
+  audioManager.LFO_MIXER_FILTER.gain(1, 0);
 
   for (byte i = 0; i < 4; i++)
   {
-    V14_MIX.gain(i, 0.25);
-    V58_MIX.gain(i, 0.25);
+    audioManager.V14_MIX.gain(i, 0.25);
+    audioManager.V58_MIX.gain(i, 0.25);
   }
 
-  ALL_VOICE_MIX.gain(0, 0.5);
-  ALL_VOICE_MIX.gain(1, 0.5);
+  audioManager.ALL_VOICE_MIX.gain(0, 0.5);
+  audioManager.ALL_VOICE_MIX.gain(1, 0.5);
 
   // READ AND INITIALIZE ALL KNOBS
   for (byte knobIndex = 0; knobIndex < 16; knobIndex++)
@@ -367,10 +368,10 @@ void loop()
   {
     if (fps > 24)
     {
-      if (PEAK.available())
+      if (audioManager.PEAK.available())
       {
         fps = 0;
-        int monoPeak = PEAK.read() * 100.0;
+        int monoPeak = audioManager.PEAK.read() * 100.0;
         Serial.print("|");
         for (int cnt = 0; cnt < 100; cnt++)
           if (cnt < monoPeak)
