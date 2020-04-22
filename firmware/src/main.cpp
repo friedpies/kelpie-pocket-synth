@@ -4,11 +4,10 @@
 
 #include <Arduino.h>
 #include <MIDI.h>
-// #include <Audio.h>
 #include <KelpieAudioManager.h>
 #include <SynthVoice.h>
 #include <SynthState.h>
-// #include <AudioConnections.h>
+#include <VoiceManager.h>
 #include <KelpieHelpers.h>
 #include <KelpieIO.h>
 
@@ -16,7 +15,8 @@
 
 elapsedMillis fps;
 KelpieIO kelpieIO(true);
-KelpieAudioManager audioManager;
+VoiceManager voiceManager;
+// KelpieAudioManager audioManager;
 MIDI_CREATE_INSTANCE(HardwareSerial, Serial1, MIDI);
 
 byte changedKnobIndex;
