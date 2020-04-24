@@ -7,6 +7,17 @@
 class SynthVoice
 {
 public:
+  SynthVoice(
+      AudioSynthWaveform &waveA,
+      AudioSynthWaveform &waveB,
+      AudioSynthNoiseWhite &noi,
+      AudioMixer4 &waveMixer,
+      AudioAmplifier &waveAmplifier,
+      AudioEffectEnvelope &ampE,
+      AudioEffectEnvelope &filterE,
+      AudioFilterStateVariable &filt,
+      SynthState &state);
+
   byte note;
   float noteFreq;
   byte velocity;

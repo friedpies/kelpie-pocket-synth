@@ -1,5 +1,28 @@
 #include "SynthVoice.h"
 
+SynthVoice::SynthVoice(
+    AudioSynthWaveform &waveA,
+    AudioSynthWaveform &waveB,
+    AudioSynthNoiseWhite &noi,
+    AudioMixer4 &waveMixer,
+    AudioAmplifier &waveAmplifier,
+    AudioEffectEnvelope &ampE,
+    AudioEffectEnvelope &filterE,
+    AudioFilterStateVariable &filt,
+    SynthState &state) : note{0},
+                         noteFreq{0},
+                         velocity{0},
+                         isActive{false},
+                         waveformA{waveA},
+                         waveformB{waveB},
+                         noise{noi},
+                         waveformMixer{waveMixer},
+                         waveformAmplifier{waveAmplifier},
+                         ampEnv{ampE},
+                         filterEnv{filterE},
+                         filter{filt},
+                         synthState{state} {}
+
 void SynthVoice::triggerKeydown(byte noteIn, float gain, float frequencyIn)
 {
   note = noteIn;
