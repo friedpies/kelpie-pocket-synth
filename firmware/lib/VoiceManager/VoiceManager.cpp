@@ -1,3 +1,6 @@
 #include "VoiceManager.h"
 
-VoiceManager::VoiceManager() : audioManager() {}
+VoiceManager::VoiceManager() : audioManager()
+{
+  audioManager.init();
+}

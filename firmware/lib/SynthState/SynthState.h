@@ -3,9 +3,11 @@
 #ifndef globalSynthState_h
 #define globalSynthState_h
 
+#include <Audio.h>
 class SynthState
 {
 public:
+  SynthState();
   byte WAVEFORM1;
   byte WAVEFORM2;
   bool IS_POLY;
