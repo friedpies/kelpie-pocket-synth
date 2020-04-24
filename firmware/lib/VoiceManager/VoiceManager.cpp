@@ -13,5 +13,4 @@ VoiceManager::VoiceManager() : audioManager(),
                                    SynthVoice(audioManager.V8_A, audioManager.V8_B, audioManager.V8_N, audioManager.V8_MIX, audioManager.V8_AMP, audioManager.V8_ENV, audioManager.V8_FILT_ENV, audioManager.V8_FILT, globalState)}
 {
   audioManager.init();
-
 }

@@ -12,9 +12,9 @@
 #include "constants.h"
 
 extern const byte numPolyVoices;
-extern SynthVoice polyVoices[];
+// extern SynthVoice voiceManager.polyVoices[];
 extern SynthVoice monoVoices[];
-extern SynthState globalState;
+// extern SynthStatevoiceManager.globalState;
 extern VoiceManager voiceManager;
 extern const byte MONOBUFFERSIZE;
 extern byte monoBuffer[];

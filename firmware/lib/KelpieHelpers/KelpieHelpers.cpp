@@ -2,24 +2,24 @@
 
 void activateVoice(byte index, byte noteIn, float frequency, float gain)
 {
-  polyVoices[index].triggerKeydown(noteIn, gain, frequency);
+  voiceManager.polyVoices[index].triggerKeydown(noteIn, gain, frequency);
 }
 
 void deactivateVoice(byte index)
 {
-  polyVoices[index].ampEnv.noteOff();
-  polyVoices[index].filterEnv.noteOff();
-  polyVoices[index].note = -1;
+  voiceManager.polyVoices[index].ampEnv.noteOff();
+  voiceManager.polyVoices[index].filterEnv.noteOff();
+  voiceManager.polyVoices[index].note = -1;
 }
 
 void playNoteMono(byte playMode, byte note, float noteGain)
 {
-  globalState.PREV_NOTE = globalState.CURRENT_NOTE;
-  globalState.CURRENT_NOTE = note;
-  if (globalState.CURRENT_NOTE == globalState.PREV_NOTE)
+  voiceManager.globalState.PREV_NOTE = voiceManager.globalState.CURRENT_NOTE;
+  voiceManager.globalState.CURRENT_NOTE = note;
+  if (voiceManager.globalState.CURRENT_NOTE == voiceManager.globalState.PREV_NOTE)
   {
-    globalState.PREV_NOTE = 0; // this is a quick fix
-    globalState.CURRENT_NOTE = 0;
+    voiceManager.globalState.PREV_NOTE = 0; // this is a quick fix
+    voiceManager.globalState.CURRENT_NOTE = 0;
   }
   float baseNoteFreq = noteFreqs[note];
   AudioNoInterrupts();
@@ -34,10 +34,10 @@ void playNoteMono(byte playMode, byte note, float noteGain)
   case UPDATE_NOTE: // UPDATE NOTE
     for (byte i = 0; i < numPolyVoices; i++)
     {
-      polyVoices[i].note = note;
-      polyVoices[i].noteFreq = baseNoteFreq;
-      polyVoices[i].waveformA.frequency(baseNoteFreq); // * globalState.PITCH_BEND);
-      polyVoices[i].waveformB.frequency(baseNoteFreq * globalState.PITCH_BEND * globalState.DETUNE);
+      voiceManager.polyVoices[i].note = note;
+      voiceManager.polyVoices[i].noteFreq = baseNoteFreq;
+      voiceManager.polyVoices[i].waveformA.frequency(baseNoteFreq); // *voiceManager.globalState.PITCH_BEND);
+      voiceManager.polyVoices[i].waveformB.frequency(baseNoteFreq * voiceManager.globalState.PITCH_BEND * voiceManager.globalState.DETUNE);
     }
     break;
   case STOP_NOTE: // STOP NOTE
@@ -106,7 +106,7 @@ void keyBuffPoly(byte note, float noteGain, boolean playNote)
     float baseNoteFreq = noteFreqs[note];
     for (byte i = 0; i < numPolyVoices; i++)
     {
-      if (polyVoices[i].ampEnv.isActive() == false)
+      if (voiceManager.polyVoices[i].ampEnv.isActive() == false)
       {
         activateVoice(i, note, baseNoteFreq, noteGain);
         break;
@@ -117,7 +117,7 @@ void keyBuffPoly(byte note, float noteGain, boolean playNote)
   {
     for (byte i = 0; i < numPolyVoices; i++)
     {
-      if (polyVoices[i].note == note)
+      if (voiceManager.polyVoices[i].note == note)
       {
         deactivateVoice(i);
       }
@@ -133,30 +133,30 @@ void handleButtonPress(Button button)
   case OSC_1_BUTTON: // button 1 was pressed, toggle between waveforms
     if (button.buttonState == true)
     {
-      globalState.WAVEFORM1 = WAVEFORM_PULSE;
+      voiceManager.globalState.WAVEFORM1 = WAVEFORM_PULSE;
     }
     else
     {
-      globalState.WAVEFORM1 = WAVEFORM_SAWTOOTH;
+      voiceManager.globalState.WAVEFORM1 = WAVEFORM_SAWTOOTH;
     }
     for (byte i = 0; i < numPolyVoices; i++)
     {
-      polyVoices[i].waveformA.begin(globalState.WAVEFORM1);
+      voiceManager.polyVoices[i].waveformA.begin(voiceManager.globalState.WAVEFORM1);
     }
     break;
 
   case OSC_2_BUTTON:
     if (button.buttonState == true)
     {
-      globalState.WAVEFORM2 = WAVEFORM_PULSE;
+      voiceManager.globalState.WAVEFORM2 = WAVEFORM_PULSE;
     }
     else
     {
-      globalState.WAVEFORM2 = WAVEFORM_SAWTOOTH;
+      voiceManager.globalState.WAVEFORM2 = WAVEFORM_SAWTOOTH;
     }
     for (byte i = 0; i < numPolyVoices; i++)
     {
-      polyVoices[i].waveformB.begin(globalState.WAVEFORM2);
+      voiceManager.polyVoices[i].waveformB.begin(voiceManager.globalState.WAVEFORM2);
     }
     break;
 
@@ -168,26 +168,26 @@ void handleButtonPress(Button button)
     }
     if (button.buttonState == true)
     {
-      globalState.IS_POLY = true;
-      globalState.POLY_GAIN_MULTIPLIER = POLY_MULTIPLIER;
+      voiceManager.globalState.IS_POLY = true;
+      voiceManager.globalState.POLY_GAIN_MULTIPLIER = POLY_MULTIPLIER;
     }
     else
     {
-      globalState.IS_POLY = false;
-      globalState.POLY_GAIN_MULTIPLIER = 1.0;
+      voiceManager.globalState.IS_POLY = false;
+      voiceManager.globalState.POLY_GAIN_MULTIPLIER = 1.0;
     }
-    voiceManager.audioManager.MASTER_GAIN.gain(globalState.MASTER_VOL * globalState.POLY_GAIN_MULTIPLIER);
+    voiceManager.audioManager.MASTER_GAIN.gain(voiceManager.globalState.MASTER_VOL * voiceManager.globalState.POLY_GAIN_MULTIPLIER);
     break;
 
   case SHIFT_BUTTON:
 
     if (button.buttonState == true)
     {
-      globalState.SHIFT = true;
+      voiceManager.globalState.SHIFT = true;
     }
     else
     {
-      globalState.SHIFT = false;
+      voiceManager.globalState.SHIFT = false;
     }
     break;
 
@@ -203,151 +203,151 @@ void handleKnobChange(Potentiometer knob)
   switch (knob.knobName)
   {
   case BALANCE_KNOB: // BALANCES OSC 1 and 2
-    globalState.OSC1_VOL = decKnobVal;
-    globalState.OSC2_VOL = 1 - decKnobVal;
-    globalState.OSC_CONSTANT = calculateOscConstant(globalState.OSC1_VOL, globalState.OSC2_VOL, globalState.NOISE_VOL);
-    setWaveformLevels(globalState.OSC1_VOL, globalState.OSC2_VOL, globalState.NOISE_VOL, globalState.OSC_CONSTANT);
+    voiceManager.globalState.OSC1_VOL = decKnobVal;
+    voiceManager.globalState.OSC2_VOL = 1 - decKnobVal;
+    voiceManager.globalState.OSC_CONSTANT = calculateOscConstant(voiceManager.globalState.OSC1_VOL, voiceManager.globalState.OSC2_VOL, voiceManager.globalState.NOISE_VOL);
+    setWaveformLevels(voiceManager.globalState.OSC1_VOL, voiceManager.globalState.OSC2_VOL, voiceManager.globalState.NOISE_VOL, voiceManager.globalState.OSC_CONSTANT);
     break;
   case PWM_KNOB: // PWM OF PULSE WAVES (ONLY APPLIES WHEN A PULSE WAVE IS ACTIVATED)
-    globalState.PWM = 0.1 + 0.4 * (1 - decKnobVal);
+    voiceManager.globalState.PWM = 0.1 + 0.4 * (1 - decKnobVal);
     for (byte i = 0; i < numPolyVoices; i++)
     {
-      polyVoices[i].waveformA.pulseWidth(globalState.PWM);
-      polyVoices[i].waveformB.pulseWidth(globalState.PWM);
+      voiceManager.polyVoices[i].waveformA.pulseWidth(voiceManager.globalState.PWM);
+      voiceManager.polyVoices[i].waveformB.pulseWidth(voiceManager.globalState.PWM);
     }
     break;
-  case ATTACK_KNOB:                 // ATTACK
-    if (globalState.SHIFT == false) // FOR AMP
+  case ATTACK_KNOB:                              // ATTACK
+    if (voiceManager.globalState.SHIFT == false) // FOR AMP
     {
-      globalState.AMP_ATTACK = AMP_ATTACK_MAX * (1 - (decKnobVal));
-      if (globalState.AMP_ATTACK < 15) //
+      voiceManager.globalState.AMP_ATTACK = AMP_ATTACK_MAX * (1 - (decKnobVal));
+      if (voiceManager.globalState.AMP_ATTACK < 15) //
       {
-        globalState.AMP_ATTACK = 0;
+        voiceManager.globalState.AMP_ATTACK = 0;
       }
       for (byte i = 0; i < numPolyVoices; i++)
       {
-        polyVoices[i].ampEnv.attack(globalState.AMP_ATTACK);
+        voiceManager.polyVoices[i].ampEnv.attack(voiceManager.globalState.AMP_ATTACK);
       }
     }
     else // FOR FILTER
     {
-      globalState.FILTER_ATTACK = FILTER_ATTACK_MAX * (1 - (decKnobVal));
-      if (globalState.FILTER_ATTACK < 15) //
+      voiceManager.globalState.FILTER_ATTACK = FILTER_ATTACK_MAX * (1 - (decKnobVal));
+      if (voiceManager.globalState.FILTER_ATTACK < 15) //
       {
-        globalState.FILTER_ATTACK = 0;
+        voiceManager.globalState.FILTER_ATTACK = 0;
       }
       for (byte i = 0; i < numPolyVoices; i++)
       {
-        polyVoices[i].filterEnv.attack(globalState.FILTER_ATTACK);
+        voiceManager.polyVoices[i].filterEnv.attack(voiceManager.globalState.FILTER_ATTACK);
       }
     }
     break;
-  case DECAY_KNOB:                  // DECAY
-    if (globalState.SHIFT == false) // FOR AMP
+  case DECAY_KNOB:                               // DECAY
+    if (voiceManager.globalState.SHIFT == false) // FOR AMP
     {
-      globalState.AMP_DECAY = AMP_DECAY_MAX * (1 - (decKnobVal));
+      voiceManager.globalState.AMP_DECAY = AMP_DECAY_MAX * (1 - (decKnobVal));
       for (byte i = 0; i < numPolyVoices; i++)
       {
-        polyVoices[i].ampEnv.decay(globalState.AMP_DECAY);
+        voiceManager.polyVoices[i].ampEnv.decay(voiceManager.globalState.AMP_DECAY);
       }
     }
     else
     { // FOR FILTER
-      globalState.FILTER_DECAY = FILTER_DECAY_MAX * (1 - (decKnobVal));
+      voiceManager.globalState.FILTER_DECAY = FILTER_DECAY_MAX * (1 - (decKnobVal));
       for (byte i = 0; i < numPolyVoices; i++)
       {
-        polyVoices[i].filterEnv.decay(globalState.FILTER_DECAY);
+        voiceManager.polyVoices[i].filterEnv.decay(voiceManager.globalState.FILTER_DECAY);
       }
     }
     break;
   case VOL_KNOB: // MASTER_VOL
-    globalState.MASTER_VOL = MAX_MASTER_GAIN * (1 - decKnobVal);
-    voiceManager.audioManager.MASTER_GAIN.gain(globalState.MASTER_VOL * globalState.POLY_GAIN_MULTIPLIER);
+    voiceManager.globalState.MASTER_VOL = MAX_MASTER_GAIN * (1 - decKnobVal);
+    voiceManager.audioManager.MASTER_GAIN.gain(voiceManager.globalState.MASTER_VOL * voiceManager.globalState.POLY_GAIN_MULTIPLIER);
     break;
   case NOISE_KNOB: // NOISE_PRESENSE
-    globalState.NOISE_VOL = 1 - decKnobVal;
-    globalState.OSC_CONSTANT = calculateOscConstant(globalState.OSC1_VOL, globalState.OSC2_VOL, globalState.NOISE_VOL);
-    setWaveformLevels(globalState.OSC1_VOL, globalState.OSC2_VOL, globalState.NOISE_VOL, globalState.OSC_CONSTANT);
+    voiceManager.globalState.NOISE_VOL = 1 - decKnobVal;
+    voiceManager.globalState.OSC_CONSTANT = calculateOscConstant(voiceManager.globalState.OSC1_VOL, voiceManager.globalState.OSC2_VOL, voiceManager.globalState.NOISE_VOL);
+    setWaveformLevels(voiceManager.globalState.OSC1_VOL, voiceManager.globalState.OSC2_VOL, voiceManager.globalState.NOISE_VOL, voiceManager.globalState.OSC_CONSTANT);
     break;
   case COARSE_KNOB: // DETUNE
-    globalState.DETUNE = calculateDetuneValue(knob.setValue);
+    voiceManager.globalState.DETUNE = calculateDetuneValue(knob.setValue);
     for (byte i = 0; i < numPolyVoices; i++)
     {
-      polyVoices[i].waveformB.frequency(polyVoices[i].noteFreq * globalState.DETUNE * globalState.PITCH_BEND);
+      voiceManager.polyVoices[i].waveformB.frequency(voiceManager.polyVoices[i].noteFreq * voiceManager.globalState.DETUNE * voiceManager.globalState.PITCH_BEND);
     }
     break;
   case SUSTAIN_KNOB: // AMP_SUSTAIN
-    if (globalState.SHIFT == false)
+    if (voiceManager.globalState.SHIFT == false)
     {
-      globalState.AMP_SUSTAIN = 1 - (decKnobVal);
+      voiceManager.globalState.AMP_SUSTAIN = 1 - (decKnobVal);
       for (byte i = 0; i < numPolyVoices; i++)
       {
-        polyVoices[i].ampEnv.sustain(globalState.AMP_SUSTAIN);
+        voiceManager.polyVoices[i].ampEnv.sustain(voiceManager.globalState.AMP_SUSTAIN);
       }
     }
     else
     {
-      globalState.FILTER_SUSTAIN = 1 - (decKnobVal);
+      voiceManager.globalState.FILTER_SUSTAIN = 1 - (decKnobVal);
       for (byte i = 0; i < numPolyVoices; i++)
       {
-        polyVoices[i].filterEnv.sustain(globalState.FILTER_SUSTAIN);
+        voiceManager.polyVoices[i].filterEnv.sustain(voiceManager.globalState.FILTER_SUSTAIN);
       }
     }
     break;
   case RELEASE_KNOB: // AMP_RELEASE
-    if (globalState.SHIFT == false)
+    if (voiceManager.globalState.SHIFT == false)
     {
-      globalState.AMP_RELEASE = AMP_RELEASE_MAX * (1 - (decKnobVal));
+      voiceManager.globalState.AMP_RELEASE = AMP_RELEASE_MAX * (1 - (decKnobVal));
       for (byte i = 0; i < numPolyVoices; i++)
       {
-        polyVoices[i].ampEnv.release(globalState.AMP_RELEASE);
+        voiceManager.polyVoices[i].ampEnv.release(voiceManager.globalState.AMP_RELEASE);
       }
     }
     else
     {
-      globalState.FILTER_RELEASE = FILTER_RELEASE_MAX * (1 - (decKnobVal));
+      voiceManager.globalState.FILTER_RELEASE = FILTER_RELEASE_MAX * (1 - (decKnobVal));
       for (byte i = 0; i < numPolyVoices; i++)
       {
-        polyVoices[i].filterEnv.release(globalState.FILTER_RELEASE);
+        voiceManager.polyVoices[i].filterEnv.release(voiceManager.globalState.FILTER_RELEASE);
       }
     }
     break;
   case GLIDE_KNOB:
     break;
   case FREQ_KNOB: // FILTER_FREQ
-    globalState.FILTER_FREQ = FILTER_CUTOFF_MAX * pow((1023 - knob.setValue) * DIV1023, 3);
+    voiceManager.globalState.FILTER_FREQ = FILTER_CUTOFF_MAX * pow((1023 - knob.setValue) * DIV1023, 3);
     for (byte i = 0; i < numPolyVoices; i++)
     {
-      polyVoices[i].filter.frequency(globalState.FILTER_FREQ);
+      voiceManager.polyVoices[i].filter.frequency(voiceManager.globalState.FILTER_FREQ);
     }
     break;
   case Q_KNOB: // FILTER_Q
-    globalState.FILTER_Q = FILTER_Q_MAX * (1 - (float(knob.setValue) * DIV1023)) + 1.1;
-    globalState.PREFILTER_GAIN = 1 / globalState.FILTER_Q;
+    voiceManager.globalState.FILTER_Q = FILTER_Q_MAX * (1 - (float(knob.setValue) * DIV1023)) + 1.1;
+    voiceManager.globalState.PREFILTER_GAIN = 1 / voiceManager.globalState.FILTER_Q;
     for (byte i = 0; i < numPolyVoices; i++)
     {
-      polyVoices[i].filter.resonance(globalState.FILTER_Q);
+      voiceManager.polyVoices[i].filter.resonance(voiceManager.globalState.FILTER_Q);
     }
     break;
   case DEPTH_KNOB: // FILTER_DEPTH
-    globalState.FILTER_OCTAVE = FILTER_OCTAVE_DEPTH * (1 - decKnobVal);
+    voiceManager.globalState.FILTER_OCTAVE = FILTER_OCTAVE_DEPTH * (1 - decKnobVal);
     for (byte i = 0; i < numPolyVoices; i++)
     {
-      polyVoices[i].filter.octaveControl(globalState.FILTER_OCTAVE);
+      voiceManager.polyVoices[i].filter.octaveControl(voiceManager.globalState.FILTER_OCTAVE);
     }
     break;
   case RATE_KNOB: // LFO RATE
-    globalState.LFO_FREQ = LFO_FREQ_MAX * pow((1 - decKnobVal), 5);
-    voiceManager.audioManager.LFO.frequency(globalState.LFO_FREQ);
+    voiceManager.globalState.LFO_FREQ = LFO_FREQ_MAX * pow((1 - decKnobVal), 5);
+    voiceManager.audioManager.LFO.frequency(voiceManager.globalState.LFO_FREQ);
     break;
   case FILTER_KNOB: // LFO SIGNAL TO FILTER
-    globalState.LFO_FILTER_GAIN = (1 - decKnobVal);
-    voiceManager.audioManager.LFO_MIXER_FILTER.gain(1, globalState.LFO_FILTER_GAIN);
+    voiceManager.globalState.LFO_FILTER_GAIN = (1 - decKnobVal);
+    voiceManager.audioManager.LFO_MIXER_FILTER.gain(1, voiceManager.globalState.LFO_FILTER_GAIN);
     break;
 
   case AMP_KNOB: // LFO SIGNAL TO AMP
-    globalState.LFO_AMP_GAIN = (1 - decKnobVal);
-    voiceManager.audioManager.LFO_MIXER_AMP.gain(1, globalState.LFO_AMP_GAIN);
+    voiceManager.globalState.LFO_AMP_GAIN = (1 - decKnobVal);
+    voiceManager.audioManager.LFO_MIXER_AMP.gain(1, voiceManager.globalState.LFO_AMP_GAIN);
     break;
 
   default:
@@ -368,9 +368,9 @@ void setWaveformLevels(float osc1Vol, float osc2Vol, float noiseVol, float oscCo
 {
   for (byte i = 0; i < numPolyVoices; i++)
   {
-    polyVoices[i].waveformA.amplitude(osc1Vol * oscConstant);
-    polyVoices[i].waveformB.amplitude(osc2Vol * oscConstant);
-    polyVoices[i].noise.amplitude(noiseVol - (noiseVol * oscConstant));
+    voiceManager.polyVoices[i].waveformA.amplitude(osc1Vol * oscConstant);
+    voiceManager.polyVoices[i].waveformB.amplitude(osc2Vol * oscConstant);
+    voiceManager.polyVoices[i].noise.amplitude(noiseVol - (noiseVol * oscConstant));
   }
 }
 

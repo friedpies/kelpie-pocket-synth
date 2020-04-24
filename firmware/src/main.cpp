@@ -23,28 +23,7 @@ byte changedButtonIndex;
 
 const byte MONOBUFFERSIZE = 8; // how many voices we allow to be stored in the MONO buffer
 byte monoBuffer[MONOBUFFERSIZE];
-
-SynthState globalState;
-
-// SynthVoice VOICE_1(voiceManager.audioManager.V1_A, voiceManager.audioManager.V1_B, voiceManager.audioManager.V1_N, voiceManager.audioManager.V1_MIX, voiceManager.audioManager.V1_AMP, voiceManager.audioManager.V1_ENV, voiceManager.audioManager.V1_FILT_ENV, voiceManager.audioManager.V1_FILT, globalState);
-// SynthVoice VOICE_2(voiceManager.audioManager.V2_A, voiceManager.audioManager.V2_B, voiceManager.audioManager.V2_N, voiceManager.audioManager.V2_MIX, voiceManager.audioManager.V2_AMP, voiceManager.audioManager.V2_ENV, voiceManager.audioManager.V2_FILT_ENV, voiceManager.audioManager.V2_FILT, globalState);
-// SynthVoice VOICE_3(voiceManager.audioManager.V3_A, voiceManager.audioManager.V3_B, voiceManager.audioManager.V3_N, voiceManager.audioManager.V3_MIX, voiceManager.audioManager.V3_AMP, voiceManager.audioManager.V3_ENV, voiceManager.audioManager.V3_FILT_ENV, voiceManager.audioManager.V3_FILT, globalState);
-// SynthVoice VOICE_4(voiceManager.audioManager.V4_A, voiceManager.audioManager.V4_B, voiceManager.audioManager.V4_N, voiceManager.audioManager.V4_MIX, voiceManager.audioManager.V4_AMP, voiceManager.audioManager.V4_ENV, voiceManager.audioManager.V4_FILT_ENV, voiceManager.audioManager.V4_FILT, globalState);
-// SynthVoice VOICE_5(voiceManager.audioManager.V5_A, voiceManager.audioManager.V5_B, voiceManager.audioManager.V5_N, voiceManager.audioManager.V5_MIX, voiceManager.audioManager.V5_AMP, voiceManager.audioManager.V5_ENV, voiceManager.audioManager.V5_FILT_ENV, voiceManager.audioManager.V5_FILT, globalState);
-// SynthVoice VOICE_6(voiceManager.audioManager.V6_A, voiceManager.audioManager.V6_B, voiceManager.audioManager.V6_N, voiceManager.audioManager.V6_MIX, voiceManager.audioManager.V6_AMP, voiceManager.audioManager.V6_ENV, voiceManager.audioManager.V6_FILT_ENV, voiceManager.audioManager.V6_FILT, globalState);
-// SynthVoice VOICE_7(voiceManager.audioManager.V7_A, voiceManager.audioManager.V7_B, voiceManager.audioManager.V7_N, voiceManager.audioManager.V7_MIX, voiceManager.audioManager.V7_AMP, voiceManager.audioManager.V7_ENV, voiceManager.audioManager.V7_FILT_ENV, voiceManager.audioManager.V7_FILT, globalState);
-// SynthVoice VOICE_8(voiceManager.audioManager.V8_A, voiceManager.audioManager.V8_B, voiceManager.audioManager.V8_N, voiceManager.audioManager.V8_MIX, voiceManager.audioManager.V8_AMP, voiceManager.audioManager.V8_ENV, voiceManager.audioManager.V8_FILT_ENV, voiceManager.audioManager.V8_FILT, globalState);
-
-// const byte numPolyVoices = 8; //
-// SynthVoice polyVoices[numPolyVoices] = {
-//     VOICE_1,
-//     VOICE_2,
-//     VOICE_3,
-//     VOICE_4,
-//     VOICE_5,
-//     VOICE_6,
-//     VOICE_7,
-//     VOICE_8};
+const byte numPolyVoices = 8; //
 
 void handleMidiEvent(byte channelByte, byte controlByte, byte valueByte)
 {
@@ -62,7 +41,7 @@ void handleMidiEvent(byte channelByte, byte controlByte, byte valueByte)
       voiceManager.audioManager.LFO.phase(0); // retrigger LFO on keypress
       float noteGain = pow(float(velocity) * DIV127, VELOCITY_CURVE);
 
-      if (globalState.IS_POLY == true) // depending on mode send to buffer
+      if (voiceManager.globalState.IS_POLY == true) // depending on mode send to buffer
       {
         keyBuffPoly(note, noteGain, true);
       }
@@ -77,7 +56,7 @@ void handleMidiEvent(byte channelByte, byte controlByte, byte valueByte)
     kelpieIO.blinkMidiLED(false);
     if (note > 23 && note < 108)
     {
-      if (globalState.IS_POLY == true) // depending on mode send to buffer
+      if (voiceManager.globalState.IS_POLY == true) // depending on mode send to buffer
       {
         keyBuffPoly(note, velocity, false);
       }
@@ -91,12 +70,12 @@ void handleMidiEvent(byte channelByte, byte controlByte, byte valueByte)
   case midi::PitchBend:
     pitch = velocity * 256 + note; // this converts 8 bit values into a 16 bit value for precise pitch control
     pitchBend = map(double(pitch), 0, 32767, -2, 2);
-    globalState.PITCH_BEND = pow(2, pitchBend / 12);
+    voiceManager.globalState.PITCH_BEND = pow(2, pitchBend / 12);
     for (byte i = 0; i < numPolyVoices; i++)
     {
-      float currentFreq = polyVoices[i].noteFreq;
-      polyVoices[i].waveformA.frequency(currentFreq * globalState.PITCH_BEND);
-      polyVoices[i].waveformB.frequency(currentFreq * globalState.PITCH_BEND * globalState.DETUNE);
+      float currentFreq = voiceManager.polyVoices[i].noteFreq;
+      voiceManager.polyVoices[i].waveformA.frequency(currentFreq * voiceManager.globalState.PITCH_BEND);
+      voiceManager.polyVoices[i].waveformB.frequency(currentFreq * voiceManager.globalState.PITCH_BEND * voiceManager.globalState.DETUNE);
     }
     break;
 
@@ -107,137 +86,137 @@ void handleMidiEvent(byte channelByte, byte controlByte, byte valueByte)
     switch (ccNum)
     {
     case 1: // MODULATION WHEEL
-      globalState.LFO_FREQ = normalizedKnobVal * LFO_FREQ_MAX;
-      voiceManager.audioManager.LFO.frequency(globalState.LFO_FREQ);
+      voiceManager.globalState.LFO_FREQ = normalizedKnobVal * LFO_FREQ_MAX;
+      voiceManager.audioManager.LFO.frequency(voiceManager.globalState.LFO_FREQ);
       break;
     case 5: // GLIDE
       break;
     case 7: // MASTER VOLUME
-      globalState.MASTER_VOL = normalizedKnobVal * MAX_MASTER_GAIN;
-      voiceManager.audioManager.MASTER_GAIN.gain(globalState.MASTER_VOL * globalState.POLY_GAIN_MULTIPLIER);
+      voiceManager.globalState.MASTER_VOL = normalizedKnobVal * MAX_MASTER_GAIN;
+      voiceManager.audioManager.MASTER_GAIN.gain(voiceManager.globalState.MASTER_VOL * voiceManager.globalState.POLY_GAIN_MULTIPLIER);
       break;
     case 8: // OSC BALANCE
-      globalState.OSC1_VOL = normalizedKnobVal;
-      globalState.OSC2_VOL = 1 - (normalizedKnobVal);
-      globalState.OSC_CONSTANT = calculateOscConstant(globalState.OSC1_VOL, globalState.OSC2_VOL, globalState.NOISE_VOL);
-      setWaveformLevels(globalState.OSC1_VOL, globalState.OSC2_VOL, globalState.NOISE_VOL, globalState.OSC_CONSTANT);
+      voiceManager.globalState.OSC1_VOL = normalizedKnobVal;
+      voiceManager.globalState.OSC2_VOL = 1 - (normalizedKnobVal);
+      voiceManager.globalState.OSC_CONSTANT = calculateOscConstant(voiceManager.globalState.OSC1_VOL, voiceManager.globalState.OSC2_VOL, voiceManager.globalState.NOISE_VOL);
+      setWaveformLevels(voiceManager.globalState.OSC1_VOL, voiceManager.globalState.OSC2_VOL, voiceManager.globalState.NOISE_VOL, voiceManager.globalState.OSC_CONSTANT);
       break;
     case 102: // OSCILLATOR PWM
-      globalState.PWM = 0.1 + 0.4 * (1 - normalizedKnobVal);
+      voiceManager.globalState.PWM = 0.1 + 0.4 * (1 - normalizedKnobVal);
       for (byte i = 0; i < numPolyVoices; i++)
       {
-        polyVoices[i].waveformA.pulseWidth(globalState.PWM);
-        polyVoices[i].waveformB.pulseWidth(globalState.PWM);
+        voiceManager.polyVoices[i].waveformA.pulseWidth(voiceManager.globalState.PWM);
+        voiceManager.polyVoices[i].waveformB.pulseWidth(voiceManager.globalState.PWM);
       }
       break;
     case 103: // NOISE VOLUME
-      globalState.NOISE_VOL = normalizedKnobVal;
-      globalState.OSC_CONSTANT = calculateOscConstant(globalState.OSC1_VOL, globalState.OSC2_VOL, globalState.NOISE_VOL);
-      setWaveformLevels(globalState.OSC1_VOL, globalState.OSC2_VOL, globalState.NOISE_VOL, globalState.OSC_CONSTANT);
+      voiceManager.globalState.NOISE_VOL = normalizedKnobVal;
+      voiceManager.globalState.OSC_CONSTANT = calculateOscConstant(voiceManager.globalState.OSC1_VOL, voiceManager.globalState.OSC2_VOL, voiceManager.globalState.NOISE_VOL);
+      setWaveformLevels(voiceManager.globalState.OSC1_VOL, voiceManager.globalState.OSC2_VOL, voiceManager.globalState.NOISE_VOL, voiceManager.globalState.OSC_CONSTANT);
       break;
     case 104: // OSC DETUNE
-      globalState.DETUNE = calculateDetuneValue(normalizedKnobVal);
+      voiceManager.globalState.DETUNE = calculateDetuneValue(normalizedKnobVal);
       for (byte i = 0; i < numPolyVoices; i++)
       {
-        polyVoices[i].waveformB.frequency(polyVoices[i].noteFreq * globalState.DETUNE * globalState.PITCH_BEND);
+        voiceManager.polyVoices[i].waveformB.frequency(voiceManager.polyVoices[i].noteFreq * voiceManager.globalState.DETUNE * voiceManager.globalState.PITCH_BEND);
       }
       break;
     case 105: // FILTER FREQUENCY
-      globalState.FILTER_FREQ = FILTER_CUTOFF_MAX * pow(normalizedKnobVal, 3);
+      voiceManager.globalState.FILTER_FREQ = FILTER_CUTOFF_MAX * pow(normalizedKnobVal, 3);
       for (byte i = 0; i < numPolyVoices; i++)
       {
-        polyVoices[i].filter.frequency(globalState.FILTER_FREQ);
+        voiceManager.polyVoices[i].filter.frequency(voiceManager.globalState.FILTER_FREQ);
       }
       break;
     case 106: // FILTER RESONANCE
-      globalState.FILTER_Q = (FILTER_Q_MAX * normalizedKnobVal) + 1.1;
-      globalState.PREFILTER_GAIN = 1 / globalState.FILTER_Q;
+      voiceManager.globalState.FILTER_Q = (FILTER_Q_MAX * normalizedKnobVal) + 1.1;
+      voiceManager.globalState.PREFILTER_GAIN = 1 / voiceManager.globalState.FILTER_Q;
       for (byte i = 0; i < numPolyVoices; i++)
       {
-        polyVoices[i].filter.resonance(globalState.FILTER_Q);
+        voiceManager.polyVoices[i].filter.resonance(voiceManager.globalState.FILTER_Q);
       }
       break;
     case 107: // FILTER DEPTH
-      globalState.FILTER_OCTAVE = FILTER_OCTAVE_DEPTH * normalizedKnobVal;
+      voiceManager.globalState.FILTER_OCTAVE = FILTER_OCTAVE_DEPTH * normalizedKnobVal;
       for (byte i = 0; i < numPolyVoices; i++)
       {
-        polyVoices[i].filter.octaveControl(globalState.FILTER_OCTAVE);
+        voiceManager.polyVoices[i].filter.octaveControl(voiceManager.globalState.FILTER_OCTAVE);
       }
       break;
     case 108: // LFO RATE
-      globalState.LFO_FREQ = LFO_FREQ_MAX * pow(normalizedKnobVal, 5);
-      voiceManager.audioManager.LFO.frequency(globalState.LFO_FREQ);
+      voiceManager.globalState.LFO_FREQ = LFO_FREQ_MAX * pow(normalizedKnobVal, 5);
+      voiceManager.audioManager.LFO.frequency(voiceManager.globalState.LFO_FREQ);
       break;
     case 109: // LFO DESTINATION FILTER
-      globalState.LFO_FILTER_GAIN = (normalizedKnobVal);
-      voiceManager.audioManager.LFO_MIXER_FILTER.gain(1, globalState.LFO_FILTER_GAIN);
+      voiceManager.globalState.LFO_FILTER_GAIN = (normalizedKnobVal);
+      voiceManager.audioManager.LFO_MIXER_FILTER.gain(1, voiceManager.globalState.LFO_FILTER_GAIN);
       break;
     case 110: // LFO DESTINATION AMP
-      globalState.LFO_AMP_GAIN = (normalizedKnobVal);
-      voiceManager.audioManager.LFO_MIXER_AMP.gain(1, globalState.LFO_AMP_GAIN);
+      voiceManager.globalState.LFO_AMP_GAIN = (normalizedKnobVal);
+      voiceManager.audioManager.LFO_MIXER_AMP.gain(1, voiceManager.globalState.LFO_AMP_GAIN);
       break;
     case 111: // AMP ATTACK
-      globalState.AMP_ATTACK = AMP_ATTACK_MAX * (normalizedKnobVal);
-      if (globalState.AMP_ATTACK < 15) //
+      voiceManager.globalState.AMP_ATTACK = AMP_ATTACK_MAX * (normalizedKnobVal);
+      if (voiceManager.globalState.AMP_ATTACK < 15) //
       {
-        globalState.AMP_ATTACK = 0;
+        voiceManager.globalState.AMP_ATTACK = 0;
       }
       for (byte i = 0; i < numPolyVoices; i++)
       {
-        polyVoices[i].ampEnv.attack(globalState.AMP_ATTACK);
+        voiceManager.polyVoices[i].ampEnv.attack(voiceManager.globalState.AMP_ATTACK);
       }
       break;
     case 112: // AMP DECAY
-      globalState.AMP_DECAY = AMP_DECAY_MAX * normalizedKnobVal;
+      voiceManager.globalState.AMP_DECAY = AMP_DECAY_MAX * normalizedKnobVal;
       for (byte i = 0; i < numPolyVoices; i++)
       {
-        polyVoices[i].ampEnv.decay(globalState.AMP_DECAY);
+        voiceManager.polyVoices[i].ampEnv.decay(voiceManager.globalState.AMP_DECAY);
       }
       break;
     case 113: // AMP SUSTAIN
-      globalState.AMP_SUSTAIN = normalizedKnobVal;
+      voiceManager.globalState.AMP_SUSTAIN = normalizedKnobVal;
       for (byte i = 0; i < numPolyVoices; i++)
       {
-        polyVoices[i].ampEnv.sustain(globalState.AMP_SUSTAIN);
+        voiceManager.polyVoices[i].ampEnv.sustain(voiceManager.globalState.AMP_SUSTAIN);
       }
       break;
     case 114: // AMP RELEASE
-      globalState.AMP_RELEASE = AMP_RELEASE_MAX * normalizedKnobVal;
+      voiceManager.globalState.AMP_RELEASE = AMP_RELEASE_MAX * normalizedKnobVal;
       for (byte i = 0; i < numPolyVoices; i++)
       {
-        polyVoices[i].ampEnv.release(globalState.AMP_RELEASE);
+        voiceManager.polyVoices[i].ampEnv.release(voiceManager.globalState.AMP_RELEASE);
       }
       break;
     case 115: // FILTER ATTACK
-      globalState.FILTER_ATTACK = FILTER_ATTACK_MAX * normalizedKnobVal;
-      if (globalState.FILTER_ATTACK < 15) //
+      voiceManager.globalState.FILTER_ATTACK = FILTER_ATTACK_MAX * normalizedKnobVal;
+      if (voiceManager.globalState.FILTER_ATTACK < 15) //
       {
-        globalState.FILTER_ATTACK = 0;
+        voiceManager.globalState.FILTER_ATTACK = 0;
       }
       for (byte i = 0; i < numPolyVoices; i++)
       {
-        polyVoices[i].filterEnv.attack(globalState.FILTER_ATTACK);
+        voiceManager.polyVoices[i].filterEnv.attack(voiceManager.globalState.FILTER_ATTACK);
       }
       break;
     case 116: // FILTER DECAY
-      globalState.FILTER_DECAY = FILTER_DECAY_MAX * normalizedKnobVal;
+      voiceManager.globalState.FILTER_DECAY = FILTER_DECAY_MAX * normalizedKnobVal;
       for (byte i = 0; i < numPolyVoices; i++)
       {
-        polyVoices[i].filterEnv.decay(globalState.FILTER_DECAY);
+        voiceManager.polyVoices[i].filterEnv.decay(voiceManager.globalState.FILTER_DECAY);
       }
       break;
     case 117: // FILTER SUSTAIN
-      globalState.FILTER_SUSTAIN = normalizedKnobVal;
+      voiceManager.globalState.FILTER_SUSTAIN = normalizedKnobVal;
       for (byte i = 0; i < numPolyVoices; i++)
       {
-        polyVoices[i].filterEnv.sustain(globalState.FILTER_SUSTAIN);
+        voiceManager.polyVoices[i].filterEnv.sustain(voiceManager.globalState.FILTER_SUSTAIN);
       }
       break;
     case 118: // FILTER RELEASE
-      globalState.FILTER_RELEASE = FILTER_RELEASE_MAX * normalizedKnobVal;
+      voiceManager.globalState.FILTER_RELEASE = FILTER_RELEASE_MAX * normalizedKnobVal;
       for (byte i = 0; i < numPolyVoices; i++)
       {
-        polyVoices[i].filterEnv.release(globalState.FILTER_RELEASE);
+        voiceManager.polyVoices[i].filterEnv.release(voiceManager.globalState.FILTER_RELEASE);
       }
       break;
     }
@@ -249,37 +228,37 @@ void setup()
 {
   MIDI.begin();
   voiceManager.audioManager.init();
-  voiceManager.audioManager.sgtl5000_1.volume(globalState.MASTER_VOL);
+  voiceManager.audioManager.sgtl5000_1.volume(voiceManager.globalState.MASTER_VOL);
 
   AudioNoInterrupts();
   for (byte i = 0; i < numPolyVoices; i++)
   {
-    polyVoices[i].waveformA.begin(globalState.WAVEFORM1);
-    polyVoices[i].waveformA.amplitude(0.33);
-    polyVoices[i].waveformA.frequency(82.41);
-    polyVoices[i].waveformA.pulseWidth(0.15);
+    voiceManager.polyVoices[i].waveformA.begin(voiceManager.globalState.WAVEFORM1);
+    voiceManager.polyVoices[i].waveformA.amplitude(0.33);
+    voiceManager.polyVoices[i].waveformA.frequency(82.41);
+    voiceManager.polyVoices[i].waveformA.pulseWidth(0.15);
 
-    polyVoices[i].waveformB.begin(globalState.WAVEFORM2);
-    polyVoices[i].waveformB.amplitude(0.33);
-    polyVoices[i].waveformB.frequency(82.41);
-    polyVoices[i].waveformB.pulseWidth(0.15);
+    voiceManager.polyVoices[i].waveformB.begin(voiceManager.globalState.WAVEFORM2);
+    voiceManager.polyVoices[i].waveformB.amplitude(0.33);
+    voiceManager.polyVoices[i].waveformB.frequency(82.41);
+    voiceManager.polyVoices[i].waveformB.pulseWidth(0.15);
 
-    polyVoices[i].noise.amplitude(0.33);
+    voiceManager.polyVoices[i].noise.amplitude(0.33);
 
-    polyVoices[i].waveformMixer.gain(0, 1.0);
-    polyVoices[i].waveformMixer.gain(1, 1.0);
-    polyVoices[i].waveformMixer.gain(2, 1.0);
+    voiceManager.polyVoices[i].waveformMixer.gain(0, 1.0);
+    voiceManager.polyVoices[i].waveformMixer.gain(1, 1.0);
+    voiceManager.polyVoices[i].waveformMixer.gain(2, 1.0);
 
-    polyVoices[i].waveformAmplifier.gain(0.0);
+    voiceManager.polyVoices[i].waveformAmplifier.gain(0.0);
 
-    polyVoices[i].ampEnv.attack(globalState.AMP_ATTACK);
-    polyVoices[i].ampEnv.decay(globalState.AMP_DECAY);
-    polyVoices[i].ampEnv.sustain(globalState.AMP_SUSTAIN);
-    polyVoices[i].ampEnv.release(globalState.AMP_RELEASE);
+    voiceManager.polyVoices[i].ampEnv.attack(voiceManager.globalState.AMP_ATTACK);
+    voiceManager.polyVoices[i].ampEnv.decay(voiceManager.globalState.AMP_DECAY);
+    voiceManager.polyVoices[i].ampEnv.sustain(voiceManager.globalState.AMP_SUSTAIN);
+    voiceManager.polyVoices[i].ampEnv.release(voiceManager.globalState.AMP_RELEASE);
 
-    polyVoices[i].filter.frequency(globalState.FILTER_FREQ);
-    polyVoices[i].filter.resonance(globalState.FILTER_Q);
-    polyVoices[i].filter.octaveControl(2.0);
+    voiceManager.polyVoices[i].filter.frequency(voiceManager.globalState.FILTER_FREQ);
+    voiceManager.polyVoices[i].filter.resonance(voiceManager.globalState.FILTER_Q);
+    voiceManager.polyVoices[i].filter.octaveControl(2.0);
   }
   AudioInterrupts();
 
