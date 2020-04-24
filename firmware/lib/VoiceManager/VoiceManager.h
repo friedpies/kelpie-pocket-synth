@@ -3,12 +3,14 @@
 
 #include <KelpieAudioManager.h>
 #include <SynthState.h>
+#include <SynthVoice.h>
 class VoiceManager
 {
 public:
   VoiceManager();
-  SynthState synthState;
   KelpieAudioManager audioManager;
+  SynthState globalState;
+  SynthVoice polyVoices[8];
 };
 
 #endif
