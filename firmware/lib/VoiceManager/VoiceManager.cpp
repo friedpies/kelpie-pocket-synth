@@ -53,3 +53,13 @@ void VoiceManager::initAudio()
 {
   audioManager.init(globalState.MASTER_VOL);
 }
+
+void VoiceManager::setPWM(float pulseWidth)
+{
+  globalState.PWM = pulseWidth;
+  for (byte i = 0; i < numVoices; i++)
+  {
+    polyVoices[i].waveformA.pulseWidth(globalState.PWM);
+    polyVoices[i].waveformB.pulseWidth(globalState.PWM);
+  }
+}

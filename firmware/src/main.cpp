@@ -102,12 +102,7 @@ void handleMidiEvent(byte channelByte, byte controlByte, byte valueByte)
       setWaveformLevels(voiceManager.globalState.OSC1_VOL, voiceManager.globalState.OSC2_VOL, voiceManager.globalState.NOISE_VOL, voiceManager.globalState.OSC_CONSTANT);
       break;
     case 102: // OSCILLATOR PWM
-      voiceManager.globalState.PWM = 0.1 + 0.4 * (1 - normalizedKnobVal);
-      for (byte i = 0; i < numPolyVoices; i++)
-      {
-        voiceManager.polyVoices[i].waveformA.pulseWidth(voiceManager.globalState.PWM);
-        voiceManager.polyVoices[i].waveformB.pulseWidth(voiceManager.globalState.PWM);
-      }
+      voiceManager.setPWM(0.1 + 0.4 * (1 - normalizedKnobVal));
       break;
     case 103: // NOISE VOLUME
       voiceManager.globalState.NOISE_VOL = normalizedKnobVal;
