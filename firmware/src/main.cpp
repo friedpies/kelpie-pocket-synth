@@ -124,12 +124,7 @@ void handleMidiEvent(byte channelByte, byte controlByte, byte valueByte)
       }
       break;
     case 106: // FILTER RESONANCE
-      voiceManager.globalState.FILTER_Q = (FILTER_Q_MAX * normalizedKnobVal) + 1.1;
-      voiceManager.globalState.PREFILTER_GAIN = 1 / voiceManager.globalState.FILTER_Q;
-      for (byte i = 0; i < numPolyVoices; i++)
-      {
-        voiceManager.polyVoices[i].filter.resonance(voiceManager.globalState.FILTER_Q);
-      }
+      voiceManager.setFilterQ((FILTER_Q_MAX * normalizedKnobVal) + 1.1);
       break;
     case 107: // FILTER DEPTH
       voiceManager.globalState.FILTER_OCTAVE = FILTER_OCTAVE_DEPTH * normalizedKnobVal;

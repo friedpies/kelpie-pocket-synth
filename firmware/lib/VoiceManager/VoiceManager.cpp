@@ -63,3 +63,13 @@ void VoiceManager::setPWM(float pulseWidth)
     polyVoices[i].waveformB.pulseWidth(globalState.PWM);
   }
 }
+
+void VoiceManager::setFilterQ(float Q)
+{
+  globalState.FILTER_Q = Q;
+  globalState.PREFILTER_GAIN = 1 / globalState.FILTER_Q;
+  for (byte i = 0; i < numVoices; i++)
+  {
+    polyVoices[i].filter.resonance(globalState.FILTER_Q);
+  }
+}

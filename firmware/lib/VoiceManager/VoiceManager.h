@@ -14,7 +14,8 @@ public:
   void initAudio();
 
   void setPWM(float);
-  
+  void setFilterQ(float);
+
   KelpieAudioManager audioManager;
   SynthState globalState;
   SynthVoice polyVoices[numVoices];
