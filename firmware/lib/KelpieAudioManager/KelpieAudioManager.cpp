@@ -103,8 +103,26 @@ KelpieAudioManager::KelpieAudioManager() : patchCord1(V8_N, 0, V8_MIX, 2),
 {
 }
 
-void KelpieAudioManager::init()
+void KelpieAudioManager::init(float masterVol)
 {
   AudioMemory(80);
   sgtl5000_1.enable();
+  sgtl5000_1.volume(masterVol);
+
+  DC_OFFSET.amplitude(1.0);
+  LFO.amplitude(1.0);
+  LFO.frequency(2.0);
+  LFO.phase(90);
+
+  LFO_MIXER_FILTER.gain(0, 1); // THIS IS THE AMP THAT ADJUSTS HOW MUCH OF THE LFO IS FED INTO THE FILTER
+  LFO_MIXER_FILTER.gain(1, 0);
+
+  for (byte i = 0; i < 4; i++)
+  {
+    V14_MIX.gain(i, 0.25);
+    V58_MIX.gain(i, 0.25);
+  }
+
+  ALL_VOICE_MIX.gain(0, 0.5);
+  ALL_VOICE_MIX.gain(1, 0.5);
 }

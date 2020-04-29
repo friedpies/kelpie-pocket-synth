@@ -12,5 +12,44 @@ VoiceManager::VoiceManager() : audioManager(),
                                    SynthVoice(audioManager.V7_A, audioManager.V7_B, audioManager.V7_N, audioManager.V7_MIX, audioManager.V7_AMP, audioManager.V7_ENV, audioManager.V7_FILT_ENV, audioManager.V7_FILT, globalState),
                                    SynthVoice(audioManager.V8_A, audioManager.V8_B, audioManager.V8_N, audioManager.V8_MIX, audioManager.V8_AMP, audioManager.V8_ENV, audioManager.V8_FILT_ENV, audioManager.V8_FILT, globalState)}
 {
-  audioManager.init();
+}
+
+void VoiceManager::initVoices()
+{
+  AudioNoInterrupts();
+  for (byte i = 0; i < numVoices; i++)
+  {
+    polyVoices[i].waveformA.begin(globalState.WAVEFORM1);
+    polyVoices[i].waveformA.amplitude(0.33);
+    polyVoices[i].waveformA.frequency(82.41);
+    polyVoices[i].waveformA.pulseWidth(0.15);
+
+    polyVoices[i].waveformB.begin(globalState.WAVEFORM2);
+    polyVoices[i].waveformB.amplitude(0.33);
+    polyVoices[i].waveformB.frequency(82.41);
+    polyVoices[i].waveformB.pulseWidth(0.15);
+
+    polyVoices[i].noise.amplitude(0.33);
+
+    polyVoices[i].waveformMixer.gain(0, 1.0);
+    polyVoices[i].waveformMixer.gain(1, 1.0);
+    polyVoices[i].waveformMixer.gain(2, 1.0);
+
+    polyVoices[i].waveformAmplifier.gain(0.0);
+
+    polyVoices[i].ampEnv.attack(globalState.AMP_ATTACK);
+    polyVoices[i].ampEnv.decay(globalState.AMP_DECAY);
+    polyVoices[i].ampEnv.sustain(globalState.AMP_SUSTAIN);
+    polyVoices[i].ampEnv.release(globalState.AMP_RELEASE);
+
+    polyVoices[i].filter.frequency(globalState.FILTER_FREQ);
+    polyVoices[i].filter.resonance(globalState.FILTER_Q);
+    polyVoices[i].filter.octaveControl(2.0);
+  }
+  AudioInterrupts();
+}
+
+void VoiceManager::initAudio()
+{
+  audioManager.init(globalState.MASTER_VOL);
 }

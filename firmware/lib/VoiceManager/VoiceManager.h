@@ -4,13 +4,17 @@
 #include <KelpieAudioManager.h>
 #include <SynthState.h>
 #include <SynthVoice.h>
+
+const byte numVoices = 8;
 class VoiceManager
 {
 public:
   VoiceManager();
+  void initVoices();
+  void initAudio();
   KelpieAudioManager audioManager;
   SynthState globalState;
-  SynthVoice polyVoices[8];
+  SynthVoice polyVoices[numVoices];
 };
 
 #endif

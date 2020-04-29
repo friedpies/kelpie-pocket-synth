@@ -11,7 +11,7 @@ class KelpieAudioManager
 {
 public:
   KelpieAudioManager();
-  void init();
+  void init(float);
 
   // GUItool: begin automatically generated code
   AudioSynthNoiseWhite V8_N;        //xy=572.2395629882812,1611.3333129882812

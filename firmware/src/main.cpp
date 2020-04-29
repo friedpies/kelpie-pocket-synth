@@ -227,57 +227,8 @@ void handleMidiEvent(byte channelByte, byte controlByte, byte valueByte)
 void setup()
 {
   MIDI.begin();
-  voiceManager.audioManager.init();
-  voiceManager.audioManager.sgtl5000_1.volume(voiceManager.globalState.MASTER_VOL);
-
-  AudioNoInterrupts();
-  for (byte i = 0; i < numPolyVoices; i++)
-  {
-    voiceManager.polyVoices[i].waveformA.begin(voiceManager.globalState.WAVEFORM1);
-    voiceManager.polyVoices[i].waveformA.amplitude(0.33);
-    voiceManager.polyVoices[i].waveformA.frequency(82.41);
-    voiceManager.polyVoices[i].waveformA.pulseWidth(0.15);
-
-    voiceManager.polyVoices[i].waveformB.begin(voiceManager.globalState.WAVEFORM2);
-    voiceManager.polyVoices[i].waveformB.amplitude(0.33);
-    voiceManager.polyVoices[i].waveformB.frequency(82.41);
-    voiceManager.polyVoices[i].waveformB.pulseWidth(0.15);
-
-    voiceManager.polyVoices[i].noise.amplitude(0.33);
-
-    voiceManager.polyVoices[i].waveformMixer.gain(0, 1.0);
-    voiceManager.polyVoices[i].waveformMixer.gain(1, 1.0);
-    voiceManager.polyVoices[i].waveformMixer.gain(2, 1.0);
-
-    voiceManager.polyVoices[i].waveformAmplifier.gain(0.0);
-
-    voiceManager.polyVoices[i].ampEnv.attack(voiceManager.globalState.AMP_ATTACK);
-    voiceManager.polyVoices[i].ampEnv.decay(voiceManager.globalState.AMP_DECAY);
-    voiceManager.polyVoices[i].ampEnv.sustain(voiceManager.globalState.AMP_SUSTAIN);
-    voiceManager.polyVoices[i].ampEnv.release(voiceManager.globalState.AMP_RELEASE);
-
-    voiceManager.polyVoices[i].filter.frequency(voiceManager.globalState.FILTER_FREQ);
-    voiceManager.polyVoices[i].filter.resonance(voiceManager.globalState.FILTER_Q);
-    voiceManager.polyVoices[i].filter.octaveControl(2.0);
-  }
-  AudioInterrupts();
-
-  voiceManager.audioManager.DC_OFFSET.amplitude(1.0);
-  voiceManager.audioManager.LFO.amplitude(1.0);
-  voiceManager.audioManager.LFO.frequency(2.0);
-  voiceManager.audioManager.LFO.phase(90);
-
-  voiceManager.audioManager.LFO_MIXER_FILTER.gain(0, 1); // THIS IS THE AMP THAT ADJUSTS HOW MUCH OF THE LFO IS FED INTO THE FILTER
-  voiceManager.audioManager.LFO_MIXER_FILTER.gain(1, 0);
-
-  for (byte i = 0; i < 4; i++)
-  {
-    voiceManager.audioManager.V14_MIX.gain(i, 0.25);
-    voiceManager.audioManager.V58_MIX.gain(i, 0.25);
-  }
-
-  voiceManager.audioManager.ALL_VOICE_MIX.gain(0, 0.5);
-  voiceManager.audioManager.ALL_VOICE_MIX.gain(1, 0.5);
+  voiceManager.initVoices();
+  voiceManager.initAudio();
 
   // READ AND INITIALIZE ALL KNOBS
   for (byte knobIndex = 0; knobIndex < 16; knobIndex++)
