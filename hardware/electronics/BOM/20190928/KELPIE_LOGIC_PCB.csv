@@ -1,34 +1,3 @@
-"Qty";"Value";"Device";"Package";"Parts";"Description";"DESC";"DPN";"LINK";"MANUFACTURER";"MF";"MPN";"OC_MOUSER";"PACKAGE";"STANDARD";"TYPE";"VALUE";
-"2";"";"FERRITE600_TEENSY";"L0603";"L1, L4";"";"600R / 100MHz";"";"";"";"Murata Electronics";" BLM18AG601SN1D";"81-BLM11A601S";"0603";"";"Ferrite";"";
-"1";"";"MK20DX256VLH7";"LQFP64-05";"K3";"";"MK20DX256VLH7";"";"";"";"NXP";"MK20DX256VLH7";"841-MK20DX256VLH7";"LQFP-64";"";"Microcontroller";"";
-"1";"";"MKL04Z32VLC4";"LQFP32-08";"K4";"";"MKL04Z32VLC4 (preprogrammed)";"";"";"";"PJRC";"IC_MKL04Z32_TQFP32";"";"LQFP-32";"";"Microcontroller";"";
-"1";"";"TACT_SWITCH";"SWITCH_PTS820";"S2";"";"";"";"";"";"";"PTS820J25MSMTRLFS";"";"";"";"";"";
-"1";"";"USB_MICRO-B";"FCI_10103594-0001LF";"J2";"USB Type Micro-B Connector";"";"609-4050-1-ND";"https://www.digikey.com/product-detail/en/amphenol-icc-fci/10103594-0001LF/609-4050-1-ND/2350357";"";"";"10103594-0001LF";"";"";"";"";"";
-"1";"0.15UF";"0.15UF";"C_0805";"C36";"";"";"";"";"";"";"08053C154KAT2A";"";"";"";"";"";
-"10";"0.1UF";"0.1UF";"C_0805";"C1, C3, C8, C9, C10, C14, C27, C28, C29, C35";"";"";"399-9158-1-ND";"https://www.digikey.com/product-detail/en/kemet/C0805C104Z3VACTU/399-9158-1-ND/3522676";"";"";"C0805C104Z3VACTU";"";"";"";"";"";
-"2";"10K";"10KOHM";"0805";"R13, R14";"";"";"";"";"";"";"RNCP0805FTD10K0";"";"";"";"";"";
-"1";"16MHz";"CRYSTAL-HC49US";"HC49US";"G3";"";"16MHz / 18pF / 10ppm";"";"";"";"ABRACON";"ABL-16.000MHz-B1U";"815-ABL-16-B1U";"HC-49US";"";"Crystal";"16MHz";
-"1";"1N4148WX-TP";"1N4148WX-TP";"SOD323";"D1";"";"";"1N4148WXTPMSCT-ND";"https://www.digikey.com/product-detail/en/micro-commercial-co/1N4148WX-TP/1N4148WXTPMSCT-ND/717312";"";"";"1N4148WX-TP";"";"";"";"";"";
-"4";"1UF";"1UF";"C_0805";"C2, C5, C31, C32";"";"";"399-9158-1-ND";"https://www.digikey.com/product-detail/en/kemet/C0805C104Z3VACTU/399-9158-1-ND/3522676";"";"";"C0805C104Z3VACTU  ";"";"";"";"";"";
-"2";"2.2K";"2.2KOHM";"0805";"R11, R12";"https://www.digikey.com/product-detail/en/yageo/RC0805FR-072K2L/311-2.20KCRCT-ND/730623";"";"";"";"";"";"RC0805FR-072K2L";"";"";"";"";"";
-"5";"2.2UF";"2.2UF";"C_0805";"C7, C13, C26, C33, C34";"https://www.digikey.com/product-detail/en/samsung-electro-mechanics/CL21B105KAFNNNE/1276-1066-1-ND/3889152";"";"";"";"";"";"CL21B105KAFNNNE";"";"";"";"";"";
-"1";"220";"220OHM";"0805";"R1";"";"";"RHM220KCT-ND";"https://www.digikey.com/product-detail/en/rohm-semiconductor/ESR10EZPJ221/RHM220KCT-ND/1762990";"";"";"ESR10EZPJ221";"";"";"";"";"";
-"2";"22PF";"22PF";"C_0805";"C11, C12";"";"";"";"";"";"";"885012007030";"";"";"";"";"";
-"1";"23LC1024";"23LC1024";"TSSOP8";"U5";"https://www.digikey.com/product-detail/en/microchip-technology/23LC1024T-I-ST/23LC1024T-I-STCT-ND/5818676";"";"";"";"";"";"23LC1024T-I/ST";"";"";"";"";"";
-"1";"30_PIN_CONNECTOR_MALEFLEX_CONNECTOR";"30_PIN_CONNECTOR_MALEFLEX_CONNECTOR";"SLW30S_TOP";"J3";"https://www.digikey.com/product-detail/en/amphenol-icc-fci/HLW30R-2C7LF/609-1844-ND/1002159";"";"";"";"";"";"HLW30R-2C7LF";"";"";"";"";"";
-"1";"32.768kHz";"CRYSTAL-TC26H";"TC26H";"G4";"";"32.768kHz / 12.5pF / 20ppm";"";"";"";"Citizen FineDevice";" CFS206-32.768KDZF-UB";"695-CFS206-327KF-U";"TC-26H";"";"Crystal";"32.768kHz";
-"2";"33";"33OHM";"0805";"R5, R6";"";"";"";"";"";"";"ESR10EZPJ330";"";"";"";"";"";
-"3";"470";"470OHM";"0805";"R2, R7, R8";"";"";"RHM470KCT-ND";"https://www.digikey.com/product-detail/en/rohm-semiconductor/ESR10EZPJ471/RHM470KCT-ND/1763027";"";"";"ESR10EZPJ471";"";"";"";"";"";
-"1";"6N138";"6N138";"DIP8";"OK1";"";"";"160-1797-ND";"https://www.digikey.com/product-detail/en/lite-on-inc/6N138S/160-1797-ND/1969181";"";"";"6N138S";"";"";"";"";"";
-"1";"AP7313";"AP7313";"SOT23-3";"D6";"https://www.digikey.com/product-detail/en/diodes-incorporated/AP7313-33SRG-7/AP7313-33SRG-7DICT-ND/2270841";"";"";"";"";"";"AP7313-33SRG-7";"";"";"";"";"";
-"1";"FER600";"FERRITE600_AUDIO";"0805";"L3";"https://www.digikey.com/product-detail/en/tdk-corporation/MPZ2012S601AT000/445-2206-1-ND/765104";"";"";"";"";"";"MPZ2012S601AT000";"";"";"";"";"";
-"1";"MCP1825S";"MCP1826SMSTT3";"SOT223";"T2";"500 mA Adjustable Output Positive Voltage Regulator";"";"MCP1826ST-3302E/DBCT-ND";"https://www.digikey.com/product-detail/en/microchip-technology/MCP1826ST-3302E-DB/MCP1826ST-3302E-DBCT-ND/7065575";"";"";"MCP1826ST-3302E/DB";"";"";"";"";"";
-"1";"MICROSD";"MICROSD";"MICRO-SD-SOCKET";"U$6";"";"";"";"";"";"";"0473340001";"";"";"";"";"";
-"1";"MIDI_CONNECTOR";"MIDI_CONNECTOR";"DIN_SDS_50J";"U$1";"https://www.digikey.com/product-detail/en/cui-inc/SDS-50J/CP-2350-ND/97033";"";"CP-2350-ND";"https://www.digikey.com/product-detail/en/cui-inc/SDS-50J/CP-2350-ND/97033";"";"";"SDS-50J";"";"";"";"";"";
-"1";"ORANGE";"LED_ORANGE0805";"CHIPLED_0805";"D5";"LED";"";"";"";"";"";"LO R976-PS-1";"";"";"";"";"";
-"1";"PJ-002A";"PJ-002A";"CUI_PJ-002A";"J1";"2.0 mm Center Pin, 2.5 A, Right Angle, Through Hole, Dc Power Jack Connector";"";"CP-002A-ND";"https://www.digikey.com/product-detail/en/cui-inc/PJ-002A/CP-002A-ND/96962";"CUI INC";"";"PJ-002A";"";"";"Manufacturer recommendations";"";"";
-"1";"SGTL5000_32QFN";"SGTL5000_32QFN";"QFN-32-5MM";"U4";"https://www.digikey.com/product-detail/en/nxp-usa-inc/SGTL5000XNAA3R2/SGTL5000XNAA3R2TR-ND/2186898";"";"";"";"";"";"SGTL5000XNAA3R2";"";"";"";"";"";
-"1";"STEREO_LINE_OUT_JACK";"STEREO_LINE_OUT_JACK";"AMPHENOL_STEREO_JACK";"U$3";"";"";"889-1817-ND";"https://www.digikey.com/products/en/connectors-interconnects/barrel-audio-connectors/434?k=stereo+jack&k=&pkeyword=stereo+jack&sv=0&pv272=59&pv541=10&sf=0&FV=ffe001b2%2Cfffc07af%2Cfffc0261%2Cfffc0379%2C1f140000&quantity=&ColumnSort=0&page=1&stock=1&pageSize=25";"";"";"ACJS-MHDR";"";"";"";"";"";
-"1";"SWD_CONNECTOR";"SWD_CONNECTOR";"1X5HEADER";"J6";"";"";"";"";"";"";"";"";"";"";"";"";
-"1";"SWITCHCRAFT_PHONEJACK";"SWITCHCRAFT_PHONEJACK";"STEREO_JACK_2SWITCH";"J5";"";"";"SC1488-1-ND";"";"";"";"35RASMT4BHNTRX  ";"";"";"";"";"";
-"1";"TEST_POINT";"TEST_POINT";"TEST_POINT";"U$2";"";"";"";"";"";"";"";"";"";"";"";"";
+version https://git-lfs.github.com/spec/v1
+oid sha256:909aec56f63c1fb90f522518cae9567ea9ce086e42fd28eec9ac69e18af1cb2b
+size 5955
